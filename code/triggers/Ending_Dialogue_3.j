@@ -11,7 +11,7 @@ function Trig_Ending_Dialogue_3_Actions takes nothing returns nothing
         call TriggerSleepAction(5.00)
         call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "Аркт достиг Эдема.")
         call StopMusicBJ(false)
-        call ClearMapMusicBJ()
+        call ClearMapMusic()
         call PlayMusic((("/Edemium/MusicEnding.mp3")))
         call TriggerSleepAction(10.00)
         call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "Ты справился, красавчик! Спасибо тебе!|nОставь отзыв на сайте (xgm.guru/p/edemium) - сделай мир лучше!")

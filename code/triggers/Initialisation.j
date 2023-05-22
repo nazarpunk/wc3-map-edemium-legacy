@@ -20,7 +20,9 @@ function Trig_Initialisation_Actions takes nothing returns nothing
     call SetPlayerAbilityAvailableBJ(false, 0x41303147, Player(0))
     call SetPlayerAbilityAvailableBJ(false, 0x41303555, Player(0))
     call SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, false, Player(11))
-    call UseTimeOfDayBJ(false)
+
+    call SuspendTimeOfDay(false)
+
     call AddWeatherEffectSaveLast(gg_rct_Dungeon, 0x4C526D61)
     call SelectUnitForPlayerSingle(udg_Arct, Player(0))
     call CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Боевая система|n", "- Во время боя над монстрами может появиться одна из 3 иконок, от игрока требуется успеть нажать на один из 3 приёмов на панели умений, в зависимости от цвета появившейся иконки.|n- Правильное нажатие наносит монстру урон и исцеляет Аркта, так же повышает серию ударов, от которой зависит общий наносимый урон и получаемое исцеление.|n", "ReplaceableTextures\\CommandButtons\\BTNCombo4.blp")
@@ -41,16 +43,14 @@ function Trig_Initialisation_Actions takes nothing returns nothing
     call RegionAddRect(udg_Region9, gg_rct_Room_Workshop_Leave)
     call RegionAddRect(udg_Region10, gg_rct_Workshop_Machinery)
     call RegionAddRect(udg_Region11, gg_rct_Workshop_Core)
-    call FogEnableOff()
-    call FogMaskEnableOff()
+    call FogEnable(false)
+    call FogMaskEnable(false)
     call CreateFogModifierRectBJ(true, Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect())
     call EnableDawnDusk(false)
-    call StopMusicBJ(false)
-    call ClearMapMusicBJ()
+    call StopMusic(false)
+    call ClearMapMusic()
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
-
-
 
 function InitTrig_Initialisation takes nothing returns nothing
     set gg_trg_Initialisation = CreateTrigger()

@@ -22,7 +22,7 @@ endfunction
 
 function Trig_Music_Edemium_Actions takes nothing returns nothing
     call StopMusicBJ(false)
-    call ClearMapMusicBJ()
+    call ClearMapMusic()
     set udg_RandomNumber = GetRandomInt(1, 4)
     if(Trig_Music_Edemium_Func004C())then
         call PlayMusic((("/Edemium/MusicEdemium1.mp3")))
