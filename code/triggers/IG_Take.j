@@ -5,111 +5,147 @@ function Trig_IG_Take_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func002Func002C takes nothing returns boolean
     return udg_IG_ItemValue[1] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func002Func003C takes nothing returns boolean
     return udg_IG_ItemValue[2] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func002Func004C takes nothing returns boolean
     return udg_IG_ItemValue[3] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func002Func005C takes nothing returns boolean
     return udg_IG_ItemValue[4] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func002Func006Func002C takes nothing returns boolean
     return udg_IG_ItemValue[5] == 5
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func002Func006Func003C takes nothing returns boolean
     return udg_IG_ItemValue[5] == 6
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func002Func006Func004C takes nothing returns boolean
     return udg_IG_ItemValue[5] == 9
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func002Func006C takes nothing returns boolean
     return udg_IG_ItemValue[5] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func002Func007C takes nothing returns boolean
     return udg_IG_ItemValue[6] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func002C takes nothing returns boolean
     return GetItemLevel(GetManipulatedItem()) == 3
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func003C takes nothing returns boolean
     return udg_IG_ItemValue[1] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func004C takes nothing returns boolean
     return udg_IG_ItemValue[2] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func005C takes nothing returns boolean
     return udg_IG_ItemValue[3] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func006C takes nothing returns boolean
     return udg_IG_ItemValue[4] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func007C takes nothing returns boolean
     return udg_IG_ItemValue[5] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002Func008C takes nothing returns boolean
     return udg_IG_ItemValue[6] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func002C takes nothing returns boolean
     return GetItemLevel(GetManipulatedItem()) == 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func003C takes nothing returns boolean
     return udg_IG_ItemValue[1] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func004C takes nothing returns boolean
     return udg_IG_ItemValue[2] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func005C takes nothing returns boolean
     return udg_IG_ItemValue[3] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func006C takes nothing returns boolean
     return udg_IG_ItemValue[4] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func007C takes nothing returns boolean
     return udg_IG_ItemValue[5] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002Func008C takes nothing returns boolean
     return udg_IG_ItemValue[6] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func002C takes nothing returns boolean
     return GetItemLevel(GetManipulatedItem()) == 2
 endfunction
+
 function Trig_IG_Take_Func009Func006C takes nothing returns boolean
     return udg_IG_ItemValue[1] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func007C takes nothing returns boolean
     return udg_IG_ItemValue[2] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func008C takes nothing returns boolean
     return udg_IG_ItemValue[3] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func009C takes nothing returns boolean
     return udg_IG_ItemValue[4] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func010C takes nothing returns boolean
     return udg_IG_ItemValue[5] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func011C takes nothing returns boolean
     return udg_IG_ItemValue[6] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func012C takes nothing returns boolean
     return udg_IG_ItemValue[7] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func013C takes nothing returns boolean
     return udg_IG_ItemValue[8] > 1
 endfunction
+
 function Trig_IG_Take_Func009Func014Func002C takes nothing returns boolean
     return udg_IG_ItemValue[9] == 2 or udg_IG_ItemValue[9] == 3 or udg_IG_ItemValue[9] == 8
 endfunction
+
 function Trig_IG_Take_Func009Func014C takes nothing returns boolean
     return udg_IG_ItemValue[9] > 1
 endfunction
+
 function Trig_IG_Take_Func009C takes nothing returns boolean
     return GetItemLevel(GetManipulatedItem()) == 4
 endfunction
+
 function Trig_IG_Take_Actions takes nothing returns nothing
     call ClearTextMessagesBJ(GetPlayersAll())
     set udg_IG_ItemValue[1] = S2I(SubStringBJ(I2S(GetItemUserData(GetManipulatedItem())), 1, 1))
@@ -283,6 +319,7 @@ function Trig_IG_Take_Actions takes nothing returns nothing
     set udg_IG_InfoBool = true
     call TriggerExecute(gg_trg_IG_Text)
 endfunction
+
 function InitTrig_IG_Take takes nothing returns nothing
     set gg_trg_IG_Take = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_IG_Take, gg_unit_H000_0004, EVENT_UNIT_PICKUP_ITEM)

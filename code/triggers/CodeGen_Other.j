@@ -1,21 +1,27 @@
 function Trig_CodeGen_Other_Func002Func003Func001C takes nothing returns boolean
     return bj_forLoopAIndex == 2
 endfunction
+
 function Trig_CodeGen_Other_Func002Func003C takes nothing returns boolean
     return bj_forLoopAIndex == 1
 endfunction
+
 function Trig_CodeGen_Other_Func005Func002Func002A takes nothing returns nothing
     call RemoveDestructable(GetEnumDestructable())
 endfunction
+
 function Trig_CodeGen_Other_Func005Func002C takes nothing returns boolean
     return udg_EM_LevelCV[R2I(GetUnitStateSwap(UNIT_STATE_LIFE, GetEnumUnit()))] == 8
 endfunction
+
 function Trig_CodeGen_Other_Func005Func003C takes nothing returns boolean
     return udg_EM_LevelDiscovered[R2I(GetUnitStateSwap(UNIT_STATE_LIFE, GetEnumUnit()))] == 1
 endfunction
+
 function Trig_CodeGen_Other_Func005Func004C takes nothing returns boolean
     return udg_EM_TargetCV == R2I(GetUnitStateSwap(UNIT_STATE_LIFE, GetEnumUnit()))
 endfunction
+
 function Trig_CodeGen_Other_Func005A takes nothing returns nothing
     call SetUnitUserData(GetEnumUnit(), udg_EM_LevelCV[R2I(GetUnitStateSwap(UNIT_STATE_LIFE, GetEnumUnit()))])
     if(Trig_CodeGen_Other_Func005Func002C())then
@@ -40,12 +46,14 @@ function Trig_CodeGen_Other_Func005A takes nothing returns nothing
     else
     endif
 endfunction
+
 function Trig_CodeGen_Other_Func008Func002Func003Func001C takes nothing returns boolean
     if(not(GetDestructableTypeId(GetEnumDestructable()) == 0x42303136))then
         return false
     endif
     return true
 endfunction
+
 function Trig_CodeGen_Other_Func008Func002Func003A takes nothing returns nothing
     if(Trig_CodeGen_Other_Func008Func002Func003Func001C())then
         set udg_Point = GetDestructableLoc(GetEnumDestructable())
@@ -55,6 +63,7 @@ function Trig_CodeGen_Other_Func008Func002Func003A takes nothing returns nothing
     else
     endif
 endfunction
+
 function Trig_CodeGen_Other_Func008Func007A takes nothing returns nothing
     if GetDestructableTypeId(GetEnumDestructable()) == 0x42303136 then
         set udg_Point = GetDestructableLoc(GetEnumDestructable())
@@ -64,72 +73,95 @@ function Trig_CodeGen_Other_Func008Func007A takes nothing returns nothing
     else
     endif
 endfunction
+
 function Trig_CodeGen_Other_Func008C takes nothing returns boolean
     return udg_TierUnlocked == 2
 endfunction
+
 function Trig_CodeGen_Other_Func010Func001Func001C takes nothing returns boolean
     return udg_SecretUnlocked[bj_forLoopAIndex] == 1
 endfunction
+
 function Trig_CodeGen_Other_Func010Func001C takes nothing returns boolean
     return udg_ART[bj_forLoopAIndex] > 0
 endfunction
+
 function Trig_CodeGen_Other_Func011C takes nothing returns boolean
     return udg_ART[7] > 0
 endfunction
+
 function Trig_CodeGen_Other_Func012C takes nothing returns boolean
     return udg_ART[12] > 0
 endfunction
+
 function Trig_CodeGen_Other_Func013C takes nothing returns boolean
     return udg_ART[16] > 0
 endfunction
+
 function Trig_CodeGen_Other_Func015C takes nothing returns boolean
     return udg_AS_AbilityStudied[1] == 1
 endfunction
+
 function Trig_CodeGen_Other_Func016C takes nothing returns boolean
     return udg_AS_AbilityStudied[2] == 1
 endfunction
+
 function Trig_CodeGen_Other_Func017C takes nothing returns boolean
     return udg_AS_AbilityStudied[3] == 1
 endfunction
+
 function Trig_CodeGen_Other_Func018C takes nothing returns boolean
     return udg_AS_AbilityStudied[4] == 1
 endfunction
+
 function Trig_CodeGen_Other_Func019C takes nothing returns boolean
     return udg_AS_AbilityStudied[5] == 1
 endfunction
+
 function Trig_CodeGen_Other_Func020C takes nothing returns boolean
     return udg_AS_AbilityStudied[6] == 1
 endfunction
+
 function Trig_CodeGen_Other_Func021C takes nothing returns boolean
     return udg_AS_AbilityStudied[7] == 1
 endfunction
+
 function Trig_CodeGen_Other_Func022C takes nothing returns boolean
     return udg_AS_AbilityStudied[8] == 1
 endfunction
+
 function Trig_CodeGen_Other_Func023C takes nothing returns boolean
     return udg_AS_AbilityStudied[9] == 1
 endfunction
+
 function Trig_CodeGen_Other_Func024C takes nothing returns boolean
     return udg_AS_AbilityStudied[10] == 1
 endfunction
+
 function Trig_CodeGen_Other_Func025C takes nothing returns boolean
     return udg_AS_AbilityStudied[11] == 1
 endfunction
+
 function Trig_CodeGen_Other_Func026C takes nothing returns boolean
     return udg_AS_AbilityStudied[12] == 1
 endfunction
+
 function Trig_CodeGen_Other_Func029Func002Func004Func001Func001C takes nothing returns boolean
     return udg_AS_Value[GetUnitUserData(GetEnumUnit())] == 3
 endfunction
+
 function Trig_CodeGen_Other_Func029Func002Func004Func001C takes nothing returns boolean
     return udg_AS_Value[GetUnitUserData(GetEnumUnit())] == 2
 endfunction
+
 function Trig_CodeGen_Other_Func029Func002Func004C takes nothing returns boolean
     return udg_AS_Value[GetUnitUserData(GetEnumUnit())] == 1
 endfunction
+
 function Trig_CodeGen_Other_Func029Func002C takes nothing returns boolean
     return udg_AS_Value[GetUnitUserData(GetEnumUnit())] > 0
 endfunction
+
 function Trig_CodeGen_Other_Func029A takes nothing returns nothing
     set udg_Target = GetEnumUnit()
     if(Trig_CodeGen_Other_Func029Func002C())then
@@ -170,6 +202,7 @@ function Trig_CodeGen_Other_Func029A takes nothing returns nothing
     else
     endif
 endfunction
+
 function Trig_CodeGen_Other_Actions takes nothing returns nothing
     set bj_forLoopAIndex = 1
     set bj_forLoopAIndexEnd = 3
@@ -337,6 +370,7 @@ function Trig_CodeGen_Other_Actions takes nothing returns nothing
     call DestroyGroup(udg_UnitGroup)
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_CodeGen_Other takes nothing returns nothing
     set gg_trg_CodeGen_Other = CreateTrigger()
     call TriggerAddAction(gg_trg_CodeGen_Other, function Trig_CodeGen_Other_Actions)

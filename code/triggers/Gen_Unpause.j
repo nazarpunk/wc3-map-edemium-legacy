@@ -11,6 +11,7 @@ function Trig_Gen_Unpause_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Edemium_Transparent)
     call StartTimerBJ(udg_PauseTimer, false, 3.00)
 endfunction
+
 function InitTrig_Gen_Unpause takes nothing returns nothing
     set gg_trg_Gen_Unpause = CreateTrigger()
     call TriggerRegisterTimerExpireEventBJ(gg_trg_Gen_Unpause, udg_D_TimerFinal)

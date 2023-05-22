@@ -5,6 +5,7 @@ function Trig_Escape_Initiate_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Escape_Initiate_Actions takes nothing returns nothing
     set udg_D_Point1 = GetUnitLoc(udg_D_Exit)
     call CreateNUnitsAtLocFacingLocBJ(1, 0x6E303042, Player(11), udg_D_Point1, GetUnitLoc(GetTriggerUnit()))
@@ -18,6 +19,7 @@ function Trig_Escape_Initiate_Actions takes nothing returns nothing
     call DestroyEffectBJ(GetLastCreatedEffectBJ())
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_Escape_Initiate takes nothing returns nothing
     set gg_trg_Escape_Initiate = CreateTrigger()
     call DisableTrigger(gg_trg_Escape_Initiate)

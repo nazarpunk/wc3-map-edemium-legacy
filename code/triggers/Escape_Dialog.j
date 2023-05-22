@@ -14,12 +14,14 @@ function Trig_Escape_Dialog_Func005Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Escape_Dialog_Func005C takes nothing returns boolean
     if(not Trig_Escape_Dialog_Func005Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Escape_Dialog_Actions takes nothing returns nothing
     call DestroyGroup(udg_UnitGroup)
     call DialogClearBJ(udg_LeaveDialog)
@@ -33,6 +35,7 @@ function Trig_Escape_Dialog_Actions takes nothing returns nothing
     call DialogAddButtonBJ(udg_LeaveDialog, "Стоп, забыл кое-что.")
     call DialogDisplayBJ(true, udg_LeaveDialog, Player(0))
 endfunction
+
 function InitTrig_Escape_Dialog takes nothing returns nothing
     set gg_trg_Escape_Dialog = CreateTrigger()
     call DisableTrigger(gg_trg_Escape_Dialog)

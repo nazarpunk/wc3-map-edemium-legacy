@@ -9,6 +9,7 @@ function Trig_Core_Start_Timer_Actions takes nothing returns nothing
     set udg_CC_Effect = GetLastCreatedEffectBJ()
     call RemoveLocation(udg_Point)
 endfunction
+
 function InitTrig_Core_Start_Timer takes nothing returns nothing
     set gg_trg_Core_Start_Timer = CreateTrigger()
     call TriggerAddAction(gg_trg_Core_Start_Timer, function Trig_Core_Start_Timer_Actions)

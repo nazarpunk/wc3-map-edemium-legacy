@@ -5,192 +5,224 @@ function Trig_IG_Drop_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func001Func001Func002C takes nothing returns boolean
     if(not(udg_IG_ItemValue[1] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func001Func001Func003C takes nothing returns boolean
     if(not(udg_IG_ItemValue[2] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func001Func001Func004C takes nothing returns boolean
     if(not(udg_IG_ItemValue[3] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func001Func001Func005C takes nothing returns boolean
     if(not(udg_IG_ItemValue[4] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func001Func001Func006C takes nothing returns boolean
     if(not(udg_IG_ItemValue[5] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func001Func001Func007C takes nothing returns boolean
     if(not(udg_IG_ItemValue[6] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func001Func001C takes nothing returns boolean
     if(not(GetItemLevel(GetManipulatedItem()) == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func001Func003C takes nothing returns boolean
     if(not(udg_IG_ItemValue[1] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func001Func004C takes nothing returns boolean
     if(not(udg_IG_ItemValue[2] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func001Func005C takes nothing returns boolean
     if(not(udg_IG_ItemValue[3] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func001Func006C takes nothing returns boolean
     if(not(udg_IG_ItemValue[4] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func001Func007C takes nothing returns boolean
     if(not(udg_IG_ItemValue[5] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func001Func008C takes nothing returns boolean
     if(not(udg_IG_ItemValue[6] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func001C takes nothing returns boolean
     if(not(GetItemLevel(GetManipulatedItem()) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func003C takes nothing returns boolean
     if(not(udg_IG_ItemValue[1] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func004C takes nothing returns boolean
     if(not(udg_IG_ItemValue[2] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func005C takes nothing returns boolean
     if(not(udg_IG_ItemValue[3] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func006C takes nothing returns boolean
     if(not(udg_IG_ItemValue[4] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func007C takes nothing returns boolean
     if(not(udg_IG_ItemValue[5] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001Func008C takes nothing returns boolean
     if(not(udg_IG_ItemValue[6] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func001C takes nothing returns boolean
     if(not(GetItemLevel(GetManipulatedItem()) == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func005C takes nothing returns boolean
     if(not(udg_IG_ItemValue[1] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func006C takes nothing returns boolean
     if(not(udg_IG_ItemValue[2] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func007C takes nothing returns boolean
     if(not(udg_IG_ItemValue[3] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func008C takes nothing returns boolean
     if(not(udg_IG_ItemValue[4] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func009C takes nothing returns boolean
     if(not(udg_IG_ItemValue[5] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func010C takes nothing returns boolean
     if(not(udg_IG_ItemValue[6] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func011C takes nothing returns boolean
     if(not(udg_IG_ItemValue[7] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func012C takes nothing returns boolean
     if(not(udg_IG_ItemValue[8] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008Func013C takes nothing returns boolean
     if(not(udg_IG_ItemValue[9] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Func008C takes nothing returns boolean
     if(not(GetItemLevel(GetManipulatedItem()) == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Drop_Actions takes nothing returns nothing
     call ClearTextMessagesBJ(GetPlayersAll())
     set udg_IG_ItemValue[1] = S2I(SubStringBJ(I2S(GetItemUserData(GetManipulatedItem())), 1, 1))
@@ -341,6 +373,7 @@ function Trig_IG_Drop_Actions takes nothing returns nothing
         endif
     endif
 endfunction
+
 function InitTrig_IG_Drop takes nothing returns nothing
     set gg_trg_IG_Drop = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_IG_Drop, gg_unit_H000_0004, EVENT_UNIT_DROP_ITEM)

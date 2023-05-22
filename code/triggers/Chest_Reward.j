@@ -5,60 +5,70 @@ function Trig_Chest_Reward_Func007C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Chest_Reward_Func008C takes nothing returns boolean
     if(not(udg_ART[10] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Reward_Func009Func001C takes nothing returns boolean
     if(not(GetRandomInt(1, 2) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Reward_Func009Func004Func007C takes nothing returns boolean
     if(not(GetUnitTypeId(udg_Chest) == 0x6E303046))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Reward_Func009Func004C takes nothing returns boolean
     if(not(GetUnitTypeId(udg_Chest) == 0x6E303045))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Reward_Func009C takes nothing returns boolean
     if(not(GetUnitTypeId(udg_Chest) == 0x6E303044))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Reward_Func010Func001C takes nothing returns boolean
     if(not(udg_CC_SecretUnlocked[13] == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Reward_Func010C takes nothing returns boolean
     if(not(GetRandomInt(1, 100) <= 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Reward_Func011Func001C takes nothing returns boolean
     if(not(udg_CC_SecretUnlocked[17] == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Reward_Func011C takes nothing returns boolean
     if(not(GetRandomInt(1, 100) <= 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Reward_Actions takes nothing returns nothing
     set udg_QG_Count[4] = (udg_QG_Count[4] + 1)
     call ConditionalTriggerExecute(gg_trg_QG_Change_Text)
@@ -153,6 +163,7 @@ function Trig_Chest_Reward_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Orbs_Spawn)
     call RemoveLocation(udg_IG_Point)
 endfunction
+
 function InitTrig_Chest_Reward takes nothing returns nothing
     set gg_trg_Chest_Reward = CreateTrigger()
     call TriggerAddAction(gg_trg_Chest_Reward, function Trig_Chest_Reward_Actions)

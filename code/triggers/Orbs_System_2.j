@@ -5,42 +5,49 @@ function Trig_Orbs_System_2_Func001Func001Func001Func010Func002Func002C takes no
     endif
     return true
 endfunction
+
 function Trig_Orbs_System_2_Func001Func001Func001Func010Func002C takes nothing returns boolean
     if(not(udg_LightOrbs[2] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Orbs_System_2_Func001Func001Func001Func010C takes nothing returns boolean
     if(not(udg_LightOrbs[3] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Orbs_System_2_Func001Func001Func001Func014C takes nothing returns boolean
     if(not(udg_JD_Integers[1] == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Orbs_System_2_Func001Func001Func001Func019C takes nothing returns boolean
     if(not(GetRandomInt(1, 5) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Orbs_System_2_Func001Func001Func001C takes nothing returns boolean
     if(not(udg_JD_ReachedDistance[udg_JD_Integers[3]] < udg_JD_Distances[udg_JD_Integers[3]]))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Orbs_System_2_Func001Func001C takes nothing returns boolean
     if(not(IsUnitInGroup(udg_JD_Unit[udg_JD_Integers[3]], udg_JD_Group) == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Orbs_System_2_Actions takes nothing returns nothing
     set udg_JD_Integers[3] = 1
     loop
@@ -98,6 +105,7 @@ function Trig_Orbs_System_2_Actions takes nothing returns nothing
         set udg_JD_Integers[3] = udg_JD_Integers[3] + 1
     endloop
 endfunction
+
 
 function InitTrig_Orbs_System_2 takes nothing returns nothing
     set gg_trg_Orbs_System_2 = CreateTrigger()

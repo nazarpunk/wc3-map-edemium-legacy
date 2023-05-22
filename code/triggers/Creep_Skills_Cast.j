@@ -14,18 +14,21 @@ function Trig_Creep_Skills_Cast_Func004C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Cast_Conditions takes nothing returns boolean
     if(not Trig_Creep_Skills_Cast_Func004C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func003Func006C takes nothing returns boolean
     if(not(GetUnitTypeId(GetTriggerUnit()) == 0x6E30305A))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func003C takes nothing returns boolean
     if(not(GetTerrainTypeBJ(udg_Point2) != 0x4972626B))then
         return false
@@ -38,42 +41,49 @@ function Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func003C takes nothi
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func007Func001Func007C takes nothing returns boolean
     if(not(GetUnitTypeId(GetTriggerUnit()) == 0x6E303054))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func007Func001C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x41303551))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func007C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x41303231))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Cast_Func005Func001Func007Func001C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x41303639))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Cast_Func005Func001Func007C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x4130354A))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Cast_Func005Func001C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x41303232))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Cast_Func005Func002C takes nothing returns boolean
     if((GetSpellAbilityId() == 0x41303139))then
         return true
@@ -83,12 +93,14 @@ function Trig_Creep_Skills_Cast_Func005Func002C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Creep_Skills_Cast_Func005C takes nothing returns boolean
     if(not Trig_Creep_Skills_Cast_Func005Func002C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Cast_Actions takes nothing returns nothing
     set udg_Combat = true
     call StartTimerBJ(udg_CO_CombatTimer, false, 6.50)
@@ -160,6 +172,7 @@ function Trig_Creep_Skills_Cast_Actions takes nothing returns nothing
     call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.00)
     call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 0.80)
 endfunction
+
 function InitTrig_Creep_Skills_Cast takes nothing returns nothing
     set gg_trg_Creep_Skills_Cast = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Creep_Skills_Cast, EVENT_PLAYER_UNIT_SPELL_CHANNEL)

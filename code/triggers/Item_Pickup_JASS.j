@@ -4,6 +4,7 @@ function ItemPickup_FilterItem takes unit picker, item whichItem returns boolean
     return GetItemType(GetFilterItem()) == ITEM_TYPE_POWERUP
 endfunction
 
+
 function ItemPickup_EnumItems takes nothing returns nothing
     local item i = GetFilterItem()
     if GetWidgetLife(i) > 0.405 and ItemPickup_FilterItem(udg_ItemPickup_Unit[udg_ItemPickup_Index], i)then
@@ -16,6 +17,7 @@ function ItemPickup_EnumItems takes nothing returns nothing
     endif
     set i = null
 endfunction
+
 function ItemPickup_GetIndexByUnit takes unit whichUnit returns integer
     local integer index = 0
     loop
@@ -27,6 +29,7 @@ function ItemPickup_GetIndexByUnit takes unit whichUnit returns integer
     endloop
     return - 1
 endfunction
+
 function ItemPickup_Clear takes unit whichUnit returns nothing
     local integer index = ItemPickup_GetIndexByUnit(whichUnit)
     if index !=- 1 then
@@ -41,6 +44,7 @@ function ItemPickup_Clear takes unit whichUnit returns nothing
         endif
     endif
 endfunction
+
 function ItemPickup_OnPeriodic takes nothing returns nothing
     local integer index = 0
     loop
@@ -55,6 +59,7 @@ function ItemPickup_OnPeriodic takes nothing returns nothing
         set index = index + 1
     endloop
 endfunction
+
 function ItemPickup_TriggerResponse takes nothing returns nothing
     call ItemPickup_Clear(udg_ItemPickup__Unit)
     if not udg_ItemPickup__AddUnit or GetUnitTypeId(udg_ItemPickup__Unit) == 0 or udg_ItemPickup__Radius < 0.00 then
@@ -67,6 +72,7 @@ function ItemPickup_TriggerResponse takes nothing returns nothing
     set udg_ItemPickup_Rect[udg_ItemPickup_Max] = Rect(- udg_ItemPickup__Radius, - udg_ItemPickup__Radius, udg_ItemPickup__Radius, udg_ItemPickup__Radius)
     set udg_ItemPickup_Max = udg_ItemPickup_Max + 1
 endfunction
+
 function InitTrig_Item_Pickup_JASS takes nothing returns nothing
     set gg_trg_Item_Pickup_JASS = CreateTrigger()
     call TriggerAddAction(gg_trg_Item_Pickup_JASS, function ItemPickup_TriggerResponse)

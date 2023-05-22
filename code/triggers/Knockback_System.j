@@ -8,54 +8,63 @@ function Trig_Knockback_System_Func001Func001Func001Func005Func001Func001C takes
     endif
     return false
 endfunction
+
 function Trig_Knockback_System_Func001Func001Func001Func005Func001C takes nothing returns boolean
     if(not Trig_Knockback_System_Func001Func001Func001Func005Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Knockback_System_Func001Func001Func001Func005A takes nothing returns nothing
     if(Trig_Knockback_System_Func001Func001Func001Func005Func001C())then
         set udg_KB_Bool = false
     else
     endif
 endfunction
+
 function Trig_Knockback_System_Func001Func001Func001Func006C takes nothing returns boolean
     if(not(udg_KB_Bool == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Knockback_System_Func001Func001Func001Func009C takes nothing returns boolean
     if(not(udg_KB_Spam[udg_KB] >= 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Knockback_System_Func001Func001Func001Func014C takes nothing returns boolean
     if(not(udg_KB < udg_KB_Times))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Knockback_System_Func001Func001Func001Func018C takes nothing returns boolean
     if(not(udg_KB_Times == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Knockback_System_Func001Func001Func001C takes nothing returns boolean
     if(not(udg_KB_Distance[udg_KB] <= 0.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Knockback_System_Func001Func001C takes nothing returns boolean
     if(not(udg_KB_Off[udg_KB] == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Knockback_System_Actions takes nothing returns nothing
     set udg_KB = 1
     loop
@@ -107,6 +116,7 @@ function Trig_Knockback_System_Actions takes nothing returns nothing
         set udg_KB = udg_KB + 1
     endloop
 endfunction
+
 function InitTrig_Knockback_System takes nothing returns nothing
     set gg_trg_Knockback_System = CreateTrigger()
     call DisableTrigger(gg_trg_Knockback_System)

@@ -12,6 +12,7 @@ function Trig_Bad_Ending_Good_Job_Actions takes nothing returns nothing
     call TriggerSleepAction(25.00)
     call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "ALT + F4")
 endfunction
+
 function InitTrig_Bad_Ending_Good_Job takes nothing returns nothing
     set gg_trg_Bad_Ending_Good_Job = CreateTrigger()
     call TriggerAddAction(gg_trg_Bad_Ending_Good_Job, function Trig_Bad_Ending_Good_Job_Actions)

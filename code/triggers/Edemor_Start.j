@@ -52,6 +52,7 @@ function Trig_Edemor_Start_Actions takes nothing returns nothing
     call RemoveLocation(udg_Point)
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 2.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
 endfunction
+
 function InitTrig_Edemor_Start takes nothing returns nothing
     set gg_trg_Edemor_Start = CreateTrigger()
     call TriggerAddAction(gg_trg_Edemor_Start, function Trig_Edemor_Start_Actions)

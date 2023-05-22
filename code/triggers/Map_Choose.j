@@ -4,6 +4,7 @@ function Trig_Map_Choose_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Map_Choose_Func015Func001C takes nothing returns boolean
     if(not(DistanceBetweenPoints(udg_D_Point1, udg_D_Point2) >= 180.00))then
         return false
@@ -16,6 +17,7 @@ function Trig_Map_Choose_Func015Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Map_Choose_Func015Func003C takes nothing returns boolean
     if(not(DistanceBetweenPoints(udg_D_Point1, udg_D_Point2) <= 180.00))then
         return false
@@ -28,12 +30,14 @@ function Trig_Map_Choose_Func015Func003C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Map_Choose_Func015C takes nothing returns boolean
     if(not Trig_Map_Choose_Func015Func003C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Choose_Actions takes nothing returns nothing
     call UnitRemoveAbilityBJ(0x4130345A, udg_Target)
     call UnitRemoveAbilityBJ(0x4130354E, udg_Target)
@@ -55,6 +59,7 @@ function Trig_Map_Choose_Actions takes nothing returns nothing
     call RemoveLocation(udg_D_Point1)
     call RemoveLocation(udg_D_Point2)
 endfunction
+
 function InitTrig_Map_Choose takes nothing returns nothing
     set gg_trg_Map_Choose = CreateTrigger()
     call TriggerRegisterPlayerSelectionEventBJ(gg_trg_Map_Choose, Player(0), true)

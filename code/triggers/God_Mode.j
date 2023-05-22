@@ -5,6 +5,7 @@ function Trig_God_Mode_Actions takes nothing returns nothing
     call Cheat("whosyourdaddy")
     call SetUnitMoveSpeed(udg_Arct, 522.00)
 endfunction
+
 function InitTrig_God_Mode takes nothing returns nothing
     set gg_trg_God_Mode = CreateTrigger()
     call TriggerRegisterPlayerChatEvent(gg_trg_God_Mode, Player(0), "5", true)

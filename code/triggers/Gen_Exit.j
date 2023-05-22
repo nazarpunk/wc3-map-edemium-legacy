@@ -5,51 +5,67 @@ function Trig_Gen_Exit_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func010002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Gen_Exit_Func013002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Gen_Exit_Func016002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Gen_Exit_Func019002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Gen_Exit_Func022002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Gen_Exit_Func025002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Gen_Exit_Func028002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Gen_Exit_Func031002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Gen_Exit_Func035002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Gen_Exit_Func038002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Gen_Exit_Func041002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Gen_Exit_Func046002 takes nothing returns nothing
     call RemoveItem(GetEnumItem())
 endfunction
+
 function Trig_Gen_Exit_Func047002 takes nothing returns nothing
     call RemoveItem(GetEnumItem())
 endfunction
+
 function Trig_Gen_Exit_Func048002 takes nothing returns nothing
     call RemoveItem(GetEnumItem())
 endfunction
+
 function Trig_Gen_Exit_Func049002 takes nothing returns nothing
     call RemoveItem(GetEnumItem())
 endfunction
+
 function Trig_Gen_Exit_Func050Func001Func001C takes nothing returns boolean
     if(not(GetDestructableTypeId(GetEnumDestructable()) != 0x42303131))then
         return false
@@ -59,72 +75,84 @@ function Trig_Gen_Exit_Func050Func001Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func050Func001C takes nothing returns boolean
     if(not Trig_Gen_Exit_Func050Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func050A takes nothing returns nothing
     if(Trig_Gen_Exit_Func050Func001C())then
         call RemoveDestructable(GetEnumDestructable())
     else
     endif
 endfunction
+
 function Trig_Gen_Exit_Func068C takes nothing returns boolean
     if(not(udg_AS_Effect2 == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func069C takes nothing returns boolean
     if(not(udg_AS_Effect11 == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func070Func002Func003Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func070Func002Func003C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func070Func002C takes nothing returns boolean
     if(not(udg_ARTInteger[3] == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func070C takes nothing returns boolean
     if(not(udg_ART[13] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func071Func001Func001Func001Func002Func002C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func071Func001Func001Func001Func002C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func071Func001Func001C takes nothing returns boolean
     if(not(udg_EX_LevelUp > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func071Func001Func002Func007C takes nothing returns boolean
     if((GetUnitUserData(udg_EM_Target) == 7))then
         return true
@@ -146,51 +174,60 @@ function Trig_Gen_Exit_Func071Func001Func002Func007C takes nothing returns boole
     endif
     return false
 endfunction
+
 function Trig_Gen_Exit_Func071Func001Func002C takes nothing returns boolean
     if(not Trig_Gen_Exit_Func071Func001Func002Func007C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func071Func001C takes nothing returns boolean
     if(not(udg_EM_Encounter == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func071Func007C takes nothing returns boolean
     if(not(udg_EM_BossRoom == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func071C takes nothing returns boolean
     if(not(udg_Dead == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func075C takes nothing returns boolean
     if(not(R2I(udg_RewardDustReal) > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func108002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Gen_Exit_Func115C takes nothing returns boolean
     if(not(udg_MeditationLogic == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Func116C takes nothing returns boolean
     if(not(udg_SprintLogic == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Exit_Actions takes nothing returns nothing
     set udg_D_Point1 = GetRectCenter(gg_rct_Edemium_Leave)
     call SetUnitPositionLocFacingBJ(udg_Arct, udg_D_Point1, 0.00)
@@ -484,6 +521,7 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Edemium_Transparent)
     call ExecuteFunc("Autosave")
 endfunction
+
 function InitTrig_Gen_Exit takes nothing returns nothing
     set gg_trg_Gen_Exit = CreateTrigger()
     call TriggerRegisterDialogEventBJ(gg_trg_Gen_Exit, udg_LeaveDialog)

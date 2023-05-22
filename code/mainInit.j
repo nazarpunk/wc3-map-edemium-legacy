@@ -864,6 +864,7 @@ function InitGlobalsOld takes nothing returns nothing
     set udg_IG_ItemRandom = 0
 endfunction
 
+
 function InitSoundsOld takes nothing returns nothing
     set gg_snd_QuestLog = CreateSound("Sound\\Interface\\QuestLog.wav", false, false, false, 10, 10, "DefaultEAXON")
     call SetSoundParamsFromLabel(gg_snd_QuestLog, "QuestUpdate")
@@ -1180,6 +1181,7 @@ function InitSoundsOld takes nothing returns nothing
     call SetSoundPitch(gg_snd_NewQuest, 1.0)
 endfunction
 
+
 function CreateAllDestructablesOld takes nothing returns nothing
     local destructable d
     local trigger t
@@ -1210,6 +1212,7 @@ function CreateAllDestructablesOld takes nothing returns nothing
     set gg_dest_B00B_1354 = CreateDestructable(0x42303042, 7424.0, 1408.0, 90.981, 0.500, 0)
 endfunction
 
+
 function CreateBuildingsForPlayer0Old takes nothing returns nothing
     local player p = Player(0)
     local unit u
@@ -1219,6 +1222,7 @@ function CreateBuildingsForPlayer0Old takes nothing returns nothing
     set u = CreateUnit(p, 0x68303049, 4224.0, 2752.0, 270.000)
     set u = null
 endfunction
+
 
 function CreateUnitsForPlayer0Old takes nothing returns nothing
     local player p = Player(0)
@@ -1236,6 +1240,7 @@ function CreateUnitsForPlayer0Old takes nothing returns nothing
     set gg_unit_h007_0065 = CreateUnit(p, 0x68303037, 10438.5, - 1267.5, 266.518)
 endfunction
 
+
 function CreateUnitsForPlayer1Old takes nothing returns nothing
     local player p = Player(1)
     local unit u
@@ -1244,6 +1249,7 @@ function CreateUnitsForPlayer1Old takes nothing returns nothing
     local real life
     set gg_unit_h00N_0045 = CreateUnit(p, 0x6830304E, 4220.3, 1473.1, 270.000)
 endfunction
+
 
 function CreateNeutralPassiveBuildingsOld takes nothing returns nothing
     local player p = Player(PLAYER_NEUTRAL_PASSIVE)
@@ -1386,6 +1392,7 @@ function CreateNeutralPassiveBuildingsOld takes nothing returns nothing
     call SetUnitState(gg_unit_h00K_0155, UNIT_STATE_MANA, 15)
 endfunction
 
+
 function CreateNeutralPassiveOld takes nothing returns nothing
     local player p = Player(PLAYER_NEUTRAL_PASSIVE)
     local unit u
@@ -1424,14 +1431,17 @@ function CreateNeutralPassiveOld takes nothing returns nothing
     set gg_unit_h00V_0063 = CreateUnit(p, 0x68303056, - 1338.8, - 1751.2, 269.420)
 endfunction
 
+
 function CreatePlayerBuildingsOld takes nothing returns nothing
     call CreateBuildingsForPlayer0Old()
 endfunction
+
 
 function CreatePlayerUnitsOld takes nothing returns nothing
     call CreateUnitsForPlayer0Old()
     call CreateUnitsForPlayer1Old()
 endfunction
+
 
 function CreateAllUnitsOld takes nothing returns nothing
     call CreateNeutralPassiveBuildingsOld()
@@ -1439,6 +1449,7 @@ function CreateAllUnitsOld takes nothing returns nothing
     call CreateNeutralPassiveOld()
     call CreatePlayerUnitsOld()
 endfunction
+
 
 function CreateRegionsOld takes nothing returns nothing
     local weathereffect we
@@ -1555,6 +1566,7 @@ function CreateRegionsOld takes nothing returns nothing
     set gg_rct_Coliseum_Spawn = Rect(- 2304.0, - 23424.0, - 416.0, - 22592.0)
     set we = null
 endfunction
+
 
 function CreateCamerasOld takes nothing returns nothing
     set gg_cam_Abilities_Tree = CreateCameraSetup()
@@ -1756,3 +1768,4 @@ function CreateCamerasOld takes nothing returns nothing
     call CameraSetupSetField(gg_cam_Screencam, CAMERA_FIELD_FARZ, 1762.4, 0.0)
     call CameraSetupSetDestPosition(gg_cam_Screencam, 11733.6, - 26459.9, 0.0)
 endfunction
+

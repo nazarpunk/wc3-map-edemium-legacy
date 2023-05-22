@@ -1,6 +1,7 @@
 function Trig_Coliseum_Target_Kill_Conditions takes nothing returns boolean
     return GetTriggerUnit() == udg_CS_TargetUnit
 endfunction
+
 function Trig_Coliseum_Target_Kill_Actions takes nothing returns nothing
     set udg_CS_Bool = false
     set udg_CS_Reward = (udg_CS_Reward * 2)
@@ -17,6 +18,7 @@ function Trig_Coliseum_Target_Kill_Actions takes nothing returns nothing
     call AddSpecialEffectTargetUnitBJ("origin", udg_Arct, "Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl")
     call DestroyEffectBJ(GetLastCreatedEffectBJ())
 endfunction
+
 function InitTrig_Coliseum_Target_Kill takes nothing returns nothing
     set gg_trg_Coliseum_Target_Kill = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Coliseum_Target_Kill, EVENT_PLAYER_UNIT_DEATH)

@@ -43,6 +43,7 @@ function CodeGen_Init takes nothing returns nothing
     set udg_SaveLoad_Base = b - m
 endfunction
 
+
 function CodeGen_ConvertItem takes integer id returns integer
     local integer i = 1
     loop
@@ -55,6 +56,7 @@ function CodeGen_ConvertItem takes integer id returns integer
     return 0
 endfunction
 
+
 function CodeGen_ConvertUnit takes integer id returns integer
     local integer i = 1
     loop
@@ -66,6 +68,7 @@ function CodeGen_ConvertUnit takes integer id returns integer
     endloop
     return 0
 endfunction
+
 
 function CodeGen_Encode takes integer i returns string
     local integer b

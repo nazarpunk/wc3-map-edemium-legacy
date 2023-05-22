@@ -5,24 +5,28 @@ function Trig_Unit_Indexer_Func005Func002C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Unit_Indexer_Func005C takes nothing returns boolean
     if(not(GetUnitUserData(udg_UDexUnits[udg_UDex]) == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Unit_Indexer_Func011Func003C takes nothing returns boolean
     if(not(udg_UDexWasted == 15))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Unit_Indexer_Func011Func005C takes nothing returns boolean
     if(not(udg_UDexRecycle == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Unit_Indexer_Func011C takes nothing returns boolean
     if(not(udg_UnitIndexerEnabled == true))then
         return false
@@ -32,9 +36,11 @@ function Trig_Unit_Indexer_Func011C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Unit_Indexer_Actions takes nothing returns nothing
     call ExecuteFunc("InitializeUnitIndexer")
 endfunction
+
 function ClearUnitIndex takes nothing returns nothing
     if(Trig_Unit_Indexer_Func005C())then
         set udg_UnitIndexLock[udg_UDex] = (udg_UnitIndexLock[udg_UDex] - 1)
@@ -53,6 +59,7 @@ function ClearUnitIndex takes nothing returns nothing
     else
     endif
 endfunction
+
 function IndexUnit takes nothing returns boolean
     local integer pdex = udg_UDex
     local integer ndex
@@ -67,7 +74,6 @@ function IndexUnit takes nothing returns boolean
                 call ClearUnitIndex()
                 set udg_UDex = ndex
             endloop
-        else
         endif
         if(Trig_Unit_Indexer_Func011Func005C())then
             set udg_UDex = (udg_UDexGen + 1)
@@ -86,10 +92,10 @@ function IndexUnit takes nothing returns boolean
         set udg_UnitIndexEvent = 1.00
         set udg_UnitIndexEvent = 0.00
         set udg_UDex = pdex
-    else
     endif
     return false
 endfunction
+
 function InitializeUnitIndexer takes nothing returns nothing
     local integer i = 16
     local boolexpr b = Filter(function IndexUnit)
@@ -114,6 +120,7 @@ function InitializeUnitIndexer takes nothing returns nothing
     set udg_UnitIndexEvent = 3.00
     set udg_UnitIndexEvent = 0.00
 endfunction
+
 function InitTrig_Unit_Indexer takes nothing returns nothing
     set gg_trg_Unit_Indexer = CreateTrigger()
     call TriggerAddAction(gg_trg_Unit_Indexer, function Trig_Unit_Indexer_Actions)

@@ -5,12 +5,14 @@ function Trig_Artefactorium_Creep_Kill_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Artefactorium_Creep_Kill_Func008C takes nothing returns boolean
     if(not(GetTriggerUnit() == udg_TutorialCreep))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Artefactorium_Creep_Kill_Actions takes nothing returns nothing
     call GroupAddUnitSimple(GetTriggerUnit(), udg_FadeSystemGroup)
     call SaveRealBJ(0.00, udg_FadeUnitKey, StringHashBJ("FadeStart"), udg_FadeSystemHash)
@@ -45,6 +47,7 @@ function Trig_Artefactorium_Creep_Kill_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Artefactorium_Creep_Kill takes nothing returns nothing
     set gg_trg_Artefactorium_Creep_Kill = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Artefactorium_Creep_Kill, EVENT_PLAYER_UNIT_DEATH)

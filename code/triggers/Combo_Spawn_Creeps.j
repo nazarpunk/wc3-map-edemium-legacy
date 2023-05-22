@@ -11,36 +11,42 @@ function Trig_Combo_Spawn_Creeps_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Combo_Spawn_Creeps_Func006Func004C takes nothing returns boolean
     if(not(GetUnitAbilityLevelSwapped(0x41303559, GetAttacker()) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Spawn_Creeps_Func006Func006C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Spawn_Creeps_Func006Func007C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Spawn_Creeps_Func006Func008C takes nothing returns boolean
     if(not(udg_RandomNumber == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Spawn_Creeps_Func006C takes nothing returns boolean
     if(not(DistanceBetweenPoints(udg_CO_Point, udg_CO_Point2) <= 300.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Spawn_Creeps_Actions takes nothing returns nothing
     set udg_CO_Point = GetUnitLoc(GetAttacker())
     set udg_CO_Point2 = GetUnitLoc(GetAttackedUnitBJ())
@@ -74,6 +80,7 @@ function Trig_Combo_Spawn_Creeps_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Combo_Spawn_Creeps takes nothing returns nothing
     set gg_trg_Combo_Spawn_Creeps = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_Combo_Spawn_Creeps, gg_unit_H000_0004, EVENT_UNIT_ATTACKED)

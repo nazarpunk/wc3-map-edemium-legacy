@@ -5,30 +5,35 @@ function Trig_Augment_Info_Func001Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Augment_Info_Func001Func007Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h012_0013))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Augment_Info_Func001Func007Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h012_0011))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Augment_Info_Func001Func007C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h012_0012))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Augment_Info_Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetTriggerUnit()) == 0x68303132))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Augment_Info_Actions takes nothing returns nothing
     if(Trig_Augment_Info_Func001C())then
         set udg_Target = GetTriggerUnit()
@@ -56,6 +61,7 @@ function Trig_Augment_Info_Actions takes nothing returns nothing
         endif
     endif
 endfunction
+
 function InitTrig_Augment_Info takes nothing returns nothing
     set gg_trg_Augment_Info = CreateTrigger()
     call TriggerRegisterPlayerSelectionEventBJ(gg_trg_Augment_Info, Player(0), true)

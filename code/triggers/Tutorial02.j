@@ -9,6 +9,7 @@ function Trig_Tutorial02_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Damage_Effects)
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_Tutorial02 takes nothing returns nothing
     set gg_trg_Tutorial02 = CreateTrigger()
     call TriggerAddAction(gg_trg_Tutorial02, function Trig_Tutorial02_Actions)

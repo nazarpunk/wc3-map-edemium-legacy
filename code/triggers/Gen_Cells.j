@@ -4,6 +4,7 @@ function Trig_Gen_Cells_Func001Func006Func003Func002C takes nothing returns bool
     endif
     return true
 endfunction
+
 function Trig_Gen_Cells_Func001Func006Func003A takes nothing returns nothing
     set udg_D_Cell = GetEnumUnit()
     if(Trig_Gen_Cells_Func001Func006Func003Func002C())then
@@ -22,18 +23,21 @@ function Trig_Gen_Cells_Func001Func006Func003A takes nothing returns nothing
     call GroupRemoveGroup(udg_D_Pick2, udg_D_Pick)
     call GroupRemoveUnitSimple(udg_D_Cell, udg_D_Pick)
 endfunction
+
 function Trig_Gen_Cells_Func001Func006C takes nothing returns boolean
     if(not(CountUnitsInGroup(udg_D_Pick) == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Cells_Func001Func007Func008C takes nothing returns boolean
     if(not(udg_D_PortalLogic[1] == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Cells_Func001Func007A takes nothing returns nothing
     set udg_D_Cell = GetEnumUnit()
     set udg_D_Point1 = GetUnitLoc(udg_D_Cell)
@@ -50,6 +54,7 @@ function Trig_Gen_Cells_Func001Func007A takes nothing returns nothing
     else
     endif
 endfunction
+
 function Trig_Gen_Cells_Func001Func008Func002Func001C takes nothing returns boolean
     if(not(udg_EM_BossCreate[1] == false))then
         return false
@@ -65,18 +70,21 @@ function Trig_Gen_Cells_Func001Func008Func002Func001C takes nothing returns bool
     endif
     return true
 endfunction
+
 function Trig_Gen_Cells_Func001Func008Func002C takes nothing returns boolean
     if(not Trig_Gen_Cells_Func001Func008Func002Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Cells_Func001Func008C takes nothing returns boolean
     if(not(bj_forLoopAIndex == udg_D_Rooms))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Cells_Actions takes nothing returns nothing
     set bj_forLoopAIndex = 1
     set bj_forLoopAIndexEnd = udg_D_Rooms
@@ -117,6 +125,7 @@ function Trig_Gen_Cells_Actions takes nothing returns nothing
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop
 endfunction
+
 function InitTrig_Gen_Cells takes nothing returns nothing
     set gg_trg_Gen_Cells = CreateTrigger()
     call TriggerAddAction(gg_trg_Gen_Cells, function Trig_Gen_Cells_Actions)

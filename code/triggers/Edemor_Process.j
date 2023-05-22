@@ -7,12 +7,14 @@ function Trig_Edemor_Process_Func011Func001Func001Func001Func001C takes nothing 
     endif
     return true
 endfunction
+
 function Trig_Edemor_Process_Func011Func001Func001Func001C takes nothing returns boolean
     if(not Trig_Edemor_Process_Func011Func001Func001Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemor_Process_Func011Func001Func001Func002C takes nothing returns boolean
     if(not(GetItemTypeId(GetSoldItem()) == 0x4930315A))then
         return false
@@ -22,12 +24,14 @@ function Trig_Edemor_Process_Func011Func001Func001Func002C takes nothing returns
     endif
     return true
 endfunction
+
 function Trig_Edemor_Process_Func011Func001Func001C takes nothing returns boolean
     if(not Trig_Edemor_Process_Func011Func001Func001Func002C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemor_Process_Func011Func001Func002C takes nothing returns boolean
     if(not(GetItemTypeId(GetSoldItem()) == 0x49303159))then
         return false
@@ -37,12 +41,14 @@ function Trig_Edemor_Process_Func011Func001Func002C takes nothing returns boolea
     endif
     return true
 endfunction
+
 function Trig_Edemor_Process_Func011Func001C takes nothing returns boolean
     if(not Trig_Edemor_Process_Func011Func001Func002C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemor_Process_Func011Func002C takes nothing returns boolean
     if(not(GetItemTypeId(GetSoldItem()) == 0x49303158))then
         return false
@@ -52,18 +58,21 @@ function Trig_Edemor_Process_Func011Func002C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Edemor_Process_Func011C takes nothing returns boolean
     if(not Trig_Edemor_Process_Func011Func002C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemor_Process_Func017C takes nothing returns boolean
     if(not(GetItemTypeId(GetSoldItem()) == 0x49303231))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemor_Process_Actions takes nothing returns nothing
     call RemoveItemFromStockBJ(0x49303158, GetTriggerUnit())
     call RemoveItemFromStockBJ(0x49303159, GetTriggerUnit())
@@ -121,6 +130,7 @@ function Trig_Edemor_Process_Actions takes nothing returns nothing
     endif
     call RemoveItem(GetSoldItem())
 endfunction
+
 function InitTrig_Edemor_Process takes nothing returns nothing
     set gg_trg_Edemor_Process = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_Edemor_Process, gg_unit_h00V_0063, EVENT_UNIT_SELL_ITEM)

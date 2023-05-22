@@ -4,6 +4,7 @@ function Trig_CodeGen_Load_Func004C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_CodeGen_Load_Actions takes nothing returns nothing
     set udg_Code = udg_ImportCode1
     call CodeGen_Load(udg_Code)
@@ -60,6 +61,7 @@ function Trig_CodeGen_Load_Actions takes nothing returns nothing
     call ConditionalTriggerExecute(gg_trg_CodeGen_Load_2)
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_CodeGen_Load takes nothing returns nothing
     set gg_trg_CodeGen_Load = CreateTrigger()
     call TriggerAddAction(gg_trg_CodeGen_Load, function Trig_CodeGen_Load_Actions)

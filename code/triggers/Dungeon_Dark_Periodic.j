@@ -12,6 +12,7 @@ function Trig_Dungeon_Dark_Periodic_Actions takes nothing returns nothing
     call SetUnitOwner(udg_Arct, Player(0), false)
     call SelectUnitForPlayerSingle(udg_Arct, Player(0))
 endfunction
+
 function InitTrig_Dungeon_Dark_Periodic takes nothing returns nothing
     set gg_trg_Dungeon_Dark_Periodic = CreateTrigger()
     call DisableTrigger(gg_trg_Dungeon_Dark_Periodic)

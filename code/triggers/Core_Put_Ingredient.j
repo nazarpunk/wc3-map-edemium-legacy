@@ -5,18 +5,21 @@ function Trig_Core_Put_Ingredient_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Core_Put_Ingredient_Func005Func002C takes nothing returns boolean
     if(not(udg_CC_Ingredient[bj_forLoopAIndex] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Put_Ingredient_Func007Func001C takes nothing returns boolean
     if(not(udg_CC_IngredientAdded[bj_forLoopAIndex] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Put_Ingredient_Actions takes nothing returns nothing
     set udg_CC_ItemLevel = GetItemLevel(GetSoldItem())
     set udg_CC_Ingredient[udg_CC_ItemLevel] = (udg_CC_Ingredient[udg_CC_ItemLevel] - 1)
@@ -45,6 +48,7 @@ function Trig_Core_Put_Ingredient_Actions takes nothing returns nothing
     endloop
     call RemoveItem(GetSoldItem())
 endfunction
+
 function InitTrig_Core_Put_Ingredient takes nothing returns nothing
     set gg_trg_Core_Put_Ingredient = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_Core_Put_Ingredient, gg_unit_h00F_0003, EVENT_UNIT_SELL_ITEM)

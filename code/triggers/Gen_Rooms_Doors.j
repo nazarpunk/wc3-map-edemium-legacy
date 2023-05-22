@@ -1,63 +1,75 @@
 function Trig_Gen_Rooms_Doors_Func002Func009Func002Func002A takes nothing returns nothing
     call RemoveDestructable(GetEnumDestructable())
 endfunction
+
 function Trig_Gen_Rooms_Doors_Func002Func009Func002Func003C takes nothing returns boolean
     if(not(GetRandomInt(1, 20) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Rooms_Doors_Func002Func009Func002C takes nothing returns boolean
     if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) == 180.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Rooms_Doors_Func002Func009Func003Func002A takes nothing returns nothing
     call RemoveDestructable(GetEnumDestructable())
 endfunction
+
 function Trig_Gen_Rooms_Doors_Func002Func009Func003Func003C takes nothing returns boolean
     if(not(GetRandomInt(1, 20) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Rooms_Doors_Func002Func009Func003C takes nothing returns boolean
     if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) == 90.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Rooms_Doors_Func002Func009Func004Func002A takes nothing returns nothing
     call RemoveDestructable(GetEnumDestructable())
 endfunction
+
 function Trig_Gen_Rooms_Doors_Func002Func009Func004Func003C takes nothing returns boolean
     if(not(GetRandomInt(1, 20) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Rooms_Doors_Func002Func009Func004C takes nothing returns boolean
     if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) == 0.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Rooms_Doors_Func002Func009Func005Func002A takes nothing returns nothing
     call RemoveDestructable(GetEnumDestructable())
 endfunction
+
 function Trig_Gen_Rooms_Doors_Func002Func009Func005Func003C takes nothing returns boolean
     if(not(GetRandomInt(1, 20) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Rooms_Doors_Func002Func009Func005C takes nothing returns boolean
     if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) ==- 90.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Rooms_Doors_Func002Func009A takes nothing returns nothing
     set udg_D_Point2 = GetUnitLoc(GetEnumUnit())
     if(Trig_Gen_Rooms_Doors_Func002Func009Func002C())then
@@ -130,6 +142,7 @@ function Trig_Gen_Rooms_Doors_Func002Func009A takes nothing returns nothing
     endif
     call RemoveLocation(udg_D_Point2)
 endfunction
+
 function Trig_Gen_Rooms_Doors_Func002A takes nothing returns nothing
     set udg_D_Point1 = GetUnitLoc(GetEnumUnit())
     set udg_D_Pick2 = GetUnitsInRangeOfLocAll(800.00, GetUnitLoc(GetEnumUnit()))
@@ -143,12 +156,14 @@ function Trig_Gen_Rooms_Doors_Func002A takes nothing returns nothing
     call RemoveLocation(udg_D_Point1)
     call DestroyGroup(udg_D_Pick2)
 endfunction
+
 function Trig_Gen_Rooms_Doors_Actions takes nothing returns nothing
     set udg_D_Pick = GetUnitsOfTypeIdAll(0x68303054)
     call ForGroupBJ(udg_D_Pick, function Trig_Gen_Rooms_Doors_Func002A)
     call DestroyGroup(udg_D_Pick)
     call StartTimerBJ(udg_D_Timer, false, 0.10)
 endfunction
+
 function InitTrig_Gen_Rooms_Doors takes nothing returns nothing
     set gg_trg_Gen_Rooms_Doors = CreateTrigger()
     call TriggerAddAction(gg_trg_Gen_Rooms_Doors, function Trig_Gen_Rooms_Doors_Actions)

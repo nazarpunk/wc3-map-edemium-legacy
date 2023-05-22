@@ -4,27 +4,33 @@ function Trig_Edemor_Exit_Func004C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Edemor_Exit_Func005C takes nothing returns boolean
     if(not(udg_AS_Effect11 == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemor_Exit_Func006Func013002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Edemor_Exit_Func006C takes nothing returns boolean
     if(not(udg_Dead == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemor_Exit_Func020002 takes nothing returns nothing
     call RemoveItem(GetEnumItem())
 endfunction
+
 function Trig_Edemor_Exit_Func048002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Edemor_Exit_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Keeper_Look)
     call RemoveUnit(udg_AS_Effect10Unit)
@@ -115,6 +121,7 @@ function Trig_Edemor_Exit_Actions takes nothing returns nothing
     set udg_AS_Effect10 = false
     set udg_ER_Reward = 0
 endfunction
+
 function InitTrig_Edemor_Exit takes nothing returns nothing
     set gg_trg_Edemor_Exit = CreateTrigger()
     call TriggerAddAction(gg_trg_Edemor_Exit, function Trig_Edemor_Exit_Actions)

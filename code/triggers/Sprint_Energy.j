@@ -5,6 +5,7 @@ function Trig_Sprint_Energy_Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Sprint_Energy_Actions takes nothing returns nothing
     if(Trig_Sprint_Energy_Func001C())then
         call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - 2.00))
@@ -20,6 +21,7 @@ function Trig_Sprint_Energy_Actions takes nothing returns nothing
         call DisableTrigger(GetTriggeringTrigger())
     endif
 endfunction
+
 function InitTrig_Sprint_Energy takes nothing returns nothing
     set gg_trg_Sprint_Energy = CreateTrigger()
     call DisableTrigger(gg_trg_Sprint_Energy)

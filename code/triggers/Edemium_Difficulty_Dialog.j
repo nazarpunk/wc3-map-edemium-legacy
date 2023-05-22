@@ -5,18 +5,21 @@ function Trig_Edemium_Difficulty_Dialog_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Edemium_Difficulty_Dialog_Func009C takes nothing returns boolean
     if(not(udg_Difficulty_Unlocked[1] == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Difficulty_Dialog_Func010C takes nothing returns boolean
     if(not(udg_Difficulty_Unlocked[2] == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Difficulty_Dialog_Actions takes nothing returns nothing
     call DialogClearBJ(udg_DifficultyDialog)
     call DialogSetMessageBJ(udg_DifficultyDialog, "Уровень сложности:")
@@ -40,6 +43,7 @@ function Trig_Edemium_Difficulty_Dialog_Actions takes nothing returns nothing
     set udg_DialogButton[8] = GetLastCreatedButtonBJ()
     call DialogDisplayBJ(true, udg_DifficultyDialog, Player(0))
 endfunction
+
 function InitTrig_Edemium_Difficulty_Dialog takes nothing returns nothing
     set gg_trg_Edemium_Difficulty_Dialog = CreateTrigger()
     call TriggerRegisterDialogEventBJ(gg_trg_Edemium_Difficulty_Dialog, udg_TeleportDialog)

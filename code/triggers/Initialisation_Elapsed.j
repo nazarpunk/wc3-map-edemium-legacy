@@ -17,19 +17,23 @@ function Trig_Initialisation_Elapsed_Func006A takes nothing returns nothing
         endif
     endif
 endfunction
+
 function Trig_Initialisation_Elapsed_Func140A takes nothing returns nothing
     call ShowUnitHide(GetEnumUnit())
     call GroupAddUnitSimple(GetEnumUnit(), udg_SecretGroup)
 endfunction
+
 function Trig_Initialisation_Elapsed_Func144Func001C takes nothing returns boolean
     return GetDestructableTypeId(GetEnumDestructable()) == 0x42303042
 endfunction
+
 function Trig_Initialisation_Elapsed_Func144A takes nothing returns nothing
     if(Trig_Initialisation_Elapsed_Func144Func001C())then
         call ShowDestructableBJ(false, GetEnumDestructable())
     else
     endif
 endfunction
+
 
 function Trig_Initialisation_Elapsed_Actions takes nothing returns nothing
     call CreateLeaderboardBJ(bj_FORCE_PLAYER[0], ("|cFFFFFFFFСерия ударов:|r |cFF449EFF" + I2S(udg_CO_Combo)))
@@ -183,6 +187,7 @@ function Trig_Initialisation_Elapsed_Actions takes nothing returns nothing
     call DialogDisplayBJ(true, udg_InitDialog, Player(0))
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
+
 
 function InitTrig_Initialisation_Elapsed takes nothing returns nothing
     set gg_trg_Initialisation_Elapsed = CreateTrigger()

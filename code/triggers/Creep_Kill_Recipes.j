@@ -8,6 +8,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func001C takes nothing returns bo
     endif
     return false
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func001C takes nothing returns boolean
     if((GetUnitTypeId(GetDyingUnit()) == 0x6E303031))then
         return true
@@ -17,6 +18,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func001C takes noth
     endif
     return false
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func001Func001Func001Func001Func001Func001Func004Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetDyingUnit()) == 0x6E303054))then
         return false
@@ -26,6 +28,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func0
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func001Func001Func001Func001Func001Func001Func004Func001Func001Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetDyingUnit()) == 0x6E303056))then
         return false
@@ -35,6 +38,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func0
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func001Func001Func001Func001Func001Func001Func004Func001Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetDyingUnit()) == 0x6E303050))then
         return false
@@ -44,6 +48,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func0
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func001Func001Func001Func001Func001Func001Func004Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetDyingUnit()) == 0x6E30305A))then
         return false
@@ -53,6 +58,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func0
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func001Func001Func001Func001Func001Func001Func004C takes nothing returns boolean
     if(not(GetUnitTypeId(GetDyingUnit()) == 0x6E30304F))then
         return false
@@ -62,6 +68,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func0
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetDyingUnit()) == 0x6E303052))then
         return false
@@ -71,6 +78,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func0
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetDyingUnit()) == 0x6E303041))then
         return false
@@ -80,6 +88,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func0
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetDyingUnit()) == 0x6E303051))then
         return false
@@ -89,6 +98,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func0
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetDyingUnit()) == 0x6E303055))then
         return false
@@ -98,6 +108,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func0
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func001Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetDyingUnit()) == 0x6E30304B))then
         return false
@@ -107,6 +118,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func0
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetDyingUnit()) == 0x6E303043))then
         return false
@@ -116,6 +128,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001Func0
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetDyingUnit()) == 0x6E30304E))then
         return false
@@ -125,6 +138,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func001C tak
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func002C takes nothing returns boolean
     if((GetUnitTypeId(GetDyingUnit()) == 0x6E303035))then
         return true
@@ -134,6 +148,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func002C tak
     endif
     return false
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003C takes nothing returns boolean
     if(not Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003Func002C())then
         return false
@@ -143,6 +158,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func003C takes noth
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003C takes nothing returns boolean
     if(not Trig_Creep_Kill_Recipes_Func001Func002Func003Func003Func001C())then
         return false
@@ -152,6 +168,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003Func003C takes nothing ret
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002Func003C takes nothing returns boolean
     if(not(GetUnitTypeId(GetDyingUnit()) == 0x6E30304A))then
         return false
@@ -161,6 +178,7 @@ function Trig_Creep_Kill_Recipes_Func001Func002Func003C takes nothing returns bo
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001Func002C takes nothing returns boolean
     if(not Trig_Creep_Kill_Recipes_Func001Func002Func001C())then
         return false
@@ -170,12 +188,14 @@ function Trig_Creep_Kill_Recipes_Func001Func002C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Func001C takes nothing returns boolean
     if(not(GetRandomInt(1, 100) <= 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Recipes_Actions takes nothing returns nothing
     if(Trig_Creep_Kill_Recipes_Func001C())then
         set udg_Point = GetUnitLoc(GetDyingUnit())
@@ -247,6 +267,7 @@ function Trig_Creep_Kill_Recipes_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Creep_Kill_Recipes takes nothing returns nothing
     set gg_trg_Creep_Kill_Recipes = CreateTrigger()
     call TriggerAddAction(gg_trg_Creep_Kill_Recipes, function Trig_Creep_Kill_Recipes_Actions)

@@ -5,18 +5,21 @@ function Trig_Core_Timer_Func010C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Core_Timer_Func011C takes nothing returns boolean
     if(not(udg_CC_SecretNumber == 12))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Timer_Func012C takes nothing returns boolean
     if(not(udg_CC_SecretNumber == 16))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Timer_Actions takes nothing returns nothing
     set udg_ART[udg_CC_SecretNumber] = (udg_ART[udg_CC_SecretNumber] + 1)
     set udg_QG_Count[8] = (udg_QG_Count[8] + 1)
@@ -50,6 +53,7 @@ function Trig_Core_Timer_Actions takes nothing returns nothing
     call RemoveLocation(udg_Point)
     set udg_AutosaveBool = true
 endfunction
+
 function InitTrig_Core_Timer takes nothing returns nothing
     set gg_trg_Core_Timer = CreateTrigger()
     call TriggerRegisterTimerExpireEventBJ(gg_trg_Core_Timer, udg_CC_Timer)

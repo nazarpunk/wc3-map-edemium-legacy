@@ -5,42 +5,49 @@ function Trig_Events_Buttons_Func002Func001Func001Func001Func001C takes nothing 
     endif
     return true
 endfunction
+
 function Trig_Events_Buttons_Func002Func001Func001Func001C takes nothing returns boolean
     if(not(GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true) >= udg_EventAttribute))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Events_Buttons_Func002Func001Func001Func002Func013C takes nothing returns boolean
     if(not(GetRandomInt(1, 20) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Events_Buttons_Func002Func001Func001Func002C takes nothing returns boolean
     if(not(udg_EventSucces == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Events_Buttons_Func002Func001Func001C takes nothing returns boolean
     if(not(GetClickedButton() == udg_EdemEventButton[2]))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Events_Buttons_Func002Func001C takes nothing returns boolean
     if(not(GetClickedButton() == udg_EdemEventButton[1]))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Events_Buttons_Func002C takes nothing returns boolean
     if(not(udg_EdemEventType == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Events_Buttons_Actions takes nothing returns nothing
     set udg_EdemEventBool[udg_EdemEventType] = true
     if(Trig_Events_Buttons_Func002C())then
@@ -91,6 +98,7 @@ function Trig_Events_Buttons_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Events_Buttons takes nothing returns nothing
     set gg_trg_Events_Buttons = CreateTrigger()
     call TriggerRegisterDialogEventBJ(gg_trg_Events_Buttons, udg_EdemEventDialog)

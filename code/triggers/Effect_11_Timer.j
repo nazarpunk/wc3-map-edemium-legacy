@@ -5,6 +5,7 @@ function Trig_Effect_11_Timer_Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Effect_11_Timer_Actions takes nothing returns nothing
     if(Trig_Effect_11_Timer_Func001C())then
         set udg_AS_Effect11 = false
@@ -15,6 +16,7 @@ function Trig_Effect_11_Timer_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Effect_11_Timer takes nothing returns nothing
     set gg_trg_Effect_11_Timer = CreateTrigger()
     call TriggerRegisterTimerExpireEventBJ(gg_trg_Effect_11_Timer, udg_AS_TimerEffect11)

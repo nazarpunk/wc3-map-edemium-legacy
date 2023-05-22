@@ -2,12 +2,15 @@
 function Trig_Boss_Func003Func001Func003C takes nothing returns boolean
     return GetEventPlayerChatString() == "boss3"
 endfunction
+
 function Trig_Boss_Func003Func001C takes nothing returns boolean
     return GetEventPlayerChatString() == "boss2"
 endfunction
+
 function Trig_Boss_Func003C takes nothing returns boolean
     return GetEventPlayerChatString() == "boss1"
 endfunction
+
 function Trig_Boss_Actions takes nothing returns nothing
     set udg_Difficulty_Unlocked[1] = true
     call SuspendHeroXPBJ(true, gg_unit_H000_0004)
@@ -56,6 +59,7 @@ function Trig_Boss_Actions takes nothing returns nothing
     call AdjustPlayerStateBJ(50, Player(0), PLAYER_STATE_RESOURCE_LUMBER)
     call SuspendHeroXPBJ(false, gg_unit_H000_0004)
 endfunction
+
 function InitTrig_Boss takes nothing returns nothing
     set gg_trg_Boss = CreateTrigger()
     call TriggerRegisterPlayerChatEvent(gg_trg_Boss, Player(0), "boss1", true)

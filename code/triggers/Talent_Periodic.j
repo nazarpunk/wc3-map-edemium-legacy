@@ -5,6 +5,7 @@ function Trig_Talent_Periodic_Func001Func001Func002C takes nothing returns boole
     endif
     return true
 endfunction
+
 function Trig_Talent_Periodic_Func001Func001C takes nothing returns boolean
     if(not(udg_Combat == true))then
         return false
@@ -14,12 +15,14 @@ function Trig_Talent_Periodic_Func001Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Talent_Periodic_Func001C takes nothing returns boolean
     if(not(udg_ART[2] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talent_Periodic_Func002Func001Func011Func001C takes nothing returns boolean
     if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
         return false
@@ -29,6 +32,7 @@ function Trig_Talent_Periodic_Func002Func001Func011Func001C takes nothing return
     endif
     return true
 endfunction
+
 function Trig_Talent_Periodic_Func002Func001Func011A takes nothing returns nothing
     if(Trig_Talent_Periodic_Func002Func001Func011Func001C())then
         set udg_Point = GetUnitLoc(GetEnumUnit())
@@ -39,54 +43,63 @@ function Trig_Talent_Periodic_Func002Func001Func011A takes nothing returns nothi
     else
     endif
 endfunction
+
 function Trig_Talent_Periodic_Func002Func001C takes nothing returns boolean
     if(not(GetRandomInt(1, 100) <= 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talent_Periodic_Func002C takes nothing returns boolean
     if(not(udg_ART[8] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talent_Periodic_Func003Func001Func002C takes nothing returns boolean
     if(not(udg_ARTInteger[2] == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talent_Periodic_Func003Func001C takes nothing returns boolean
     if(not(udg_Combat == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talent_Periodic_Func003C takes nothing returns boolean
     if(not(udg_ART[9] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talent_Periodic_Func004Func003Func001C takes nothing returns boolean
     if(not(udg_ARTInteger[4] == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talent_Periodic_Func004Func003C takes nothing returns boolean
     if(not(udg_AbilityPower > GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct)))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talent_Periodic_Func004C takes nothing returns boolean
     if(not(udg_ART[14] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talent_Periodic_Actions takes nothing returns nothing
     if(Trig_Talent_Periodic_Func001C())then
         if(Trig_Talent_Periodic_Func001Func001C())then
@@ -150,6 +163,7 @@ function Trig_Talent_Periodic_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Talent_Periodic takes nothing returns nothing
     set gg_trg_Talent_Periodic = CreateTrigger()
     call TriggerRegisterTimerEventPeriodic(gg_trg_Talent_Periodic, 1.00)

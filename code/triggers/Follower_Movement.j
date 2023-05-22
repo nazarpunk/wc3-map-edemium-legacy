@@ -5,12 +5,14 @@ function Trig_Follower_Movement_Func001Func001Func003C takes nothing returns boo
     endif
     return true
 endfunction
+
 function Trig_Follower_Movement_Func001Func001C takes nothing returns boolean
     if(not(CountUnitsInGroup(udg_FollowersGroup) > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Follower_Movement_Func001A takes nothing returns nothing
     if(Trig_Follower_Movement_Func001Func001C())then
         set udg_Point = GetUnitLoc(udg_Arct)
@@ -26,9 +28,11 @@ function Trig_Follower_Movement_Func001A takes nothing returns nothing
     else
     endif
 endfunction
+
 function Trig_Follower_Movement_Actions takes nothing returns nothing
     call ForGroupBJ(udg_FollowersGroup, function Trig_Follower_Movement_Func001A)
 endfunction
+
 function InitTrig_Follower_Movement takes nothing returns nothing
     set gg_trg_Follower_Movement = CreateTrigger()
     call DisableTrigger(gg_trg_Follower_Movement)

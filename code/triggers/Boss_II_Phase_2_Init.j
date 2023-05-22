@@ -8,6 +8,7 @@ function Trig_Boss_II_Phase_2_Init_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Boss_II_Phase_2_Init_Actions takes nothing returns nothing
     call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Изуродов Отец", gg_snd_HPitLordYesAttack2, "Час Хаоса!", bj_TIMETYPE_ADD, 0, false)
     call UnitAddAbilityBJ(0x41303553, GetTriggerUnit())
@@ -16,6 +17,7 @@ function Trig_Boss_II_Phase_2_Init_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Boss_Creep_Spawn)
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_Boss_II_Phase_2_Init takes nothing returns nothing
     set gg_trg_Boss_II_Phase_2_Init = CreateTrigger()
     call DisableTrigger(gg_trg_Boss_II_Phase_2_Init)

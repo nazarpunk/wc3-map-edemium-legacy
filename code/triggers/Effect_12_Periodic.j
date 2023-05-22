@@ -8,6 +8,7 @@ function Trig_Effect_12_Periodic_Func002Func007Func002C takes nothing returns bo
     endif
     return true
 endfunction
+
 function Trig_Effect_12_Periodic_Func002Func007A takes nothing returns nothing
     set udg_Point2 = GetUnitLoc(GetEnumUnit())
     if(Trig_Effect_12_Periodic_Func002Func007Func002C())then
@@ -24,12 +25,14 @@ function Trig_Effect_12_Periodic_Func002Func007A takes nothing returns nothing
     endif
     call RemoveLocation(udg_Point2)
 endfunction
+
 function Trig_Effect_12_Periodic_Func002C takes nothing returns boolean
     if(not(GetTerrainTypeBJ(udg_Point) == 0x446C7663))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Effect_12_Periodic_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(udg_Arct)
     if(Trig_Effect_12_Periodic_Func002C())then
@@ -45,6 +48,7 @@ function Trig_Effect_12_Periodic_Actions takes nothing returns nothing
     endif
     call RemoveLocation(udg_Point)
 endfunction
+
 function InitTrig_Effect_12_Periodic takes nothing returns nothing
     set gg_trg_Effect_12_Periodic = CreateTrigger()
     call TriggerRegisterTimerEventPeriodic(gg_trg_Effect_12_Periodic, 1.00)

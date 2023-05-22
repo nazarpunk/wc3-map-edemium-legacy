@@ -5,6 +5,7 @@ function Trig_Effect_6_Periodic_Func004Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Effect_6_Periodic_Func004A takes nothing returns nothing
     if(Trig_Effect_6_Periodic_Func004Func001C())then
         set udg_AbilityPower = (I2R(udg_CO_Power) + I2R(udg_CO_Combo))
@@ -15,6 +16,7 @@ function Trig_Effect_6_Periodic_Func004A takes nothing returns nothing
     else
     endif
 endfunction
+
 function Trig_Effect_6_Periodic_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(udg_Arct)
     set udg_UnitGroup = GetUnitsInRangeOfLocAll(300.00, udg_Point)
@@ -22,6 +24,7 @@ function Trig_Effect_6_Periodic_Actions takes nothing returns nothing
     call ForGroupBJ(GetRandomSubGroup(1, udg_UnitGroup), function Trig_Effect_6_Periodic_Func004A)
     call DestroyGroup(udg_UnitGroup)
 endfunction
+
 function InitTrig_Effect_6_Periodic takes nothing returns nothing
     set gg_trg_Effect_6_Periodic = CreateTrigger()
     call DisableTrigger(gg_trg_Effect_6_Periodic)

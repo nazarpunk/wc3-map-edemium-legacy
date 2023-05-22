@@ -5,90 +5,105 @@ function Trig_Abilities_Study_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Abilities_Study_Func001Func013Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_Target == gg_unit_h006_0067))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Study_Func001Func013Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_Target == gg_unit_h006_0073))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Study_Func001Func013Func001Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_Target == gg_unit_h006_0069))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Study_Func001Func013Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_Target == gg_unit_h006_0071))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Study_Func001Func013Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_Target == gg_unit_h006_0080))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Study_Func001Func013Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_Target == gg_unit_h006_0078))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Study_Func001Func013Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_Target == gg_unit_h006_0076))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Study_Func001Func013Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_Target == gg_unit_h006_0082))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Study_Func001Func013Func001Func001Func001C takes nothing returns boolean
     if(not(udg_Target == gg_unit_h006_0079))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Study_Func001Func013Func001Func001C takes nothing returns boolean
     if(not(udg_Target == gg_unit_h006_0077))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Study_Func001Func013Func001C takes nothing returns boolean
     if(not(udg_Target == gg_unit_h006_0075))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Study_Func001Func013C takes nothing returns boolean
     if(not(udg_Target == gg_unit_h006_0081))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Study_Func001C takes nothing returns boolean
     if(not(udg_AS_Points >= 300))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Study_Func002C takes nothing returns boolean
     if(not(udg_Tutorial[2] == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Study_Actions takes nothing returns nothing
     if(Trig_Abilities_Study_Func001C())then
         set udg_AS_Points = (udg_AS_Points - 300)
@@ -171,6 +186,7 @@ function Trig_Abilities_Study_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Abilities_Study takes nothing returns nothing
     set gg_trg_Abilities_Study = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Abilities_Study, EVENT_PLAYER_UNIT_SPELL_EFFECT)

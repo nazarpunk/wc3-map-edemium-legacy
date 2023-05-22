@@ -5,54 +5,63 @@ function Trig_Dungeon_Battle_Portal_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Battle_Portal_Func003Func004C takes nothing returns boolean
     if(not(GetRandomInt(1, 2) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Battle_Portal_Func003Func017Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 6))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Battle_Portal_Func003Func017Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Battle_Portal_Func003Func017Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Battle_Portal_Func003Func017Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Battle_Portal_Func003Func017Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Battle_Portal_Func003Func017C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Battle_Portal_Func003C takes nothing returns boolean
     if(not(DistanceBetweenPoints(udg_Point, udg_Point2) < 300.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Battle_Portal_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(GetOrderTargetUnit())
     set udg_Point2 = GetUnitLoc(udg_Arct)
@@ -105,6 +114,7 @@ function Trig_Dungeon_Battle_Portal_Actions takes nothing returns nothing
     call RemoveLocation(udg_Point)
     call RemoveLocation(udg_Point2)
 endfunction
+
 function InitTrig_Dungeon_Battle_Portal takes nothing returns nothing
     set gg_trg_Dungeon_Battle_Portal = CreateTrigger()
     call DisableTrigger(gg_trg_Dungeon_Battle_Portal)

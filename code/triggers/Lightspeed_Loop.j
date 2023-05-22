@@ -5,60 +5,78 @@ function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func004C takes nothing
     endif
     return true
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func006002003001001 takes nothing returns boolean
     return(IsUnitType(GetFilterUnit(), UNIT_TYPE_FLYING) == false)
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func006002003001002 takes nothing returns boolean
     return(IsUnitDeadBJ(GetFilterUnit()) == false)
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func006002003001 takes nothing returns boolean
     return GetBooleanAnd(Trig_Lightspeed_Loop_Func001Func001Func001Func001Func006002003001001(), Trig_Lightspeed_Loop_Func001Func001Func001Func001Func006002003001002())
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func006002003002 takes nothing returns boolean
     return(GetFilterUnit() != udg_SB_Hero[udg_SB])
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func006002003 takes nothing returns boolean
     return GetBooleanAnd(Trig_Lightspeed_Loop_Func001Func001Func001Func001Func006002003001(), Trig_Lightspeed_Loop_Func001Func001Func001Func001Func006002003002())
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003001 takes nothing returns boolean
     return(IsUnitType(GetFilterUnit(), UNIT_TYPE_STRUCTURE) == false)
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002001 takes nothing returns boolean
     return(IsUnitType(GetFilterUnit(), UNIT_TYPE_FLYING) == false)
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002002001 takes nothing returns boolean
     return(IsUnitDeadBJ(GetFilterUnit()) == false)
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002002002001 takes nothing returns boolean
     return(IsUnitAlly(GetFilterUnit(), GetOwningPlayer(udg_SB_Hero[udg_SB])) == false)
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002002002002001 takes nothing returns boolean
     return(IsUnitType(GetFilterUnit(), UNIT_TYPE_MECHANICAL) == false)
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002002002002002 takes nothing returns boolean
     return(IsUnitType(GetFilterUnit(), UNIT_TYPE_MAGIC_IMMUNE) == false)
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002002002002 takes nothing returns boolean
     return GetBooleanAnd(Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002002002002001(), Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002002002002002())
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002002002 takes nothing returns boolean
     return GetBooleanAnd(Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002002002001(), Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002002002002())
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002002 takes nothing returns boolean
     return GetBooleanAnd(Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002002001(), Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002002002())
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002 takes nothing returns boolean
     return GetBooleanAnd(Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002001(), Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002002())
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003 takes nothing returns boolean
     return GetBooleanAnd(Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003001(), Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func005002003002())
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func006Func002C takes nothing returns boolean
     if(not(udg_KB_Skip == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func006A takes nothing returns nothing
     call UnitDamageTargetBJ(udg_SB_Hero[udg_SB], GetEnumUnit(), udg_SB_Damage[udg_SB], ATTACK_TYPE_NORMAL, DAMAGE_TYPE_FORCE)
     if(Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func006Func002C())then
@@ -78,12 +96,14 @@ function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func006A takes 
     set udg_KB_Spam[udg_KB_Times] = 10
     call RemoveLocation(udg_KB_Point[1])
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007C takes nothing returns boolean
     if(not(CountUnitsInGroup(udg_SB_Group[udg_SB]) > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func011C takes nothing returns boolean
     if((IsUnitType(udg_SB_Hero[udg_SB], UNIT_TYPE_STUNNED) == true))then
         return true
@@ -93,30 +113,35 @@ function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func011C takes nothing
     endif
     return false
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func001C takes nothing returns boolean
     if(not Trig_Lightspeed_Loop_Func001Func001Func001Func001Func011C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001Func007C takes nothing returns boolean
     if(not(udg_SB_Skip <= 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001Func001C takes nothing returns boolean
     if(not(udg_SB_Distance[udg_SB] <= 0.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Lightspeed_Loop_Func001Func001C takes nothing returns boolean
     if(not(udg_SB_On[udg_SB] == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Lightspeed_Loop_Actions takes nothing returns nothing
     set udg_SB = 1
     loop
@@ -168,6 +193,7 @@ function Trig_Lightspeed_Loop_Actions takes nothing returns nothing
         set udg_SB = udg_SB + 1
     endloop
 endfunction
+
 function InitTrig_Lightspeed_Loop takes nothing returns nothing
     set gg_trg_Lightspeed_Loop = CreateTrigger()
     call DisableTrigger(gg_trg_Lightspeed_Loop)

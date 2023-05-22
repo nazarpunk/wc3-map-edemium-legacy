@@ -5,72 +5,84 @@ function Trig_IG_Text_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func001C takes nothing returns boolean
     if(not(udg_IG_InfoBool == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func001Func002C takes nothing returns boolean
     if(not(udg_IG_ItemValue[1] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func001Func003C takes nothing returns boolean
     if(not(udg_IG_ItemValue[2] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func001Func004C takes nothing returns boolean
     if(not(udg_IG_ItemValue[3] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func001Func005C takes nothing returns boolean
     if(not(udg_IG_ItemValue[4] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func001Func006Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[6] == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func001Func006Func001Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[6] == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func001Func006Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[6] == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func001Func006Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[6] == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func001Func006C takes nothing returns boolean
     if(not(udg_IG_ItemValue[6] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func001C takes nothing returns boolean
     if(not(GetItemLevel(udg_IG_InfoItem) == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func002C takes nothing returns boolean
     if((GetItemLevel(udg_IG_InfoItem) == 1))then
         return true
@@ -80,174 +92,203 @@ function Trig_IG_Text_Func008Func001Func002C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_IG_Text_Func008Func001Func003C takes nothing returns boolean
     if(not(udg_IG_ItemValue[1] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func004C takes nothing returns boolean
     if(not(udg_IG_ItemValue[2] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func005C takes nothing returns boolean
     if(not(udg_IG_ItemValue[3] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func006C takes nothing returns boolean
     if(not(udg_IG_ItemValue[4] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func007Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[6] == 6))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func007Func001Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[6] == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func007Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[6] == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func007Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[6] == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001Func007C takes nothing returns boolean
     if(not(udg_IG_ItemValue[6] == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func001C takes nothing returns boolean
     if(not Trig_IG_Text_Func008Func001Func002C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func006C takes nothing returns boolean
     if(not(udg_IG_ItemValue[1] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func007C takes nothing returns boolean
     if(not(udg_IG_ItemValue[2] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func008C takes nothing returns boolean
     if(not(udg_IG_ItemValue[3] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func009C takes nothing returns boolean
     if(not(udg_IG_ItemValue[4] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func010C takes nothing returns boolean
     if(not(udg_IG_ItemValue[5] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func011C takes nothing returns boolean
     if(not(udg_IG_ItemValue[6] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func012C takes nothing returns boolean
     if(not(udg_IG_ItemValue[7] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func013C takes nothing returns boolean
     if(not(udg_IG_ItemValue[8] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func014Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[9] == 9))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func014Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[9] == 8))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func014Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[9] == 7))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func014Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[9] == 6))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func014Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[9] == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func014Func001Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[9] == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func014Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[9] == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func014Func001C takes nothing returns boolean
     if(not(udg_IG_ItemValue[9] == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008Func014C takes nothing returns boolean
     if(not(udg_IG_ItemValue[9] > 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Func008C takes nothing returns boolean
     if(not(GetItemLevel(udg_IG_InfoItem) == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_IG_Text_Actions takes nothing returns nothing
     if(Trig_IG_Text_Func001C())then
         set udg_IG_InfoItem = GetManipulatedItem()
@@ -412,6 +453,7 @@ function Trig_IG_Text_Actions takes nothing returns nothing
         endif
     endif
 endfunction
+
 function InitTrig_IG_Text takes nothing returns nothing
     set gg_trg_IG_Text = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_IG_Text, gg_unit_H000_0004, EVENT_UNIT_USE_ITEM)

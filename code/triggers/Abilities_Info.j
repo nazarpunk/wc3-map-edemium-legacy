@@ -5,84 +5,98 @@ function Trig_Abilities_Info_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Abilities_Info_Func007C takes nothing returns boolean
     if(not(GetTriggerUnit() != gg_unit_h006_0035))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Info_Func008Func001Func001Func001Func001Func001Func001Func001Func002Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h006_0067))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Info_Func008Func001Func001Func001Func001Func001Func001Func001Func002Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h006_0073))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Info_Func008Func001Func001Func001Func001Func001Func001Func001Func002Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h006_0069))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Info_Func008Func001Func001Func001Func001Func001Func001Func001Func002C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h006_0071))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Info_Func008Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h006_0080))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Info_Func008Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h006_0078))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Info_Func008Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h006_0076))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Info_Func008Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h006_0082))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Info_Func008Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h006_0079))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Info_Func008Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h006_0077))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Info_Func008Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h006_0075))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Info_Func008C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h006_0081))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Info_Actions takes nothing returns nothing
     set udg_Target = GetTriggerUnit()
     call RemoveLocation(udg_TargetPoint)
@@ -142,6 +156,7 @@ function Trig_Abilities_Info_Actions takes nothing returns nothing
         endif
     endif
 endfunction
+
 function InitTrig_Abilities_Info takes nothing returns nothing
     set gg_trg_Abilities_Info = CreateTrigger()
     call TriggerRegisterPlayerSelectionEventBJ(gg_trg_Abilities_Info, Player(0), true)

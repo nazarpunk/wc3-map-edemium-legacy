@@ -4,24 +4,28 @@ function Trig_Edemor_Periodic_Func001Func010Func012Func012C takes nothing return
     endif
     return true
 endfunction
+
 function Trig_Edemor_Periodic_Func001Func010Func012C takes nothing returns boolean
     if(not(udg_ER_Creeps[3] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemor_Periodic_Func001Func010C takes nothing returns boolean
     if(not(udg_ER_Creeps[2] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemor_Periodic_Func001C takes nothing returns boolean
     if(not(udg_ER_Creeps[1] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemor_Periodic_Actions takes nothing returns nothing
     if(Trig_Edemor_Periodic_Func001C())then
         set udg_ER_Creeps[1] = (udg_ER_Creeps[1] - 1)
@@ -80,6 +84,7 @@ function Trig_Edemor_Periodic_Actions takes nothing returns nothing
         endif
     endif
 endfunction
+
 function InitTrig_Edemor_Periodic takes nothing returns nothing
     set gg_trg_Edemor_Periodic = CreateTrigger()
     call DisableTrigger(gg_trg_Edemor_Periodic)

@@ -3,6 +3,7 @@ function Trig_Dungeon_Dark_Actions takes nothing returns nothing
     call DestroyTimerDialogBJ(udg_DungeonDarkTimerWindow)
     call EnableTrigger(gg_trg_Dungeon_Dark_Periodic)
 endfunction
+
 function InitTrig_Dungeon_Dark takes nothing returns nothing
     set gg_trg_Dungeon_Dark = CreateTrigger()
     call DisableTrigger(gg_trg_Dungeon_Dark)

@@ -2,48 +2,57 @@
 function Trig_Gen_Tiles_Func002Func002Func004C takes nothing returns boolean
     return udg_RandomNumber == 1
 endfunction
+
 function Trig_Gen_Tiles_Func002Func002C takes nothing returns boolean
     return GetRandomInt(0, 100) >= 95
 endfunction
+
 function Trig_Gen_Tiles_Func003Func002Func001Func004C takes nothing returns boolean
     return udg_RandomNumber == 1
 endfunction
+
 function Trig_Gen_Tiles_Func003Func002Func001Func005Func002Func004C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Tiles_Func003Func002Func001Func005Func002C takes nothing returns boolean
     if(not(GetRandomInt(0, 100) >= 95))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Tiles_Func003Func002Func001C takes nothing returns boolean
     if(not(GetTerrainTypeBJ(udg_D_Point1) != 0x4F616279))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Tiles_Func003Func002C takes nothing returns boolean
     if(not(GetRandomInt(0, 100) >= 95))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Tiles_Func003Func004C takes nothing returns boolean
     if(not(GetUnitUserData(udg_EM_Target) == 74))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Tiles_Func003Func005Func002C takes nothing returns boolean
     if(not(GetUnitUserData(udg_EM_Target) == 74))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Tiles_Func003Func005C takes nothing returns boolean
     if(not(udg_D_DungeonTier == 1))then
         return false
@@ -53,12 +62,14 @@ function Trig_Gen_Tiles_Func003Func005C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Gen_Tiles_Func003Func007C takes nothing returns boolean
     if(not(GetUnitUserData(udg_EM_Target) == 74))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Tiles_Func003Func008Func001C takes nothing returns boolean
     if((udg_D_DungeonTier == 2))then
         return true
@@ -68,12 +79,14 @@ function Trig_Gen_Tiles_Func003Func008Func001C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Gen_Tiles_Func003Func008Func003C takes nothing returns boolean
     if(not(GetUnitUserData(udg_EM_Target) == 74))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Tiles_Func003Func008C takes nothing returns boolean
     if(not Trig_Gen_Tiles_Func003Func008Func001C())then
         return false
@@ -83,6 +96,7 @@ function Trig_Gen_Tiles_Func003Func008C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Gen_Tiles_Func003A takes nothing returns nothing
     set udg_D_Point1 = GetUnitLoc(GetEnumUnit())
     if(Trig_Gen_Tiles_Func003Func002C())then
@@ -134,12 +148,14 @@ function Trig_Gen_Tiles_Func003A takes nothing returns nothing
     endif
     call RemoveLocation(udg_D_Point1)
 endfunction
+
 function Trig_Gen_Tiles_Func006Func003C takes nothing returns boolean
     if(not(GetRandomInt(0, 100) >= 50))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Tiles_Func006A takes nothing returns nothing
     set udg_D_Point1 = GetUnitLoc(GetEnumUnit())
     set bj_forLoopAIndex = 1
@@ -159,6 +175,7 @@ function Trig_Gen_Tiles_Func006A takes nothing returns nothing
     endif
     call RemoveLocation(udg_D_Point1)
 endfunction
+
 function Trig_Gen_Tiles_Actions takes nothing returns nothing
     set udg_D_Pick = GetUnitsOfTypeIdAll(0x6830304D)
     call GroupRemoveUnitSimple(udg_D_CellNumber[0], udg_D_Pick)
@@ -169,6 +186,7 @@ function Trig_Gen_Tiles_Actions takes nothing returns nothing
     call DestroyGroup(udg_D_Pick)
     call ConditionalTriggerExecute(gg_trg_Gen_Decor_Tiles)
 endfunction
+
 function InitTrig_Gen_Tiles takes nothing returns nothing
     set gg_trg_Gen_Tiles = CreateTrigger()
     call TriggerAddAction(gg_trg_Gen_Tiles, function Trig_Gen_Tiles_Actions)

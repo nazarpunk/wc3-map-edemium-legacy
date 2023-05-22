@@ -17,6 +17,7 @@ function Trig_Loading_Succes_Actions takes nothing returns nothing
     endif
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_Loading_Succes takes nothing returns nothing
     set gg_trg_Loading_Succes = CreateTrigger()
     call TriggerRegisterTimerExpireEventBJ(gg_trg_Loading_Succes, udg_LoadingTimer)

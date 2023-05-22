@@ -5,6 +5,7 @@ function Trig_Boss_Casts_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Boss_Casts_Func001Func001C takes nothing returns boolean
     if((GetSpellAbilityId() == 0x41303053))then
         return true
@@ -14,18 +15,21 @@ function Trig_Boss_Casts_Func001Func001C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Boss_Casts_Func001Func002C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x4130354F))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_Casts_Func001C takes nothing returns boolean
     if(not Trig_Boss_Casts_Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_Casts_Actions takes nothing returns nothing
     if(Trig_Boss_Casts_Func001C())then
         set udg_Boss_Ability_Point = GetUnitLoc(GetSpellTargetUnit())
@@ -37,10 +41,10 @@ function Trig_Boss_Casts_Actions takes nothing returns nothing
     else
         if(Trig_Boss_Casts_Func001Func002C())then
             call SetUnitLifeBJ(GetTriggerUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, GetTriggerUnit()) + GetUnitStateSwap(UNIT_STATE_MAX_LIFE, GetSpellTargetUnit())))
-        else
         endif
     endif
 endfunction
+
 function InitTrig_Boss_Casts takes nothing returns nothing
     set gg_trg_Boss_Casts = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Boss_Casts, EVENT_PLAYER_UNIT_SPELL_CHANNEL)

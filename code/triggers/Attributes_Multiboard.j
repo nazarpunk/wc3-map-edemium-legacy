@@ -16,6 +16,7 @@ function Trig_Attributes_Multiboard_Actions takes nothing returns nothing
     call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 2, ("Шанс блока: " + (I2S(R2I(udg_ChanceBlock)) + "%")))
     call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 3, ("Шанс разгрома: " + (I2S(R2I(udg_ChanceCrit)) + "%")))
 endfunction
+
 function InitTrig_Attributes_Multiboard takes nothing returns nothing
     set gg_trg_Attributes_Multiboard = CreateTrigger()
     call TriggerRegisterTimerEventSingle(gg_trg_Attributes_Multiboard, 3.00)

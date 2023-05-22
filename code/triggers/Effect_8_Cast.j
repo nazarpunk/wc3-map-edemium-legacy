@@ -5,36 +5,42 @@ function Trig_Effect_8_Cast_Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Effect_8_Cast_Func010Func001C takes nothing returns boolean
     if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Effect_8_Cast_Func013Func001C takes nothing returns boolean
     if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Effect_8_Cast_Func016Func001C takes nothing returns boolean
     if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Effect_8_Cast_Func018Func001C takes nothing returns boolean
     if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Effect_8_Cast_Func018A takes nothing returns nothing
     if(Trig_Effect_8_Cast_Func018Func001C())then
         set udg_BE_Target[udg_BE_MaxIndex] = GetEnumUnit()
     else
     endif
 endfunction
+
 function Trig_Effect_8_Cast_Actions takes nothing returns nothing
     if(Trig_Effect_8_Cast_Func001C())then
         call EnableTrigger(gg_trg_Effect_8_Loop)
@@ -75,6 +81,7 @@ function Trig_Effect_8_Cast_Actions takes nothing returns nothing
     call RemoveLocation(udg_BE_TempPoint2)
     call RemoveLocation(udg_BE_TempPoint3)
 endfunction
+
 function InitTrig_Effect_8_Cast takes nothing returns nothing
     set gg_trg_Effect_8_Cast = CreateTrigger()
     call TriggerAddAction(gg_trg_Effect_8_Cast, function Trig_Effect_8_Cast_Actions)

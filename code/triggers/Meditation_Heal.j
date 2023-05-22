@@ -5,18 +5,21 @@ function Trig_Meditation_Heal_Func001Func001Func001C takes nothing returns boole
     endif
     return true
 endfunction
+
 function Trig_Meditation_Heal_Func001Func001C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) != GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_Arct)))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Meditation_Heal_Func001C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > 0.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Meditation_Heal_Actions takes nothing returns nothing
     if(Trig_Meditation_Heal_Func001C())then
         if(Trig_Meditation_Heal_Func001Func001C())then
@@ -56,6 +59,7 @@ function Trig_Meditation_Heal_Actions takes nothing returns nothing
         call DisableTrigger(GetTriggeringTrigger())
     endif
 endfunction
+
 function InitTrig_Meditation_Heal takes nothing returns nothing
     set gg_trg_Meditation_Heal = CreateTrigger()
     call DisableTrigger(gg_trg_Meditation_Heal)

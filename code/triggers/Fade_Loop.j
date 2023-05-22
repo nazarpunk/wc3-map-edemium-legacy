@@ -5,30 +5,38 @@ function Trig_Fade_Loop_Func001Func005C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Fade_Loop_Func001Func006Func004001001 takes nothing returns boolean
     return(udg_TempBool == true)
 endfunction
+
 function Trig_Fade_Loop_Func001Func006Func004001002 takes nothing returns boolean
     return(LoadRealBJ(udg_FadeUnitKey, StringHashBJ("FadeStart"), udg_FadeSystemHash) <= LoadRealBJ(udg_FadeUnitKey, StringHashBJ("FadeEnd"), udg_FadeSystemHash))
 endfunction
+
 function Trig_Fade_Loop_Func001Func006Func004001 takes nothing returns boolean
     return GetBooleanAnd(Trig_Fade_Loop_Func001Func006Func004001001(), Trig_Fade_Loop_Func001Func006Func004001002())
 endfunction
+
 function Trig_Fade_Loop_Func001Func006Func004002001 takes nothing returns boolean
     return(udg_TempBool == false)
 endfunction
+
 function Trig_Fade_Loop_Func001Func006Func004002002 takes nothing returns boolean
     return(LoadRealBJ(udg_FadeUnitKey, StringHashBJ("FadeStart"), udg_FadeSystemHash) >= LoadRealBJ(udg_FadeUnitKey, StringHashBJ("FadeEnd"), udg_FadeSystemHash))
 endfunction
+
 function Trig_Fade_Loop_Func001Func006Func004002 takes nothing returns boolean
     return GetBooleanAnd(Trig_Fade_Loop_Func001Func006Func004002001(), Trig_Fade_Loop_Func001Func006Func004002002())
 endfunction
+
 function Trig_Fade_Loop_Func001Func006C takes nothing returns boolean
     if(not GetBooleanOr(Trig_Fade_Loop_Func001Func006Func004001(), Trig_Fade_Loop_Func001Func006Func004002()))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Fade_Loop_Func001A takes nothing returns nothing
     set udg_TempUnit = GetEnumUnit()
     set udg_FadeUnitKey = GetHandleId(udg_TempUnit)
@@ -46,12 +54,14 @@ function Trig_Fade_Loop_Func001A takes nothing returns nothing
     else
     endif
 endfunction
+
 function Trig_Fade_Loop_Func002C takes nothing returns boolean
     if(not(CountUnitsInGroup(udg_FadeSystemGroup) == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Fade_Loop_Actions takes nothing returns nothing
     call ForGroupBJ(udg_FadeSystemGroup, function Trig_Fade_Loop_Func001A)
     if(Trig_Fade_Loop_Func002C())then
@@ -59,6 +69,7 @@ function Trig_Fade_Loop_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Fade_Loop takes nothing returns nothing
     set gg_trg_Fade_Loop = CreateTrigger()
     call DisableTrigger(gg_trg_Fade_Loop)

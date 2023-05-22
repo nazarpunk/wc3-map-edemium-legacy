@@ -1,9 +1,11 @@
 function Trig_Coliseum_Exit_Conditions takes nothing returns boolean
     return GetSpellAbilityId() == 0x41303644
 endfunction
+
 function Trig_Coliseum_Exit_Func013002 takes nothing returns nothing
     call RemoveItem(GetEnumItem())
 endfunction
+
 function Trig_Coliseum_Exit_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Escape_Dialog_Dummy)
     call EnableTrigger(gg_trg_Escape_Dialog)
@@ -19,6 +21,7 @@ function Trig_Coliseum_Exit_Actions takes nothing returns nothing
     call UnitRemoveAbilityBJ(GetSpellAbilityId(), GetTriggerUnit())
     call EnumItemsInRectBJ(gg_rct_Coliseum, function Trig_Coliseum_Exit_Func013002)
 endfunction
+
 function InitTrig_Coliseum_Exit takes nothing returns nothing
     set gg_trg_Coliseum_Exit = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_Coliseum_Exit, gg_unit_n006_0028, EVENT_UNIT_SPELL_FINISH)

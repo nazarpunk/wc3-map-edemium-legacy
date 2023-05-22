@@ -25,6 +25,7 @@ function Trig_CodeGen_Save_4_Actions takes nothing returns nothing
     call ClearTextMessagesBJ(bj_FORCE_PLAYER[0])
     call SelectUnitForPlayerSingle(udg_Arct, Player(0))
 endfunction
+
 function InitTrig_CodeGen_Save_4 takes nothing returns nothing
     set gg_trg_CodeGen_Save_4 = CreateTrigger()
     call TriggerAddAction(gg_trg_CodeGen_Save_4, function Trig_CodeGen_Save_4_Actions)

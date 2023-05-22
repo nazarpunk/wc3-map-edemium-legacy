@@ -5,12 +5,14 @@ function Trig_Core_Recycle_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Core_Recycle_Func003Func002C takes nothing returns boolean
     if(not(udg_CC_Ingredient[bj_forLoopAIndex] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Recycle_Actions takes nothing returns nothing
     call ClearTextMessagesBJ(GetPlayersAll())
     set bj_forLoopAIndex = 1
@@ -33,6 +35,7 @@ function Trig_Core_Recycle_Actions takes nothing returns nothing
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop
 endfunction
+
 function InitTrig_Core_Recycle takes nothing returns nothing
     set gg_trg_Core_Recycle = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_Core_Recycle, gg_unit_h00F_0003, EVENT_UNIT_SPELL_EFFECT)

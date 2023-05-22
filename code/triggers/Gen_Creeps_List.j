@@ -5,96 +5,112 @@ function Trig_Gen_Creeps_List_Func006Func001Func001Func001Func001Func001Func006F
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Func006Func001Func001Func001Func001Func001Func006Func006Func006Func006Func001Func006Func006Func006Func006C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) == 16.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Func006Func001Func001Func001Func001Func001Func006Func006Func006Func006Func001Func006Func006Func006C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) == 15.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Func006Func001Func001Func001Func001Func001Func006Func006Func006Func006Func001Func006Func006C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) == 14.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Func006Func001Func001Func001Func001Func001Func006Func006Func006Func006Func001Func006C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) == 13.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Func006Func001Func001Func001Func001Func001Func006Func006Func006Func006Func001C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) == 12.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Func006Func001Func001Func001Func001Func001Func006Func006Func006Func006C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) == 11.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Func006Func001Func001Func001Func001Func001Func006Func006Func006C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) == 10.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Func006Func001Func001Func001Func001Func001Func006Func006C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) == 9.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Func006Func001Func001Func001Func001Func001Func006C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) == 8.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Func006Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) == 7.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Func006Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) == 6.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Func006Func001Func001Func001C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) == 5.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Func006Func001Func001C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) == 4.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Func006Func001C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) == 3.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Func006C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) == 2.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Creeps_List_Actions takes nothing returns nothing
     if(Trig_Gen_Creeps_List_Func006C())then
         set udg_D_CreepType[1] = 0x6E303032
@@ -258,6 +274,7 @@ function Trig_Gen_Creeps_List_Actions takes nothing returns nothing
     endif
     call ConditionalTriggerExecute(gg_trg_Gen_Creeps)
 endfunction
+
 function InitTrig_Gen_Creeps_List takes nothing returns nothing
     set gg_trg_Gen_Creeps_List = CreateTrigger()
     call TriggerAddAction(gg_trg_Gen_Creeps_List, function Trig_Gen_Creeps_List_Actions)

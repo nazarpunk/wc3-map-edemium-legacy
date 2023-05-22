@@ -23,36 +23,42 @@ function Trig_Decorations_Click_Func001C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Decorations_Click_Conditions takes nothing returns boolean
     if(not Trig_Decorations_Click_Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Decorations_Click_Func004Func001Func002C takes nothing returns boolean
     if(not(GetRandomInt(1, 2) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Decorations_Click_Func004Func001Func008Func001Func003Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Decorations_Click_Func004Func001Func008Func001Func003C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Decorations_Click_Func004Func001Func008Func001C takes nothing returns boolean
     if(not(GetDestructableTypeId(GetOrderTargetDestructable()) == 0x42303231))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Decorations_Click_Func004Func001Func008Func013C takes nothing returns boolean
     if((GetDestructableTypeId(GetOrderTargetDestructable()) == 0x4230315A))then
         return true
@@ -62,42 +68,49 @@ function Trig_Decorations_Click_Func004Func001Func008Func013C takes nothing retu
     endif
     return false
 endfunction
+
 function Trig_Decorations_Click_Func004Func001Func008C takes nothing returns boolean
     if(not Trig_Decorations_Click_Func004Func001Func008Func013C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Decorations_Click_Func004Func001C takes nothing returns boolean
     if(not(DistanceBetweenPoints(udg_D_Point1, udg_D_Point2) < 300.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Decorations_Click_Func004Func002Func003Func005C takes nothing returns boolean
     if(not(GetRandomInt(1, 10) <= 8))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Decorations_Click_Func004Func002Func003C takes nothing returns boolean
     if(not(GetDestructableTypeId(GetOrderTargetDestructable()) == 0x42303053))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Decorations_Click_Func004Func002Func004C takes nothing returns boolean
     if(not(GetRandomInt(1, 20) == 20))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Decorations_Click_Func004Func002C takes nothing returns boolean
     if(not(DistanceBetweenPoints(udg_D_Point1, udg_D_Point2) < 300.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Decorations_Click_Func004Func003C takes nothing returns boolean
     if((GetDestructableTypeId(GetOrderTargetDestructable()) == 0x42303053))then
         return true
@@ -107,12 +120,14 @@ function Trig_Decorations_Click_Func004Func003C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Decorations_Click_Func004C takes nothing returns boolean
     if(not Trig_Decorations_Click_Func004Func003C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Decorations_Click_Actions takes nothing returns nothing
     set udg_D_Point1 = GetUnitLoc(GetTriggerUnit())
     set udg_D_Point2 = GetDestructableLoc(GetOrderTargetDestructable())
@@ -191,6 +206,7 @@ function Trig_Decorations_Click_Actions takes nothing returns nothing
     call RemoveLocation(udg_D_Point1)
     call RemoveLocation(udg_D_Point2)
 endfunction
+
 function InitTrig_Decorations_Click takes nothing returns nothing
     set gg_trg_Decorations_Click = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_Decorations_Click, gg_unit_H000_0004, EVENT_UNIT_ISSUED_TARGET_ORDER)

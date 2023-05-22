@@ -4,6 +4,7 @@ function Trig_CodeGen_Load_4_Func004C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_CodeGen_Load_4_Actions takes nothing returns nothing
     set udg_Code = udg_ImportCode4
     call CodeGen_Load(udg_Code)
@@ -33,6 +34,7 @@ function Trig_CodeGen_Load_4_Actions takes nothing returns nothing
     call ClearTextMessagesBJ(GetPlayersAll())
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_CodeGen_Load_4 takes nothing returns nothing
     set gg_trg_CodeGen_Load_4 = CreateTrigger()
     call TriggerAddAction(gg_trg_CodeGen_Load_4, function Trig_CodeGen_Load_4_Actions)

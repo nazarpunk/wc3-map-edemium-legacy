@@ -8,6 +8,7 @@ function Trig_QG_Completion_Check_Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_QG_Completion_Check_Actions takes nothing returns nothing
     if(Trig_QG_Completion_Check_Func001C())then
         call DestroyQuestBJ(GetLastCreatedQuestBJ())
@@ -18,6 +19,7 @@ function Trig_QG_Completion_Check_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_QG_Completion_Check takes nothing returns nothing
     set gg_trg_QG_Completion_Check = CreateTrigger()
     call DisableTrigger(gg_trg_QG_Completion_Check)

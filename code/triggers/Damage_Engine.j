@@ -5,72 +5,84 @@ function Trig_Damage_Engine_Func009C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Damage_Engine_Func044C takes nothing returns boolean
     if(not(udg_DamageEventAmount == 0.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Engine_Func049Func002Func003C takes nothing returns boolean
     if(not(udg_DamageEventExplodesUnit == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Engine_Func049Func002Func008Func004C takes nothing returns boolean
     if(not(udg_DmgEvN == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Engine_Func049Func002Func008C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_DamageEventTarget) < udg_DmgEvLife))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Engine_Func049Func002C takes nothing returns boolean
     if(not(udg_DamageEventAmount > udg_DamageEventPrevAmt))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Engine_Func049C takes nothing returns boolean
     if(not(udg_DamageEventAmount != udg_DamageEventPrevAmt))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Engine_Func081C takes nothing returns boolean
     if(not(udg_DamageEvent == 0.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Engine_Func092Func006Func003Func007C takes nothing returns boolean
     if(not(udg_UnitDamageRegistered[udg_UDex] == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Engine_Func092Func006Func003C takes nothing returns boolean
     if(not(udg_DamageEventsWasted == 15))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Engine_Func092Func006C takes nothing returns boolean
     if(not(udg_UnitDamageRegistered[udg_UDex] == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Engine_Func092C takes nothing returns boolean
     if(not(udg_UnitIndexEvent == 1.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Engine_Actions takes nothing returns nothing
     set udg_DamageBlockingAbility = 0x41303032
     set udg_DamageTypeSpell = 1
@@ -78,6 +90,7 @@ function Trig_Damage_Engine_Actions takes nothing returns nothing
     set udg_DamageTypeRanged = 3
     call ExecuteFunc("InitDamageEvent")
 endfunction
+
 function DmgEvFilter takes nothing returns boolean
     if(Trig_Damage_Engine_Func009C())then
         return true
@@ -85,6 +98,7 @@ function DmgEvFilter takes nothing returns boolean
     endif
     return false
 endfunction
+
 function DmgEvRemoveAbilities takes nothing returns nothing
     local real r
     loop
@@ -96,11 +110,13 @@ function DmgEvRemoveAbilities takes nothing returns nothing
         exitwhen udg_DmgEvN == 0
     endloop
 endfunction
+
 function DmgEvSetVars takes nothing returns nothing
     set udg_DamageEventAmount = GetEventDamage()
     set udg_DamageEventSource = GetEventDamageSource()
     set udg_DamageEventTarget = GetTriggerUnit()
 endfunction
+
 function FireDmgEv takes nothing returns nothing
     local boolean b = GetUnitAbilityLevel(udg_DamageEventTarget, udg_DamageBlockingAbility) > 0
     local real life = 0
@@ -153,6 +169,7 @@ function FireDmgEv takes nothing returns nothing
     else
     endif
 endfunction
+
 function FireRecursiveDmgEv takes nothing returns nothing
     local real d = udg_DamageEventAmount
     local unit s = udg_DamageEventSource
@@ -180,6 +197,7 @@ function FireRecursiveDmgEv takes nothing returns nothing
     set s = null
     set t = null
 endfunction
+
 function OnDmgEv takes nothing returns boolean
     if(Trig_Damage_Engine_Func081C())then
         set udg_DmgTypPrev = udg_DamageEventType
@@ -193,10 +211,12 @@ function OnDmgEv takes nothing returns boolean
     endif
     return false
 endfunction
+
 function CreateDmgEv takes nothing returns nothing
     set udg_DamageEventTrigger = CreateTrigger()
     call TriggerAddCondition(udg_DamageEventTrigger, Filter(function OnDmgEv))
 endfunction
+
 function SetupDmgEv takes nothing returns boolean
     local integer pdex = udg_UDex
     if(Trig_Damage_Engine_Func092C())then
@@ -230,6 +250,7 @@ function SetupDmgEv takes nothing returns boolean
     endif
     return false
 endfunction
+
 function InitDamageEvent takes nothing returns nothing
     call CreateDmgEv()
     call TriggerAddCondition(GetTriggeringTrigger(), Filter(function SetupDmgEv))
@@ -241,6 +262,7 @@ function InitDamageEvent takes nothing returns nothing
     call StartTimerBJ(udg_DmgEvTimer, false, 0.00)
     call ConditionalTriggerExecute(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_Damage_Engine takes nothing returns nothing
     set gg_trg_Damage_Engine = CreateTrigger()
     call TriggerRegisterVariableEvent(gg_trg_Damage_Engine, "udg_UnitIndexEvent", EQUAL, 1.00)

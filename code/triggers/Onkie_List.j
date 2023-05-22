@@ -5,6 +5,7 @@ function Trig_Onkie_List_Func004C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Onkie_List_Actions takes nothing returns nothing
     set bj_forLoopAIndex = 1
     set bj_forLoopAIndexEnd = 20
@@ -19,6 +20,7 @@ function Trig_Onkie_List_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Onkie_List takes nothing returns nothing
     set gg_trg_Onkie_List = CreateTrigger()
     call TriggerRegisterTimerEventPeriodic(gg_trg_Onkie_List, 300.00)

@@ -5,6 +5,7 @@ function Trig_Creep_Attacking_Func001Func004C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Creep_Attacking_Func001Func010C takes nothing returns boolean
     if((GetUnitTypeId(GetAttacker()) == 0x6E303056))then
         return true
@@ -14,12 +15,14 @@ function Trig_Creep_Attacking_Func001Func010C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Creep_Attacking_Func001C takes nothing returns boolean
     if(not Trig_Creep_Attacking_Func001Func010C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Attacking_Actions takes nothing returns nothing
     if(Trig_Creep_Attacking_Func001C())then
         set udg_Point = GetUnitLoc(udg_Arct)
@@ -37,6 +40,7 @@ function Trig_Creep_Attacking_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Creep_Attacking takes nothing returns nothing
     set gg_trg_Creep_Attacking = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_Creep_Attacking, gg_unit_H000_0004, EVENT_UNIT_ATTACKED)

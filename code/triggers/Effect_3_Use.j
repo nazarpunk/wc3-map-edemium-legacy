@@ -5,6 +5,7 @@ function Trig_Effect_3_Use_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Effect_3_Use_Actions takes nothing returns nothing
     call UnitRemoveAbilityBJ(0x4130334B, udg_Arct)
     set udg_Point = GetUnitLoc(udg_Arct)
@@ -17,6 +18,7 @@ function Trig_Effect_3_Use_Actions takes nothing returns nothing
     call AddSpecialEffectTargetUnitBJ("chest", udg_Arct, "Abilities\\Spells\\Human\\Polymorph\\PolyMorphTarget.mdl")
     call DestroyEffectBJ(GetLastCreatedEffectBJ())
 endfunction
+
 function InitTrig_Effect_3_Use takes nothing returns nothing
     set gg_trg_Effect_3_Use = CreateTrigger()
     call TriggerRegisterPlayerUnitEventSimple(gg_trg_Effect_3_Use, Player(0), EVENT_PLAYER_UNIT_SPELL_EFFECT)

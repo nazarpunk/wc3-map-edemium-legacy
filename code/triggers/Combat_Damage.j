@@ -5,6 +5,7 @@ function Trig_Combat_Damage_Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Combat_Damage_Actions takes nothing returns nothing
     if(Trig_Combat_Damage_Func001C())then
         set udg_CO_Damage = false
@@ -17,6 +18,7 @@ function Trig_Combat_Damage_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Combat_Damage takes nothing returns nothing
     set gg_trg_Combat_Damage = CreateTrigger()
     call TriggerAddAction(gg_trg_Combat_Damage, function Trig_Combat_Damage_Actions)

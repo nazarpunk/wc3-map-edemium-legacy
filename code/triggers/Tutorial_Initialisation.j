@@ -27,6 +27,7 @@ function Trig_Tutorial_Initialisation_Actions takes nothing returns nothing
     set udg_Tutorial[5] = true
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_Tutorial_Initialisation takes nothing returns nothing
     set gg_trg_Tutorial_Initialisation = CreateTrigger()
     call TriggerAddAction(gg_trg_Tutorial_Initialisation, function Trig_Tutorial_Initialisation_Actions)

@@ -8,18 +8,21 @@ function Trig_Effect_4_Vampirism_Func004C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Effect_4_Vampirism_Conditions takes nothing returns boolean
     if(not Trig_Effect_4_Vampirism_Func004C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Effect_4_Vampirism_Func003C takes nothing returns boolean
     if(not(udg_AbilityPower > 1.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Effect_4_Vampirism_Actions takes nothing returns nothing
     set udg_AbilityPower = (udg_DamageEventAmount * 0.30)
     set udg_AbilityPower = (udg_AbilityPower + I2R(udg_CO_Combo))
@@ -33,6 +36,7 @@ function Trig_Effect_4_Vampirism_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Effect_4_Vampirism takes nothing returns nothing
     set gg_trg_Effect_4_Vampirism = CreateTrigger()
     call DisableTrigger(gg_trg_Effect_4_Vampirism)

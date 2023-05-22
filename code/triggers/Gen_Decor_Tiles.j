@@ -5,48 +5,56 @@ function Trig_Gen_Decor_Tiles_Func002Func002Func004Func001Func001Func001Func001F
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func002Func002Func004Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 7))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func002Func002Func004Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 6))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func002Func002Func004Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func002Func002Func004Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func002Func002Func004Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func002Func002Func004Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func002Func002Func004C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func002Func002A takes nothing returns nothing
     set udg_D_Point2 = GetUnitLoc(GetEnumUnit())
     set udg_D_Point1 = OffsetLocation(udg_D_Point2, GetRandomReal(- 300.00, 300.00), GetRandomReal(- 300.00, 300.00))
@@ -85,6 +93,7 @@ function Trig_Gen_Decor_Tiles_Func002Func002A takes nothing returns nothing
     endif
     call RemoveLocation(udg_D_Point1)
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001Func001C takes nothing returns boolean
     if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303235))then
         return true
@@ -100,6 +109,7 @@ function Trig_Gen_Decor_Tiles_Func004Func001Func001C takes nothing returns boole
     endif
     return false
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func001C takes nothing returns boolean
     if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303232))then
         return true
@@ -115,6 +125,7 @@ function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func001C takes nothing
     endif
     return false
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func001C takes nothing returns boolean
     if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303233))then
         return true
@@ -130,6 +141,7 @@ function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func001C takes 
     endif
     return false
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002Func001Func001C takes nothing returns boolean
     if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303236))then
         return true
@@ -145,6 +157,7 @@ function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002Func001F
     endif
     return false
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002Func001Func002Func001C takes nothing returns boolean
     if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303239))then
         return true
@@ -160,6 +173,7 @@ function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002Func001F
     endif
     return false
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002Func001Func002Func002Func001C takes nothing returns boolean
     if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303237))then
         return true
@@ -175,24 +189,28 @@ function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002Func001F
     endif
     return false
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002Func001Func002Func002C takes nothing returns boolean
     if(not Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002Func001Func002Func002Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002Func001Func002C takes nothing returns boolean
     if(not Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002Func001Func002Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002Func001C takes nothing returns boolean
     if(not Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002Func007C takes nothing returns boolean
     if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303238))then
         return true
@@ -208,24 +226,28 @@ function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002Func007C
     endif
     return false
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002C takes nothing returns boolean
     if(not Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func002Func007C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002C takes nothing returns boolean
     if(not Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func002Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001Func002Func001C takes nothing returns boolean
     if(not Trig_Gen_Decor_Tiles_Func004Func001Func002Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001Func002Func007C takes nothing returns boolean
     if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303234))then
         return true
@@ -241,18 +263,21 @@ function Trig_Gen_Decor_Tiles_Func004Func001Func002Func007C takes nothing return
     endif
     return false
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001Func002C takes nothing returns boolean
     if(not Trig_Gen_Decor_Tiles_Func004Func001Func002Func007C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004Func001C takes nothing returns boolean
     if(not Trig_Gen_Decor_Tiles_Func004Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Tiles_Func004A takes nothing returns nothing
     if(Trig_Gen_Decor_Tiles_Func004Func001C())then
         set udg_D_WallType = 1
@@ -319,6 +344,7 @@ function Trig_Gen_Decor_Tiles_Func004A takes nothing returns nothing
         endif
     endif
 endfunction
+
 function Trig_Gen_Decor_Tiles_Actions takes nothing returns nothing
     set udg_D_Pick = GetUnitsOfTypeIdAll(0x6830304D)
     set bj_forLoopAIndex = 1
@@ -333,6 +359,7 @@ function Trig_Gen_Decor_Tiles_Actions takes nothing returns nothing
     call EnumDestructablesInRectAll(gg_rct_Dungeon, function Trig_Gen_Decor_Tiles_Func004A)
     call ConditionalTriggerExecute(gg_trg_Gen_Creeps_List)
 endfunction
+
 function InitTrig_Gen_Decor_Tiles takes nothing returns nothing
     set gg_trg_Gen_Decor_Tiles = CreateTrigger()
     call TriggerAddAction(gg_trg_Gen_Decor_Tiles, function Trig_Gen_Decor_Tiles_Actions)

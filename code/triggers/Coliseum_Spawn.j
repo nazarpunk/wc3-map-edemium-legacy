@@ -1,6 +1,7 @@
 function Trig_Coliseum_Spawn_Conditions takes nothing returns boolean
     return GetSpellAbilityId() == 0x41303643
 endfunction
+
 function Trig_Coliseum_Spawn_Actions takes nothing returns nothing
     call UnitRemoveAbilityBJ(0x41303644, GetTriggerUnit())
     call UnitRemoveAbilityBJ(GetSpellAbilityId(), GetTriggerUnit())
@@ -24,6 +25,7 @@ function Trig_Coliseum_Spawn_Actions takes nothing returns nothing
     call TriggerSleepAction(2.40)
     call ShowUnitHide(gg_unit_n006_0028)
 endfunction
+
 function InitTrig_Coliseum_Spawn takes nothing returns nothing
     set gg_trg_Coliseum_Spawn = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_Coliseum_Spawn, gg_unit_n006_0028, EVENT_UNIT_SPELL_FINISH)

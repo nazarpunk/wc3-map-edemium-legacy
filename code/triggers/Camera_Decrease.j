@@ -5,12 +5,14 @@ function Trig_Camera_Decrease_Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Camera_Decrease_Actions takes nothing returns nothing
     if(Trig_Camera_Decrease_Func001C())then
         set udg_CameraDistance = (udg_CameraDistance - 100)
     else
     endif
 endfunction
+
 function InitTrig_Camera_Decrease takes nothing returns nothing
     set gg_trg_Camera_Decrease = CreateTrigger()
     call DisableTrigger(gg_trg_Camera_Decrease)

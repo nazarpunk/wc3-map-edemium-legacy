@@ -5,30 +5,35 @@ function Trig_Chest_Unlock_Button_Func001Func001Func001C takes nothing returns b
     endif
     return true
 endfunction
+
 function Trig_Chest_Unlock_Button_Func001Func001C takes nothing returns boolean
     if(not(GetClickedButton() == udg_ChestButtonKey))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Unlock_Button_Func001Func002Func002C takes nothing returns boolean
     if(not(GetRandomInt(1, 10) <= 8))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Unlock_Button_Func001Func002C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) >= I2R(udg_ChestEnergy)))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Unlock_Button_Func001C takes nothing returns boolean
     if(not(GetClickedButton() == udg_ChestButtonEnergy))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Unlock_Button_Actions takes nothing returns nothing
     if(Trig_Chest_Unlock_Button_Func001C())then
         if(Trig_Chest_Unlock_Button_Func001Func002C())then
@@ -66,6 +71,7 @@ function Trig_Chest_Unlock_Button_Actions takes nothing returns nothing
     endif
     call DialogDisplayBJ(false, udg_ChestDialog, Player(0))
 endfunction
+
 function InitTrig_Chest_Unlock_Button takes nothing returns nothing
     set gg_trg_Chest_Unlock_Button = CreateTrigger()
     call TriggerRegisterDialogEventBJ(gg_trg_Chest_Unlock_Button, udg_ChestDialog)

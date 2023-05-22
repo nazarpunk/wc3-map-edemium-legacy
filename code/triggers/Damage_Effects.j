@@ -11,12 +11,14 @@ function Trig_Damage_Effects_Func002C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Conditions takes nothing returns boolean
     if(not Trig_Damage_Effects_Func002C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func001C takes nothing returns boolean
     if(not(udg_DamageEventTarget == udg_Arct))then
         return false
@@ -26,6 +28,7 @@ function Trig_Damage_Effects_Func001Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func005C takes nothing returns boolean
     if((GetUnitTypeId(udg_DamageEventSource) == 0x6E303059))then
         return true
@@ -35,6 +38,7 @@ function Trig_Damage_Effects_Func001Func002Func005C takes nothing returns boolea
     endif
     return false
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func001C takes nothing returns boolean
     if(not(GetOwningPlayer(udg_DamageEventTarget) == Player(11)))then
         return false
@@ -44,6 +48,7 @@ function Trig_Damage_Effects_Func001Func002Func006Func001C takes nothing returns
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func002C takes nothing returns boolean
     if(not(udg_DamageEventSource == udg_Arct))then
         return false
@@ -53,6 +58,7 @@ function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Fu
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func003C takes nothing returns boolean
     if(not(udg_DamageEventSource == udg_Arct))then
         return false
@@ -68,90 +74,105 @@ function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Fu
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func016C takes nothing returns boolean
     if(not(udg_ART[17] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func017Func001C takes nothing returns boolean
     if(not(GetRandomInt(1, 100) <= (3 * udg_ART[21])))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func017C takes nothing returns boolean
     if(not(udg_ART[21] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func018Func017Func001C takes nothing returns boolean
     if(not(GetOwningPlayer(GetEnumUnit()) != Player(11)))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func018Func017A takes nothing returns nothing
     if(Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func018Func017Func001C())then
         call GroupRemoveUnitSimple(GetEnumUnit(), udg_PoisonGroup)
     else
     endif
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func018C takes nothing returns boolean
     if(not(udg_IG_ItemEnchantInt[2] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func019C takes nothing returns boolean
     if(not(udg_IG_ItemEnchantInt[3] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func020C takes nothing returns boolean
     if(not(udg_IG_ItemEnchantInt[4] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func021Func008C takes nothing returns boolean
     if(not(udg_EnchantCritBool == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func021C takes nothing returns boolean
     if(not(udg_IG_ItemEnchantInt[5] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func022Func008Func001C takes nothing returns boolean
     if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func022Func008A takes nothing returns nothing
     if(Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func022Func008Func001C())then
         call UnitDamageTargetBJ(GetLastCreatedUnit(), GetEnumUnit(), udg_DamageEventAmount, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
     else
     endif
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func022C takes nothing returns boolean
     if(not(udg_IG_ItemEnchantInt[6] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015C takes nothing returns boolean
     if(not Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func003C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001C takes nothing returns boolean
     if(not(udg_DamageEventSource == udg_Arct))then
         return false
@@ -161,12 +182,14 @@ function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001C takes n
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001C takes nothing returns boolean
     if(not(GetOwningPlayer(udg_DamageEventTarget) == Player(11)))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func002C takes nothing returns boolean
     if(not(GetOwningPlayer(udg_DamageEventTarget) == Player(11)))then
         return false
@@ -176,18 +199,21 @@ function Trig_Damage_Effects_Func001Func002Func006Func002C takes nothing returns
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006Func008C takes nothing returns boolean
     if(not(udg_CO_Effect6Power == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002Func006C takes nothing returns boolean
     if(not Trig_Damage_Effects_Func001Func002Func006Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func002C takes nothing returns boolean
     if(not(udg_DamageEventTarget == udg_Arct))then
         return false
@@ -197,6 +223,7 @@ function Trig_Damage_Effects_Func001Func002C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func003C takes nothing returns boolean
     if(not(udg_DamageEventTarget == udg_Arct))then
         return false
@@ -206,24 +233,28 @@ function Trig_Damage_Effects_Func001Func003C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func004C takes nothing returns boolean
     if(not(udg_AS_Effect11 == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001Func008C takes nothing returns boolean
     if(not(udg_ART[15] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Func001C takes nothing returns boolean
     if(not Trig_Damage_Effects_Func001Func003C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Damage_Effects_Actions takes nothing returns nothing
     if(Trig_Damage_Effects_Func001C())then
         if(Trig_Damage_Effects_Func001Func004C())then
@@ -409,6 +440,7 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
         endif
     endif
 endfunction
+
 function InitTrig_Damage_Effects takes nothing returns nothing
     set gg_trg_Damage_Effects = CreateTrigger()
     call TriggerRegisterVariableEvent(gg_trg_Damage_Effects, "udg_DamageModifierEvent", EQUAL, 1.00)

@@ -5,24 +5,28 @@ function Trig_Dungeon_Cold_Func001Func006Func001Func001C takes nothing returns b
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Cold_Func001Func006Func001C takes nothing returns boolean
     if(not(udg_DungeonColdLevel == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Cold_Func001Func006C takes nothing returns boolean
     if(not(udg_DungeonColdLevel == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Cold_Func001C takes nothing returns boolean
     if(not(udg_DungeonColdLevel < 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Cold_Actions takes nothing returns nothing
     if(Trig_Dungeon_Cold_Func001C())then
         set udg_DungeonColdLevel = (udg_DungeonColdLevel + 1)
@@ -49,6 +53,7 @@ function Trig_Dungeon_Cold_Actions takes nothing returns nothing
     endif
     call StartTimerBJ(udg_DungeonColdTimer, false, 30)
 endfunction
+
 function InitTrig_Dungeon_Cold takes nothing returns nothing
     set gg_trg_Dungeon_Cold = CreateTrigger()
     call DisableTrigger(gg_trg_Dungeon_Cold)

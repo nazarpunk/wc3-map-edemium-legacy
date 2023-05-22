@@ -5,36 +5,42 @@ function Trig_Onkie_Sells_Func001Func001Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Onkie_Sells_Func001Func001C takes nothing returns boolean
     if(not(GetItemTypeId(GetSoldItem()) == 0x49303056))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Onkie_Sells_Func001C takes nothing returns boolean
     if(not(GetItemTypeId(GetSoldItem()) == 0x49303156))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Onkie_Sells_Func002Func003Func003C takes nothing returns boolean
     if(not(GetItemTypeId(GetSoldItem()) == 0x49303053))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Onkie_Sells_Func002Func003C takes nothing returns boolean
     if(not(GetItemTypeId(GetSoldItem()) == 0x49303052))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Onkie_Sells_Func002C takes nothing returns boolean
     if(not(GetItemTypeId(GetSoldItem()) == 0x49303051))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Onkie_Sells_Actions takes nothing returns nothing
     if(Trig_Onkie_Sells_Func001C())then
         set udg_IG_ItemQuality = 1
@@ -71,6 +77,7 @@ function Trig_Onkie_Sells_Actions takes nothing returns nothing
     endif
     call RemoveLocation(udg_IG_Point)
 endfunction
+
 function InitTrig_Onkie_Sells takes nothing returns nothing
     set gg_trg_Onkie_Sells = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_Onkie_Sells, gg_unit_n009_0061, EVENT_UNIT_SELL_ITEM)

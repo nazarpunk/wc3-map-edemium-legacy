@@ -4,6 +4,7 @@ function Trig_Item_Generate_Actions takes nothing returns nothing
     set udg_IG_Point = GetUnitLoc(udg_Arct)
     call ConditionalTriggerExecute(gg_trg_IG_Generate)
 endfunction
+
 function InitTrig_Item_Generate takes nothing returns nothing
     set gg_trg_Item_Generate = CreateTrigger()
     call TriggerRegisterPlayerChatEvent(gg_trg_Item_Generate, Player(0), "/", true)

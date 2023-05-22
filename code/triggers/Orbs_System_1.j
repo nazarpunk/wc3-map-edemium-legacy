@@ -5,6 +5,7 @@ function Trig_Orbs_System_1_Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Orbs_System_1_Actions takes nothing returns nothing
     if(Trig_Orbs_System_1_Func001C())then
         call EnableTrigger(gg_trg_Orbs_System_2)
@@ -29,6 +30,7 @@ function Trig_Orbs_System_1_Actions takes nothing returns nothing
     call RemoveLocation(udg_JD_TempPoint[1])
     call RemoveLocation(udg_JDA_TargetPoint)
 endfunction
+
 function InitTrig_Orbs_System_1 takes nothing returns nothing
     set gg_trg_Orbs_System_1 = CreateTrigger()
     call TriggerAddAction(gg_trg_Orbs_System_1, function Trig_Orbs_System_1_Actions)

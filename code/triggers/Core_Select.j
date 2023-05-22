@@ -5,12 +5,14 @@ function Trig_Core_Select_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Core_Select_Func009Func001C takes nothing returns boolean
     if(not(udg_CC_Ingredient[bj_forLoopAIndex] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Select_Actions takes nothing returns nothing
     call UnitRemoveAbilityBJ(0x4130344A, GetTriggerUnit())
     call UnitRemoveAbilityBJ(0x41303449, GetTriggerUnit())
@@ -43,6 +45,7 @@ function Trig_Core_Select_Actions takes nothing returns nothing
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop
 endfunction
+
 function InitTrig_Core_Select takes nothing returns nothing
     set gg_trg_Core_Select = CreateTrigger()
     call TriggerRegisterPlayerSelectionEventBJ(gg_trg_Core_Select, Player(0), true)

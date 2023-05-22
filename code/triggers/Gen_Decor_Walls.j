@@ -5,264 +5,312 @@ function Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001Func001Func001F
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001Func001Func001Func005001 takes nothing returns boolean
     return(udg_RandomNumber == 6)
 endfunction
+
 function Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001Func001Func001Func005002 takes nothing returns boolean
     return(udg_RandomNumber == 7)
 endfunction
+
 function Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not GetBooleanOr(Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001Func001Func001Func005001(), Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001Func001Func001Func005002()))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func003C takes nothing returns boolean
     if(not(GetRandomInt(1, 2) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func002Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func002Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func002Func001Func002C takes nothing returns boolean
     if(not(udg_D_Torches == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func002Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func002C takes nothing returns boolean
     if(not(udg_D_WallType == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 8))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001Func001Func001Func005001 takes nothing returns boolean
     return(udg_RandomNumber == 6)
 endfunction
+
 function Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001Func001Func001Func005002 takes nothing returns boolean
     return(udg_RandomNumber == 7)
 endfunction
+
 function Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not GetBooleanOr(Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001Func001Func001Func005001(), Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001Func001Func001Func005002()))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func003C takes nothing returns boolean
     if(not(GetRandomInt(1, 2) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func003Func002Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func003Func002Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func003Func002Func002C takes nothing returns boolean
     if(not(udg_D_Torches == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func003Func002C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func003C takes nothing returns boolean
     if(not(udg_D_WallType == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 8))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001Func001Func001Func005001 takes nothing returns boolean
     return(udg_RandomNumber == 6)
 endfunction
+
 function Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001Func001Func001Func005002 takes nothing returns boolean
     return(udg_RandomNumber == 7)
 endfunction
+
 function Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not GetBooleanOr(Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001Func001Func001Func005001(), Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001Func001Func001Func005002()))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func003C takes nothing returns boolean
     if(not(GetRandomInt(1, 2) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func004Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func004Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func004Func001Func002C takes nothing returns boolean
     if(not(udg_D_Torches == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func004Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func004C takes nothing returns boolean
     if(not(udg_D_WallType == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 8))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001Func001Func005001 takes nothing returns boolean
     return(udg_RandomNumber == 6)
 endfunction
+
 function Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001Func001Func005002 takes nothing returns boolean
     return(udg_RandomNumber == 7)
 endfunction
+
 function Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not GetBooleanOr(Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001Func001Func005001(), Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001Func001Func005002()))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func003C takes nothing returns boolean
     if(not(GetRandomInt(1, 2) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func005Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func005Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func005Func001Func002C takes nothing returns boolean
     if(not(udg_D_Torches == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func005Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Func005C takes nothing returns boolean
     if(not(udg_D_WallType == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Decor_Walls_Actions takes nothing returns nothing
     set udg_RandomNumber = GetRandomInt(1, 9)
     if(Trig_Gen_Decor_Walls_Func002C())then
@@ -435,6 +483,7 @@ function Trig_Gen_Decor_Walls_Actions takes nothing returns nothing
     endif
     call RemoveLocation(udg_D_PointOffset)
 endfunction
+
 function InitTrig_Gen_Decor_Walls takes nothing returns nothing
     set gg_trg_Gen_Decor_Walls = CreateTrigger()
     call TriggerAddAction(gg_trg_Gen_Decor_Walls, function Trig_Gen_Decor_Walls_Actions)

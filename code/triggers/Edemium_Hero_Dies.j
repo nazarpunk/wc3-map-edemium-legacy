@@ -5,30 +5,35 @@ function Trig_Edemium_Hero_Dies_Func013C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Edemium_Hero_Dies_Func014C takes nothing returns boolean
     if(not(udg_AS_Effect11 == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Hero_Dies_Func029C takes nothing returns boolean
     if(not(udg_MeditationLogic == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Hero_Dies_Func030C takes nothing returns boolean
     if(not(udg_SprintLogic == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Hero_Dies_Func035C takes nothing returns boolean
     if(not(udg_ER_Logic == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Hero_Dies_Actions takes nothing returns nothing
     set udg_Dead = true
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEOUT, 2.50, "ReplaceableTextures\\CameraMasks\\White_mask.blp", 100.00, 100.00, 100.00, 0)
@@ -102,6 +107,7 @@ function Trig_Edemium_Hero_Dies_Actions takes nothing returns nothing
     call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_Edemium_Hero_Dies takes nothing returns nothing
     set gg_trg_Edemium_Hero_Dies = CreateTrigger()
     call DisableTrigger(gg_trg_Edemium_Hero_Dies)

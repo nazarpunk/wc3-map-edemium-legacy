@@ -1,6 +1,7 @@
 function Trig_CodeGen_Dungeon_Func002A takes nothing returns nothing
     call RemoveDestructable(GetEnumDestructable())
 endfunction
+
 function Trig_CodeGen_Dungeon_Actions takes nothing returns nothing
     local integer ud = GetUnitUserData(udg_Target)
     set udg_Point = GetUnitLoc(udg_Target)
@@ -48,6 +49,7 @@ function Trig_CodeGen_Dungeon_Actions takes nothing returns nothing
     call CreateDestructableLoc(0x42303139, udg_Point, 270.00, 12.00, 0)
 
 endfunction
+
 function InitTrig_CodeGen_Dungeon takes nothing returns nothing
     set gg_trg_CodeGen_Dungeon = CreateTrigger()
     call TriggerAddAction(gg_trg_CodeGen_Dungeon, function Trig_CodeGen_Dungeon_Actions)

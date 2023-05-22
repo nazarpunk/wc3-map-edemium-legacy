@@ -48,6 +48,7 @@ function Trig_Ending_Init_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Ending_Dialogue_1)
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_Ending_Init takes nothing returns nothing
     set gg_trg_Ending_Init = CreateTrigger()
     call TriggerAddAction(gg_trg_Ending_Init, function Trig_Ending_Init_Actions)

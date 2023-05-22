@@ -1,6 +1,7 @@
 function Trig_Keeper_Look_Actions takes nothing returns nothing
     call SetUnitFacingToFaceUnitTimed(gg_unit_n006_0028, udg_Arct, 1.00)
 endfunction
+
 function InitTrig_Keeper_Look takes nothing returns nothing
     set gg_trg_Keeper_Look = CreateTrigger()
     call DisableTrigger(gg_trg_Keeper_Look)

@@ -4,30 +4,35 @@ function Trig_Gen_Walls_Func005Func009Func001Func002C takes nothing returns bool
     endif
     return true
 endfunction
+
 function Trig_Gen_Walls_Func005Func009Func001Func003C takes nothing returns boolean
     if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) == 90.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Walls_Func005Func009Func001Func004C takes nothing returns boolean
     if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) == 0.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Walls_Func005Func009Func001Func005C takes nothing returns boolean
     if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) ==- 90.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Walls_Func005Func009Func001C takes nothing returns boolean
     if(not(CountUnitsInGroup(udg_D_Pick) == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Walls_Func005Func009A takes nothing returns nothing
     if(Trig_Gen_Walls_Func005Func009Func001C())then
     else
@@ -59,15 +64,18 @@ function Trig_Gen_Walls_Func005Func009A takes nothing returns nothing
         call RemoveLocation(udg_D_Point2)
     endif
 endfunction
+
 function Trig_Gen_Walls_Func005Func011Func002A takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Gen_Walls_Func005Func011C takes nothing returns boolean
     if(not(GetForLoopIndexB() == udg_D_Rooms))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Walls_Actions takes nothing returns nothing
     set udg_D_Pick = GetUnitsOfTypeIdAll(0x6830304D)
     set udg_D_Walls = CountUnitsInGroup(udg_D_Pick)
@@ -100,6 +108,7 @@ function Trig_Gen_Walls_Actions takes nothing returns nothing
         set bj_forLoopBIndex = bj_forLoopBIndex + 1
     endloop
 endfunction
+
 function InitTrig_Gen_Walls takes nothing returns nothing
     set gg_trg_Gen_Walls = CreateTrigger()
     call TriggerRegisterTimerExpireEventBJ(gg_trg_Gen_Walls, udg_D_Timer)

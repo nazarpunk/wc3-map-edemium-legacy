@@ -20,15 +20,18 @@ function Trig_Dummy_Remove_Func002C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Dummy_Remove_Conditions takes nothing returns boolean
     if(not Trig_Dummy_Remove_Func002C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dummy_Remove_Actions takes nothing returns nothing
     call RemoveUnit(GetTriggerUnit())
 endfunction
+
 function InitTrig_Dummy_Remove takes nothing returns nothing
     set gg_trg_Dummy_Remove = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Dummy_Remove, EVENT_PLAYER_UNIT_DEATH)

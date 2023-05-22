@@ -1,36 +1,47 @@
 function Trig_Map_Move_Func002Func003A takes nothing returns nothing
     set udg_EM_Target = GetEnumUnit()
 endfunction
+
 function Trig_Map_Move_Func012A takes nothing returns nothing
     call RemoveDestructable(GetEnumDestructable())
 endfunction
+
 function Trig_Map_Move_Func016Func001Func003Func001Func001Func001Func002Func002Func001C takes nothing returns boolean
     return GetUnitUserData(udg_EM_Target) == 74
 endfunction
+
 function Trig_Map_Move_Func016Func001Func003Func001Func001Func001Func002Func002C takes nothing returns boolean
     return GetUnitUserData(udg_EM_Target) == 73
 endfunction
+
 function Trig_Map_Move_Func016Func001Func003Func001Func001Func001Func002C takes nothing returns boolean
     return GetUnitUserData(udg_EM_Target) == 72
 endfunction
+
 function Trig_Map_Move_Func016Func001Func003Func001Func001Func001C takes nothing returns boolean
     return GetUnitUserData(udg_EM_Target) == 71
 endfunction
+
 function Trig_Map_Move_Func016Func001Func003Func001Func001C takes nothing returns boolean
     return GetUnitUserData(udg_EM_Target) == 6
 endfunction
+
 function Trig_Map_Move_Func016Func001Func003Func001C takes nothing returns boolean
     return GetUnitUserData(udg_EM_Target) == 4
 endfunction
+
 function Trig_Map_Move_Func016Func001Func003C takes nothing returns boolean
     return GetUnitUserData(udg_EM_Target) == 3
 endfunction
+
 function Trig_Map_Move_Func016Func001C takes nothing returns boolean
     return GetUnitUserData(udg_EM_Target) == 2
 endfunction
+
 function Trig_Map_Move_Func016C takes nothing returns boolean
     return GetUnitUserData(udg_EM_Target) == 1
 endfunction
+
 function Trig_Map_Move_Actions takes nothing returns nothing
     call UnitRemoveAbilityBJ(0x4130354D, udg_EM_Target)
     if udg_EM_Encounter then
@@ -91,6 +102,7 @@ function Trig_Map_Move_Actions takes nothing returns nothing
     endif
     call RemoveLocation(udg_Point)
 endfunction
+
 function InitTrig_Map_Move takes nothing returns nothing
     set gg_trg_Map_Move = CreateTrigger()
     call TriggerAddAction(gg_trg_Map_Move, function Trig_Map_Move_Actions)

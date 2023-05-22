@@ -1,57 +1,11 @@
 function Trig_Abilities_Activate_Conditions takes nothing returns boolean
     return GetSpellAbilityId() == 0x4130364A or GetSpellAbilityId() == 0x4130364B or GetSpellAbilityId() == 0x4130364C or GetSpellAbilityId() == 0x4130364D
 endfunction
-function Trig_Abilities_Activate_Func001Func002C takes nothing returns boolean
-    if(not(udg_AS_Logic[1] == true))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Abilities_Activate_Func001C takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x4130364A))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Abilities_Activate_Func002Func002C takes nothing returns boolean
-    if(not(udg_AS_Logic[2] == true))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Abilities_Activate_Func002C takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x4130364B))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Abilities_Activate_Func003Func001C takes nothing returns boolean
-    if(not(udg_AS_Logic[3] == true))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Abilities_Activate_Func003C takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x4130364C))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Abilities_Activate_Func004Func001C takes nothing returns boolean
-    if(not(udg_AS_Logic[4] == true))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Abilities_Activate_Func004C takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x4130364D))then
-        return false
-    endif
-    return true
-endfunction
+
 function Trig_Abilities_Activate_Actions takes nothing returns nothing
-    if(Trig_Abilities_Activate_Func001C())then
-        if(Trig_Abilities_Activate_Func001Func002C())then
+    if GetSpellAbilityId() == 0x4130364A then
+
+        if udg_AS_Logic[1] then
             call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Сначала необходимо деактивировать навык который уже присутствует на данной серии.")
         else
             call RemoveDestructable(udg_MagneticField[1])
@@ -68,10 +22,11 @@ function Trig_Abilities_Activate_Actions takes nothing returns nothing
             call ConditionalTriggerExecute(gg_trg_Abilities_Remove)
             call TriggerExecute(gg_trg_Abilities_Effect)
         endif
-    else
+
     endif
-    if(Trig_Abilities_Activate_Func002C())then
-        if(Trig_Abilities_Activate_Func002Func002C())then
+    
+    if GetSpellAbilityId() == 0x4130364B then
+        if udg_AS_Logic[2] then
             call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Сначала необходимо деактивировать навык который уже присутствует на данной серии.")
         else
             call RemoveDestructable(udg_MagneticField[2])
@@ -88,10 +43,10 @@ function Trig_Abilities_Activate_Actions takes nothing returns nothing
             call TriggerExecute(gg_trg_Abilities_Remove)
             call TriggerExecute(gg_trg_Abilities_Effect)
         endif
-    else
     endif
-    if(Trig_Abilities_Activate_Func003C())then
-        if(Trig_Abilities_Activate_Func003Func001C())then
+
+    if GetSpellAbilityId() == 0x4130364C then
+        if udg_AS_Logic[3] then
             call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Сначала необходимо деактивировать навык который уже присутствует на данной серии.")
         else
             call RemoveDestructable(udg_MagneticField[3])
@@ -108,10 +63,10 @@ function Trig_Abilities_Activate_Actions takes nothing returns nothing
             call TriggerExecute(gg_trg_Abilities_Remove)
             call TriggerExecute(gg_trg_Abilities_Effect)
         endif
-    else
     endif
-    if(Trig_Abilities_Activate_Func004C())then
-        if(Trig_Abilities_Activate_Func004Func001C())then
+
+    if GetSpellAbilityId() == 0x4130364D then
+        if udg_AS_Logic[4] then
             call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Сначала необходимо деактивировать навык который уже присутствует на данной серии.")
         else
             call RemoveDestructable(udg_MagneticField[4])
@@ -128,9 +83,10 @@ function Trig_Abilities_Activate_Actions takes nothing returns nothing
             call TriggerExecute(gg_trg_Abilities_Remove)
             call TriggerExecute(gg_trg_Abilities_Effect)
         endif
-    else
     endif
+    
 endfunction
+
 function InitTrig_Abilities_Activate takes nothing returns nothing
     set gg_trg_Abilities_Activate = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Abilities_Activate, EVENT_PLAYER_UNIT_SPELL_EFFECT)

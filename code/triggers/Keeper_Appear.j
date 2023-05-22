@@ -4,6 +4,7 @@ function Trig_Keeper_Appear_Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Keeper_Appear_Actions takes nothing returns nothing
     if(Trig_Keeper_Appear_Func001C())then
         set udg_CS_KeeperBool = true
@@ -20,6 +21,7 @@ function Trig_Keeper_Appear_Actions takes nothing returns nothing
         call ShowUnitHide(gg_unit_n006_0028)
     endif
 endfunction
+
 function InitTrig_Keeper_Appear takes nothing returns nothing
     set gg_trg_Keeper_Appear = CreateTrigger()
     call TriggerRegisterTimerExpireEventBJ(gg_trg_Keeper_Appear, udg_CS_Timer)

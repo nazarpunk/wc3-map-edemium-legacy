@@ -5,6 +5,7 @@ function Trig_Effect_9_Periodic_Func001Func006Func001C takes nothing returns boo
     endif
     return true
 endfunction
+
 function Trig_Effect_9_Periodic_Func001Func006A takes nothing returns nothing
     if(Trig_Effect_9_Periodic_Func001Func006Func001C())then
         call UnitDamageTargetBJ(udg_Arct, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
@@ -16,6 +17,7 @@ function Trig_Effect_9_Periodic_Func001Func006A takes nothing returns nothing
     else
     endif
 endfunction
+
 function Trig_Effect_9_Periodic_Func001A takes nothing returns nothing
     set udg_Point = GetUnitLoc(GetEnumUnit())
     set udg_UnitGroup = GetUnitsInRangeOfLocAll(250.00, udg_Point)
@@ -25,9 +27,11 @@ function Trig_Effect_9_Periodic_Func001A takes nothing returns nothing
     call ForGroupBJ(udg_UnitGroup, function Trig_Effect_9_Periodic_Func001Func006A)
     call DestroyGroup(udg_UnitGroup)
 endfunction
+
 function Trig_Effect_9_Periodic_Actions takes nothing returns nothing
     call ForGroupBJ(udg_AS_Effect9Group, function Trig_Effect_9_Periodic_Func001A)
 endfunction
+
 function InitTrig_Effect_9_Periodic takes nothing returns nothing
     set gg_trg_Effect_9_Periodic = CreateTrigger()
     call DisableTrigger(gg_trg_Effect_9_Periodic)

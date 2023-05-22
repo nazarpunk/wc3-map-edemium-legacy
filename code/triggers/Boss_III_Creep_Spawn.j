@@ -5,12 +5,14 @@ function Trig_Boss_III_Creep_Spawn_Func003Func002C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Creep_Spawn_Func003C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Creep_Spawn_Actions takes nothing returns nothing
     set udg_RandomNumber = GetRandomInt(1, 3)
     set udg_CustomValues = (udg_CustomValues + 1)
@@ -30,6 +32,7 @@ function Trig_Boss_III_Creep_Spawn_Actions takes nothing returns nothing
     call DestroyEffectBJ(GetLastCreatedEffectBJ())
     call RemoveLocation(udg_CO_Point)
 endfunction
+
 function InitTrig_Boss_III_Creep_Spawn takes nothing returns nothing
     set gg_trg_Boss_III_Creep_Spawn = CreateTrigger()
     call DisableTrigger(gg_trg_Boss_III_Creep_Spawn)

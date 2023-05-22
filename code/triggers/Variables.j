@@ -216,6 +216,7 @@ function Trig_Variables_Actions takes nothing returns nothing
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
 
+
 function InitTrig_Variables takes nothing returns nothing
     set gg_trg_Variables = CreateTrigger()
     call TriggerAddAction(gg_trg_Variables, function Trig_Variables_Actions)

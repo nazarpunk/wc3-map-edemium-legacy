@@ -11,36 +11,42 @@ function Trig_Chest_Unlock_Func007C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Chest_Unlock_Conditions takes nothing returns boolean
     if(not Trig_Chest_Unlock_Func007C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Unlock_Func004Func001Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetOrderTargetUnit()) == 0x6E303045))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Unlock_Func004Func001Func002C takes nothing returns boolean
     if(not(GetUnitTypeId(GetOrderTargetUnit()) == 0x6E303046))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Unlock_Func004Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetOrderTargetUnit()) == 0x6E303044))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Unlock_Func004C takes nothing returns boolean
     if(not(DistanceBetweenPoints(udg_D_Point1, udg_D_Point2) < 300.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Chest_Unlock_Actions takes nothing returns nothing
     set udg_D_Point1 = GetUnitLoc(GetTriggerUnit())
     set udg_D_Point2 = GetUnitLoc(GetOrderTargetUnit())
@@ -77,6 +83,7 @@ function Trig_Chest_Unlock_Actions takes nothing returns nothing
     call RemoveLocation(udg_D_Point1)
     call RemoveLocation(udg_D_Point2)
 endfunction
+
 function InitTrig_Chest_Unlock takes nothing returns nothing
     set gg_trg_Chest_Unlock = CreateTrigger()
     call DisableTrigger(gg_trg_Chest_Unlock)

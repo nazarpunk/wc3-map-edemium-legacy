@@ -4,6 +4,7 @@ function Trig_CodeGen_Save_Func001Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_CodeGen_Save_Actions takes nothing returns nothing
     set bj_forLoopAIndex = 1
     set bj_forLoopAIndexEnd = 20
@@ -65,6 +66,7 @@ function Trig_CodeGen_Save_Actions takes nothing returns nothing
     call PreloadGenEnd("Edemium\\Save1.txt")
     call ConditionalTriggerExecute(gg_trg_CodeGen_Save_2)
 endfunction
+
 function InitTrig_CodeGen_Save takes nothing returns nothing
     set gg_trg_CodeGen_Save = CreateTrigger()
     call TriggerAddAction(gg_trg_CodeGen_Save, function Trig_CodeGen_Save_Actions)

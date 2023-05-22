@@ -1,6 +1,7 @@
 
 function Trig_ISeeDeadPeople_Actions takes nothing returns nothing
 endfunction
+
 function InitTrig_ISeeDeadPeople takes nothing returns nothing
     set gg_trg_ISeeDeadPeople = CreateTrigger()
     call DisableTrigger(gg_trg_ISeeDeadPeople)

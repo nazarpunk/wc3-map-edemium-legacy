@@ -17,6 +17,7 @@ function Trig_Combat_Timer_Actions takes nothing returns nothing
     call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 0.25)
     call DisableTrigger(gg_trg_Combo_Ability_Use)
 endfunction
+
 function InitTrig_Combat_Timer takes nothing returns nothing
     set gg_trg_Combat_Timer = CreateTrigger()
     call TriggerRegisterTimerExpireEventBJ(gg_trg_Combat_Timer, udg_CO_CombatTimer)

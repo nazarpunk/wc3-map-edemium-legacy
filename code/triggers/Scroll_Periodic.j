@@ -5,6 +5,7 @@ function Trig_Scroll_Periodic_Func017Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Scroll_Periodic_Func017A takes nothing returns nothing
     if(Trig_Scroll_Periodic_Func017Func001C())then
         set udg_AbilityPower = ((I2R(udg_CO_Power) * 1.00) + I2R(udg_CO_Combo))
@@ -18,6 +19,7 @@ function Trig_Scroll_Periodic_Func017A takes nothing returns nothing
     else
     endif
 endfunction
+
 function Trig_Scroll_Periodic_Actions takes nothing returns nothing
     set udg_CO_Point = GetUnitLoc(udg_Arct)
     set udg_CO_UnitGroup = GetUnitsInRangeOfLocAll(400.00, udg_CO_Point)
@@ -35,6 +37,7 @@ function Trig_Scroll_Periodic_Actions takes nothing returns nothing
     call GroupClear(udg_CO_UnitGroup)
     call DestroyGroup(udg_CO_UnitGroup)
 endfunction
+
 function InitTrig_Scroll_Periodic takes nothing returns nothing
     set gg_trg_Scroll_Periodic = CreateTrigger()
     call DisableTrigger(gg_trg_Scroll_Periodic)

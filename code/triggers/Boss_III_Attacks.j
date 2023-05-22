@@ -5,18 +5,21 @@ function Trig_Boss_III_Attacks_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Attacks_Func007Func002C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Attacks_Func007C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Attacks_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(GetAttacker())
     call CreateNUnitsAtLoc(1, 0x68303039, Player(11), udg_Point, bj_UNIT_FACING)
@@ -40,6 +43,7 @@ function Trig_Boss_III_Attacks_Actions takes nothing returns nothing
     call IssueImmediateOrderBJ(GetLastCreatedUnit(), "stomp")
     call RemoveLocation(udg_CO_Point)
 endfunction
+
 function InitTrig_Boss_III_Attacks takes nothing returns nothing
     set gg_trg_Boss_III_Attacks = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Boss_III_Attacks, EVENT_PLAYER_UNIT_ATTACKED)

@@ -79,6 +79,7 @@ function Trig_Initialisation_Dialog_Actions takes nothing returns nothing
     endif
 endfunction
 
+
 function InitTrig_Initialisation_Dialog takes nothing returns nothing
     set gg_trg_Initialisation_Dialog = CreateTrigger()
     call TriggerRegisterDialogEventBJ(gg_trg_Initialisation_Dialog, udg_InitDialog)

@@ -5,12 +5,14 @@ function Trig_Artefactorium_Spawn_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Artefactorium_Spawn_Func002C takes nothing returns boolean
     if(not(CountUnitsInGroup(udg_UnitGroup) < 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Artefactorium_Spawn_Actions takes nothing returns nothing
     set udg_UnitGroup = GetUnitsInRectOfPlayer(gg_rct_Artefactorium_Pick, Player(11))
     if(Trig_Artefactorium_Spawn_Func002C())then
@@ -24,6 +26,7 @@ function Trig_Artefactorium_Spawn_Actions takes nothing returns nothing
     endif
     call DestroyGroup(udg_UnitGroup)
 endfunction
+
 function InitTrig_Artefactorium_Spawn takes nothing returns nothing
     set gg_trg_Artefactorium_Spawn = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_Artefactorium_Spawn, gg_unit_H000_0004, EVENT_UNIT_ISSUED_TARGET_ORDER)

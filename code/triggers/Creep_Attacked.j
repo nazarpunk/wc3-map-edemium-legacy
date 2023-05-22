@@ -8,6 +8,7 @@ function Trig_Creep_Attacked_Func001Func001Func001C takes nothing returns boolea
     endif
     return false
 endfunction
+
 function Trig_Creep_Attacked_Func001Func001C takes nothing returns boolean
     if(not Trig_Creep_Attacked_Func001Func001Func001C())then
         return false
@@ -20,6 +21,7 @@ function Trig_Creep_Attacked_Func001Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Creep_Attacked_Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetTriggerUnit()) == 0x6E303055))then
         return false
@@ -32,6 +34,7 @@ function Trig_Creep_Attacked_Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Creep_Attacked_Actions takes nothing returns nothing
     if(Trig_Creep_Attacked_Func001C())then
         call IssueImmediateOrderBJ(GetTriggerUnit(), "tranquility")
@@ -42,6 +45,7 @@ function Trig_Creep_Attacked_Actions takes nothing returns nothing
         endif
     endif
 endfunction
+
 function InitTrig_Creep_Attacked takes nothing returns nothing
     set gg_trg_Creep_Attacked = CreateTrigger()
     call TriggerRegisterPlayerUnitEventSimple(gg_trg_Creep_Attacked, Player(11), EVENT_PLAYER_UNIT_ATTACKED)

@@ -4,42 +4,49 @@ function Trig_Map_Events_Func005Func001Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Map_Events_Func005Func001Func002Func001C takes nothing returns boolean
     if(not(GetRandomInt(1, 2) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Events_Func005Func001Func002Func002Func001C takes nothing returns boolean
     if(not(GetRandomInt(1, 2) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Events_Func005Func001Func002Func002C takes nothing returns boolean
     if(not(udg_RandomNumber == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Events_Func005Func001Func002C takes nothing returns boolean
     if(not(udg_RandomNumber == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Events_Func005Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Events_Func005C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Events_Actions takes nothing returns nothing
     set udg_RandomNumber = GetRandomInt(1, 4)
     set udg_EventAttribute = (10 + GetHeroLevel(udg_Arct))
@@ -87,6 +94,7 @@ function Trig_Map_Events_Actions takes nothing returns nothing
     endif
     call DialogDisplayBJ(true, udg_EventDialog, Player(0))
 endfunction
+
 function InitTrig_Map_Events takes nothing returns nothing
     set gg_trg_Map_Events = CreateTrigger()
     call TriggerAddAction(gg_trg_Map_Events, function Trig_Map_Events_Actions)

@@ -5,126 +5,147 @@ function Trig_Core_Secret_Select_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h01G_0027))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h01F_0026))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h01E_0025))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h01D_0024))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h01C_0023))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h01B_0022))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h01A_0021))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h019_0020))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h018_0019))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h017_0018))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h016_0017))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h015_0016))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h00U_0015))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h003_0014))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h002_0010))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h010_0008))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h011_0009))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h00Z_0007))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h00H_0002))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Func003C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h00Y_0005))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Secret_Select_Actions takes nothing returns nothing
     call ClearTextMessagesBJ(GetPlayersAll())
     if(Trig_Core_Secret_Select_Func003C())then
@@ -208,6 +229,7 @@ function Trig_Core_Secret_Select_Actions takes nothing returns nothing
         endif
     endif
 endfunction
+
 function InitTrig_Core_Secret_Select takes nothing returns nothing
     set gg_trg_Core_Secret_Select = CreateTrigger()
     call TriggerRegisterPlayerSelectionEventBJ(gg_trg_Core_Secret_Select, Player(0), true)

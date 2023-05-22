@@ -5,6 +5,7 @@ function Trig_Creep_Kill_Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func002C takes nothing returns boolean
     if(not(GetUnitTypeId(GetTriggerUnit()) == 0x48303030))then
         return false
@@ -14,6 +15,7 @@ function Trig_Creep_Kill_Func002C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func002Func001C takes nothing returns boolean
     if((GetOwningPlayer(GetTriggerUnit()) == Player(11)))then
         return true
@@ -23,6 +25,7 @@ function Trig_Creep_Kill_Func003Func002Func001C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Creep_Kill_Func003Func002Func002C takes nothing returns boolean
     if((GetUnitAbilityLevelSwapped(0x41303345, GetTriggerUnit()) == 1))then
         return true
@@ -32,6 +35,7 @@ function Trig_Creep_Kill_Func003Func002Func002C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Creep_Kill_Func003Func002C takes nothing returns boolean
     if(not Trig_Creep_Kill_Func003Func002Func001C())then
         return false
@@ -41,6 +45,7 @@ function Trig_Creep_Kill_Func003Func002C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func001C takes nothing returns boolean
     if(not(GetRandomInt(1, 5) == 1))then
         return false
@@ -50,78 +55,92 @@ function Trig_Creep_Kill_Func003Func012Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func002Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetTriggerUnit()) == 0x6E303034))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func002C takes nothing returns boolean
     if(not(GetUnitTypeId(GetTriggerUnit()) == 0x6E303035))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func003Func002C takes nothing returns boolean
     if(not(GetUnitTypeId(GetDyingUnit()) == 0x6E303038))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func003Func005Func002C takes nothing returns boolean
     if(not(udg_Difficulty_Unlocked[1] == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func003Func005Func003Func001C takes nothing returns boolean
     if(not(udg_Difficulty_Unlocked[2] == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func003Func005Func003Func002C takes nothing returns boolean
     if(not(udg_CC_SecretUnlocked[20] == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func003Func005Func003C takes nothing returns boolean
     if(not(GetUnitTypeId(udg_EM_BossUnit) == 0x6E303047))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func003Func005Func004C takes nothing returns boolean
     if(not(udg_CC_SecretUnlocked[5] == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func003Func005C takes nothing returns boolean
     if(not(GetUnitTypeId(udg_EM_BossUnit) == 0x6E30304C))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func003Func018Func003Func003001 takes nothing returns boolean
     return(udg_RandomNumber >= 2)
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func003Func018Func003Func003002 takes nothing returns boolean
     return(udg_RandomNumber <= 4)
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func003Func018Func003C takes nothing returns boolean
     if(not GetBooleanAnd(Trig_Creep_Kill_Func003Func012Func003Func018Func003Func003001(), Trig_Creep_Kill_Func003Func012Func003Func018Func003Func003002()))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func003Func018C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func003C takes nothing returns boolean
     if(not(GetTriggerUnit() == udg_EM_BossUnit))then
         return false
@@ -131,24 +150,28 @@ function Trig_Creep_Kill_Func003Func012Func003C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func004Func001C takes nothing returns boolean
     if(not(udg_EM_BossRoom == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func004Func002Func002C takes nothing returns boolean
     if(not(udg_EM_BossRoom == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func004Func002C takes nothing returns boolean
     if(not(GetUnitAbilityLevelSwapped(0x41303345, GetTriggerUnit()) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func004Func003C takes nothing returns boolean
     if(not(GetRandomInt(1, 100) >= (80 - (1 * udg_ART[3]))))then
         return false
@@ -158,12 +181,14 @@ function Trig_Creep_Kill_Func003Func012Func004Func003C takes nothing returns boo
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func004C takes nothing returns boolean
     if(not Trig_Creep_Kill_Func003Func012Func004Func003C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func006Func004C takes nothing returns boolean
     if((GetTriggerUnit() == udg_ChestKeyOwner[1]))then
         return true
@@ -179,24 +204,28 @@ function Trig_Creep_Kill_Func003Func012Func006Func004C takes nothing returns boo
     endif
     return false
 endfunction
+
 function Trig_Creep_Kill_Func003Func012Func006C takes nothing returns boolean
     if(not Trig_Creep_Kill_Func003Func012Func006Func004C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003Func012C takes nothing returns boolean
     if(not(udg_Artefactorium == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Func003C takes nothing returns boolean
     if(not Trig_Creep_Kill_Func003Func002C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Actions takes nothing returns nothing
     if(Trig_Creep_Kill_Func001C())then
         call GroupRemoveUnitSimple(GetTriggerUnit(), udg_FollowersGroup)
@@ -353,6 +382,7 @@ function Trig_Creep_Kill_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Creep_Kill takes nothing returns nothing
     set gg_trg_Creep_Kill = CreateTrigger()
     call DisableTrigger(gg_trg_Creep_Kill)

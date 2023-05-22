@@ -7,6 +7,7 @@ function Trig_Gen_Start_Func006Func002Func002C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Gen_Start_Func006Func002C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) > 5.00))then
         return false
@@ -16,6 +17,7 @@ function Trig_Gen_Start_Func006Func002C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Gen_Start_Func006C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) > 0.00))then
         return false
@@ -25,12 +27,14 @@ function Trig_Gen_Start_Func006C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Gen_Start_Func011Func001C takes nothing returns boolean
     if(not(GetDestructableTypeId(GetEnumDestructable()) == 0x42303131))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Start_Func011A takes nothing returns nothing
     if(Trig_Gen_Start_Func011Func001C())then
         set udg_D_Point1 = GetDestructableLoc(GetEnumDestructable())
@@ -39,24 +43,28 @@ function Trig_Gen_Start_Func011A takes nothing returns nothing
     else
     endif
 endfunction
+
 function Trig_Gen_Start_Func023C takes nothing returns boolean
     if(not(udg_Tutorial[5] == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Start_Func024C takes nothing returns boolean
     if(not(udg_D_CreepsTotal > 75))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Start_Func025C takes nothing returns boolean
     if(not(udg_D_Rooms > 64))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Start_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Camera_Fix)
     set udg_D_Point1 = GetRectCenter(gg_rct_Dungeon_Center)
@@ -174,6 +182,7 @@ function Trig_Gen_Start_Actions takes nothing returns nothing
     set udg_D_PortalLogic[2] = false
     call ConditionalTriggerExecute(gg_trg_Gen_Cells)
 endfunction
+
 function InitTrig_Gen_Start takes nothing returns nothing
     set gg_trg_Gen_Start = CreateTrigger()
     call TriggerAddAction(gg_trg_Gen_Start, function Trig_Gen_Start_Actions)

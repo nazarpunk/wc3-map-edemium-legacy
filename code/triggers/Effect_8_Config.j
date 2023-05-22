@@ -54,6 +54,7 @@ function Trig_Effect_8_Config_Actions takes nothing returns nothing
     call RemoveUnit(GetLastCreatedUnit())
     call RemoveLocation(udg_BE_TempPoint)
 endfunction
+
 function InitTrig_Effect_8_Config takes nothing returns nothing
     set gg_trg_Effect_8_Config = CreateTrigger()
     call TriggerAddAction(gg_trg_Effect_8_Config, function Trig_Effect_8_Config_Actions)

@@ -5,9 +5,11 @@ function Trig_WhosYourDaddy_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_WhosYourDaddy_Actions takes nothing returns nothing
     call CustomDefeatBJ(Player(0), "Боги наблюдают на тобой.")
 endfunction
+
 function InitTrig_WhosYourDaddy takes nothing returns nothing
     set gg_trg_WhosYourDaddy = CreateTrigger()
     call TriggerRegisterPlayerUnitEventSimple(gg_trg_WhosYourDaddy, Player(10), EVENT_PLAYER_UNIT_DEATH)

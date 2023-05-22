@@ -5,36 +5,42 @@ function Trig_Enter_Dialog_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Enter_Dialog_Func001Func011Func001Func001Func001C takes nothing returns boolean
     if(not(udg_Difficulty == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Enter_Dialog_Func001Func011Func001Func001C takes nothing returns boolean
     if(not(udg_Difficulty == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Enter_Dialog_Func001Func011Func001C takes nothing returns boolean
     if(not(udg_Difficulty == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Enter_Dialog_Func001Func011C takes nothing returns boolean
     if(not(udg_Difficulty == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Enter_Dialog_Func001C takes nothing returns boolean
     if(not(udg_Tutorial[5] == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Enter_Dialog_Actions takes nothing returns nothing
     if(Trig_Enter_Dialog_Func001C())then
         call DialogClearBJ(udg_TeleportDialog)
@@ -70,6 +76,7 @@ function Trig_Enter_Dialog_Actions takes nothing returns nothing
         call DisableTrigger(GetTriggeringTrigger())
     endif
 endfunction
+
 function InitTrig_Enter_Dialog takes nothing returns nothing
     set gg_trg_Enter_Dialog = CreateTrigger()
     call DisableTrigger(gg_trg_Enter_Dialog)

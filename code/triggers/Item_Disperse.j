@@ -8,6 +8,7 @@ function Trig_Item_Disperse_Func017C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Item_Disperse_Conditions takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x41303349))then
         return false
@@ -17,18 +18,21 @@ function Trig_Item_Disperse_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Item_Disperse_Func002Func001C takes nothing returns boolean
     if(not(GetItemLevel(GetSpellTargetItem()) == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Item_Disperse_Func002C takes nothing returns boolean
     if(not(GetItemType(GetSpellTargetItem()) == ITEM_TYPE_CHARGED))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Item_Disperse_Actions takes nothing returns nothing
     local integer price
     if(Trig_Item_Disperse_Func002C())then
@@ -60,6 +64,7 @@ function Trig_Item_Disperse_Actions takes nothing returns nothing
     call RemoveLocation(udg_Point)
     call RemoveItem(GetSpellTargetItem())
 endfunction
+
 function InitTrig_Item_Disperse takes nothing returns nothing
     set gg_trg_Item_Disperse = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Item_Disperse, EVENT_PLAYER_UNIT_SPELL_EFFECT)

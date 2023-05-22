@@ -12,6 +12,7 @@ function Trig_Boss_II_Channel_Periodic_Actions takes nothing returns nothing
     call IssuePointOrderLocBJ(GetLastCreatedUnit(), "carrionswarm", udg_Point)
     call RemoveLocation(udg_Point)
 endfunction
+
 function InitTrig_Boss_II_Channel_Periodic takes nothing returns nothing
     set gg_trg_Boss_II_Channel_Periodic = CreateTrigger()
     call DisableTrigger(gg_trg_Boss_II_Channel_Periodic)

@@ -23,30 +23,35 @@ function Trig_Talent_Kill_Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Talent_Kill_Conditions takes nothing returns boolean
     if(not Trig_Talent_Kill_Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talent_Kill_Func002C takes nothing returns boolean
     if(not(udg_ART[4] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talent_Kill_Func003Func001C takes nothing returns boolean
     if(not(GetRandomInt(1, 100) <= (3 * udg_ART[5])))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talent_Kill_Func003C takes nothing returns boolean
     if(not(udg_ART[5] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talent_Kill_Actions takes nothing returns nothing
     if(Trig_Talent_Kill_Func002C())then
         set udg_AbilityPower = (GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_Arct) * (2.00 * I2R(udg_ART[4])))
@@ -65,6 +70,7 @@ function Trig_Talent_Kill_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Talent_Kill takes nothing returns nothing
     set gg_trg_Talent_Kill = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Talent_Kill, EVENT_PLAYER_UNIT_DEATH)

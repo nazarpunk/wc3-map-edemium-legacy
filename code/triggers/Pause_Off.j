@@ -5,6 +5,7 @@ function Trig_Pause_Off_Func005Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Pause_Off_Func005C takes nothing returns boolean
     if(not(udg_TutorialHintsOn == true))then
         return false
@@ -14,18 +15,21 @@ function Trig_Pause_Off_Func005C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Pause_Off_Func006Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(udg_EM_BossUnit) == 0x6E303038))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Pause_Off_Func006C takes nothing returns boolean
     if(not(udg_EM_BossRoom == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Pause_Off_Actions takes nothing returns nothing
     call PauseAllUnitsBJ(false)
     call SuspendHeroXPBJ(true, udg_Arct)
@@ -59,6 +63,7 @@ function Trig_Pause_Off_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Pause_Off takes nothing returns nothing
     set gg_trg_Pause_Off = CreateTrigger()
     call TriggerRegisterTimerExpireEventBJ(gg_trg_Pause_Off, udg_PauseTimer)

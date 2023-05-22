@@ -5,18 +5,21 @@ function Trig_Boss_III_Portal_Spawn_Func001Func002Func002C takes nothing returns
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Portal_Spawn_Func001Func002C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Portal_Spawn_Func001C takes nothing returns boolean
     if(not(udg_Boss3PortalCounter == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Portal_Spawn_Actions takes nothing returns nothing
     if(Trig_Boss_III_Portal_Spawn_Func001C())then
         set udg_RandomNumber = GetRandomInt(1, 3)
@@ -40,6 +43,7 @@ function Trig_Boss_III_Portal_Spawn_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Boss_III_Portal_Spawn takes nothing returns nothing
     set gg_trg_Boss_III_Portal_Spawn = CreateTrigger()
     call DisableTrigger(gg_trg_Boss_III_Portal_Spawn)

@@ -5,48 +5,56 @@ function Trig_Trees_Camera_Off_Func009Func002Func002Func005Func004Func002C takes
     endif
     return true
 endfunction
+
 function Trig_Trees_Camera_Off_Func009Func002Func002Func005Func004C takes nothing returns boolean
     if(not(udg_EM_BossCreate[3] == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Trees_Camera_Off_Func009Func002Func002Func005Func006C takes nothing returns boolean
     if(not(udg_ER_Logic == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Trees_Camera_Off_Func009Func002Func002Func005C takes nothing returns boolean
     if(not(udg_EM_BossRoom == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Trees_Camera_Off_Func009Func002Func002C takes nothing returns boolean
     if(not(udg_CS_Bool == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Trees_Camera_Off_Func009Func002C takes nothing returns boolean
     if(not(udg_OnkieRoom == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Trees_Camera_Off_Func009C takes nothing returns boolean
     if(not(udg_EnchantingRoom == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Trees_Camera_Off_Func018C takes nothing returns boolean
     if(not(udg_Tutorial[3] == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Trees_Camera_Off_Actions takes nothing returns nothing
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 1.50, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
     call CameraSetSmoothingFactorBJ(0.00)
@@ -117,6 +125,7 @@ function Trig_Trees_Camera_Off_Actions takes nothing returns nothing
     endif
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_Trees_Camera_Off takes nothing returns nothing
     set gg_trg_Trees_Camera_Off = CreateTrigger()
     call DisableTrigger(gg_trg_Trees_Camera_Off)

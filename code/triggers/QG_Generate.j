@@ -5,48 +5,56 @@ function Trig_QG_Generate_Func003Func001Func001Func001C takes nothing returns bo
     endif
     return true
 endfunction
+
 function Trig_QG_Generate_Func003Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_QG_Generate_Func003Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_QG_Generate_Func003C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_QG_Generate_Func005Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_QG_Generate_Func005Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_QG_Generate_Func005Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_QG_Generate_Func005C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_QG_Generate_Actions takes nothing returns nothing
     set udg_RandomNumber = GetRandomInt(1, 4)
     if(Trig_QG_Generate_Func003C())then
@@ -140,6 +148,7 @@ function Trig_QG_Generate_Actions takes nothing returns nothing
     call DisplayTimedTextToForce(GetPlayersAll(), 10.00, udg_QG_Objective[2])
     call EnableTrigger(gg_trg_QG_Completion_Check)
 endfunction
+
 function InitTrig_QG_Generate takes nothing returns nothing
     set gg_trg_QG_Generate = CreateTrigger()
     call TriggerAddAction(gg_trg_QG_Generate, function Trig_QG_Generate_Actions)

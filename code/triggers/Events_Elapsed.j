@@ -5,6 +5,7 @@ function Trig_Events_Elapsed_Func002C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Events_Elapsed_Actions takes nothing returns nothing
     if(Trig_Events_Elapsed_Func002C())then
         set udg_EventAttribute = (10 + GetHeroLevel(udg_Arct))
@@ -20,6 +21,7 @@ function Trig_Events_Elapsed_Actions takes nothing returns nothing
     endif
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_Events_Elapsed takes nothing returns nothing
     set gg_trg_Events_Elapsed = CreateTrigger()
     call DisableTrigger(gg_trg_Events_Elapsed)

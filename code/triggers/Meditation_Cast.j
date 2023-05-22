@@ -5,18 +5,21 @@ function Trig_Meditation_Cast_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Meditation_Cast_Func001Func002C takes nothing returns boolean
     if(not(IsTriggerEnabled(gg_trg_Combo_Ability_Use) == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Meditation_Cast_Func001C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, GetTriggerUnit()) == 0.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Meditation_Cast_Actions takes nothing returns nothing
     if(Trig_Meditation_Cast_Func001C())then
         call CreateTextTagUnitBJ("Нет сил...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
@@ -56,6 +59,7 @@ function Trig_Meditation_Cast_Actions takes nothing returns nothing
         endif
     endif
 endfunction
+
 function InitTrig_Meditation_Cast takes nothing returns nothing
     set gg_trg_Meditation_Cast = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_Meditation_Cast, gg_unit_H000_0004, EVENT_UNIT_SPELL_CHANNEL)

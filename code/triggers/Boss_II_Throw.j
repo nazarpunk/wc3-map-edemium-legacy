@@ -5,12 +5,14 @@ function Trig_Boss_II_Throw_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Boss_II_Throw_Func011Func001C takes nothing returns boolean
     if(not(GetEnumUnit() == udg_Arct))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_II_Throw_Func011A takes nothing returns nothing
     if(Trig_Boss_II_Throw_Func011Func001C())then
         call IssueTargetOrderBJ(GetLastCreatedUnit(), "firebolt", udg_Arct)
@@ -18,6 +20,7 @@ function Trig_Boss_II_Throw_Func011A takes nothing returns nothing
     else
     endif
 endfunction
+
 function Trig_Boss_II_Throw_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(GetTriggerUnit())
     call CreateNUnitsAtLoc(1, 0x68303039, Player(11), udg_Point, bj_UNIT_FACING)
@@ -34,6 +37,7 @@ function Trig_Boss_II_Throw_Actions takes nothing returns nothing
     call DestroyGroup(udg_UnitGroup)
     call RemoveLocation(udg_Boss_Ability_Point)
 endfunction
+
 function InitTrig_Boss_II_Throw takes nothing returns nothing
     set gg_trg_Boss_II_Throw = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Boss_II_Throw, EVENT_PLAYER_UNIT_SPELL_EFFECT)

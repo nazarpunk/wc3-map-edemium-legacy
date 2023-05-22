@@ -2,24 +2,29 @@
 function Trig_Creep_Kill_Reward_Func001Func003Func001Func005001 takes nothing returns boolean
     return(udg_IG_RandomNumber > 85)
 endfunction
+
 function Trig_Creep_Kill_Reward_Func001Func003Func001Func005002 takes nothing returns boolean
     return(udg_IG_RandomNumber < 94)
 endfunction
+
 function Trig_Creep_Kill_Reward_Func001Func003Func001C takes nothing returns boolean
     if(not GetBooleanAnd(Trig_Creep_Kill_Reward_Func001Func003Func001Func005001(), Trig_Creep_Kill_Reward_Func001Func003Func001Func005002()))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Reward_Func001Func003C takes nothing returns boolean
     return udg_IG_RandomNumber <= 85
 endfunction
+
 function Trig_Creep_Kill_Reward_Func001C takes nothing returns boolean
     if(not(GetRandomInt(1, 2) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Kill_Reward_Actions takes nothing returns nothing
     if(Trig_Creep_Kill_Reward_Func001C())then
         set udg_RandomNumber = GetRandomInt(2, 4)
@@ -46,6 +51,7 @@ function Trig_Creep_Kill_Reward_Actions takes nothing returns nothing
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
     endif
 endfunction
+
 function InitTrig_Creep_Kill_Reward takes nothing returns nothing
     set gg_trg_Creep_Kill_Reward = CreateTrigger()
     call TriggerAddAction(gg_trg_Creep_Kill_Reward, function Trig_Creep_Kill_Reward_Actions)

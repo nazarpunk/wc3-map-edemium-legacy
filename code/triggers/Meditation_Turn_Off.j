@@ -15,6 +15,7 @@ function Trig_Meditation_Turn_Off_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Camera_Decrease)
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_Meditation_Turn_Off takes nothing returns nothing
     set gg_trg_Meditation_Turn_Off = CreateTrigger()
     call DisableTrigger(gg_trg_Meditation_Turn_Off)

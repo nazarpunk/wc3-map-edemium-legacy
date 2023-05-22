@@ -36,6 +36,7 @@ function Trig_CodeGen_Init_Actions takes nothing returns nothing
     set udg_LoadCount = 0
     call CodeGen_Init()
 endfunction
+
 function InitTrig_CodeGen_Init takes nothing returns nothing
     set gg_trg_CodeGen_Init = CreateTrigger()
     call TriggerAddAction(gg_trg_CodeGen_Init, function Trig_CodeGen_Init_Actions)

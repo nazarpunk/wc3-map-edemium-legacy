@@ -5,30 +5,35 @@ function Trig_Augment_Buy_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Augment_Buy_Func001Func010Func001Func001C takes nothing returns boolean
     if(not(udg_Target == gg_unit_h012_0013))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Augment_Buy_Func001Func010Func001C takes nothing returns boolean
     if(not(udg_Target == gg_unit_h012_0011))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Augment_Buy_Func001Func010C takes nothing returns boolean
     if(not(udg_Target == gg_unit_h012_0012))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Augment_Buy_Func001C takes nothing returns boolean
     if(not(GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_GOLD) >= udg_AugmentCost[udg_AugmentValue]))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Augment_Buy_Actions takes nothing returns nothing
     if(Trig_Augment_Buy_Func001C())then
         set udg_AugmentValue = GetUnitUserData(udg_Target)
@@ -63,6 +68,7 @@ function Trig_Augment_Buy_Actions takes nothing returns nothing
     endif
     call AddItemToStockBJ(0x49303047, GetTriggerUnit(), 0, 1)
 endfunction
+
 function InitTrig_Augment_Buy takes nothing returns nothing
     set gg_trg_Augment_Buy = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Augment_Buy, EVENT_PLAYER_UNIT_SELL_ITEM)

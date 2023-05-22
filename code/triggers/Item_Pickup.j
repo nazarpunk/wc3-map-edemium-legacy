@@ -5,24 +5,28 @@ function Trig_Item_Pickup_Func001Func001Func001Func001C takes nothing returns bo
     endif
     return true
 endfunction
+
 function Trig_Item_Pickup_Func001Func001Func001C takes nothing returns boolean
     if(not(GetItemType(GetManipulatedItem()) == ITEM_TYPE_PURCHASABLE))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Item_Pickup_Func001Func001C takes nothing returns boolean
     if(not(GetItemType(GetManipulatedItem()) == ITEM_TYPE_CAMPAIGN))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Item_Pickup_Func001C takes nothing returns boolean
     if(not(GetItemTypeId(GetManipulatedItem()) == 0x4930304D))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Item_Pickup_Actions takes nothing returns nothing
     if(Trig_Item_Pickup_Func001C())then
         call AdjustPlayerStateBJ(1, Player(0), PLAYER_STATE_RESOURCE_LUMBER)
@@ -54,6 +58,7 @@ function Trig_Item_Pickup_Actions takes nothing returns nothing
         endif
     endif
 endfunction
+
 function InitTrig_Item_Pickup takes nothing returns nothing
     set gg_trg_Item_Pickup = CreateTrigger()
     call DisableTrigger(gg_trg_Item_Pickup)

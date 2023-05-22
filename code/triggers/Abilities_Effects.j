@@ -5,24 +5,28 @@ function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func00
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001Func001Func003Func001Func003C takes nothing returns boolean
     if(not(udg_AS_Effect11 == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001Func001Func003Func001C takes nothing returns boolean
     if(not(udg_AS_Effect[udg_AS_SeriesNumber] == 11))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001Func001Func003Func003Func006Func001Func007C takes nothing returns boolean
     if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001Func001Func003Func003Func006Func001Func008C takes nothing returns boolean
     if((GetOwningPlayer(GetEnumUnit()) == Player(0)))then
         return true
@@ -32,12 +36,14 @@ function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func00
     endif
     return false
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001Func001Func003Func003Func006Func001C takes nothing returns boolean
     if(not Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001Func001Func003Func003Func006Func001Func008C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001Func001Func003Func003Func006A takes nothing returns nothing
     if(Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001Func001Func003Func003Func006Func001C())then
         call SetUnitLifeBJ(GetEnumUnit(), (GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) + udg_AbilityPower))
@@ -53,131 +59,153 @@ function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func00
         endif
     endif
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001Func001Func003Func003C takes nothing returns boolean
     if(not(udg_AS_Effect10 == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001Func001Func003C takes nothing returns boolean
     if(not(udg_AS_Effect[udg_AS_SeriesNumber] == 10))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001Func001Func015Func005C takes nothing returns boolean
     if(not(udg_Training == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001Func001Func015C takes nothing returns boolean
     if(not(udg_AS_Effect9Count == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_AS_Effect[udg_AS_SeriesNumber] == 9))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_AS_Effect[udg_AS_SeriesNumber] == 8))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func007Func013Func001C takes nothing returns boolean
     if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func007Func013A takes nothing returns nothing
     if(Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func007Func013Func001C())then
         call UnitDamageTargetBJ(udg_Arct, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
     else
     endif
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func007C takes nothing returns boolean
     if(not(udg_AbilityPowerEnergy >= udg_AbilityPower))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_AS_Effect[udg_AS_SeriesNumber] == 7))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func009C takes nothing returns boolean
     if(not(udg_CO_LeftWeapon == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_AS_Effect[udg_AS_SeriesNumber] == 6))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_AS_Effect[udg_AS_SeriesNumber] == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001Func001C takes nothing returns boolean
     if(not(udg_AS_Effect[udg_AS_SeriesNumber] == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func001C takes nothing returns boolean
     if(not(udg_AS_Effect[udg_AS_SeriesNumber] == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func018C takes nothing returns boolean
     if(not(udg_AS_Effect2 == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001Func020A takes nothing returns nothing
     set udg_AbilityPower = ((I2R(udg_CO_Power) * 1.00) + I2R(udg_CO_Combo))
     set udg_AbilityPower = (udg_AbilityPower + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true)))
     call UnitDamageTargetBJ(udg_Arct, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009Func001C takes nothing returns boolean
     if(not(udg_AS_Effect[udg_AS_SeriesNumber] == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func009C takes nothing returns boolean
     if(not(udg_AS_Effect[udg_AS_SeriesNumber] == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001Func010C takes nothing returns boolean
     if(not(udg_Training == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func001C takes nothing returns boolean
     if(not(udg_AS_Effect[udg_AS_SeriesNumber] == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func003Func008C takes nothing returns boolean
     if(not(udg_AS_AbilityLVL[udg_AS_EffectNumber] < 5))then
         return false
@@ -187,18 +215,14 @@ function Trig_Abilities_Effects_Func003Func008C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Abilities_Effects_Func003C takes nothing returns boolean
     if(not Trig_Abilities_Effects_Func003Func008C())then
         return false
     endif
     return true
 endfunction
-function Trig_Abilities_Effects_Func005C takes nothing returns boolean
-    if(not(udg_ART[18] > 0))then
-        return false
-    endif
-    return true
-endfunction
+
 function Trig_Abilities_Effects_Actions takes nothing returns nothing
     if(Trig_Abilities_Effects_Func001C())then
         set udg_CO_Power = (GetHeroStatBJ(bj_HEROSTAT_AGI, udg_Arct, true) + GetHeroStatBJ(bj_HEROSTAT_STR, udg_Arct, true) + GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true))
@@ -256,7 +280,6 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
                     set udg_AS_Effect2 = true
                     set udg_ChanceCrit = (udg_ChanceCrit + 10.00)
                     call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 3, ("Шанс разгрома: " + (I2S(R2I(udg_ChanceCrit)) + "%")))
-                else
                 endif
                 call StartTimerBJ(udg_AS_TimerEffect2, false, (4.00 * I2R(udg_AS_AbilityLVL[2])))
                 call ForGroupBJ(udg_CO_UnitGroup, function Trig_Abilities_Effects_Func001Func009Func001Func020A)
@@ -302,7 +325,6 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
                                 if(Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func009C())then
                                     call AddSpecialEffectTargetUnitBJ("foot, left", udg_Arct, "war3mapImported\\Sweep_Lightning_Large.mdx")
                                     set udg_CO_Effect6Sweep[2] = GetLastCreatedEffectBJ()
-                                else
                                 endif
                             else
                                 if(Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001C())then
@@ -356,9 +378,7 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
                                                     call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
                                                     call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
                                                     call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
-                                                else
                                                 endif
-                                            else
                                             endif
                                         else
                                             if(Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001Func001Func003C())then
@@ -399,7 +419,6 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
                                                         call SetUnitVertexColorBJ(udg_Arct, 30.00, 80.00, 100, 0)
                                                         set udg_AS_Effect11SE = GetLastCreatedEffectBJ()
                                                         call StartTimerBJ(udg_AS_TimerEffect11, false, (4.00 * I2R(udg_AS_AbilityLVL[11])))
-                                                    else
                                                     endif
                                                 else
                                                     if(Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func001Func001Func003Func001Func001C())then
@@ -412,7 +431,6 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
                                                         call SetUnitAbilityLevelSwapped(0x4130334C, GetLastCreatedUnit(), udg_AS_AbilityLVL[12])
                                                         call IssueTargetOrderBJ(GetLastCreatedUnit(), "innerfire", udg_Arct)
                                                         call RemoveLocation(udg_Point)
-                                                    else
                                                     endif
                                                 endif
                                             endif
@@ -431,7 +449,6 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
             set udg_AS_AbilityEXP[udg_AS_EffectNumber] = (udg_AS_AbilityEXP[udg_AS_EffectNumber] + 1)
             set udg_AS_Points = (udg_AS_Points + 1)
             call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 1, ("Очки навыков: " + I2S(udg_AS_Points)))
-        else
         endif
     endif
     if(Trig_Abilities_Effects_Func003C())then
@@ -442,13 +459,12 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
         call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.9, 1.0, 2.5, ("Навык улучшен: |cFF00CD00" + (udg_AS_Name[udg_AS_EffectNumber] + (" |r(" + (I2S(udg_AS_AbilityLVL[udg_AS_EffectNumber]) + ")")))))
         call AddSpecialEffectTargetUnitBJ("chest", gg_unit_H000_0004, "war3mapImported\\SoundEffect3.mdx")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
-    else
     endif
-    if(Trig_Abilities_Effects_Func005C())then
+    if udg_ART[18] > 0 then
         set udg_CO_Combo = (udg_CO_Combo + (1 * udg_ART[18]))
-    else
     endif
 endfunction
+
 function InitTrig_Abilities_Effects takes nothing returns nothing
     set gg_trg_Abilities_Effects = CreateTrigger()
     call TriggerAddAction(gg_trg_Abilities_Effects, function Trig_Abilities_Effects_Actions)

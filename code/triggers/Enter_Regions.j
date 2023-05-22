@@ -5,24 +5,28 @@ function Trig_Enter_Regions_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Enter_Regions_Func007C takes nothing returns boolean
     if(not(IsUnitInRegion(udg_Region1, gg_unit_H000_0004) == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Enter_Regions_Func008C takes nothing returns boolean
     if(not(IsUnitInRegion(udg_Region2, gg_unit_H000_0004) == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Enter_Regions_Func009C takes nothing returns boolean
     if(not(IsUnitInRegion(udg_Region10, gg_unit_H000_0004) == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Enter_Regions_Func010Func003C takes nothing returns boolean
     if(not(udg_TutorialHintsOn == true))then
         return false
@@ -32,30 +36,35 @@ function Trig_Enter_Regions_Func010Func003C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Enter_Regions_Func010C takes nothing returns boolean
     if(not(IsUnitInRegion(udg_Region11, gg_unit_H000_0004) == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Enter_Regions_Func011Func010C takes nothing returns boolean
     if(not(udg_Tutorial[1] == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Enter_Regions_Func011C takes nothing returns boolean
     if(not(IsUnitInRegion(udg_Region9, gg_unit_H000_0004) == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Enter_Regions_Func012C takes nothing returns boolean
     if(not(IsUnitInRegion(udg_Region4, gg_unit_H000_0004) == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Enter_Regions_Func013Func003C takes nothing returns boolean
     if(not(udg_TutorialHintsOn == true))then
         return false
@@ -65,30 +74,36 @@ function Trig_Enter_Regions_Func013Func003C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Enter_Regions_Func013C takes nothing returns boolean
     if(not(IsUnitInRegion(udg_Region5, gg_unit_H000_0004) == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Enter_Regions_Func014C takes nothing returns boolean
     if(not(IsUnitInRegion(udg_Region8, gg_unit_H000_0004) == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Enter_Regions_Func015C takes nothing returns boolean
     if(not(IsUnitInRegion(udg_Region7, gg_unit_H000_0004) == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Enter_Regions_Func018002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Enter_Regions_Func021002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Enter_Regions_Actions takes nothing returns nothing
     call SetPlayerAbilityAvailableBJ(false, 0x41303138, Player(0))
     call SetPlayerAbilityAvailableBJ(false, 0x41303537, Player(0))
@@ -237,6 +252,7 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
     call ForGroupBJ(udg_UnitGroup, function Trig_Enter_Regions_Func021002)
     call DestroyGroup(udg_UnitGroup)
 endfunction
+
 function InitTrig_Enter_Regions takes nothing returns nothing
     set gg_trg_Enter_Regions = CreateTrigger()
     call DisableTrigger(gg_trg_Enter_Regions)

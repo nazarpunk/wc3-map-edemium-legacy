@@ -5,6 +5,7 @@ function Trig_Boss_III_Portal_Abort_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Boss_III_Portal_Timer)
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_Boss_III_Portal_Abort takes nothing returns nothing
     set gg_trg_Boss_III_Portal_Abort = CreateTrigger()
     call DisableTrigger(gg_trg_Boss_III_Portal_Abort)

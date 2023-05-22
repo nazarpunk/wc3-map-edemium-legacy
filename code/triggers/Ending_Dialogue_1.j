@@ -19,6 +19,7 @@ function Trig_Ending_Dialogue_1_Actions takes nothing returns nothing
         call DestroyTrigger(GetTriggeringTrigger())
     endif
 endfunction
+
 function InitTrig_Ending_Dialogue_1 takes nothing returns nothing
     set gg_trg_Ending_Dialogue_1 = CreateTrigger()
     call DisableTrigger(gg_trg_Ending_Dialogue_1)

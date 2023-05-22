@@ -20,6 +20,7 @@ function Trig_Ending_Dialogue_2_Actions takes nothing returns nothing
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
 
+
 function InitTrig_Ending_Dialogue_2 takes nothing returns nothing
     set gg_trg_Ending_Dialogue_2 = CreateTrigger()
     call DisableTrigger(gg_trg_Ending_Dialogue_2)

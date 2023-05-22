@@ -2,6 +2,7 @@
 function Trig_Camera_Fix_Actions takes nothing returns nothing
     call CameraSetupApplyForceDuration(udg_Camera, true, 0.00)
 endfunction
+
 function InitTrig_Camera_Fix takes nothing returns nothing
     set gg_trg_Camera_Fix = CreateTrigger()
     call DisableTrigger(gg_trg_Camera_Fix)

@@ -5,42 +5,49 @@ function Trig_Dungeon_Cold_Hearth_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Cold_Hearth_Func003Func004C takes nothing returns boolean
     if(not(GetRandomInt(1, 2) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Cold_Hearth_Func003Func009Func002Func001Func001C takes nothing returns boolean
     if(not(udg_DungeonColdLevel == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Cold_Hearth_Func003Func009Func002Func001C takes nothing returns boolean
     if(not(udg_DungeonColdLevel == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Cold_Hearth_Func003Func009Func002C takes nothing returns boolean
     if(not(udg_DungeonColdLevel == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Cold_Hearth_Func003Func009C takes nothing returns boolean
     if(not(udg_DungeonColdLevel > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Cold_Hearth_Func003C takes nothing returns boolean
     if(not(DistanceBetweenPoints(udg_Point, udg_Point2) < 300.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Cold_Hearth_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(GetOrderTargetUnit())
     set udg_Point2 = GetUnitLoc(udg_Arct)
@@ -80,6 +87,7 @@ function Trig_Dungeon_Cold_Hearth_Actions takes nothing returns nothing
     call RemoveLocation(udg_Point)
     call RemoveLocation(udg_Point2)
 endfunction
+
 function InitTrig_Dungeon_Cold_Hearth takes nothing returns nothing
     set gg_trg_Dungeon_Cold_Hearth = CreateTrigger()
     call DisableTrigger(gg_trg_Dungeon_Cold_Hearth)

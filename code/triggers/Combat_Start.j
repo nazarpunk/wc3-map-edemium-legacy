@@ -8,6 +8,7 @@ function Trig_Combat_Start_Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Combat_Start_Actions takes nothing returns nothing
     if(Trig_Combat_Start_Func001C())then
         set udg_Point = GetUnitLoc(udg_Arct)
@@ -27,6 +28,7 @@ function Trig_Combat_Start_Actions takes nothing returns nothing
     call StartTimerBJ(udg_CO_CombatTimer, false, 6.50)
     call EnableTrigger(gg_trg_Combo_Ability_Use)
 endfunction
+
 function InitTrig_Combat_Start takes nothing returns nothing
     set gg_trg_Combat_Start = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_Combat_Start, gg_unit_H000_0004, EVENT_UNIT_ATTACKED)

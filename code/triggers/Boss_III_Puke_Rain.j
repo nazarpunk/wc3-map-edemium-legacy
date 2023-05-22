@@ -5,18 +5,21 @@ function Trig_Boss_III_Puke_Rain_Func001Func011Func001C takes nothing returns bo
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Puke_Rain_Func001Func011C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Puke_Rain_Func001C takes nothing returns boolean
     if(not(udg_Boss3Pukes < 20))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Puke_Rain_Actions takes nothing returns nothing
     if(Trig_Boss_III_Puke_Rain_Func001C())then
         set udg_Boss3Pukes = (udg_Boss3Pukes + 1)
@@ -44,6 +47,7 @@ function Trig_Boss_III_Puke_Rain_Actions takes nothing returns nothing
         call DisableTrigger(GetTriggeringTrigger())
     endif
 endfunction
+
 function InitTrig_Boss_III_Puke_Rain takes nothing returns nothing
     set gg_trg_Boss_III_Puke_Rain = CreateTrigger()
     call DisableTrigger(gg_trg_Boss_III_Puke_Rain)

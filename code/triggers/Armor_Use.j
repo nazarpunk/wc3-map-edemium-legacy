@@ -5,51 +5,65 @@ function Trig_Armor_Use_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Armor_Use_Func002Func002C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) > udg_AbilityPower))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003001 takes nothing returns boolean
     return(IsUnitType(GetFilterUnit(), UNIT_TYPE_STRUCTURE) == false)
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002001 takes nothing returns boolean
     return(IsUnitType(GetFilterUnit(), UNIT_TYPE_FLYING) == false)
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002002001 takes nothing returns boolean
     return(IsUnitDeadBJ(GetFilterUnit()) == false)
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002002002001 takes nothing returns boolean
     return(IsUnitAlly(GetFilterUnit(), GetOwningPlayer(udg_Arct)) == false)
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002002002002001 takes nothing returns boolean
     return(IsUnitType(GetFilterUnit(), UNIT_TYPE_MECHANICAL) == false)
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002002002002002 takes nothing returns boolean
     return(IsUnitType(GetFilterUnit(), UNIT_TYPE_MAGIC_IMMUNE) == false)
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002002002002 takes nothing returns boolean
     return GetBooleanAnd(Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002002002002001(), Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002002002002002())
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002002002 takes nothing returns boolean
     return GetBooleanAnd(Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002002002001(), Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002002002002())
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002002 takes nothing returns boolean
     return GetBooleanAnd(Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002002001(), Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002002002())
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002 takes nothing returns boolean
     return GetBooleanAnd(Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002001(), Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002002())
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003 takes nothing returns boolean
     return GetBooleanAnd(Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003001(), Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003002())
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func001Func002Func009Func002C takes nothing returns boolean
     if(not(udg_KB_Skip == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func001Func002Func009A takes nothing returns nothing
     call UnitDamageTargetBJ(udg_Arct, GetEnumUnit(), udg_SB_Damage[1], ATTACK_TYPE_NORMAL, DAMAGE_TYPE_FORCE)
     if(Trig_Armor_Use_Func002Func003Func001Func001Func002Func009Func002C())then
@@ -69,60 +83,70 @@ function Trig_Armor_Use_Func002Func003Func001Func001Func002Func009A takes nothin
     set udg_KB_Spam[udg_KB_Times] = 10
     call RemoveLocation(udg_KB_Point[1])
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func001Func002C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemEnchant[1] == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func003Func004Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func003Func004C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001Func003C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func001C takes nothing returns boolean
     if(not(udg_IG_ItemEnchant[1] == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Armor_Use_Func002Func003Func003C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Armor_Use_Func002Func003C takes nothing returns boolean
     if(not(udg_IG_ItemEnchant[1] == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Armor_Use_Func002C takes nothing returns boolean
     if(not(udg_IG_ItemEnchant[1] == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Armor_Use_Actions takes nothing returns nothing
     if(Trig_Armor_Use_Func002C())then
         set udg_AbilityPower = ((GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_Arct) * 20.00) / 100.00)
@@ -190,6 +214,7 @@ function Trig_Armor_Use_Actions takes nothing returns nothing
         endif
     endif
 endfunction
+
 function InitTrig_Armor_Use takes nothing returns nothing
     set gg_trg_Armor_Use = CreateTrigger()
     call DisableTrigger(gg_trg_Armor_Use)

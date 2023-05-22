@@ -56,6 +56,7 @@ function Trig_CodeGen_Save_2_Actions takes nothing returns nothing
     call PreloadGenEnd("Edemium\\Save2.txt")
     call ConditionalTriggerExecute(gg_trg_CodeGen_Save_3)
 endfunction
+
 function InitTrig_CodeGen_Save_2 takes nothing returns nothing
     set gg_trg_CodeGen_Save_2 = CreateTrigger()
     call TriggerAddAction(gg_trg_CodeGen_Save_2, function Trig_CodeGen_Save_2_Actions)

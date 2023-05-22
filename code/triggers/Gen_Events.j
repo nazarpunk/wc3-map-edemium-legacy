@@ -5,41 +5,48 @@ function Trig_Gen_Events_Func002Func001Func001Func001C takes nothing returns boo
     endif
     return true
 endfunction
+
 function Trig_Gen_Events_Func002Func001Func001Func005A takes nothing returns nothing
     set udg_Point = GetUnitLoc(GetEnumUnit())
     call CreateNUnitsAtLoc(1, 0x6E303048, Player(PLAYER_NEUTRAL_PASSIVE), udg_Point, bj_UNIT_FACING)
     call SetUnitUserData(GetLastCreatedUnit(), 100)
     call RemoveLocation(udg_Point)
 endfunction
+
 function Trig_Gen_Events_Func002Func001Func001C takes nothing returns boolean
     if(not(GetUnitUserData(udg_EM_Target) == 73))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Events_Func002Func001Func005A takes nothing returns nothing
     set udg_Point = GetUnitLoc(GetEnumUnit())
     call CreateNUnitsAtLoc(1, 0x6E303134, Player(PLAYER_NEUTRAL_PASSIVE), udg_Point, bj_UNIT_FACING)
     call RemoveLocation(udg_Point)
 endfunction
+
 function Trig_Gen_Events_Func002Func001C takes nothing returns boolean
     if(not(GetUnitUserData(udg_EM_Target) == 72))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Events_Func002C takes nothing returns boolean
     if(not(GetUnitUserData(udg_EM_Target) == 71))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Events_Func003C takes nothing returns boolean
     if(not(GetHeroLevel(udg_Arct) == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Events_Func004C takes nothing returns boolean
     if(not(udg_EdemEventBool[udg_EdemEventType] == false))then
         return false
@@ -49,6 +56,7 @@ function Trig_Gen_Events_Func004C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Gen_Events_Actions takes nothing returns nothing
     if(Trig_Gen_Events_Func002C())then
         call SetDayNightModels("", "")
@@ -93,6 +101,7 @@ function Trig_Gen_Events_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Gen_Events takes nothing returns nothing
     set gg_trg_Gen_Events = CreateTrigger()
     call TriggerAddAction(gg_trg_Gen_Events, function Trig_Gen_Events_Actions)

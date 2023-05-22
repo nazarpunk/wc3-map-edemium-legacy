@@ -5,42 +5,49 @@ function Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001Func001Func001Fu
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 6))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Portal_Timer_Func012Func001Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Portal_Timer_Func012Func001C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Portal_Timer_Func012C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Portal_Timer_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(udg_Boss3Portal)
     call CreateNUnitsAtLoc(1, 0x4830314A, Player(1), udg_Point, bj_UNIT_FACING)
@@ -89,6 +96,7 @@ function Trig_Boss_III_Portal_Timer_Actions takes nothing returns nothing
     call IssuePointOrderLocBJ(GetLastCreatedUnit(), "clusterrockets", udg_Point)
     call RemoveLocation(udg_Point)
 endfunction
+
 function InitTrig_Boss_III_Portal_Timer takes nothing returns nothing
     set gg_trg_Boss_III_Portal_Timer = CreateTrigger()
     call DisableTrigger(gg_trg_Boss_III_Portal_Timer)

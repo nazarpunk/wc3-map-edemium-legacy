@@ -1,33 +1,40 @@
 function Trig_Map_Buttons_Conditions takes nothing returns boolean
     return GetUnitTypeId(GetTriggerUnit()) == 0x6830304B
 endfunction
+
 function Trig_Map_Buttons_Func002Func002C takes nothing returns boolean
     return udg_EM_EncounterChance < 75
 endfunction
+
 function Trig_Map_Buttons_Func002Func003C takes nothing returns boolean
     return GetRandomInt(1, 100) <= udg_EM_EncounterChance
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func001C takes nothing returns boolean
     return GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_LUMBER) > 0
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009Func010Func001Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h00K_0142))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009Func010Func001C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h00K_0123))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009Func010C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h00K_0105))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009Func011C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h00K_0142))then
         return false
@@ -37,12 +44,14 @@ function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func0
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009C takes nothing returns boolean
     if(not Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009Func011C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func010C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h00K_0123))then
         return false
@@ -52,12 +61,14 @@ function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func0
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009C takes nothing returns boolean
     if(not Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func010C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func010C takes nothing returns boolean
     if(not(GetTriggerUnit() == gg_unit_h00K_0105))then
         return false
@@ -67,36 +78,42 @@ function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func0
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003C takes nothing returns boolean
     if(not Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func010C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006C takes nothing returns boolean
     if(not(GetUnitUserData(GetTriggerUnit()) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001C takes nothing returns boolean
     if(not(GetUnitUserData(GetTriggerUnit()) == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001C takes nothing returns boolean
     if(not(GetUnitUserData(GetTriggerUnit()) == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func001C takes nothing returns boolean
     if(not(GetUnitUserData(GetTriggerUnit()) == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func002Func002C takes nothing returns boolean
     if((SubStringBJ(I2S(GetUnitUserData(udg_EM_Target)), 1, 1) == "7"))then
         return true
@@ -109,6 +126,7 @@ function Trig_Map_Buttons_Func002Func004Func001Func003Func002Func002C takes noth
     endif
     return false
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003Func002C takes nothing returns boolean
     if(not(GetUnitTypeId(GetTriggerUnit()) == 0x6830304B))then
         return false
@@ -118,42 +136,49 @@ function Trig_Map_Buttons_Func002Func004Func001Func003Func002C takes nothing ret
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001Func003C takes nothing returns boolean
     if(not Trig_Map_Buttons_Func002Func004Func001Func003Func002C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func001C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x4130354D))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004Func007C takes nothing returns boolean
     if(not(GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_GOLD) >= udg_EM_Cost))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002Func004C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x4130354E))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func002C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x4130345A))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Func003C takes nothing returns boolean
     if(not(udg_EM_Bool == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Map_Buttons_Actions takes nothing returns nothing
     if(Trig_Map_Buttons_Func002C())then
         call ClearTextMessagesBJ(GetPlayersAll())
@@ -295,6 +320,7 @@ function Trig_Map_Buttons_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Map_Buttons takes nothing returns nothing
     set gg_trg_Map_Buttons = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Map_Buttons, EVENT_PLAYER_UNIT_SPELL_EFFECT)

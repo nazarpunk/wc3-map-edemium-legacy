@@ -51,6 +51,7 @@ function Trig_Initialisation_Actions takes nothing returns nothing
 endfunction
 
 
+
 function InitTrig_Initialisation takes nothing returns nothing
     set gg_trg_Initialisation = CreateTrigger()
     call TriggerAddAction(gg_trg_Initialisation, function Trig_Initialisation_Actions)

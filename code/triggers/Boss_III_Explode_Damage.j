@@ -5,6 +5,7 @@ function Trig_Boss_III_Explode_Damage_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Explode_Damage_Func002Func001Func001C takes nothing returns boolean
     if((GetOwningPlayer(GetEnumUnit()) == Player(0)))then
         return true
@@ -17,12 +18,14 @@ function Trig_Boss_III_Explode_Damage_Func002Func001Func001C takes nothing retur
     endif
     return false
 endfunction
+
 function Trig_Boss_III_Explode_Damage_Func002Func001C takes nothing returns boolean
     if(not Trig_Boss_III_Explode_Damage_Func002Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Explode_Damage_Func002A takes nothing returns nothing
     if(Trig_Boss_III_Explode_Damage_Func002Func001C())then
         set udg_AbilityPower = (100.00 * I2R(udg_Difficulty))
@@ -30,11 +33,13 @@ function Trig_Boss_III_Explode_Damage_Func002A takes nothing returns nothing
     else
     endif
 endfunction
+
 function Trig_Boss_III_Explode_Damage_Actions takes nothing returns nothing
     set udg_UnitGroup = GetUnitsInRangeOfLocAll(150.00, GetUnitLoc(GetTriggerUnit()))
     call ForGroupBJ(udg_UnitGroup, function Trig_Boss_III_Explode_Damage_Func002A)
     call DestroyGroup(udg_UnitGroup)
 endfunction
+
 function InitTrig_Boss_III_Explode_Damage takes nothing returns nothing
     set gg_trg_Boss_III_Explode_Damage = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Boss_III_Explode_Damage, EVENT_PLAYER_UNIT_SPELL_EFFECT)

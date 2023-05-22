@@ -5,30 +5,35 @@ function Trig_Secret_Found_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Secret_Found_Func003Func001Func002Func011Func005C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Secret_Found_Func003Func001Func002Func011C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Secret_Found_Func003Func001Func002C takes nothing returns boolean
     if(not(DistanceBetweenPoints(udg_Point, udg_D_Point1) <= 200.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Secret_Found_Func003Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetEnumUnit()) == 0x68303044))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Secret_Found_Func003A takes nothing returns nothing
     if(Trig_Secret_Found_Func003Func001C())then
         set udg_Point = GetUnitLoc(GetEnumUnit())
@@ -53,7 +58,6 @@ function Trig_Secret_Found_Func003A takes nothing returns nothing
                         call CreateItemLoc(0x4930304D, udg_Point)
                         set bj_forLoopAIndex = bj_forLoopAIndex + 1
                     endloop
-                else
                 endif
             endif
         else
@@ -65,9 +69,9 @@ function Trig_Secret_Found_Func003A takes nothing returns nothing
         endif
         call UnitRemoveAbilityBJ(0x4130335A, udg_Arct)
         call RemoveLocation(udg_Point)
-    else
     endif
 endfunction
+
 function Trig_Secret_Found_Actions takes nothing returns nothing
     set udg_D_Point1 = GetUnitLoc(udg_Arct)
     set udg_D_Pick = GetUnitsInRangeOfLocAll(450.00, udg_D_Point1)
@@ -75,6 +79,7 @@ function Trig_Secret_Found_Actions takes nothing returns nothing
     call RemoveLocation(udg_D_Point1)
     call DestroyGroup(udg_D_Pick)
 endfunction
+
 function InitTrig_Secret_Found takes nothing returns nothing
     set gg_trg_Secret_Found = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_Secret_Found, gg_unit_H000_0004, EVENT_UNIT_SPELL_EFFECT)

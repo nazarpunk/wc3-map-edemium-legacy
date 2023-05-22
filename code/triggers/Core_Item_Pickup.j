@@ -5,12 +5,14 @@ function Trig_Core_Item_Pickup_Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Core_Item_Pickup_Func002C takes nothing returns boolean
     if(not(GetItemType(GetManipulatedItem()) == ITEM_TYPE_PURCHASABLE))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Core_Item_Pickup_Actions takes nothing returns nothing
     if(Trig_Core_Item_Pickup_Func001C())then
         set udg_CC_Ingredient[GetItemLevel(GetManipulatedItem())] = (udg_CC_Ingredient[GetItemLevel(GetManipulatedItem())] + 1)
@@ -33,6 +35,7 @@ function Trig_Core_Item_Pickup_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Core_Item_Pickup takes nothing returns nothing
     set gg_trg_Core_Item_Pickup = CreateTrigger()
     call DisableTrigger(gg_trg_Core_Item_Pickup)

@@ -48,6 +48,7 @@ function Trig_Tutorial_Cinematic_Actions takes nothing returns nothing
     set udg_TutorialHint[1] = false
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_Tutorial_Cinematic takes nothing returns nothing
     set gg_trg_Tutorial_Cinematic = CreateTrigger()
     call TriggerAddAction(gg_trg_Tutorial_Cinematic, function Trig_Tutorial_Cinematic_Actions)

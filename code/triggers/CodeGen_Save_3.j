@@ -1,6 +1,7 @@
 function Trig_CodeGen_Save_3_Func007A takes nothing returns nothing
     set udg_EM_LevelCV[R2I(GetUnitStateSwap(UNIT_STATE_LIFE, GetEnumUnit()))] = GetUnitUserData(GetEnumUnit())
 endfunction
+
 function Trig_CodeGen_Save_3_Actions takes nothing returns nothing
     set udg_SaveCount = 0
     set udg_Hero = gg_unit_H000_0004
@@ -21,6 +22,7 @@ function Trig_CodeGen_Save_3_Actions takes nothing returns nothing
     call PreloadGenEnd("Edemium\\Save3.txt")
     call ConditionalTriggerExecute(gg_trg_CodeGen_Save_4)
 endfunction
+
 function InitTrig_CodeGen_Save_3 takes nothing returns nothing
     set gg_trg_CodeGen_Save_3 = CreateTrigger()
     call TriggerAddAction(gg_trg_CodeGen_Save_3, function Trig_CodeGen_Save_3_Actions)

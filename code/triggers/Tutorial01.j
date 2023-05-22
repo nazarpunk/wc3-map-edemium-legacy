@@ -23,6 +23,7 @@ function Trig_Tutorial01_Actions takes nothing returns nothing
     call RemoveLocation(udg_Point)
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_Tutorial01 takes nothing returns nothing
     set gg_trg_Tutorial01 = CreateTrigger()
     call DisableTrigger(gg_trg_Tutorial01)

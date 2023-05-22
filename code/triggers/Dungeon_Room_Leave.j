@@ -5,6 +5,7 @@ function Trig_Dungeon_Room_Leave_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Room_Leave_Func004Func001C takes nothing returns boolean
     if((udg_ER_Logic == true))then
         return true
@@ -14,33 +15,39 @@ function Trig_Dungeon_Room_Leave_Func004Func001C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Dungeon_Room_Leave_Func004Func006002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Dungeon_Room_Leave_Func004C takes nothing returns boolean
     if(not Trig_Dungeon_Room_Leave_Func004Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Room_Leave_Func007Func001Func002Func002C takes nothing returns boolean
     if(not(udg_RandomNumber == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Room_Leave_Func007Func001Func002C takes nothing returns boolean
     if(not(udg_RandomNumber == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Room_Leave_Func007C takes nothing returns boolean
     if(not(udg_EX_LevelUp > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Room_Leave_Actions takes nothing returns nothing
     set udg_EM_EncounterChance = 0
     set udg_EnchantingRoom = false
@@ -93,6 +100,7 @@ function Trig_Dungeon_Room_Leave_Actions takes nothing returns nothing
     endif
     call ExecuteFunc("Autosave")
 endfunction
+
 function InitTrig_Dungeon_Room_Leave takes nothing returns nothing
     set gg_trg_Dungeon_Room_Leave = CreateTrigger()
     call TriggerRegisterDialogEventBJ(gg_trg_Dungeon_Room_Leave, udg_LeaveDialog)

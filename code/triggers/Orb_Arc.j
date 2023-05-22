@@ -5,12 +5,14 @@ function Trig_Orb_Arc_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Orb_Arc_Func002C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x4130334A))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Orb_Arc_Actions takes nothing returns nothing
     if(Trig_Orb_Arc_Func002C())then
     else
@@ -24,6 +26,7 @@ function Trig_Orb_Arc_Actions takes nothing returns nothing
     set udg_JDA_AnimationSpeed = 0.60
     call ConditionalTriggerExecute(gg_trg_Orbs_System_1)
 endfunction
+
 function InitTrig_Orb_Arc takes nothing returns nothing
     set gg_trg_Orb_Arc = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Orb_Arc, EVENT_PLAYER_UNIT_SPELL_EFFECT)

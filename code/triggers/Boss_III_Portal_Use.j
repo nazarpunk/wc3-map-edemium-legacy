@@ -5,12 +5,14 @@ function Trig_Boss_III_Portal_Use_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Portal_Use_Func003C takes nothing returns boolean
     if(not(DistanceBetweenPoints(udg_Point, udg_Point2) < 400.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_III_Portal_Use_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(GetTriggerUnit())
     set udg_Point2 = GetUnitLoc(GetOrderTargetUnit())
@@ -36,6 +38,7 @@ function Trig_Boss_III_Portal_Use_Actions takes nothing returns nothing
     call RemoveLocation(udg_Point)
     call RemoveLocation(udg_Point2)
 endfunction
+
 function InitTrig_Boss_III_Portal_Use takes nothing returns nothing
     set gg_trg_Boss_III_Portal_Use = CreateTrigger()
     call DisableTrigger(gg_trg_Boss_III_Portal_Use)

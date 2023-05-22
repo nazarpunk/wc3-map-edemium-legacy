@@ -9,6 +9,7 @@ function Trig_Camera_Boss_Actions takes nothing returns nothing
     call RemoveLocation(udg_Point)
     call RemoveLocation(udg_Point2)
 endfunction
+
 function InitTrig_Camera_Boss takes nothing returns nothing
     set gg_trg_Camera_Boss = CreateTrigger()
     call DisableTrigger(gg_trg_Camera_Boss)

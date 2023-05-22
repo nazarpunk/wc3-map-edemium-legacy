@@ -5,30 +5,35 @@ function Trig_Boss_Kill_Check_Func008Func001Func001C takes nothing returns boole
     endif
     return true
 endfunction
+
 function Trig_Boss_Kill_Check_Func008Func001Func002C takes nothing returns boolean
     if(not(udg_EM_Boss[2] == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_Kill_Check_Func008Func001C takes nothing returns boolean
     if(not(udg_EM_BossLevel == gg_unit_h00K_0123))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_Kill_Check_Func008Func002C takes nothing returns boolean
     if(not(udg_EM_Boss[1] == false))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_Kill_Check_Func008C takes nothing returns boolean
     if(not(udg_EM_BossLevel == gg_unit_h00K_0105))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Boss_Kill_Check_Actions takes nothing returns nothing
     set udg_QG_Count[5] = (udg_QG_Count[5] + 1)
     call ConditionalTriggerExecute(gg_trg_QG_Change_Text)
@@ -79,6 +84,7 @@ function Trig_Boss_Kill_Check_Actions takes nothing returns nothing
     call UnitAddAbilityBJ(0x4176756C, udg_Arct)
     call ConditionalTriggerExecute(gg_trg_Boss_Units_Remove)
 endfunction
+
 function InitTrig_Boss_Kill_Check takes nothing returns nothing
     set gg_trg_Boss_Kill_Check = CreateTrigger()
     call TriggerAddAction(gg_trg_Boss_Kill_Check, function Trig_Boss_Kill_Check_Actions)

@@ -45,6 +45,7 @@ function Trig_Coliseum_Start_Actions takes nothing returns nothing
     set udg_CameraAngle = 300
     set udg_CameraTurn = 130.00
 endfunction
+
 function InitTrig_Coliseum_Start takes nothing returns nothing
     set gg_trg_Coliseum_Start = CreateTrigger()
     call TriggerAddAction(gg_trg_Coliseum_Start, function Trig_Coliseum_Start_Actions)

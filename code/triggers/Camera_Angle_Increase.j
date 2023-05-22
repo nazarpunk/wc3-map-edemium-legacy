@@ -5,12 +5,14 @@ function Trig_Camera_Angle_Increase_Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Camera_Angle_Increase_Actions takes nothing returns nothing
     if(Trig_Camera_Angle_Increase_Func001C())then
         set udg_CameraTurn = (udg_CameraTurn + 20.00)
     else
     endif
 endfunction
+
 function InitTrig_Camera_Angle_Increase takes nothing returns nothing
     set gg_trg_Camera_Angle_Increase = CreateTrigger()
     call DisableTrigger(gg_trg_Camera_Angle_Increase)

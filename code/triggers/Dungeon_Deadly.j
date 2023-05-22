@@ -5,24 +5,28 @@ function Trig_Dungeon_Deadly_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Deadly_Func002C takes nothing returns boolean
     if(not(udg_DungeonDeadlyCleansing == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Deadly_Func005Func001C takes nothing returns boolean
     if(not(udg_D_DungeonTier == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Deadly_Func005C takes nothing returns boolean
     if(not(udg_D_DungeonTier == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Dungeon_Deadly_Actions takes nothing returns nothing
     set udg_DungeonDeadlyCleansing = (udg_DungeonDeadlyCleansing - 1)
     if(Trig_Dungeon_Deadly_Func002C())then
@@ -43,6 +47,7 @@ function Trig_Dungeon_Deadly_Actions takes nothing returns nothing
     call SetTerrainTypeBJ(udg_PointCleansing, udg_D_TextureType, - 1, 4, 0)
     call RemoveLocation(udg_PointCleansing)
 endfunction
+
 function InitTrig_Dungeon_Deadly takes nothing returns nothing
     set gg_trg_Dungeon_Deadly = CreateTrigger()
     call DisableTrigger(gg_trg_Dungeon_Deadly)

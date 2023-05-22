@@ -5,18 +5,21 @@ function Trig_Scroll_Pickup_Func001Func001Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Scroll_Pickup_Func001Func001C takes nothing returns boolean
     if(not(GetItemTypeId(GetManipulatedItem()) == 0x49303131))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Scroll_Pickup_Func001C takes nothing returns boolean
     if(not(GetItemTypeId(GetManipulatedItem()) == 0x49303055))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Scroll_Pickup_Actions takes nothing returns nothing
     if(Trig_Scroll_Pickup_Func001C())then
         call UnitAddAbilityBJ(0x41303648, GetTriggerUnit())
@@ -39,6 +42,7 @@ function Trig_Scroll_Pickup_Actions takes nothing returns nothing
         endif
     endif
 endfunction
+
 function InitTrig_Scroll_Pickup takes nothing returns nothing
     set gg_trg_Scroll_Pickup = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_Scroll_Pickup, gg_unit_H000_0004, EVENT_UNIT_PICKUP_ITEM)

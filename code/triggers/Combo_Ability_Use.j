@@ -11,60 +11,70 @@ function Trig_Combo_Ability_Use_Func001C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Combo_Ability_Use_Conditions takes nothing returns boolean
     if(not Trig_Combo_Ability_Use_Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Ability_Use_Func005C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x41303138))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Ability_Use_Func006C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x41303537))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Ability_Use_Func007C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x41303530))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Ability_Use_Func010Func005C takes nothing returns boolean
     if(not(udg_CO_LeftWeapon == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Ability_Use_Func010Func018Func004Func004C takes nothing returns boolean
     if(not(udg_CO_ComboSeries[1] == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Ability_Use_Func010Func018Func004Func005C takes nothing returns boolean
     if(not(udg_CO_ComboSeries[2] == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Ability_Use_Func010Func018Func004Func006C takes nothing returns boolean
     if(not(udg_CO_ComboSeries[3] == 7))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Ability_Use_Func010Func018Func004Func007C takes nothing returns boolean
     if(not(udg_CO_ComboSeries[4] == 9))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Ability_Use_Func010Func018Func004Func009C takes nothing returns boolean
     if((udg_CO_ComboSeries[1] == 3))then
         return true
@@ -80,12 +90,14 @@ function Trig_Combo_Ability_Use_Func010Func018Func004Func009C takes nothing retu
     endif
     return false
 endfunction
+
 function Trig_Combo_Ability_Use_Func010Func018Func004C takes nothing returns boolean
     if(not Trig_Combo_Ability_Use_Func010Func018Func004Func009C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Ability_Use_Func010Func018A takes nothing returns nothing
     set udg_AS_EnemyTarget = udg_CO_AttackingUnit[GetUnitUserData(GetEnumUnit())]
     call UnitAddAbilityBJ(0x41303445, GetTriggerUnit())
@@ -122,24 +134,28 @@ function Trig_Combo_Ability_Use_Func010Func018A takes nothing returns nothing
         call RemoveUnit(GetEnumUnit())
     endif
 endfunction
+
 function Trig_Combo_Ability_Use_Func010Func019Func001C takes nothing returns boolean
     if(not(GetRandomInt(1, 100) <= (5 * udg_ART[11])))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Ability_Use_Func010Func019C takes nothing returns boolean
     if(not(udg_ART[11] > 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Ability_Use_Func010C takes nothing returns boolean
     if(not(CountUnitsInGroup(udg_CO_UnitGroup2) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Combo_Ability_Use_Actions takes nothing returns nothing
     call GroupClear(udg_CO_UnitGroup)
     call DestroyGroup(udg_CO_UnitGroup)
@@ -214,6 +230,7 @@ function Trig_Combo_Ability_Use_Actions takes nothing returns nothing
     call GroupClear(udg_CO_UnitGroup2)
     call DestroyGroup(udg_CO_UnitGroup2)
 endfunction
+
 function InitTrig_Combo_Ability_Use takes nothing returns nothing
     set gg_trg_Combo_Ability_Use = CreateTrigger()
     call DisableTrigger(gg_trg_Combo_Ability_Use)

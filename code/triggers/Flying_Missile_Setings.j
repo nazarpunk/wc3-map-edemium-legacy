@@ -5,24 +5,28 @@ function Trig_Flying_Missile_Setings_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Flying_Missile_Setings_Func003C takes nothing returns boolean
     if(not(udg_BL_Skip == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Flying_Missile_Setings_Func019Func001Func001Func001Func009Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetTriggerUnit()) == 0x68303149))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Flying_Missile_Setings_Func019Func001Func001Func001Func009C takes nothing returns boolean
     if(not(udg_BL_Idol == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Flying_Missile_Setings_Func019Func001Func001Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetTriggerUnit()) == 0x68303039))then
         return false
@@ -32,6 +36,7 @@ function Trig_Flying_Missile_Setings_Func019Func001Func001Func001C takes nothing
     endif
     return true
 endfunction
+
 function Trig_Flying_Missile_Setings_Func019Func001Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetTriggerUnit()) == 0x68303134))then
         return false
@@ -41,6 +46,7 @@ function Trig_Flying_Missile_Setings_Func019Func001Func001C takes nothing return
     endif
     return true
 endfunction
+
 function Trig_Flying_Missile_Setings_Func019Func001C takes nothing returns boolean
     if(not(GetUnitTypeId(GetTriggerUnit()) == 0x68303134))then
         return false
@@ -50,12 +56,14 @@ function Trig_Flying_Missile_Setings_Func019Func001C takes nothing returns boole
     endif
     return true
 endfunction
+
 function Trig_Flying_Missile_Setings_Func019C takes nothing returns boolean
     if(not(GetUnitTypeId(GetTriggerUnit()) == 0x68303133))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Flying_Missile_Setings_Actions takes nothing returns nothing
     if(Trig_Flying_Missile_Setings_Func003C())then
         call EnableTrigger(gg_trg_Flying_Missile_Loop)
@@ -133,6 +141,7 @@ function Trig_Flying_Missile_Setings_Actions takes nothing returns nothing
     call RemoveLocation(udg_BL_Point[0])
     call RemoveLocation(udg_BL_Point[1])
 endfunction
+
 function InitTrig_Flying_Missile_Setings takes nothing returns nothing
     set gg_trg_Flying_Missile_Setings = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Flying_Missile_Setings, EVENT_PLAYER_UNIT_SPELL_EFFECT)

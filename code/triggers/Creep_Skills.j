@@ -5,6 +5,7 @@ function Trig_Creep_Skills_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func005Func001C takes nothing returns boolean
     if((GetUnitTypeId(GetTriggerUnit()) == 0x6E303035))then
         return true
@@ -14,6 +15,7 @@ function Trig_Creep_Skills_Func003Func005Func001C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Creep_Skills_Func003Func005Func002Func001Func001C takes nothing returns boolean
     if((GetUnitTypeId(GetTriggerUnit()) == 0x6E30304E))then
         return true
@@ -23,54 +25,63 @@ function Trig_Creep_Skills_Func003Func005Func002Func001Func001C takes nothing re
     endif
     return false
 endfunction
+
 function Trig_Creep_Skills_Func003Func005Func002Func001Func002C takes nothing returns boolean
     if(not(GetUnitTypeId(GetTriggerUnit()) == 0x6E303041))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func005Func002Func001C takes nothing returns boolean
     if(not Trig_Creep_Skills_Func003Func005Func002Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func005Func002C takes nothing returns boolean
     if(not(GetUnitTypeId(GetTriggerUnit()) == 0x6E303033))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func005C takes nothing returns boolean
     if(not Trig_Creep_Skills_Func003Func005Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func008Func004Func004Func001C takes nothing returns boolean
     if(not(udg_CreepSpellType == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func008Func004Func004C takes nothing returns boolean
     if(not(udg_CreepSpellType == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func008Func004C takes nothing returns boolean
     if(not(udg_CreepSpellType == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func008C takes nothing returns boolean
     if(not(udg_CreepSpellType == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func010Func001Func001C takes nothing returns boolean
     if((GetOwningPlayer(GetEnumUnit()) == Player(0)))then
         return true
@@ -80,6 +91,7 @@ function Trig_Creep_Skills_Func003Func010Func001Func001C takes nothing returns b
     endif
     return false
 endfunction
+
 function Trig_Creep_Skills_Func003Func010Func001Func002C takes nothing returns boolean
     if(not(udg_CreepSpellType == 4))then
         return false
@@ -89,18 +101,21 @@ function Trig_Creep_Skills_Func003Func010Func001Func002C takes nothing returns b
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func010Func001Func005C takes nothing returns boolean
     if(not(udg_CreepSpellType == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func010Func001C takes nothing returns boolean
     if(not Trig_Creep_Skills_Func003Func010Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func010A takes nothing returns nothing
     if(Trig_Creep_Skills_Func003Func010Func001C())then
         set udg_AbilityPower = (40.00 * I2R(udg_Difficulty))
@@ -122,24 +137,28 @@ function Trig_Creep_Skills_Func003Func010A takes nothing returns nothing
         endif
     endif
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func001Func002Func003C takes nothing returns boolean
     if(not(GetUnitUserData(GetTriggerUnit()) == 73))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func001Func002C takes nothing returns boolean
     if(not(GetUnitUserData(GetTriggerUnit()) == 72))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetUnitUserData(GetTriggerUnit()) == 71))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func001Func003Func001Func001C takes nothing returns boolean
     if((GetOwningPlayer(GetEnumUnit()) == Player(0)))then
         return true
@@ -149,12 +168,14 @@ function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func001Func
     endif
     return false
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func001Func003Func001C takes nothing returns boolean
     if(not Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func001Func003Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func001Func003A takes nothing returns nothing
     if(Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func001Func003Func001C())then
         set udg_AbilityPower = (50.00 * I2R(udg_Difficulty))
@@ -162,12 +183,14 @@ function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func001Func
     else
     endif
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func001C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x41303641))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func007Func001Func001C takes nothing returns boolean
     if((GetOwningPlayer(GetEnumUnit()) == Player(0)))then
         return true
@@ -177,12 +200,14 @@ function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func007Func
     endif
     return false
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func007Func001C takes nothing returns boolean
     if(not Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func007Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func007A takes nothing returns nothing
     if(Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func007Func001C())then
         set udg_AbilityPower = (50.00 * I2R(udg_Difficulty))
@@ -190,18 +215,21 @@ function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func007A ta
     else
     endif
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x41303356))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func001Func001C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x41303541))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func001Func002C takes nothing returns boolean
     if((GetSpellAbilityId() == 0x4130354C))then
         return true
@@ -211,18 +239,21 @@ function Trig_Creep_Skills_Func003Func012Func001Func001Func002C takes nothing re
     endif
     return false
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func001Func011C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x41303546))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func001C takes nothing returns boolean
     if(not Trig_Creep_Skills_Func003Func012Func001Func001Func002C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func006Func001Func001C takes nothing returns boolean
     if((GetOwningPlayer(GetEnumUnit()) == Player(0)))then
         return true
@@ -232,12 +263,14 @@ function Trig_Creep_Skills_Func003Func012Func001Func006Func001Func001C takes not
     endif
     return false
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func006Func001C takes nothing returns boolean
     if(not Trig_Creep_Skills_Func003Func012Func001Func006Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001Func006A takes nothing returns nothing
     if(Trig_Creep_Skills_Func003Func012Func001Func006Func001C())then
         set udg_AbilityPower = (60.00 * I2R(udg_Difficulty))
@@ -249,12 +282,14 @@ function Trig_Creep_Skills_Func003Func012Func001Func006A takes nothing returns n
     else
     endif
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func001C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x41303456))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func006Func001Func001C takes nothing returns boolean
     if((GetOwningPlayer(GetEnumUnit()) == Player(0)))then
         return true
@@ -264,6 +299,7 @@ function Trig_Creep_Skills_Func003Func012Func006Func001Func001C takes nothing re
     endif
     return false
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func006Func001Func004Func001C takes nothing returns boolean
     if((GetUnitTypeId(GetTriggerUnit()) == 0x6E303030))then
         return true
@@ -273,18 +309,21 @@ function Trig_Creep_Skills_Func003Func012Func006Func001Func004Func001C takes not
     endif
     return false
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func006Func001Func004Func007C takes nothing returns boolean
     if(not(GetOwningPlayer(GetEnumUnit()) == Player(0)))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func006Func001Func004C takes nothing returns boolean
     if(not Trig_Creep_Skills_Func003Func012Func006Func001Func004Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func006Func001Func005Func007C takes nothing returns boolean
     if((GetUnitTypeId(GetTriggerUnit()) == 0x6E303050))then
         return true
@@ -294,18 +333,21 @@ function Trig_Creep_Skills_Func003Func012Func006Func001Func005Func007C takes not
     endif
     return false
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func006Func001Func005C takes nothing returns boolean
     if(not Trig_Creep_Skills_Func003Func012Func006Func001Func005Func007C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func006Func001C takes nothing returns boolean
     if(not Trig_Creep_Skills_Func003Func012Func006Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003Func012Func006A takes nothing returns nothing
     if(Trig_Creep_Skills_Func003Func012Func006Func001C())then
         set udg_AbilityPower = (60.00 * I2R(udg_Difficulty))
@@ -335,18 +377,21 @@ function Trig_Creep_Skills_Func003Func012Func006A takes nothing returns nothing
     else
     endif
 endfunction
+
 function Trig_Creep_Skills_Func003Func012C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x41303232))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Func003C takes nothing returns boolean
     if(not(GetSpellAbilityId() == 0x41303139))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Creep_Skills_Actions takes nothing returns nothing
     call DestroyEffectBJ(udg_CreepCastEffect[GetUnitUserData(GetTriggerUnit())])
     if(Trig_Creep_Skills_Func003C())then
@@ -471,6 +516,7 @@ function Trig_Creep_Skills_Actions takes nothing returns nothing
         endif
     endif
 endfunction
+
 function InitTrig_Creep_Skills takes nothing returns nothing
     set gg_trg_Creep_Skills = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Creep_Skills, EVENT_PLAYER_UNIT_SPELL_EFFECT)

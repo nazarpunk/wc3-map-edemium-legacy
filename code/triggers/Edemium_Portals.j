@@ -8,15 +8,18 @@ function Trig_Edemium_Portals_Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Edemium_Portals_Conditions takes nothing returns boolean
     if(not Trig_Edemium_Portals_Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Portals_Func006Func008Func004A takes nothing returns nothing
     call SetUnitPositionLoc(GetEnumUnit(), udg_D_Point1)
 endfunction
+
 function Trig_Edemium_Portals_Func006Func008A takes nothing returns nothing
     set udg_D_Point1 = GetUnitLoc(GetEnumUnit())
     call PanCameraToTimedLocForPlayer(Player(0), udg_D_Point1, 0)
@@ -28,12 +31,14 @@ function Trig_Edemium_Portals_Func006Func008A takes nothing returns nothing
     call StartTimerBJ(udg_D_TimerPortals, false, 3.00)
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
+
 function Trig_Edemium_Portals_Func006C takes nothing returns boolean
     if(not(DistanceBetweenPoints(udg_D_Point1, udg_D_Point2) < 300.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Portals_Actions takes nothing returns nothing
     set udg_D_Pick = GetUnitsOfTypeIdAll(0x6E303049)
     call GroupRemoveUnitSimple(GetOrderTargetUnit(), udg_D_Pick)
@@ -53,6 +58,7 @@ function Trig_Edemium_Portals_Actions takes nothing returns nothing
     call RemoveLocation(udg_D_Point2)
     call DestroyGroup(udg_D_Pick)
 endfunction
+
 function InitTrig_Edemium_Portals takes nothing returns nothing
     set gg_trg_Edemium_Portals = CreateTrigger()
     call TriggerRegisterUnitEvent(gg_trg_Edemium_Portals, gg_unit_H000_0004, EVENT_UNIT_ISSUED_TARGET_ORDER)

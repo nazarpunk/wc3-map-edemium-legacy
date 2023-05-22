@@ -1,6 +1,7 @@
 function Trig_Map_Boss_Button_Func002Func005C takes nothing returns boolean
     return udg_EM_BossEnterDialog == 1
 endfunction
+
 function Trig_Map_Boss_Button_Actions takes nothing returns nothing
     if GetClickedButton() == udg_MapBossButton[1] then
         set udg_EM_BossRoom = true
@@ -55,6 +56,7 @@ function Trig_Map_Boss_Button_Actions takes nothing returns nothing
     else
     endif
 endfunction
+
 function InitTrig_Map_Boss_Button takes nothing returns nothing
     set gg_trg_Map_Boss_Button = CreateTrigger()
     call TriggerRegisterDialogEventBJ(gg_trg_Map_Boss_Button, udg_MapBossDialog)

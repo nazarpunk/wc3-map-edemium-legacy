@@ -20,6 +20,7 @@ function Trig_Edemor_Check_Actions takes nothing returns nothing
     call DestroyGroup(udg_UnitGroup)
 endfunction
 
+
 function InitTrig_Edemor_Check takes nothing returns nothing
     set gg_trg_Edemor_Check = CreateTrigger()
     call DisableTrigger(gg_trg_Edemor_Check)

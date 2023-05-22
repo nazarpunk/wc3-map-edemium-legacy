@@ -5,18 +5,21 @@ function Trig_Gen_Boss_Func042Func001Func001C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Gen_Boss_Func042Func001C takes nothing returns boolean
     if(not(udg_EM_BossCreate[2] == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Boss_Func042C takes nothing returns boolean
     if(not(udg_EM_BossCreate[1] == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Boss_Actions takes nothing returns nothing
     set udg_Training = false
     call SetPlayerHandicapBJ(Player(11), (100.00 * I2R(udg_Difficulty)))
@@ -101,6 +104,7 @@ function Trig_Gen_Boss_Actions takes nothing returns nothing
     call EnablePreSelect(true, true)
     call StartTimerBJ(udg_D_TimerFinal, false, 0.30)
 endfunction
+
 function InitTrig_Gen_Boss takes nothing returns nothing
     set gg_trg_Gen_Boss = CreateTrigger()
     call TriggerAddAction(gg_trg_Gen_Boss, function Trig_Gen_Boss_Actions)

@@ -8,60 +8,70 @@ function Trig_Talisman_Use_Func001C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Talisman_Use_Conditions takes nothing returns boolean
     if(not Trig_Talisman_Use_Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func001Func002C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemEnchant[2] == 9))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func003Func007Func001C takes nothing returns boolean
     if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func003Func007A takes nothing returns nothing
     if(Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func003Func007Func001C())then
         call IssueTargetOrderBJ(GetEnumUnit(), "attack", GetLastCreatedUnit())
     else
     endif
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func003C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemEnchant[2] == 8))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func003C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemEnchant[2] == 7))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func003Func002C takes nothing returns boolean
     if(not(GetUnitAbilityLevelSwapped(0x41303345, GetSpellTargetUnit()) == 1))then
         return false
@@ -71,90 +81,105 @@ function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func003Func002C ta
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func003C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemEnchant[2] == 6))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001Func001Func003Func001C takes nothing returns boolean
     if(not(GetUnitAbilityLevelSwapped(0x41303345, GetSpellTargetUnit()) == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001Func001Func003C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemEnchant[2] == 5))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001Func003C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func001C takes nothing returns boolean
     if(not(udg_IG_ItemEnchant[2] == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func003Func013Func001C takes nothing returns boolean
     if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func003Func013A takes nothing returns nothing
     if(Trig_Talisman_Use_Func002Func001Func003Func013Func001C())then
         call UnitDamageTargetBJ(udg_Arct, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
     else
     endif
 endfunction
+
 function Trig_Talisman_Use_Func002Func001Func003C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func001C takes nothing returns boolean
     if(not(udg_IG_ItemEnchant[2] == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func003Func002C takes nothing returns boolean
     if(not(udg_SB_Skip == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002Func003C takes nothing returns boolean
     if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Func002C takes nothing returns boolean
     if(not(udg_IG_ItemEnchant[2] == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Talisman_Use_Actions takes nothing returns nothing
     if(Trig_Talisman_Use_Func002C())then
         set udg_AbilityPower = ((GetUnitStateSwap(UNIT_STATE_MAX_MANA, udg_Arct) * 10.00) / 100.00)
@@ -306,6 +331,7 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
         endif
     endif
 endfunction
+
 function InitTrig_Talisman_Use takes nothing returns nothing
     set gg_trg_Talisman_Use = CreateTrigger()
     call DisableTrigger(gg_trg_Talisman_Use)

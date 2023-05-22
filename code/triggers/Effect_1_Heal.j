@@ -9,6 +9,7 @@ function Trig_Effect_1_Heal_Actions takes nothing returns nothing
     call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.00)
     call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 0.60)
 endfunction
+
 function InitTrig_Effect_1_Heal takes nothing returns nothing
     set gg_trg_Effect_1_Heal = CreateTrigger()
     call DisableTrigger(gg_trg_Effect_1_Heal)

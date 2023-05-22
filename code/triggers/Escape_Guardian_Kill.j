@@ -5,6 +5,7 @@ function Trig_Escape_Guardian_Kill_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Escape_Guardian_Kill_Actions takes nothing returns nothing
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 2.00, "ReplaceableTextures\\CameraMasks\\White_mask.blp", 100.00, 100.00, 100.00, 20.00)
     call EnableWeatherEffect(GetLastCreatedWeatherEffect(), true)
@@ -20,6 +21,7 @@ function Trig_Escape_Guardian_Kill_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Escape_Dialog_Dummy)
     call EnableTrigger(gg_trg_Escape_Dialog)
 endfunction
+
 function InitTrig_Escape_Guardian_Kill takes nothing returns nothing
     set gg_trg_Escape_Guardian_Kill = CreateTrigger()
     call TriggerRegisterAnyUnitEventBJ(gg_trg_Escape_Guardian_Kill, EVENT_PLAYER_UNIT_DEATH)

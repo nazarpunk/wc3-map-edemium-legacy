@@ -1,39 +1,47 @@
 function Trig_Gen_Rooms_Walls_Func002Func004A takes nothing returns nothing
     set udg_RandomNumber = (udg_RandomNumber + 1)
 endfunction
+
 function Trig_Gen_Rooms_Walls_Func002Func005C takes nothing returns boolean
     if(not(udg_RandomNumber == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Rooms_Walls_Func002Func009A takes nothing returns nothing
     set udg_RandomNumber = (udg_RandomNumber + 1)
 endfunction
+
 function Trig_Gen_Rooms_Walls_Func002Func010C takes nothing returns boolean
     if(not(udg_RandomNumber == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Rooms_Walls_Func002Func014A takes nothing returns nothing
     set udg_RandomNumber = (udg_RandomNumber + 1)
 endfunction
+
 function Trig_Gen_Rooms_Walls_Func002Func015C takes nothing returns boolean
     if(not(udg_RandomNumber == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Rooms_Walls_Func002Func019A takes nothing returns nothing
     set udg_RandomNumber = (udg_RandomNumber + 1)
 endfunction
+
 function Trig_Gen_Rooms_Walls_Func002Func020C takes nothing returns boolean
     if(not(udg_RandomNumber == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Rooms_Walls_Func002A takes nothing returns nothing
     set udg_D_Point2 = GetUnitLoc(GetEnumUnit())
     set udg_D_PointOffset = OffsetLocation(udg_D_Point2, 400.00, 0)
@@ -72,6 +80,7 @@ function Trig_Gen_Rooms_Walls_Func002A takes nothing returns nothing
     call RemoveLocation(udg_D_PointOffset)
     call RemoveLocation(udg_D_Point2)
 endfunction
+
 function Trig_Gen_Rooms_Walls_Func004Func001Func001C takes nothing returns boolean
     if((GetDestructableTypeId(GetEnumDestructable()) == 0x4230314A))then
         return true
@@ -99,18 +108,21 @@ function Trig_Gen_Rooms_Walls_Func004Func001Func001C takes nothing returns boole
     endif
     return false
 endfunction
+
 function Trig_Gen_Rooms_Walls_Func004Func001C takes nothing returns boolean
     if(not Trig_Gen_Rooms_Walls_Func004Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Rooms_Walls_Func004A takes nothing returns nothing
     if(Trig_Gen_Rooms_Walls_Func004Func001C())then
         call RemoveDestructable(GetEnumDestructable())
     else
     endif
 endfunction
+
 function Trig_Gen_Rooms_Walls_Func005Func001Func001C takes nothing returns boolean
     if((GetDestructableTypeId(GetEnumDestructable()) == 0x4230314A))then
         return true
@@ -138,18 +150,21 @@ function Trig_Gen_Rooms_Walls_Func005Func001Func001C takes nothing returns boole
     endif
     return false
 endfunction
+
 function Trig_Gen_Rooms_Walls_Func005Func001C takes nothing returns boolean
     if(not Trig_Gen_Rooms_Walls_Func005Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Rooms_Walls_Func005A takes nothing returns nothing
     if(Trig_Gen_Rooms_Walls_Func005Func001C())then
         call RemoveDestructable(GetEnumDestructable())
     else
     endif
 endfunction
+
 function Trig_Gen_Rooms_Walls_Actions takes nothing returns nothing
     set udg_D_Pick = GetUnitsOfTypeIdAll(0x68303054)
     call ForGroupBJ(udg_D_Pick, function Trig_Gen_Rooms_Walls_Func002A)
@@ -158,6 +173,7 @@ function Trig_Gen_Rooms_Walls_Actions takes nothing returns nothing
     call EnumDestructablesInRectAll(gg_rct_Cell3_Delete_2, function Trig_Gen_Rooms_Walls_Func005A)
     call ConditionalTriggerExecute(gg_trg_Gen_Rooms_Doors)
 endfunction
+
 function InitTrig_Gen_Rooms_Walls takes nothing returns nothing
     set gg_trg_Gen_Rooms_Walls = CreateTrigger()
     call TriggerAddAction(gg_trg_Gen_Rooms_Walls, function Trig_Gen_Rooms_Walls_Actions)

@@ -2,6 +2,7 @@ function Trig_Map_Enter_Conditions takes nothing returns boolean
     return GetClickedButton() == udg_DialogButton[1]
 endfunction
 
+
 function Trig_Map_Enter_Actions takes nothing returns nothing
     call VolumeGroupSetVolumeBJ(SOUND_VOLUMEGROUP_FIRE, 0.00)
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 2.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
@@ -39,6 +40,7 @@ function Trig_Map_Enter_Actions takes nothing returns nothing
     set udg_CameraAngle = 275
     call UnitAddAbilityBJ(0x4130354D, udg_EM_Target)
 endfunction
+
 
 function InitTrig_Map_Enter takes nothing returns nothing
     set gg_trg_Map_Enter = CreateTrigger()

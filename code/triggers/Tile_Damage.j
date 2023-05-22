@@ -5,6 +5,7 @@ function Trig_Tile_Damage_Func002Func003C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Tile_Damage_Func002C takes nothing returns boolean
     if(not(UnitHasBuffBJ(udg_Arct, 0x42486473) == false))then
         return false
@@ -14,6 +15,7 @@ function Trig_Tile_Damage_Func002C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Tile_Damage_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(udg_Arct)
     if(Trig_Tile_Damage_Func002C())then
@@ -34,6 +36,7 @@ function Trig_Tile_Damage_Actions takes nothing returns nothing
     endif
     call RemoveLocation(udg_Point)
 endfunction
+
 function InitTrig_Tile_Damage takes nothing returns nothing
     set gg_trg_Tile_Damage = CreateTrigger()
     call DisableTrigger(gg_trg_Tile_Damage)

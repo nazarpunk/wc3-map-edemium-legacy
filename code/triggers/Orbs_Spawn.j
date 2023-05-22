@@ -5,6 +5,7 @@ function Trig_Orbs_Spawn_Func002C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Orbs_Spawn_Actions takes nothing returns nothing
     set udg_LightIterations = (udg_LightIterations - 1)
     if(Trig_Orbs_Spawn_Func002C())then
@@ -18,6 +19,7 @@ function Trig_Orbs_Spawn_Actions takes nothing returns nothing
         call DisableTrigger(GetTriggeringTrigger())
     endif
 endfunction
+
 function InitTrig_Orbs_Spawn takes nothing returns nothing
     set gg_trg_Orbs_Spawn = CreateTrigger()
     call DisableTrigger(gg_trg_Orbs_Spawn)

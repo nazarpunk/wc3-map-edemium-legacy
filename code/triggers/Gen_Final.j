@@ -5,6 +5,7 @@ function Trig_Gen_Final_Func003Func001A takes nothing returns nothing
     set udg_ChestKeyEffect[GetForLoopIndexB()] = GetLastCreatedEffectBJ()
     call GroupRemoveUnitSimple(GetEnumUnit(), udg_D_Pick)
 endfunction
+
 function Trig_Gen_Final_Func007Func001A takes nothing returns nothing
     set udg_D_Point1 = GetUnitLoc(GetEnumUnit())
     set udg_D_Point2 = OffsetLocation(udg_D_Point1, GetRandomReal(0, 150.00), GetRandomReal(0, 150.00))
@@ -14,6 +15,7 @@ function Trig_Gen_Final_Func007Func001A takes nothing returns nothing
     call RemoveLocation(udg_D_Point2)
     call GroupRemoveUnitSimple(GetEnumUnit(), udg_D_Pick)
 endfunction
+
 function Trig_Gen_Final_Func011Func001Func001C takes nothing returns boolean
     if((GetDestructableTypeId(GetEnumDestructable()) != 0x42303156))then
         return true
@@ -38,18 +40,21 @@ function Trig_Gen_Final_Func011Func001Func001C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Gen_Final_Func011Func001Func003C takes nothing returns boolean
     if(not(GetDestructableTypeId(GetEnumDestructable()) == 0x42303134))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Final_Func011Func001C takes nothing returns boolean
     if(not Trig_Gen_Final_Func011Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Final_Func011A takes nothing returns nothing
     if(Trig_Gen_Final_Func011Func001C())then
         call SetDestructableInvulnerableBJ(GetEnumDestructable(), true)
@@ -63,6 +68,7 @@ function Trig_Gen_Final_Func011A takes nothing returns nothing
     else
     endif
 endfunction
+
 function Trig_Gen_Final_Func012Func001Func001C takes nothing returns boolean
     if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303156))then
         return true
@@ -87,24 +93,29 @@ function Trig_Gen_Final_Func012Func001Func001C takes nothing returns boolean
     endif
     return false
 endfunction
+
 function Trig_Gen_Final_Func012Func001C takes nothing returns boolean
     if(not Trig_Gen_Final_Func012Func001Func001C())then
         return false
     endif
     return true
 endfunction
+
 function Trig_Gen_Final_Func012A takes nothing returns nothing
     if(Trig_Gen_Final_Func012Func001C())then
         call SetDestructableInvulnerableBJ(GetEnumDestructable(), false)
     else
     endif
 endfunction
+
 function Trig_Gen_Final_Func018002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Gen_Final_Func021002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
+
 function Trig_Gen_Final_Actions takes nothing returns nothing
     set udg_D_Pick = GetUnitsInRectOfPlayer(gg_rct_Dungeon, Player(11))
     set bj_forLoopBIndex = 1
@@ -202,6 +213,7 @@ function Trig_Gen_Final_Actions takes nothing returns nothing
     call EnablePreSelect(true, true)
     call StartTimerBJ(udg_D_TimerFinal, false, 2.50)
 endfunction
+
 function InitTrig_Gen_Final takes nothing returns nothing
     set gg_trg_Gen_Final = CreateTrigger()
     call TriggerAddAction(gg_trg_Gen_Final, function Trig_Gen_Final_Actions)

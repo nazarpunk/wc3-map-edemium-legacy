@@ -5,12 +5,14 @@ function Trig_Leave_Core_Conditions takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Leave_Core_Func006C takes nothing returns boolean
     if(not(udg_AutosaveBool == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Leave_Core_Actions takes nothing returns nothing
     call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Workshop)
     set udg_Camera = gg_cam_Camera_Workshop
@@ -26,6 +28,7 @@ function Trig_Leave_Core_Actions takes nothing returns nothing
     endif
     call ClearTextMessagesBJ(GetPlayersAll())
 endfunction
+
 function InitTrig_Leave_Core takes nothing returns nothing
     set gg_trg_Leave_Core = CreateTrigger()
     call TriggerRegisterLeaveRectSimple(gg_trg_Leave_Core, gg_rct_Workshop_Core)

@@ -70,6 +70,7 @@ function Trig_CodeGen_Load_2_Actions takes nothing returns nothing
     call ConditionalTriggerExecute(gg_trg_CodeGen_Load_3)
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_CodeGen_Load_2 takes nothing returns nothing
     set gg_trg_CodeGen_Load_2 = CreateTrigger()
     call TriggerAddAction(gg_trg_CodeGen_Load_2, function Trig_CodeGen_Load_2_Actions)

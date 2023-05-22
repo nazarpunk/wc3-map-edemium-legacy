@@ -29,6 +29,7 @@ function Trig_Trees_Choose_ESC_Actions takes nothing returns nothing
     call TriggerExecute(gg_trg_Trees_Specialeffects)
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
+
 function InitTrig_Trees_Choose_ESC takes nothing returns nothing
     set gg_trg_Trees_Choose_ESC = CreateTrigger()
     call DisableTrigger(gg_trg_Trees_Choose_ESC)

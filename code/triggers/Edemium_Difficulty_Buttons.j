@@ -5,54 +5,63 @@ function Trig_Edemium_Difficulty_Buttons_Func001Func001Func001Func001Func001C ta
     endif
     return true
 endfunction
+
 function Trig_Edemium_Difficulty_Buttons_Func001Func001Func001Func001C takes nothing returns boolean
     if(not(GetClickedButton() == udg_DialogButton[6]))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Difficulty_Buttons_Func001Func001Func001C takes nothing returns boolean
     if(not(GetClickedButton() == udg_DialogButton[5]))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Difficulty_Buttons_Func001Func001C takes nothing returns boolean
     if(not(GetClickedButton() == udg_DialogButton[4]))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Difficulty_Buttons_Func001C takes nothing returns boolean
     if(not(GetClickedButton() == udg_DialogButton[3]))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Difficulty_Buttons_Func006Func001Func001Func001C takes nothing returns boolean
     if(not(udg_Difficulty == 4))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Difficulty_Buttons_Func006Func001Func001C takes nothing returns boolean
     if(not(udg_Difficulty == 3))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Difficulty_Buttons_Func006Func001C takes nothing returns boolean
     if(not(udg_Difficulty == 2))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Difficulty_Buttons_Func006C takes nothing returns boolean
     if(not(udg_Difficulty == 1))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Edemium_Difficulty_Buttons_Actions takes nothing returns nothing
     if(Trig_Edemium_Difficulty_Buttons_Func001C())then
         set udg_Difficulty = 1
@@ -109,6 +118,7 @@ function Trig_Edemium_Difficulty_Buttons_Actions takes nothing returns nothing
     call DialogAddButtonBJ(udg_TeleportDialog, "Ещё минутку...")
     call DialogDisplayBJ(true, udg_TeleportDialog, Player(0))
 endfunction
+
 function InitTrig_Edemium_Difficulty_Buttons takes nothing returns nothing
     set gg_trg_Edemium_Difficulty_Buttons = CreateTrigger()
     call TriggerRegisterDialogEventBJ(gg_trg_Edemium_Difficulty_Buttons, udg_DifficultyDialog)

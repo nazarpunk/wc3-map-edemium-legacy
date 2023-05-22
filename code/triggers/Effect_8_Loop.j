@@ -5,12 +5,14 @@ function Trig_Effect_8_Loop_Func001Func001Func016C takes nothing returns boolean
     endif
     return true
 endfunction
+
 function Trig_Effect_8_Loop_Func001Func001Func030Func001C takes nothing returns boolean
     if(not(IsUnitAlly(udg_BE_Target[udg_BE_TempIndex], udg_BE_Player[udg_BE_TempIndex]) == true))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Effect_8_Loop_Func001Func001Func030Func004Func002Func005C takes nothing returns boolean
     if((GetOwningPlayer(udg_BE_PickedUnits) == Player(0)))then
         return true
@@ -20,6 +22,7 @@ function Trig_Effect_8_Loop_Func001Func001Func030Func004Func002Func005C takes no
     endif
     return false
 endfunction
+
 function Trig_Effect_8_Loop_Func001Func001Func030Func004Func002C takes nothing returns boolean
     if(not(IsUnitType(udg_BE_PickedUnits, UNIT_TYPE_STRUCTURE) == false))then
         return false
@@ -35,6 +38,7 @@ function Trig_Effect_8_Loop_Func001Func001Func030Func004Func002C takes nothing r
     endif
     return true
 endfunction
+
 function Trig_Effect_8_Loop_Func001Func001Func030Func004A takes nothing returns nothing
     set udg_BE_PickedUnits = GetEnumUnit()
     if(Trig_Effect_8_Loop_Func001Func001Func030Func004Func002C())then
@@ -42,24 +46,28 @@ function Trig_Effect_8_Loop_Func001Func001Func030Func004A takes nothing returns 
         call GroupRemoveUnitSimple(udg_BE_PickedUnits, udg_BE_Group)
     endif
 endfunction
+
 function Trig_Effect_8_Loop_Func001Func001Func030Func006C takes nothing returns boolean
     if(not(CountUnitsInGroup(udg_BE_Group) == 0))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Effect_8_Loop_Func001Func001Func030C takes nothing returns boolean
     if(not(udg_BE_Distance[udg_BE_TempIndex] <= 50.00))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Effect_8_Loop_Func001Func001C takes nothing returns boolean
     if(not(udg_BE_CurrentBounces[udg_BE_TempIndex] <= udg_BE_Bounces[udg_BE_AbilityIndex[udg_BE_TempIndex]]))then
         return false
     endif
     return true
 endfunction
+
 function Trig_Effect_8_Loop_Actions takes nothing returns nothing
     set udg_BE_TempIndex = 1
     loop
@@ -136,6 +144,7 @@ function Trig_Effect_8_Loop_Actions takes nothing returns nothing
         set udg_BE_TempIndex = udg_BE_TempIndex + 1
     endloop
 endfunction
+
 function InitTrig_Effect_8_Loop takes nothing returns nothing
     set gg_trg_Effect_8_Loop = CreateTrigger()
     call DisableTrigger(gg_trg_Effect_8_Loop)
