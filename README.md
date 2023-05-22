@@ -1,1 +1,1 @@
-# wc3-map-edemium-legacy
+# wc3-map-edemium
