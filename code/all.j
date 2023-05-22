@@ -1,5727 +1,3 @@
-function InitGlobalsOld takes nothing returns nothing
-    local integer i = 0
-    set udg_CameraDistance = 0
-    set udg_TeleportDialog = DialogCreate()
-    set udg_UDex = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_UnitIndexLock[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_UDexPrev[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_UDexNext[i] = 0
-        set i = i + 1
-    endloop
-    set udg_UnitIndexEvent = 0
-    set udg_UDexRecycle = 0
-    set udg_UnitIndexerEnabled = false
-    set udg_UDexWasted = 0
-    set udg_UDexGen = 0
-    set udg_DamageTypeSpell = 0
-    set udg_DamageTypeDOT = 0
-    set udg_DamageTypeRanged = 0
-    set udg_DmgEvN = 0
-    set udg_DamageEventAmount = 0
-    set udg_DamageEventPrevAmt = 0
-    set udg_DamageEventExplodesUnit = false
-    set udg_DamageEventOverride = false
-    set udg_DamageModifierEvent = 0
-    set udg_DamageEvent = 0
-    set udg_DmgEvLife = 0
-    set udg_DamageEventTrigger = CreateTrigger()
-    set udg_DmgTypPrev = 0
-    set udg_DamageEventType = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_UnitDamageRegistered[i] = false
-        set i = i + 1
-    endloop
-    set udg_DamageEventsWasted = 0
-    set udg_DmgEvTimer = CreateTimer()
-    set udg_ChanceCrit = 0
-    set udg_ChanceBlock = 0
-    set udg_CameraMax = 0
-    set udg_CameraMin = 0
-    set udg_ItemInt = 0
-    set udg_AbilityPower = 0
-    set udg_RandomNumber = 0
-    set udg_UnitGroup = CreateGroup()
-    set udg_AbilityEnergyRegen = 0
-    set udg_D_CreepsTotal = 0
-    set udg_LeaveDialog = DialogCreate()
-    set udg_Dead = false
-    set udg_FadeSystemGroup = CreateGroup()
-    set udg_TempBool = false
-    set udg_FadeUnitKey = 0
-    set udg_CameraAngle = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_ER_Creeps[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_AbilityLogic[i] = false
-        set i = i + 1
-    endloop
-    set udg_ChestDust = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BackpackScrolls[i] = 0
-        set i = i + 1
-    endloop
-    set udg_RewardDustReal = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_Offset[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BackpackPotions[i] = 0
-        set i = i + 1
-    endloop
-    set udg_Difficulty = 1
-    set udg_DifficultyDialog = DialogCreate()
-    set udg_Transparent = 0
-    set udg_UnitGroupPlayer = CreateGroup()
-    set udg_PauseTimer = CreateTimer()
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_AugmentCost[i] = 0
-        set i = i + 1
-    endloop
-    set udg_AttributesBoard = CreateMultiboard()
-    set udg_ChanceCritBase = 8.00
-    set udg_ChanceBlockBase = 8.00
-    set udg_TimerPilgrim = CreateTimer()
-    set udg_TimerLead = CreateTimer()
-    set udg_D_Pick = CreateGroup()
-    set udg_D_Rooms = 0
-    set udg_D_Portals = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_D_PortalLogic[i] = false
-        set i = i + 1
-    endloop
-    set udg_D_Pick2 = CreateGroup()
-    set udg_D_Timer = CreateTimer()
-    set udg_D_WallType = 0
-    set udg_D_Walls = 0
-    set udg_D_TimerPortals = CreateTimer()
-    set udg_CameraTurn = 0
-    set udg_Region1 = CreateRegion()
-    set udg_Region2 = CreateRegion()
-    set udg_Region3 = CreateRegion()
-    set udg_Region4 = CreateRegion()
-    set udg_Region5 = CreateRegion()
-    set udg_CO_UnitGroup = CreateGroup()
-    set udg_CO_UnitGroup2 = CreateGroup()
-    set udg_CO_Combo = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_CO_ComboSeries[i] = 0
-        set i = i + 1
-    endloop
-    set udg_CO_CombatTimer = CreateTimer()
-    set udg_CO_CustomValue = 0
-    set udg_CO_CombatTimer2 = CreateTimer()
-    set udg_D_Torches = 0
-    set udg_CO_Power = 0
-    set udg_MeditationPower = 0
-    set udg_CO_Time = 2.00
-    set udg_D_Chests = 0
-    set udg_D_ChestsMax = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_AS_Logic[i] = false
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_AS_Value[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_AS_Effect[i] = 0
-        set i = i + 1
-    endloop
-    set udg_AS_SeriesNumber = 0
-    set udg_CO_Damage = false
-    set i = 0
-    loop
-        exitwhen(i > 24)
-        set udg_AS_AbilityLVL[i] = 1
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_AS_AbilityEXP[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 24)
-        set udg_AS_AbilityLVL_Base[i] = 1
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_AS_AbilityEXP_Base[i] = 0
-        set i = i + 1
-    endloop
-    set udg_CO_Timer = CreateTimer()
-    set udg_SprintLogic = false
-    set udg_AS_EffectNumber = 0
-    set udg_AS_AbilityCountLVL = 0
-    set udg_AS_AbilityCountLVL_Base = 0
-    set udg_AS_Points_Base = 0
-    set udg_AS_TimerEffect1 = CreateTimer()
-    set udg_ChestDialog = DialogCreate()
-    set udg_ChestEnergy = 0
-    set i = 0
-    loop
-        exitwhen(i > 24)
-        set udg_AS_Name[i] = ""
-        set i = i + 1
-    endloop
-    set udg_IG_RandomNumber = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_IG_ItemAtt[i] = ""
-        set i = i + 1
-    endloop
-    set udg_IG_ItemCode = ""
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_IG_ItemValue[i] = 0
-        set i = i + 1
-    endloop
-    set udg_IG_ItemQuality = 0
-    set udg_SprintTimer = CreateTimer()
-    set udg_Region6 = CreateRegion()
-    set udg_Region7 = CreateRegion()
-    set udg_EM_Bool = false
-    set udg_EM_Cost = 0
-    set udg_EM_Generate = 1
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_ART[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_AugmentLevel[i] = 0
-        set i = i + 1
-    endloop
-    set udg_AugmentPrice = 0
-    set udg_AugmentValue = 0
-    set udg_EM_EncounterChance =- 4
-    set udg_EnchantingRoom = false
-    set udg_AS_TimerEffect4 = CreateTimer()
-    set udg_AS_Effect8Group = CreateGroup()
-    set udg_AS_TimerEffect8 = CreateTimer()
-    set udg_AS_Effect9Count = 0
-    set udg_AS_Effect9Count2 = 0
-    set udg_AS_Effect10 = false
-    set udg_AS_Effect2 = false
-    set udg_AS_TimerEffect2 = CreateTimer()
-    set udg_AS_Effect11 = false
-    set udg_AS_TimerEffect11 = CreateTimer()
-    set udg_OnkieRoom = false
-    set udg_ER_Logic = false
-    set udg_ER_Reward = 0
-    set udg_ER_Count = 0
-    set udg_ER_RewardReal = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_Tutorial[i] = false
-        set i = i + 1
-    endloop
-    set udg_Training = false
-    set udg_IG_InfoBool = false
-    set udg_EndingDialog = DialogCreate()
-    set udg_DamageEventAmountINT = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_EM_BossDead[i] = false
-        set i = i + 1
-    endloop
-    set udg_CO_LeftWeapon = false
-    set udg_TrapTimer = CreateTimer()
-    set udg_CO_Effect6Power = 0
-    set udg_AbilityPowerEnergy = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_EM_Boss[i] = false
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_TutorialHint[i] = false
-        set i = i + 1
-    endloop
-    set udg_TutorialHintsOn = true
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_Difficulty_Unlocked[i] = false
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_IG_ItemEnchantName[i] = ""
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_IG_ItemEnchantInt[i] = 0
-        set i = i + 1
-    endloop
-    set udg_LoadTimer = CreateTimer()
-    set udg_PoisonGroup = CreateGroup()
-    set udg_PoisonTimer = CreateTimer()
-    set udg_EnchantCritBool = false
-    set udg_EnchantCritTimer = CreateTimer()
-    set udg_Region8 = CreateRegion()
-    set udg_Region9 = CreateRegion()
-    set udg_Region10 = CreateRegion()
-    set udg_Region11 = CreateRegion()
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_CC_Ingredient[i] = 0
-        set i = i + 1
-    endloop
-    set udg_CC_ItemLevel = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_CC_IngredientAdded[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_CC_IngredientName[i] = ""
-        set i = i + 1
-    endloop
-    set udg_CC_Timer = CreateTimer()
-    set udg_Artefactorium = false
-    set udg_D_Timer2 = CreateTimer()
-    set udg_D_Pick3 = CreateGroup()
-    set udg_D_Timer3 = CreateTimer()
-    set udg_D_TimerFinal = CreateTimer()
-    set udg_CC_IngredientDrop = 2
-    set udg_AS_TimerEffect9 = CreateTimer()
-    set udg_AS_Effect9Group = CreateGroup()
-    set udg_EM_EventGroup = CreateGroup()
-    set udg_EventAttribute = 0
-    set udg_EventLux = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_CC_SecretUnlocked[i] = false
-        set i = i + 1
-    endloop
-    set udg_CC_SecretNumber = 0
-    set udg_MeditationLogic = false
-    set udg_LightIterations = 0
-    set udg_ItemPickup__Radius = 0
-    set udg_ItemPickup__AddUnit = false
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_JD_Integers[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_JD_Distances[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_JD_ReachedDistance[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_JD_SpeedUnits[i] = 0
-        set i = i + 1
-    endloop
-    set udg_JDA_Speed = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_JD_Angle[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_JD_Animations[i] = ""
-        set i = i + 1
-    endloop
-    set udg_JDA_Animation = ""
-    set udg_JDA_DestroyTrees_Dash = false
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_JD_HighSettings[i] = 0
-        set i = i + 1
-    endloop
-    set udg_JDA_JumpHigh_Distance = 0
-    set udg_JDA_AnimationSpeed = 0
-    set udg_JD_Group = CreateGroup()
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_JD_RealTimer[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_JD_Effect[i] = ""
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_JD_JumpHigh[i] = 0
-        set i = i + 1
-    endloop
-    set udg_JDA_Collusion = false
-    set udg_ItemPickup_Index = 0
-    set udg_ItemPickup_Max = 0
-    set udg_ItemPickup_Timer = CreateTimer()
-    set udg_EventDialog = DialogCreate()
-    set udg_EdemEventDialog = DialogCreate()
-    set udg_EdemEventType = 0
-    set udg_CreepSpellType = 0
-    set udg_BL_Skip = 0
-    set udg_BL_Times = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BL_Off[i] = false
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BL_Angle[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BL_Distance[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BL_Speed[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BL_Dmg[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BL_AoE[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BL_Collision[i] = 0
-        set i = i + 1
-    endloop
-    set udg_BL_Scale = 0
-    set udg_BL_Group = CreateGroup()
-    set udg_BL_Idol = false
-    set udg_BE_Model = ""
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_Bounces[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_SearchAoE[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_CDamage[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_CHeal[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_DamageAddition[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_HealAddition[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_Speed[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_Height[i] = 0
-        set i = i + 1
-    endloop
-    set udg_BE_CSizeIncrement = 0
-    set udg_BE_PosSpecialEffect = ""
-    set udg_BE_NegSpecialEffect = ""
-    set udg_BE_MaxIndex = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_AbilityIndex[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_DistanceTravelled[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_Damage[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_Heal[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_SizeIncrement[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_CurrentBounces[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_Angle[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_BE_Distance[i] = 0
-        set i = i + 1
-    endloop
-    set udg_BE_TotalDistance = 0
-    set udg_BE_Group = CreateGroup()
-    set udg_FallenGroup = CreateGroup()
-    set udg_Combat = false
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_ARTInteger[i] = 0
-        set i = i + 1
-    endloop
-    set udg_SecretGroup = CreateGroup()
-    set udg_FollowersGroup = CreateGroup()
-    set udg_DifficultyRate = 1.00
-    set udg_CustomValues = 0
-    set udg_Boss2Timer = CreateTimer()
-    set udg_EM_BossRoom = false
-    set udg_D_DungeonTier = 0
-    set udg_SaveLoad_SaveToDisk = false
-    set udg_SaveLoad_Directory = ""
-    set udg_SaveLoad_Alphabet = ""
-    set udg_SaveLoad_CheckName = false
-    set udg_SaveLoad_Security = false
-    set udg_SaveLoad_HyphenSpace = 0
-    set udg_SaveLoad_SeperationChar = ""
-    set udg_SaveLoad_Lower = ""
-    set udg_SaveLoad_Number = ""
-    set udg_SaveLoad_Upper = ""
-    set udg_SaveLoad_MaxValue = 0
-    set udg_SaveLoad_HeroCount = 0
-    set udg_SaveLoad_AbilityCount = 0
-    set udg_SaveLoad_ItemCount = 0
-    set udg_SaveLoad_Full = ""
-    set udg_SaveLoad_Error = ""
-    set udg_SaveLoad_Base = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_SaveLoad_Char[i] = ""
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_Load[i] = 0
-        set i = i + 1
-    endloop
-    set udg_LoadCount = 0
-    set udg_SaveCount = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_Save[i] = 0
-        set i = i + 1
-    endloop
-    set udg_SaveLoad_Filename = ""
-    set udg_Code = ""
-    set udg_SaveLoad_Valid = false
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_AS_AbilityStudied[i] = 0
-        set i = i + 1
-    endloop
-    set udg_TierUnlocked = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_SecretUnlocked[i] = 0
-        set i = i + 1
-    endloop
-    set udg_InitDialog = DialogCreate()
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_EM_BossCreate[i] = false
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_LightOrbs[i] = 0
-        set i = i + 1
-    endloop
-    set udg_Boss3Timer = CreateTimer()
-    set udg_Boss3PortalCounter = 0
-    set udg_Boss3TimerOrder = CreateTimer()
-    set udg_IG_ItemLVL_Max = 4
-    set udg_Boss3Pukes = 0
-    set udg_ImportCode1 = ""
-    set udg_ImportCode2 = ""
-    set udg_LoadingTimer = CreateTimer()
-    set udg_LoadSucces = false
-    set udg_EM_Encounter = false
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_D_RoomDecorScale[i] = 0
-        set i = i + 1
-    endloop
-    set udg_CS_Bool = false
-    set udg_CS_Timer = CreateTimer()
-    set udg_CS_KeeperBool = false
-    set udg_CS_Reward = 0
-    set udg_CS_TargetPower = 0
-    set udg_CS_Round = 0
-    set udg_ScrollTimer = CreateTimer()
-    set udg_CinematicTimer = CreateTimer()
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_EM_LevelCV[i] = 0
-        set i = i + 1
-    endloop
-    set udg_ImportCode3 = ""
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_EM_LevelDiscovered[i] = 0
-        set i = i + 1
-    endloop
-    set udg_ImportCode4 = ""
-    set udg_MapBossDialog = DialogCreate()
-    set udg_EM_BossEnterDialog = 0
-    set udg_EM_TargetCV = 0
-    set udg_AS_Points = 0
-    set udg_SaveTimer2 = CreateTimer()
-    set udg_SaveTimer = CreateTimer()
-    set udg_SaveTimer3 = CreateTimer()
-    set udg_SaveTimer4 = CreateTimer()
-    set udg_SaveTimer5 = CreateTimer()
-    set udg_ComboSpawnTimer = CreateTimer()
-    set udg_ComboSpawnAllowed = false
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_EdemEventBool[i] = false
-        set i = i + 1
-    endloop
-    set udg_DungeonColdTimer = CreateTimer()
-    set udg_DungeonColdLevel = 0
-    set udg_DungeonDarkTimer = CreateTimer()
-    set udg_Autosave = 0
-    set udg_AutosaveBool = false
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_QG_Count[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_QG_ObjectiveStateMax[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_QG_ObjectiveState[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_QG_CountMax[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_QG_ObjectiveName[i] = ""
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_QG_Objective[i] = ""
-        set i = i + 1
-    endloop
-    set udg_EventSucces = false
-    set udg_EX_Level_Base = 0
-    set udg_EX_Exp_Base = 0
-    set udg_EX_LevelUp = 0
-    set udg_EX_Rate = 1.00
-    set udg_QG_QuestCompleted = 0
-    set udg_CS_RewardReal = 0
-    set udg_DungeonDeadlyCleansing = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_IG_ItemEnchant[i] = 0
-        set i = i + 1
-    endloop
-    set udg_SB_Skip = 0
-    set udg_SB_Times = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_SB_On[i] = false
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_SB_Level[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_SB_Distance[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_SB_Angle[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_SB_Speed[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_SB_Damage[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_SB_Spam[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_SB_Group[i] = CreateGroup()
-        set i = i + 1
-    endloop
-    set udg_KB_Skip = 0
-    set udg_KB_Times = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_KB_Off[i] = false
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_KB_Angle[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_KB_Distance[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_KB_Speed[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_KB_Spam[i] = 0
-        set i = i + 1
-    endloop
-    set udg_KB_Bool = false
-    set udg_IG_ItemRandom = 0
-endfunction
-
-function InitSoundsOld takes nothing returns nothing
-    set gg_snd_QuestLog = CreateSound("Sound\\Interface\\QuestLog.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_QuestLog, "QuestUpdate")
-    call SetSoundDuration(gg_snd_QuestLog, 2276)
-    set gg_snd_Error = CreateSound("Sound\\Interface\\Error.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_Error, "InterfaceError")
-    call SetSoundDuration(gg_snd_Error, 614)
-    call SetSoundChannel(gg_snd_Error, 6)
-    set gg_snd_FrostArmorTarget1 = CreateSound("Abilities\\Spells\\Undead\\FrostArmor\\FrostArmorTarget1.wav", false, false, false, 20, 1, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_FrostArmorTarget1, "FrostArmor")
-    call SetSoundDuration(gg_snd_FrostArmorTarget1, 2995)
-    call SetSoundChannel(gg_snd_FrostArmorTarget1, 13)
-    set gg_snd_Ambient = CreateSound("Ambient.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_Ambient, 71210)
-    call SetSoundChannel(gg_snd_Ambient, 10)
-    call SetSoundVolume(gg_snd_Ambient, 60)
-    call SetSoundPitch(gg_snd_Ambient, 1.0)
-    set gg_snd_Avatar = CreateSound("Abilities\\Spells\\Human\\Avatar\\Avatar.wav", false, true, true, 10, 10, "SpellsEAX")
-    call SetSoundParamsFromLabel(gg_snd_Avatar, "Avatar")
-    call SetSoundDuration(gg_snd_Avatar, 1411)
-    set gg_snd_GamePause = CreateSound("Sound\\Interface\\GamePause.wav", false, false, false, 10, 10, "")
-    call SetSoundParamsFromLabel(gg_snd_GamePause, "PauseGame")
-    call SetSoundDuration(gg_snd_GamePause, 643)
-    set gg_snd_QuestFail = CreateSound("QuestFail.mp3", false, false, false, 10, 10, "")
-    call SetSoundDuration(gg_snd_QuestFail, 4826)
-    call SetSoundChannel(gg_snd_QuestFail, 0)
-    call SetSoundVolume(gg_snd_QuestFail, 127)
-    call SetSoundPitch(gg_snd_QuestFail, 1.0)
-    set gg_snd_AssassinDeath1 = CreateSound("Units\\Creeps\\Assassin\\AssassinDeath1.wav", false, true, true, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_AssassinDeath1, "AssassinDeath")
-    call SetSoundDuration(gg_snd_AssassinDeath1, 4556)
-    set gg_snd_AmbientMachines = CreateSound("AmbientMachines.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_AmbientMachines, 59585)
-    call SetSoundChannel(gg_snd_AmbientMachines, 0)
-    call SetSoundVolume(gg_snd_AmbientMachines, 75)
-    call SetSoundPitch(gg_snd_AmbientMachines, 1.0)
-    set gg_snd_AmbiencePortal = CreateSound("AmbiencePortal.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_AmbiencePortal, 29095)
-    call SetSoundChannel(gg_snd_AmbiencePortal, 0)
-    call SetSoundVolume(gg_snd_AmbiencePortal, 100)
-    call SetSoundPitch(gg_snd_AmbiencePortal, 1.0)
-    set gg_snd_AmbientTrees = CreateSound("AmbientTrees.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_AmbientTrees, 48431)
-    call SetSoundChannel(gg_snd_AmbientTrees, 0)
-    call SetSoundVolume(gg_snd_AmbientTrees, 100)
-    call SetSoundPitch(gg_snd_AmbientTrees, 1.0)
-    set gg_snd_HPitLordYes3 = CreateSound("Units\\Demon\\HeroPitLord\\HPitLordYes3.wav", false, true, true, 10, 10, "HeroAcksEAX")
-    call SetSoundParamsFromLabel(gg_snd_HPitLordYes3, "HeroPitLordYes")
-    call SetSoundDuration(gg_snd_HPitLordYes3, 2244)
-    set gg_snd_HeroPaladinWarcry1 = CreateSound("Units\\Human\\HeroPaladin\\HeroPaladinWarcry1.wav", false, false, false, 10, 10, "HeroAcksEAX")
-    call SetSoundParamsFromLabel(gg_snd_HeroPaladinWarcry1, "HeroPaladinWarcry")
-    call SetSoundDuration(gg_snd_HeroPaladinWarcry1, 1283)
-    call SetSoundVolume(gg_snd_HeroPaladinWarcry1, 100)
-    set gg_snd_JainaYes1 = CreateSound("Units\\Human\\Jaina\\JainaYes1.wav", false, true, true, 10, 10, "HeroAcksEAX")
-    call SetSoundParamsFromLabel(gg_snd_JainaYes1, "JainaYes")
-    call SetSoundDuration(gg_snd_JainaYes1, 869)
-    set gg_snd_Ambientvault = CreateSound("Ambientvault.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_Ambientvault, 38531)
-    call SetSoundChannel(gg_snd_Ambientvault, 0)
-    call SetSoundVolume(gg_snd_Ambientvault, 90)
-    call SetSoundPitch(gg_snd_Ambientvault, 1.0)
-    set gg_snd_TutorialSample = CreateSound("war3mapImported\\TutorialSample.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundChannel(gg_snd_TutorialSample, 0)
-    call SetSoundVolume(gg_snd_TutorialSample, 70)
-    call SetSoundPitch(gg_snd_TutorialSample, 1.0)
-    set gg_snd_EdemiumRiser = CreateSound("war3mapImported\\EdemiumRiser.mp3", false, false, false, 10, 10, "")
-    call SetSoundDuration(gg_snd_EdemiumRiser, 14838)
-    call SetSoundChannel(gg_snd_EdemiumRiser, 0)
-    call SetSoundVolume(gg_snd_EdemiumRiser, 127)
-    call SetSoundPitch(gg_snd_EdemiumRiser, 1.0)
-    set gg_snd_EdemiumHit = CreateSound("war3mapImported\\EdemiumHit.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_EdemiumHit, 7445)
-    call SetSoundChannel(gg_snd_EdemiumHit, 0)
-    call SetSoundVolume(gg_snd_EdemiumHit, 127)
-    call SetSoundPitch(gg_snd_EdemiumHit, 1.0)
-    set gg_snd_HeroPaladinYesAttack2 = CreateSound("Units\\Human\\HeroPaladin\\HeroPaladinYesAttack2.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_HeroPaladinYesAttack2, "HeroPaladinYesAttack")
-    call SetSoundDuration(gg_snd_HeroPaladinYesAttack2, 1637)
-    call SetSoundVolume(gg_snd_HeroPaladinYesAttack2, 100)
-    set gg_snd_JainaWhat1 = CreateSound("Units\\Human\\Jaina\\JainaWhat1.wav", false, true, true, 10, 10, "HeroAcksEAX")
-    call SetSoundParamsFromLabel(gg_snd_JainaWhat1, "JainaWhat")
-    call SetSoundDuration(gg_snd_JainaWhat1, 800)
-    set gg_snd_CatapultDeath1 = CreateSound("Units\\Orc\\Catapult\\CatapultDeath1.wav", false, false, false, 10, 10, "")
-    call SetSoundParamsFromLabel(gg_snd_CatapultDeath1, "CatapultDeath")
-    call SetSoundDuration(gg_snd_CatapultDeath1, 1612)
-    call SetSoundChannel(gg_snd_CatapultDeath1, 0)
-    set gg_snd_KelThuzadYesAttack1 = CreateSound("Units\\Undead\\KelThuzadLich\\KelThuzadYesAttack1.wav", false, true, true, 10, 10, "HeroAcksEAX")
-    call SetSoundParamsFromLabel(gg_snd_KelThuzadYesAttack1, "KelThuzadLichYesAttack")
-    call SetSoundDuration(gg_snd_KelThuzadYesAttack1, 1545)
-    set gg_snd_CentaurArcherDeath = CreateSound("Units\\Creeps\\CentaurArcher\\CentaurArcherDeath.wav", false, true, true, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_CentaurArcherDeath, "CentaurArcherDeath")
-    call SetSoundDuration(gg_snd_CentaurArcherDeath, 1546)
-    set gg_snd_AmbientNight = CreateSound("AmbientNight.mp3", false, false, false, 10, 10, "")
-    call SetSoundDuration(gg_snd_AmbientNight, 25208)
-    call SetSoundChannel(gg_snd_AmbientNight, 0)
-    call SetSoundVolume(gg_snd_AmbientNight, 127)
-    call SetSoundPitch(gg_snd_AmbientNight, 1.0)
-    set gg_snd_3F = CreateSound("3F.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_3F, 7445)
-    call SetSoundChannel(gg_snd_3F, 0)
-    call SetSoundVolume(gg_snd_3F, 127)
-    call SetSoundPitch(gg_snd_3F, 1.0)
-    set gg_snd_1F = CreateSound("1F.mp3", false, false, false, 10, 10, "")
-    call SetSoundDuration(gg_snd_1F, 3997)
-    call SetSoundChannel(gg_snd_1F, 0)
-    call SetSoundVolume(gg_snd_1F, 127)
-    call SetSoundPitch(gg_snd_1F, 1.0)
-    set gg_snd_2F = CreateSound("2F.mp3", false, false, false, 10, 10, "")
-    call SetSoundDuration(gg_snd_2F, 7497)
-    call SetSoundChannel(gg_snd_2F, 0)
-    call SetSoundVolume(gg_snd_2F, 127)
-    call SetSoundPitch(gg_snd_2F, 1.0)
-    set gg_snd_4BF = CreateSound("4BF.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_4BF, 1332)
-    call SetSoundChannel(gg_snd_4BF, 0)
-    call SetSoundVolume(gg_snd_4BF, 100)
-    call SetSoundPitch(gg_snd_4BF, 1.0)
-    set gg_snd_4F = CreateSound("4F.mp3", false, false, false, 10, 10, "")
-    call SetSoundDuration(gg_snd_4F, 5590)
-    call SetSoundChannel(gg_snd_4F, 0)
-    call SetSoundVolume(gg_snd_4F, 127)
-    call SetSoundPitch(gg_snd_4F, 1.0)
-    set gg_snd_6F = CreateSound("6F.mp3", false, false, false, 10, 10, "")
-    call SetSoundDuration(gg_snd_6F, 9900)
-    call SetSoundChannel(gg_snd_6F, 0)
-    call SetSoundVolume(gg_snd_6F, 127)
-    call SetSoundPitch(gg_snd_6F, 1.0)
-    set gg_snd_5F = CreateSound("5F.mp3", false, false, false, 10, 10, "")
-    call SetSoundDuration(gg_snd_5F, 6661)
-    call SetSoundChannel(gg_snd_5F, 0)
-    call SetSoundVolume(gg_snd_5F, 127)
-    call SetSoundPitch(gg_snd_5F, 1.0)
-    set gg_snd_7F = CreateSound("7F.mp3", false, false, false, 10, 10, "")
-    call SetSoundDuration(gg_snd_7F, 6922)
-    call SetSoundChannel(gg_snd_7F, 0)
-    call SetSoundVolume(gg_snd_7F, 127)
-    call SetSoundPitch(gg_snd_7F, 1.0)
-    set gg_snd_8F = CreateSound("8F.mp3", false, false, false, 10, 10, "")
-    call SetSoundDuration(gg_snd_8F, 8986)
-    call SetSoundChannel(gg_snd_8F, 0)
-    call SetSoundVolume(gg_snd_8F, 127)
-    call SetSoundPitch(gg_snd_8F, 1.0)
-    set gg_snd_9F = CreateSound("9F.mp3", false, false, false, 10, 10, "")
-    call SetSoundDuration(gg_snd_9F, 7027)
-    call SetSoundChannel(gg_snd_9F, 0)
-    call SetSoundVolume(gg_snd_9F, 127)
-    call SetSoundPitch(gg_snd_9F, 1.0)
-    set gg_snd_10F = CreateSound("10F.mp3", false, false, false, 10, 10, "")
-    call SetSoundDuration(gg_snd_10F, 5355)
-    call SetSoundChannel(gg_snd_10F, 0)
-    call SetSoundVolume(gg_snd_10F, 127)
-    call SetSoundPitch(gg_snd_10F, 1.0)
-    set gg_snd_12F = CreateSound("12F.mp3", false, false, false, 10, 10, "")
-    call SetSoundDuration(gg_snd_12F, 810)
-    call SetSoundChannel(gg_snd_12F, 0)
-    call SetSoundVolume(gg_snd_12F, 127)
-    call SetSoundPitch(gg_snd_12F, 1.0)
-    set gg_snd_11F = CreateSound("11F.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_11F, 1829)
-    call SetSoundChannel(gg_snd_11F, 0)
-    call SetSoundVolume(gg_snd_11F, 100)
-    call SetSoundPitch(gg_snd_11F, 1.0)
-    set gg_snd_O04Mannoroth38 = CreateSound("Sound\\Dialogue\\OrcCampaign\\Orc04Interlude\\O04Mannoroth38.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_O04Mannoroth38, "O04Mannoroth38")
-    call SetSoundDuration(gg_snd_O04Mannoroth38, 12617)
-    call SetSoundVolume(gg_snd_O04Mannoroth38, 127)
-    set gg_snd_HPitLordYesAttack2 = CreateSound("Units\\Demon\\HeroPitLord\\HPitLordYesAttack2.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_HPitLordYesAttack2, "HeroPitLordYesAttack")
-    call SetSoundDuration(gg_snd_HPitLordYesAttack2, 2503)
-    call SetSoundChannel(gg_snd_HPitLordYesAttack2, 0)
-    call SetSoundVolume(gg_snd_HPitLordYesAttack2, 100)
-    set gg_snd_PitLordYesAttack1 = CreateSound("Units\\Demon\\Pitlord\\PitLordYesAttack1.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_PitLordYesAttack1, "PitLordYesAttack")
-    call SetSoundDuration(gg_snd_PitLordYesAttack1, 2663)
-    call SetSoundChannel(gg_snd_PitLordYesAttack1, 0)
-    call SetSoundVolume(gg_snd_PitLordYesAttack1, 100)
-    set gg_snd_PitLordWhat1 = CreateSound("Units\\Demon\\Pitlord\\PitLordWhat1.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_PitLordWhat1, "PitLordWhat")
-    call SetSoundDuration(gg_snd_PitLordWhat1, 3430)
-    call SetSoundChannel(gg_snd_PitLordWhat1, 0)
-    call SetSoundVolume(gg_snd_PitLordWhat1, 100)
-    set gg_snd_GoblinZeppelinYes4 = CreateSound("Units\\Creeps\\GoblinZeppelin\\GoblinZeppelinYes4.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_GoblinZeppelinYes4, "GoblinZeppelinYes")
-    call SetSoundDuration(gg_snd_GoblinZeppelinYes4, 1816)
-    call SetSoundChannel(gg_snd_GoblinZeppelinYes4, 0)
-    call SetSoundVolume(gg_snd_GoblinZeppelinYes4, 80)
-    set gg_snd_GoblinZeppelinYes3 = CreateSound("Units\\Creeps\\GoblinZeppelin\\GoblinZeppelinYes3.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_GoblinZeppelinYes3, "GoblinZeppelinYes")
-    call SetSoundDuration(gg_snd_GoblinZeppelinYes3, 2499)
-    call SetSoundChannel(gg_snd_GoblinZeppelinYes3, 0)
-    call SetSoundVolume(gg_snd_GoblinZeppelinYes3, 80)
-    set gg_snd_HeroAlchemistWhat4 = CreateSound("Units\\Creeps\\HEROGoblinALCHEMIST\\HeroAlchemistWhat4.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_HeroAlchemistWhat4, "HEROGoblinALCHEMISTWhat")
-    call SetSoundDuration(gg_snd_HeroAlchemistWhat4, 1890)
-    call SetSoundChannel(gg_snd_HeroAlchemistWhat4, 0)
-    set gg_snd_HeroAlchemistYesAttack1 = CreateSound("Units\\Creeps\\HEROGoblinALCHEMIST\\HeroAlchemistYesAttack1.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_HeroAlchemistYesAttack1, "HEROGoblinALCHEMISTYesAttack")
-    call SetSoundDuration(gg_snd_HeroAlchemistYesAttack1, 2370)
-    call SetSoundChannel(gg_snd_HeroAlchemistYesAttack1, 0)
-    set gg_snd_HeroAlchemistYesAttack2 = CreateSound("Units\\Creeps\\HEROGoblinALCHEMIST\\HeroAlchemistYesAttack2.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_HeroAlchemistYesAttack2, "HEROGoblinALCHEMISTYesAttack")
-    call SetSoundDuration(gg_snd_HeroAlchemistYesAttack2, 1110)
-    call SetSoundChannel(gg_snd_HeroAlchemistYesAttack2, 0)
-    set gg_snd_HeroAlchemistYes2 = CreateSound("Units\\Creeps\\HEROGoblinALCHEMIST\\HeroAlchemistYes2.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_HeroAlchemistYes2, "HEROGoblinALCHEMISTYes")
-    call SetSoundDuration(gg_snd_HeroAlchemistYes2, 2088)
-    call SetSoundChannel(gg_snd_HeroAlchemistYes2, 0)
-    set gg_snd_FrogWhat1 = CreateSound("Units\\Critters\\Frog\\FrogWhat1.wav", false, false, true, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_FrogWhat1, "FrogWhat")
-    call SetSoundDuration(gg_snd_FrogWhat1, 1874)
-    call SetSoundChannel(gg_snd_FrogWhat1, 8)
-    set gg_snd_ScourgeGlueScreen = CreateSound("Sound\\Ambient\\ScourgeGlueScreen.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_ScourgeGlueScreen, "ExpansionUndeadGlueScreenLoop")
-    call SetSoundDuration(gg_snd_ScourgeGlueScreen, 10000)
-    set gg_snd_AbominationYesAttack3 = CreateSound("Units\\Undead\\Abomination\\AbominationYesAttack3.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_AbominationYesAttack3, "AbominationYesAttack")
-    call SetSoundDuration(gg_snd_AbominationYesAttack3, 2979)
-    call SetSoundVolume(gg_snd_AbominationYesAttack3, 110)
-    set gg_snd_TyrandeWarcry1 = CreateSound("Units\\NightElf\\Tyrande\\TyrandeWarcry1.wav", false, false, false, 10, 10, "HeroAcksEAX")
-    call SetSoundParamsFromLabel(gg_snd_TyrandeWarcry1, "TyrandeWarcry")
-    call SetSoundDuration(gg_snd_TyrandeWarcry1, 1494)
-    call SetSoundVolume(gg_snd_TyrandeWarcry1, 100)
-    set gg_snd_TyrandePissed1 = CreateSound("Units\\NightElf\\Tyrande\\TyrandePissed1.wav", false, false, false, 10, 10, "HeroAcksEAX")
-    call SetSoundParamsFromLabel(gg_snd_TyrandePissed1, "TyrandePissed")
-    call SetSoundDuration(gg_snd_TyrandePissed1, 3031)
-    call SetSoundVolume(gg_snd_TyrandePissed1, 100)
-    set gg_snd_TyrandePissed4 = CreateSound("Units\\NightElf\\Tyrande\\TyrandePissed4.wav", false, false, false, 10, 10, "HeroAcksEAX")
-    call SetSoundParamsFromLabel(gg_snd_TyrandePissed4, "TyrandePissed")
-    call SetSoundDuration(gg_snd_TyrandePissed4, 1826)
-    call SetSoundVolume(gg_snd_TyrandePissed4, 100)
-    set gg_snd_TyrandeYes4 = CreateSound("Units\\NightElf\\Tyrande\\TyrandeYes4.wav", false, false, false, 10, 10, "HeroAcksEAX")
-    call SetSoundParamsFromLabel(gg_snd_TyrandeYes4, "TyrandeYes")
-    call SetSoundDuration(gg_snd_TyrandeYes4, 1392)
-    call SetSoundVolume(gg_snd_TyrandeYes4, 100)
-    set gg_snd_ArcherYesAttack4 = CreateSound("Units\\NightElf\\Archer\\ArcherYesAttack4.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_ArcherYesAttack4, "ArcherYesAttack")
-    call SetSoundDuration(gg_snd_ArcherYesAttack4, 1052)
-    call SetSoundVolume(gg_snd_ArcherYesAttack4, 100)
-    set gg_snd_HeroWardenYesAttack2 = CreateSound("Units\\NightElf\\HeroWarden\\HeroWardenYesAttack2.wav", false, false, false, 10, 10, "HeroAcksEAX")
-    call SetSoundParamsFromLabel(gg_snd_HeroWardenYesAttack2, "HeroWardenYesAttack")
-    call SetSoundDuration(gg_snd_HeroWardenYesAttack2, 1764)
-    call SetSoundVolume(gg_snd_HeroWardenYesAttack2, 100)
-    set gg_snd_HeroWardenYesAttack1 = CreateSound("Units\\NightElf\\HeroWarden\\HeroWardenYesAttack1.wav", false, false, false, 10, 10, "HeroAcksEAX")
-    call SetSoundParamsFromLabel(gg_snd_HeroWardenYesAttack1, "HeroWardenYesAttack")
-    call SetSoundDuration(gg_snd_HeroWardenYesAttack1, 1800)
-    call SetSoundVolume(gg_snd_HeroWardenYesAttack1, 100)
-    set gg_snd_AbominationYesAttack1 = CreateSound("Units\\Undead\\Abomination\\AbominationYesAttack1.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_AbominationYesAttack1, "AbominationYesAttack")
-    call SetSoundDuration(gg_snd_AbominationYesAttack1, 1609)
-    call SetSoundVolume(gg_snd_AbominationYesAttack1, 110)
-    set gg_snd_AbominationYesAttack2 = CreateSound("Units\\Undead\\Abomination\\AbominationYesAttack2.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_AbominationYesAttack2, "AbominationYesAttack")
-    call SetSoundDuration(gg_snd_AbominationYesAttack2, 2103)
-    call SetSoundVolume(gg_snd_AbominationYesAttack2, 110)
-    set gg_snd_Edemor1 = CreateSound("Edemor1.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_Edemor1, 3814)
-    call SetSoundChannel(gg_snd_Edemor1, 0)
-    call SetSoundVolume(gg_snd_Edemor1, 110)
-    call SetSoundPitch(gg_snd_Edemor1, 1.0)
-    set gg_snd_Edemor2 = CreateSound("Edemor2.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_Edemor2, 20036)
-    call SetSoundChannel(gg_snd_Edemor2, 0)
-    call SetSoundVolume(gg_snd_Edemor2, 110)
-    call SetSoundPitch(gg_snd_Edemor2, 1.0)
-    set gg_snd_Edemor3 = CreateSound("Edemor3.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_Edemor3, 15125)
-    call SetSoundChannel(gg_snd_Edemor3, 0)
-    call SetSoundVolume(gg_snd_Edemor3, 110)
-    call SetSoundPitch(gg_snd_Edemor3, 1.0)
-    set gg_snd_Edemor4 = CreateSound("Edemor4.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_Edemor4, 3161)
-    call SetSoundChannel(gg_snd_Edemor4, 0)
-    call SetSoundVolume(gg_snd_Edemor4, 110)
-    call SetSoundPitch(gg_snd_Edemor4, 1.0)
-    set gg_snd_Edemor5 = CreateSound("Edemor5.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_Edemor5, 16875)
-    call SetSoundChannel(gg_snd_Edemor5, 0)
-    call SetSoundVolume(gg_snd_Edemor5, 110)
-    call SetSoundPitch(gg_snd_Edemor5, 1.0)
-    set gg_snd_Edemor6 = CreateSound("Edemor6.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_Edemor6, 2717)
-    call SetSoundChannel(gg_snd_Edemor6, 0)
-    call SetSoundVolume(gg_snd_Edemor6, 110)
-    call SetSoundPitch(gg_snd_Edemor6, 1.0)
-    set gg_snd_HeroPaladinYesAttack201 = CreateSound("Units\\Human\\HeroPaladin\\HeroPaladinYesAttack2.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_HeroPaladinYesAttack201, "HeroPaladinYesAttack")
-    call SetSoundDuration(gg_snd_HeroPaladinYesAttack201, 1637)
-    call SetSoundVolume(gg_snd_HeroPaladinYesAttack201, 100)
-    set gg_snd_HeroPaladinYesAttack3 = CreateSound("Units\\Human\\HeroPaladin\\HeroPaladinYesAttack3.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_HeroPaladinYesAttack3, "HeroPaladinYesAttack")
-    call SetSoundDuration(gg_snd_HeroPaladinYesAttack3, 1718)
-    call SetSoundVolume(gg_snd_HeroPaladinYesAttack3, 100)
-    set gg_snd_HeroPaladinYesAttack1 = CreateSound("Units\\Human\\HeroPaladin\\HeroPaladinYesAttack1.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_HeroPaladinYesAttack1, "HeroPaladinYesAttack")
-    call SetSoundDuration(gg_snd_HeroPaladinYesAttack1, 1980)
-    call SetSoundVolume(gg_snd_HeroPaladinYesAttack1, 100)
-    set gg_snd_ArthasWhat1 = CreateSound("Units\\Human\\Arthas\\ArthasWhat1.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_ArthasWhat1, "ArthasWhat")
-    call SetSoundDuration(gg_snd_ArthasWhat1, 1772)
-    call SetSoundChannel(gg_snd_ArthasWhat1, 2)
-    call SetSoundVolume(gg_snd_ArthasWhat1, 100)
-    set gg_snd_PriestYesAttack3 = CreateSound("Units\\Human\\Priest\\PriestYesAttack3.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_PriestYesAttack3, "PriestYesAttack")
-    call SetSoundDuration(gg_snd_PriestYesAttack3, 2246)
-    call SetSoundVolume(gg_snd_PriestYesAttack3, 100)
-    set gg_snd_FootmanYesAttack3 = CreateSound("Units\\Human\\Footman\\FootmanYesAttack3.wav", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundParamsFromLabel(gg_snd_FootmanYesAttack3, "FootmanYesAttack")
-    call SetSoundDuration(gg_snd_FootmanYesAttack3, 851)
-    call SetSoundVolume(gg_snd_FootmanYesAttack3, 100)
-    set gg_snd_NewQuest = CreateSound("QuestComplete.mp3", false, false, false, 10, 10, "DefaultEAXON")
-    call SetSoundDuration(gg_snd_NewQuest, 2160)
-    call SetSoundChannel(gg_snd_NewQuest, 2)
-    call SetSoundVolume(gg_snd_NewQuest, 100)
-    call SetSoundPitch(gg_snd_NewQuest, 1.0)
-endfunction
-function CreateAllDestructablesOld takes nothing returns nothing
-    local destructable d
-    local trigger t
-    local real life
-    set gg_dest_B003_2942 = CreateDestructableZ(0x42303033, 7104.0, 768.0, 86.0, 62.964, 1.000, 0)
-    set gg_dest_B003_2941 = CreateDestructableZ(0x42303033, 7552.0, 1600.0, 86.0, 62.964, 1.000, 0)
-    set gg_dest_B003_2940 = CreateDestructableZ(0x42303033, 7168.0, 1024.0, 86.0, 62.964, 1.000, 0)
-    set gg_dest_B003_2939 = CreateDestructableZ(0x42303033, 7424.0, 1408.0, 86.0, 62.964, 1.000, 0)
-    set gg_dest_B003_2938 = CreateDestructableZ(0x42303033, 6976.0, 1216.0, 86.0, 62.964, 1.000, 0)
-    set gg_dest_B003_2937 = CreateDestructableZ(0x42303033, 7168.0, 1408.0, 86.0, 62.964, 1.000, 0)
-    set gg_dest_B003_2936 = CreateDestructableZ(0x42303033, 7040.0, 1600.0, 86.0, 62.964, 1.000, 0)
-    set gg_dest_B003_2935 = CreateDestructableZ(0x42303033, 6720.0, 1152.0, 86.0, 62.964, 1.000, 0)
-    set gg_dest_B003_2932 = CreateDestructableZ(0x42303033, 7424.0, 1024.0, 86.0, 356.609, 1.000, 0)
-    set gg_dest_B003_2930 = CreateDestructableZ(0x42303033, 7488.0, 768.0, 86.0, 356.609, 1.000, 0)
-    set gg_dest_B003_2929 = CreateDestructableZ(0x42303033, 7616.0, 1216.0, 86.0, 356.609, 1.000, 0)
-    set gg_dest_B003_2928 = CreateDestructableZ(0x42303033, 7872.0, 1152.0, 86.0, 356.609, 1.000, 0)
-    set gg_dest_B00B_1390 = CreateDestructable(0x42303042, 7104.0, 768.0, 346.768, 0.500, 0)
-    set gg_dest_B00B_1389 = CreateDestructable(0x42303042, 7168.0, 1024.0, 78.869, 0.500, 0)
-    set gg_dest_B00B_1367 = CreateDestructable(0x42303042, 6976.0, 1216.0, 170.601, 0.500, 0)
-    set gg_dest_B00B_1366 = CreateDestructable(0x42303042, 6720.0, 1152.0, 258.523, 0.500, 0)
-    set gg_dest_B00B_1362 = CreateDestructable(0x42303042, 7616.0, 1216.0, 184.594, 0.500, 0)
-    set gg_dest_B00B_1361 = CreateDestructable(0x42303042, 7424.0, 1024.0, 89.385, 0.500, 0)
-    set gg_dest_B00B_1360 = CreateDestructable(0x42303042, 7488.0, 768.0, 355.500, 0.500, 0)
-    set gg_dest_B00B_1359 = CreateDestructable(0x42303042, 7872.0, 1152.0, 270.525, 0.500, 0)
-    set gg_dest_B00B_1357 = CreateDestructable(0x42303042, 7168.0, 1408.0, 183.085, 0.500, 0)
-    set gg_dest_B00B_1356 = CreateDestructable(0x42303042, 7552.0, 1600.0, 356.814, 0.500, 0)
-    set gg_dest_B00B_1355 = CreateDestructable(0x42303042, 7040.0, 1600.0, 269.121, 0.500, 0)
-    set gg_dest_B00B_1354 = CreateDestructable(0x42303042, 7424.0, 1408.0, 90.981, 0.500, 0)
-endfunction
-function CreateBuildingsForPlayer0Old takes nothing returns nothing
-    local player p = Player(0)
-    local unit u
-    local integer unitID
-    local trigger t
-    local real life
-    set u = CreateUnit(p, 0x68303049, 4224.0, 2752.0, 270.000)
-    set u = null
-endfunction
-
-function CreateUnitsForPlayer0Old takes nothing returns nothing
-    local player p = Player(0)
-    local unit u
-    local integer unitID
-    local trigger t
-    local real life
-    set gg_unit_hrif_0000 = CreateUnit(p, 0x68726966, 4221.0, 2566.2, 325.568)
-    set gg_unit_H000_0004 = CreateUnit(p, 0x48303030, 11410.3, 1595.1, 270.000)
-    call SetHeroStr(gg_unit_H000_0004, 10, true)
-    call SetHeroAgi(gg_unit_H000_0004, 10, true)
-    call SetHeroInt(gg_unit_H000_0004, 10, true)
-    call SetUnitState(gg_unit_H000_0004, UNIT_STATE_MANA, 50)
-    set gg_unit_h009_0006 = CreateUnit(p, 0x68303039, 4163.3, 2107.2, 0.000)
-    set gg_unit_h007_0065 = CreateUnit(p, 0x68303037, 10438.5, - 1267.5, 266.518)
-endfunction
-
-function CreateUnitsForPlayer1Old takes nothing returns nothing
-    local player p = Player(1)
-    local unit u
-    local integer unitID
-    local trigger t
-    local real life
-    set gg_unit_h00N_0045 = CreateUnit(p, 0x6830304E, 4220.3, 1473.1, 270.000)
-endfunction
-
-function CreateNeutralPassiveBuildingsOld takes nothing returns nothing
-    local player p = Player(PLAYER_NEUTRAL_PASSIVE)
-    local unit u
-    local integer unitID
-    local trigger t
-    local real life
-    set gg_unit_h006_0035 = CreateUnit(p, 0x68303036, 7296.0, 1216.0, 270.000)
-    set gg_unit_h006_0067 = CreateUnit(p, 0x68303036, 7488.0, 768.0, 270.000)
-    set gg_unit_h006_0069 = CreateUnit(p, 0x68303036, 7616.0, 1216.0, 270.000)
-    set gg_unit_h006_0071 = CreateUnit(p, 0x68303036, 7872.0, 1152.0, 270.000)
-    set gg_unit_h006_0073 = CreateUnit(p, 0x68303036, 7424.0, 1024.0, 270.000)
-    set gg_unit_h006_0075 = CreateUnit(p, 0x68303036, 7168.0, 1408.0, 270.000)
-    set gg_unit_h006_0076 = CreateUnit(p, 0x68303036, 6976.0, 1216.0, 270.000)
-    set gg_unit_h006_0077 = CreateUnit(p, 0x68303036, 7424.0, 1408.0, 270.000)
-    set gg_unit_h006_0078 = CreateUnit(p, 0x68303036, 7168.0, 1024.0, 270.000)
-    set gg_unit_h006_0079 = CreateUnit(p, 0x68303036, 7552.0, 1600.0, 270.000)
-    set gg_unit_h006_0080 = CreateUnit(p, 0x68303036, 7104.0, 768.0, 270.000)
-    set gg_unit_h006_0081 = CreateUnit(p, 0x68303036, 7040.0, 1600.0, 270.000)
-    set gg_unit_h006_0082 = CreateUnit(p, 0x68303036, 6720.0, 1152.0, 270.000)
-    set gg_unit_h00K_0095 = CreateUnit(p, 0x6830304B, 2816.0, - 64.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0095, UNIT_STATE_MANA, 1)
-    set gg_unit_h00K_0096 = CreateUnit(p, 0x6830304B, 2688.0, 64.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0096, UNIT_STATE_MANA, 2)
-    set gg_unit_h00K_0097 = CreateUnit(p, 0x6830304B, 2816.0, 64.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0097, UNIT_STATE_MANA, 2)
-    set gg_unit_h00K_0098 = CreateUnit(p, 0x6830304B, 2944.0, 64.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0098, UNIT_STATE_MANA, 2)
-    set gg_unit_h00K_0099 = CreateUnit(p, 0x6830304B, 2560.0, 128.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0099, UNIT_STATE_MANA, 3)
-    set gg_unit_h00K_0100 = CreateUnit(p, 0x6830304B, 2560.0, 2240.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0100, UNIT_STATE_MANA, 15)
-    set gg_unit_h00K_0101 = CreateUnit(p, 0x6830304B, 2816.0, 192.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0101, UNIT_STATE_MANA, 3)
-    set gg_unit_h00K_0102 = CreateUnit(p, 0x6830304B, 3072.0, 128.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0102, UNIT_STATE_MANA, 3)
-    set gg_unit_h00K_0103 = CreateUnit(p, 0x6830304B, 2560.0, 256.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0103, UNIT_STATE_MANA, 4)
-    set gg_unit_h00K_0104 = CreateUnit(p, 0x6830304B, 2816.0, 1664.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0104, UNIT_STATE_MANA, 12)
-    set gg_unit_h00K_0105 = CreateUnit(p, 0x6830304B, 2816.0, 512.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0105, UNIT_STATE_MANA, 5)
-    set gg_unit_h00K_0106 = CreateUnit(p, 0x6830304B, 2816.0, 2048.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0106, UNIT_STATE_MANA, 15)
-    set gg_unit_h00K_0107 = CreateUnit(p, 0x6830304B, 3072.0, 256.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0107, UNIT_STATE_MANA, 4)
-    set gg_unit_h00K_0108 = CreateUnit(p, 0x6830304B, 2816.0, 640.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0108, UNIT_STATE_MANA, 6)
-    set gg_unit_h00K_0109 = CreateUnit(p, 0x6830304B, 2688.0, 704.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0109, UNIT_STATE_MANA, 6)
-    set gg_unit_h00K_0110 = CreateUnit(p, 0x6830304B, 2560.0, 768.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0110, UNIT_STATE_MANA, 7)
-    set gg_unit_h00K_0111 = CreateUnit(p, 0x6830304B, 2816.0, 768.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0111, UNIT_STATE_MANA, 7)
-    set gg_unit_h00K_0112 = CreateUnit(p, 0x6830304B, 2944.0, 704.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0112, UNIT_STATE_MANA, 6)
-    set gg_unit_h00K_0113 = CreateUnit(p, 0x6830304B, 3072.0, 768.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0113, UNIT_STATE_MANA, 7)
-    set gg_unit_h00K_0114 = CreateUnit(p, 0x6830304B, 2688.0, 832.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0114, UNIT_STATE_MANA, 8)
-    set gg_unit_h00K_0115 = CreateUnit(p, 0x6830304B, 2944.0, 832.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0115, UNIT_STATE_MANA, 8)
-    set gg_unit_h00K_0116 = CreateUnit(p, 0x6830304B, 2560.0, 896.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0116, UNIT_STATE_MANA, 8)
-    set gg_unit_h00K_0117 = CreateUnit(p, 0x6830304B, 2688.0, 1728.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0117, UNIT_STATE_MANA, 13)
-    set gg_unit_h00K_0118 = CreateUnit(p, 0x6830304B, 2816.0, 960.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0118, UNIT_STATE_MANA, 9)
-    set gg_unit_h00K_0119 = CreateUnit(p, 0x6830304B, 2944.0, 1728.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0119, UNIT_STATE_MANA, 13)
-    set gg_unit_h00K_0120 = CreateUnit(p, 0x6830304B, 3072.0, 896.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0120, UNIT_STATE_MANA, 8)
-    set gg_unit_h00K_0121 = CreateUnit(p, 0x6830304B, 2560.0, 1024.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0121, UNIT_STATE_MANA, 9)
-    set gg_unit_h00K_0122 = CreateUnit(p, 0x6830304B, 2688.0, 1088.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0122, UNIT_STATE_MANA, 10)
-    set gg_unit_h00K_0123 = CreateUnit(p, 0x6830304B, 2816.0, 1280.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0123, UNIT_STATE_MANA, 10)
-    set gg_unit_h00K_0124 = CreateUnit(p, 0x6830304B, 2944.0, 1088.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0124, UNIT_STATE_MANA, 10)
-    set gg_unit_h00K_0125 = CreateUnit(p, 0x6830304B, 3072.0, 1024.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0125, UNIT_STATE_MANA, 9)
-    set gg_unit_h00K_0126 = CreateUnit(p, 0x6830304B, 2560.0, 1152.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0126, UNIT_STATE_MANA, 10)
-    set gg_unit_h00K_0127 = CreateUnit(p, 0x6830304B, 3072.0, 1152.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0127, UNIT_STATE_MANA, 10)
-    set gg_unit_h00K_0128 = CreateUnit(p, 0x6830304B, 2560.0, 1408.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0128, UNIT_STATE_MANA, 11)
-    set gg_unit_h00K_0129 = CreateUnit(p, 0x6830304B, 2816.0, 1408.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0129, UNIT_STATE_MANA, 11)
-    set gg_unit_h00K_0130 = CreateUnit(p, 0x6830304B, 3072.0, 1408.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0130, UNIT_STATE_MANA, 11)
-    set gg_unit_h00K_0131 = CreateUnit(p, 0x6830304B, 2560.0, 1664.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0131, UNIT_STATE_MANA, 12)
-    set gg_unit_h00K_0132 = CreateUnit(p, 0x6830304B, 2688.0, 1600.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0132, UNIT_STATE_MANA, 12)
-    set gg_unit_h00K_0133 = CreateUnit(p, 0x6830304B, 2816.0, 1536.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0133, UNIT_STATE_MANA, 11)
-    set gg_unit_h00K_0134 = CreateUnit(p, 0x6830304B, 2944.0, 1600.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0134, UNIT_STATE_MANA, 12)
-    set gg_unit_h00K_0135 = CreateUnit(p, 0x6830304B, 3072.0, 1664.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0135, UNIT_STATE_MANA, 12)
-    set gg_unit_h00K_0136 = CreateUnit(p, 0x6830304B, 2560.0, 1792.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0136, UNIT_STATE_MANA, 13)
-    set gg_unit_h00K_0138 = CreateUnit(p, 0x6830304B, 2816.0, 1856.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0138, UNIT_STATE_MANA, 14)
-    set gg_unit_h00K_0139 = CreateUnit(p, 0x6830304B, 3072.0, 1792.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0139, UNIT_STATE_MANA, 13)
-    set gg_unit_h00K_0140 = CreateUnit(p, 0x6830304B, 2560.0, 1920.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0140, UNIT_STATE_MANA, 14)
-    set gg_unit_h00K_0141 = CreateUnit(p, 0x6830304B, 2688.0, 1984.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0141, UNIT_STATE_MANA, 15)
-    set gg_unit_h00K_0142 = CreateUnit(p, 0x6830304B, 2816.0, 2432.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0142, UNIT_STATE_MANA, 15)
-    set gg_unit_h00K_0143 = CreateUnit(p, 0x6830304B, 2944.0, 1984.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0143, UNIT_STATE_MANA, 15)
-    set gg_unit_h00K_0144 = CreateUnit(p, 0x6830304B, 3072.0, 1920.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0144, UNIT_STATE_MANA, 14)
-    set gg_unit_h00K_0145 = CreateUnit(p, 0x6830304B, 2560.0, 2048.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0145, UNIT_STATE_MANA, 15)
-    set gg_unit_h00K_0146 = CreateUnit(p, 0x6830304B, 3072.0, 2048.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0146, UNIT_STATE_MANA, 15)
-    set gg_unit_h00K_0147 = CreateUnit(p, 0x6830304B, 2688.0, 1216.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0147, UNIT_STATE_MANA, 10)
-    set gg_unit_h00K_0148 = CreateUnit(p, 0x6830304B, 2944.0, 448.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0148, UNIT_STATE_MANA, 5)
-    set gg_unit_h00K_0149 = CreateUnit(p, 0x6830304B, 2816.0, 384.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0149, UNIT_STATE_MANA, 5)
-    set gg_unit_h00K_0150 = CreateUnit(p, 0x6830304B, 2944.0, 1216.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0150, UNIT_STATE_MANA, 10)
-    set gg_unit_h00K_0151 = CreateUnit(p, 0x6830304B, 3072.0, 384.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0151, UNIT_STATE_MANA, 4)
-    set gg_unit_h00K_0152 = CreateUnit(p, 0x6830304B, 2560.0, 384.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0152, UNIT_STATE_MANA, 4)
-    set gg_unit_h00K_0153 = CreateUnit(p, 0x6830304B, 3072.0, 2240.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0153, UNIT_STATE_MANA, 15)
-    set gg_unit_h00K_0154 = CreateUnit(p, 0x6830304B, 2688.0, 448.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0154, UNIT_STATE_MANA, 5)
-    set gg_unit_h00K_0155 = CreateUnit(p, 0x6830304B, 2816.0, 2240.0, 270.000)
-    call SetUnitState(gg_unit_h00K_0155, UNIT_STATE_MANA, 15)
-endfunction
-
-function CreateNeutralPassiveOld takes nothing returns nothing
-    local player p = Player(PLAYER_NEUTRAL_PASSIVE)
-    local unit u
-    local integer unitID
-    local trigger t
-    local real life
-    set gg_unit_h00H_0002 = CreateUnit(p, 0x68303048, 14686.2, 538.2, 90.000)
-    set gg_unit_h00F_0003 = CreateUnit(p, 0x68303046, 14224.2, 1378.7, 304.020)
-    set gg_unit_h00Y_0005 = CreateUnit(p, 0x68303059, 14686.1, 550.3, 89.610)
-    set gg_unit_h00Z_0007 = CreateUnit(p, 0x6830305A, 14688.9, 608.9, 89.060)
-    set gg_unit_h010_0008 = CreateUnit(p, 0x68303130, 14688.3, 627.7, 91.810)
-    set gg_unit_h011_0009 = CreateUnit(p, 0x68303131, 14690.4, 627.7, 92.180)
-    set gg_unit_h002_0010 = CreateUnit(p, 0x68303032, 14684.4, 692.9, 90.000)
-    set gg_unit_h012_0011 = CreateUnit(p, 0x68303132, - 55.0, 2216.1, 313.578)
-    set gg_unit_h012_0012 = CreateUnit(p, 0x68303132, - 200.9, 2258.2, 359.962)
-    set gg_unit_h012_0013 = CreateUnit(p, 0x68303132, - 352.9, 2203.7, 61.990)
-    set gg_unit_h003_0014 = CreateUnit(p, 0x68303033, 14687.5, 691.6, 90.000)
-    set gg_unit_h00U_0015 = CreateUnit(p, 0x68303055, 14688.8, 683.2, 90.000)
-    set gg_unit_h015_0016 = CreateUnit(p, 0x68303135, 14684.6, 559.1, 90.000)
-    set gg_unit_h016_0017 = CreateUnit(p, 0x68303136, 14685.1, 391.3, 90.000)
-    set gg_unit_h017_0018 = CreateUnit(p, 0x68303137, 14690.5, 327.9, 90.000)
-    set gg_unit_h018_0019 = CreateUnit(p, 0x68303138, 14687.4, 337.3, 90.000)
-    set gg_unit_h019_0020 = CreateUnit(p, 0x68303139, 14687.3, 401.5, 90.000)
-    set gg_unit_h01A_0021 = CreateUnit(p, 0x68303141, 14687.6, 392.2, 90.000)
-    set gg_unit_h01B_0022 = CreateUnit(p, 0x68303142, 14689.4, 807.3, 90.000)
-    set gg_unit_h01C_0023 = CreateUnit(p, 0x68303143, 14689.3, 873.0, 90.000)
-    set gg_unit_h01D_0024 = CreateUnit(p, 0x68303144, 14689.6, 807.3, 90.000)
-    set gg_unit_h01E_0025 = CreateUnit(p, 0x68303145, 14688.1, 888.1, 90.000)
-    set gg_unit_h01F_0026 = CreateUnit(p, 0x68303146, 14689.9, 805.5, 90.000)
-    set gg_unit_h01G_0027 = CreateUnit(p, 0x68303147, 14689.9, 802.0, 90.000)
-    set gg_unit_n006_0028 = CreateUnit(p, 0x6E303036, - 1350.2, - 22409.8, 271.072)
-    call SetUnitColor(gg_unit_n006_0028, ConvertPlayerColor(9))
-    set gg_unit_h00V_0029 = CreateUnit(p, 0x68303056, - 1400.3, - 27391.4, 88.245)
-    set gg_unit_h001_0037 = CreateUnit(p, 0x68303031, 7296.0, 1230.6, 270.000)
-    set gg_unit_n009_0061 = CreateUnit(p, 0x6E303039, - 2430.4, 896.7, 357.350)
-    set gg_unit_h00V_0063 = CreateUnit(p, 0x68303056, - 1338.8, - 1751.2, 269.420)
-endfunction
-function CreatePlayerBuildingsOld takes nothing returns nothing
-    call CreateBuildingsForPlayer0Old()
-endfunction
-function CreatePlayerUnitsOld takes nothing returns nothing
-    call CreateUnitsForPlayer0Old()
-    call CreateUnitsForPlayer1Old()
-endfunction
-function CreateAllUnitsOld takes nothing returns nothing
-    call CreateNeutralPassiveBuildingsOld()
-    call CreatePlayerBuildingsOld()
-    call CreateNeutralPassiveOld()
-    call CreatePlayerUnitsOld()
-endfunction
-function CreateRegionsOld takes nothing returns nothing
-    local weathereffect we
-    set gg_rct_Ambient_Machines = Rect(13056.0, - 224.0, 15008.0, 2048.0)
-    call SetSoundPosition(gg_snd_AmbientMachines, 14032.0, 912.0, 118.0)
-    call RegisterStackedSound(gg_snd_AmbientMachines, true, 1952.0, 2272.0)
-    set gg_rct_Ambient_Portal_Room = Rect(10816.0, 736.0, 11904.0, 2592.0)
-    call SetSoundPosition(gg_snd_AmbiencePortal, 11360.0, 1664.0, 118.0)
-    call RegisterStackedSound(gg_snd_AmbiencePortal, true, 1088.0, 1856.0)
-    set gg_rct_Ambient_Vault = Rect(13856.0, - 3392.0, 15072.0, - 2272.0)
-    call SetSoundPosition(gg_snd_Ambientvault, 14464.0, - 2832.0, 118.0)
-    call RegisterStackedSound(gg_snd_Ambientvault, true, 1216.0, 1120.0)
-    set gg_rct_Arena_Enter = Rect(- 1440.0, - 2496.0, - 1248.0, - 2304.0)
-    set gg_rct_Arena_Pick = Rect(- 2304.0, - 2624.0, - 384.0, - 960.0)
-    set gg_rct_Arena_Spawn = Rect(- 1856.0, - 2240.0, - 832.0, - 1312.0)
-    call SetSoundPosition(gg_snd_AmbientTrees, - 1344.0, - 1776.0, 118.0)
-    call RegisterStackedSound(gg_snd_AmbientTrees, true, 1024.0, 928.0)
-    set gg_rct_Artefactorium_Enter = Rect(10304.0, - 864.0, 10560.0, - 736.0)
-    set gg_rct_Artefactorium_Enter_2 = Rect(14784.0, - 2944.0, 14912.0, - 2688.0)
-    set gg_rct_Artefactorium_Pick = Rect(9536.0, - 2080.0, 11328.0, - 384.0)
-    set gg_rct_Artefactorium_Spawn = Rect(10016.0, - 1632.0, 10848.0, - 832.0)
-    call SetSoundPosition(gg_snd_Ambientvault, 10432.0, - 1232.0, 118.0)
-    call RegisterStackedSound(gg_snd_Ambientvault, true, 832.0, 800.0)
-    set gg_rct_Artefatorium_Leave = Rect(10304.0, - 608.0, 10560.0, - 448.0)
-    set gg_rct_Artefatorium_Leave_2 = Rect(15136.0, - 2912.0, 15328.0, - 2720.0)
-    set gg_rct_Dungeon = Rect(- 1760.0, - 19872.0, 13984.0, - 4160.0)
-    set we = AddWeatherEffect(gg_rct_Dungeon, 0x4644676C)
-    call EnableWeatherEffect(we, true)
-    set gg_rct_Dungeon_Center = Rect(6240.0, - 11936.0, 6816.0, - 11360.0)
-    set gg_rct_Dungeon_Exit = Rect(4128.0, 1376.0, 4320.0, 1568.0)
-    set gg_rct_Edemium_Leave = Rect(11328.0, 2240.0, 11456.0, 2368.0)
-    set gg_rct_Enchanting_Room_Enter = Rect(- 288.0, 1408.0, - 96.0, 1600.0)
-    call SetSoundPosition(gg_snd_AmbientNight, - 192.0, 1504.0, 118.1)
-    call RegisterStackedSound(gg_snd_AmbientNight, true, 192.0, 192.0)
-    set gg_rct_Item_Drop = Rect(14304.0, - 2944.0, 14624.0, - 2656.0)
-    set gg_rct_Onkie_Room_Enter = Rect(- 1952.0, 672.0, - 1760.0, 864.0)
-    call SetSoundPosition(gg_snd_Ambientvault, - 1856.0, 768.0, 118.0)
-    call RegisterStackedSound(gg_snd_Ambientvault, true, 192.0, 192.0)
-    set gg_rct_Room_Portal_Enter = Rect(10944.0, 1088.0, 11104.0, 1280.0)
-    set gg_rct_Room_Portal_Enter_2 = Rect(13792.0, 256.0, 14048.0, 384.0)
-    set gg_rct_Room_Portal_Leave = Rect(10752.0, 1088.0, 10912.0, 1312.0)
-    set gg_rct_Room_Portal_Leave_2 = Rect(13792.0, 96.0, 14048.0, 224.0)
-    set gg_rct_Room_Workshop_Enter = Rect(14304.0, - 32.0, 14464.0, 160.0)
-    set gg_rct_Room_Workshop_Leave = Rect(14816.0, - 64.0, 15072.0, 160.0)
-    set gg_rct_Stop_Unit = Rect(4064.0, 2016.0, 4256.0, 2208.0)
-    set gg_rct_Tier_1 = Rect(2464.0, - 128.0, 3168.0, 576.0)
-    set gg_rct_Tier_1_Camera = Rect(2496.0, - 128.0, 3136.0, 576.0)
-    set gg_rct_Tier_2 = Rect(2464.0, 576.0, 3168.0, 1344.0)
-    set gg_rct_Tier_2_Camera = Rect(2496.0, - 128.0, 3136.0, 1344.0)
-    set gg_rct_Tier_3 = Rect(2464.0, 1344.0, 3168.0, 2528.0)
-    set gg_rct_Tier_3_Camera = Rect(2496.0, - 128.0, 3136.0, 2496.0)
-    call SetSoundPosition(gg_snd_Ambient, 2816.0, 1184.0, 118.0)
-    call RegisterStackedSound(gg_snd_Ambient, true, 640.0, 2624.0)
-    set gg_rct_Training = Rect(10848.0, 1408.0, 11072.0, 1696.0)
-    set gg_rct_Trees_Leave = Rect(11296.0, 1312.0, 11488.0, 1504.0)
-    set gg_rct_Vault_Enter = Rect(14336.0, - 3136.0, 14592.0, - 2976.0)
-    set gg_rct_Vault_Leave = Rect(14368.0, - 3360.0, 14592.0, - 3200.0)
-    set gg_rct_Vault_Machinery = Rect(13344.0, 992.0, 13920.0, 2464.0)
-    set gg_rct_Vault_Machinery_Enter = Rect(13536.0, 1984.0, 13728.0, 2144.0)
-    set gg_rct_Vault_Machinery_Leave = Rect(13472.0, 2240.0, 13824.0, 2464.0)
-    set gg_rct_WhosYourDaddy = Rect(12096.0, - 2624.0, 12352.0, - 2368.0)
-    set gg_rct_Workshop_Machinery = Rect(13344.0, 832.0, 13920.0, 960.0)
-    set gg_rct_Workshop_Core = Rect(14112.0, 544.0, 14688.0, 1120.0)
-    set gg_rct_Core_Create = Rect(13984.0, 1088.0, 14496.0, 1600.0)
-    set gg_rct_Cell3_Delete_1 = Rect(12928.0, - 19808.0, 13920.0, - 18816.0)
-    set gg_rct_Cell3_Delete_2 = Rect(- 1632.0, - 19808.0, - 672.0, - 18848.0)
-    set gg_rct_Secrets = Rect(14592.0, 224.0, 14816.0, 992.0)
-    set gg_rct_Dungeon_Camera = Rect(- 1408.0, - 19584.0, 13664.0, - 4512.0)
-    call SetSoundPosition(gg_snd_Ambient, 6128.0, - 12048.0, 118.0)
-    call RegisterStackedSound(gg_snd_Ambient, true, 15072.0, 15072.0)
-    set gg_rct_Portal = Rect(10976.0, 2016.0, 11840.0, 2624.0)
-    set gg_rct_Pick_Zone = Rect(- 1184.0, - 3424.0, 1632.0, - 2816.0)
-    set gg_rct_Boss_Zone_1 = Rect(2080.0, - 2720.0, 3424.0, - 1376.0)
-    call SetSoundPosition(gg_snd_Ambient, 2752.0, - 2048.0, 118.0)
-    call RegisterStackedSound(gg_snd_Ambient, true, 1344.0, 1344.0)
-    set gg_rct_Boss_Room_Enter = Rect(2656.0, - 2464.0, 2848.0, - 2304.0)
-    set gg_rct_Boss_Spawn = Rect(2656.0, - 1824.0, 2848.0, - 1664.0)
-    set gg_rct_Boss_Creep_Spawn_1 = Rect(2112.0, - 1536.0, 2304.0, - 1376.0)
-    set gg_rct_Boss_Creep_Spawn_2 = Rect(3264.0, - 1760.0, 3424.0, - 1568.0)
-    set gg_rct_Boss_Creep_Spawn_3 = Rect(2048.0, - 2528.0, 2208.0, - 2336.0)
-    set gg_rct_Abilities = Rect(6656.0, 704.0, 7936.0, 1664.0)
-    call SetSoundPosition(gg_snd_AmbientTrees, 7296.0, 1184.0, 118.0)
-    call RegisterStackedSound(gg_snd_AmbientTrees, true, 1280.0, 960.0)
-    set gg_rct_Edemium = Rect(11296.0, 2432.0, 11488.0, 2624.0)
-    set gg_rct_Boss_2_Room_Enter = Rect(6080.0, - 2656.0, 6240.0, - 2496.0)
-    set gg_rct_Boss_2_Spawn = Rect(5984.0, - 1888.0, 6112.0, - 1760.0)
-    set gg_rct_Boss_3_Spawn = Rect(- 1600.0, - 26688.0, - 1216.0, - 26432.0)
-    set gg_rct_Boss_3_Zone = Rect(- 2656.0, - 27744.0, - 160.0, - 26144.0)
-    set gg_rct_Boss_3_Area_Left = Rect(- 2432.0, - 27552.0, - 1728.0, - 26464.0)
-    set gg_rct_Boss_3_Area_Center = Rect(- 1728.0, - 27552.0, - 1088.0, - 26816.0)
-    call SetSoundPosition(gg_snd_ScourgeGlueScreen, - 1408.0, - 27184.0, 118.0)
-    call RegisterStackedSound(gg_snd_ScourgeGlueScreen, true, 640.0, 736.0)
-    set gg_rct_Boss_3_Area_Right = Rect(- 1088.0, - 27552.0, - 352.0, - 26464.0)
-    set gg_rct_Boss_3_Room_Enter = Rect(- 1504.0, - 27488.0, - 1312.0, - 27328.0)
-    set gg_rct_Boss_Zone = Rect(1888.0, - 2944.0, 3648.0, - 1184.0)
-    set gg_rct_Camera_Bound_Portal = Rect(11296.0, 2368.0, 11328.0, 2400.0)
-    set gg_rct_Camera_Bounds_Workshop = Rect(14048.0, 320.0, 14080.0, 352.0)
-    set gg_rct_Camera_Bound_Meditate = Rect(11104.0, 1312.0, 11136.0, 1344.0)
-    set gg_rct_Camera_Bounds_Workshop_2 = Rect(13696.0, 800.0, 13728.0, 832.0)
-    set gg_rct_Camera_Bounds_Workshop_1 = Rect(13984.0, 544.0, 14016.0, 576.0)
-    set gg_rct_Camera_Bounds_Artefactorium = Rect(10432.0, - 1120.0, 10464.0, - 1088.0)
-    set gg_rct_Camera_Bounds_Cavern = Rect(64.0, 1856.0, 96.0, 1888.0)
-    set gg_rct_Camera_Bounds_Onkie = Rect(- 2112.0, 864.0, - 2080.0, 896.0)
-    set gg_rct_Camera_Bound_Gate = Rect(11424.0, 2528.0, 11456.0, 2560.0)
-    set gg_rct_Camera_Bound_Portal_2 = Rect(11104.0, 1536.0, 11136.0, 1568.0)
-    set gg_rct_Boss_2_Zone = Rect(5280.0, - 3072.0, 7072.0, - 1280.0)
-    set gg_rct_Boss_2_Spawn_3 = Rect(5504.0, - 2368.0, 5632.0, - 2240.0)
-    set gg_rct_Boss_2_Spawn_2 = Rect(6688.0, - 2176.0, 6816.0, - 2048.0)
-    set gg_rct_Camera_Bound_Loading = Rect(11808.0, 928.0, 11840.0, 960.0)
-    set gg_rct_Coliseum_Enter = Rect(- 1408.0, - 22912.0, - 1248.0, - 22752.0)
-    set gg_rct_Coliseum = Rect(- 2464.0, - 23648.0, - 256.0, - 22272.0)
-    call SetSoundPosition(gg_snd_ScourgeGlueScreen, - 1360.0, - 22960.0, 118.0)
-    call RegisterStackedSound(gg_snd_ScourgeGlueScreen, true, 2208.0, 1376.0)
-    set gg_rct_Coliseum_Spawn = Rect(- 2304.0, - 23424.0, - 416.0, - 22592.0)
-    set we = null
-endfunction
-
-function CreateCamerasOld takes nothing returns nothing
-    set gg_cam_Abilities_Tree = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Abilities_Tree, CAMERA_FIELD_ZOFFSET, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Abilities_Tree, CAMERA_FIELD_ROTATION, 90.0, 0.0)
-    call CameraSetupSetField(gg_cam_Abilities_Tree, CAMERA_FIELD_ANGLE_OF_ATTACK, 270.0, 0.0)
-    call CameraSetupSetField(gg_cam_Abilities_Tree, CAMERA_FIELD_TARGET_DISTANCE, 1400.0, 0.0)
-    call CameraSetupSetField(gg_cam_Abilities_Tree, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Abilities_Tree, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Abilities_Tree, CAMERA_FIELD_FARZ, 10000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Abilities_Tree, 7296.6, 1211.0, 0.0)
-    set gg_cam_Camera_Workshop = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Camera_Workshop, CAMERA_FIELD_ZOFFSET, 225.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop, CAMERA_FIELD_ROTATION, 46.4, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop, CAMERA_FIELD_ANGLE_OF_ATTACK, 343.8, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop, CAMERA_FIELD_TARGET_DISTANCE, 1186.7, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop, CAMERA_FIELD_FARZ, 10000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Camera_Workshop, 14037.2, 331.3, 0.0)
-    set gg_cam_Camera_Portal_Room = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Camera_Portal_Room, CAMERA_FIELD_ZOFFSET, 75.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Portal_Room, CAMERA_FIELD_ROTATION, 96.4, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Portal_Room, CAMERA_FIELD_ANGLE_OF_ATTACK, 356.1, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Portal_Room, CAMERA_FIELD_TARGET_DISTANCE, 2293.8, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Portal_Room, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Portal_Room, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Portal_Room, CAMERA_FIELD_FARZ, 10000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Camera_Portal_Room, 11296.4, 2373.5, 0.0)
-    set gg_cam_Camera_Abilities = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Camera_Abilities, CAMERA_FIELD_ZOFFSET, 155.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Abilities, CAMERA_FIELD_ROTATION, 116.4, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Abilities, CAMERA_FIELD_ANGLE_OF_ATTACK, 345.8, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Abilities, CAMERA_FIELD_TARGET_DISTANCE, 525.7, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Abilities, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Abilities, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Abilities, CAMERA_FIELD_FARZ, 10000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Camera_Abilities, 11117.3, 1340.5, 0.0)
-    set gg_cam_Camera_Talents = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Camera_Talents, CAMERA_FIELD_ZOFFSET, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Talents, CAMERA_FIELD_ROTATION, 70.6, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Talents, CAMERA_FIELD_ANGLE_OF_ATTACK, 346.1, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Talents, CAMERA_FIELD_TARGET_DISTANCE, 1127.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Talents, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Talents, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Talents, CAMERA_FIELD_FARZ, 10000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Camera_Talents, 11885.5, 1417.9, 0.0)
-    set gg_cam_Camera_Workshop_2 = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Camera_Workshop_2, CAMERA_FIELD_ZOFFSET, 205.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop_2, CAMERA_FIELD_ROTATION, 65.6, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop_2, CAMERA_FIELD_ANGLE_OF_ATTACK, 345.9, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop_2, CAMERA_FIELD_TARGET_DISTANCE, 798.1, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop_2, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop_2, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop_2, CAMERA_FIELD_FARZ, 9090.9, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Camera_Workshop_2, 13704.7, 827.7, 0.0)
-    set gg_cam_Camera_Artefactorium = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Camera_Artefactorium, CAMERA_FIELD_ZOFFSET, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Artefactorium, CAMERA_FIELD_ROTATION, 89.9, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Artefactorium, CAMERA_FIELD_ANGLE_OF_ATTACK, 303.7, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Artefactorium, CAMERA_FIELD_TARGET_DISTANCE, 1643.3, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Artefactorium, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Artefactorium, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Artefactorium, CAMERA_FIELD_FARZ, 10000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Camera_Artefactorium, 10433.8, - 1109.7, 0.0)
-    set gg_cam_Camera_Vault = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Camera_Vault, CAMERA_FIELD_ZOFFSET, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Vault, CAMERA_FIELD_ROTATION, 340.2, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Vault, CAMERA_FIELD_ANGLE_OF_ATTACK, 339.9, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Vault, CAMERA_FIELD_TARGET_DISTANCE, 1617.3, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Vault, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Vault, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Vault, CAMERA_FIELD_FARZ, 10000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Camera_Vault, 14874.0, - 3042.7, 0.0)
-    set gg_cam_Camera02 = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Camera02, CAMERA_FIELD_ZOFFSET, 205.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera02, CAMERA_FIELD_ROTATION, 89.6, 0.0)
-    call CameraSetupSetField(gg_cam_Camera02, CAMERA_FIELD_ANGLE_OF_ATTACK, 359.5, 0.0)
-    call CameraSetupSetField(gg_cam_Camera02, CAMERA_FIELD_TARGET_DISTANCE, 613.5, 0.0)
-    call CameraSetupSetField(gg_cam_Camera02, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera02, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera02, CAMERA_FIELD_FARZ, 10000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Camera02, 11396.4, 2261.3, 0.0)
-    set gg_cam_Camera01 = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Camera01, CAMERA_FIELD_ZOFFSET, 255.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera01, CAMERA_FIELD_ROTATION, 90.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera01, CAMERA_FIELD_ANGLE_OF_ATTACK, 8.3, 0.0)
-    call CameraSetupSetField(gg_cam_Camera01, CAMERA_FIELD_TARGET_DISTANCE, 1471.7, 0.0)
-    call CameraSetupSetField(gg_cam_Camera01, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera01, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera01, CAMERA_FIELD_FARZ, 10000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Camera01, 11388.8, 2181.3, 0.0)
-    set gg_cam_Camera03 = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Camera03, CAMERA_FIELD_ZOFFSET, 100.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera03, CAMERA_FIELD_ROTATION, 70.8, 0.0)
-    call CameraSetupSetField(gg_cam_Camera03, CAMERA_FIELD_ANGLE_OF_ATTACK, 9.1, 0.0)
-    call CameraSetupSetField(gg_cam_Camera03, CAMERA_FIELD_TARGET_DISTANCE, 469.4, 0.0)
-    call CameraSetupSetField(gg_cam_Camera03, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera03, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera03, CAMERA_FIELD_FARZ, 5000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Camera03, 11117.3, 1544.0, 0.0)
-    set gg_cam_Camera04 = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Camera04, CAMERA_FIELD_ZOFFSET, 180.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera04, CAMERA_FIELD_ROTATION, 89.7, 0.0)
-    call CameraSetupSetField(gg_cam_Camera04, CAMERA_FIELD_ANGLE_OF_ATTACK, 352.5, 0.0)
-    call CameraSetupSetField(gg_cam_Camera04, CAMERA_FIELD_TARGET_DISTANCE, 428.2, 0.0)
-    call CameraSetupSetField(gg_cam_Camera04, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera04, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera04, CAMERA_FIELD_FARZ, 10000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Camera04, 11392.3, 2535.9, 0.0)
-    set gg_cam_Camera05 = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Camera05, CAMERA_FIELD_ZOFFSET, 180.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera05, CAMERA_FIELD_ROTATION, 269.8, 0.0)
-    call CameraSetupSetField(gg_cam_Camera05, CAMERA_FIELD_ANGLE_OF_ATTACK, 277.2, 0.0)
-    call CameraSetupSetField(gg_cam_Camera05, CAMERA_FIELD_TARGET_DISTANCE, 391.8, 0.0)
-    call CameraSetupSetField(gg_cam_Camera05, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera05, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera05, CAMERA_FIELD_FARZ, 10000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Camera05, 11384.8, 2535.8, 0.0)
-    set gg_cam_Dungeon_Camera = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Dungeon_Camera, CAMERA_FIELD_ZOFFSET, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Dungeon_Camera, CAMERA_FIELD_ROTATION, 90.0, 0.0)
-    call CameraSetupSetField(gg_cam_Dungeon_Camera, CAMERA_FIELD_ANGLE_OF_ATTACK, 275.0, 0.0)
-    call CameraSetupSetField(gg_cam_Dungeon_Camera, CAMERA_FIELD_TARGET_DISTANCE, 1150.0, 0.0)
-    call CameraSetupSetField(gg_cam_Dungeon_Camera, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Dungeon_Camera, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Dungeon_Camera, CAMERA_FIELD_FARZ, 10000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Dungeon_Camera, 2817.2, - 66.6, 0.0)
-    set gg_cam_Enchanting_Cavern = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Enchanting_Cavern, CAMERA_FIELD_ZOFFSET, 150.0, 0.0)
-    call CameraSetupSetField(gg_cam_Enchanting_Cavern, CAMERA_FIELD_ROTATION, 128.0, 0.0)
-    call CameraSetupSetField(gg_cam_Enchanting_Cavern, CAMERA_FIELD_ANGLE_OF_ATTACK, 341.1, 0.0)
-    call CameraSetupSetField(gg_cam_Enchanting_Cavern, CAMERA_FIELD_TARGET_DISTANCE, 1037.4, 0.0)
-    call CameraSetupSetField(gg_cam_Enchanting_Cavern, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Enchanting_Cavern, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Enchanting_Cavern, CAMERA_FIELD_FARZ, 5000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Enchanting_Cavern, 65.6, 1889.2, 0.0)
-    set gg_cam_Onkie_Room = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Onkie_Room, CAMERA_FIELD_ZOFFSET, 120.0, 0.0)
-    call CameraSetupSetField(gg_cam_Onkie_Room, CAMERA_FIELD_ROTATION, 211.7, 0.0)
-    call CameraSetupSetField(gg_cam_Onkie_Room, CAMERA_FIELD_ANGLE_OF_ATTACK, 335.5, 0.0)
-    call CameraSetupSetField(gg_cam_Onkie_Room, CAMERA_FIELD_TARGET_DISTANCE, 790.4, 0.0)
-    call CameraSetupSetField(gg_cam_Onkie_Room, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Onkie_Room, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Onkie_Room, CAMERA_FIELD_FARZ, 5000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Onkie_Room, - 2095.4, 887.7, 0.0)
-    set gg_cam_Camera_Workshop_1 = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Camera_Workshop_1, CAMERA_FIELD_ZOFFSET, 185.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop_1, CAMERA_FIELD_ROTATION, 44.4, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop_1, CAMERA_FIELD_ANGLE_OF_ATTACK, 348.2, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop_1, CAMERA_FIELD_TARGET_DISTANCE, 756.1, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop_1, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop_1, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Workshop_1, CAMERA_FIELD_FARZ, 10000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Camera_Workshop_1, 13995.7, 485.9, 0.0)
-    set gg_cam_Center = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Center, CAMERA_FIELD_ZOFFSET, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Center, CAMERA_FIELD_ROTATION, 90.0, 0.0)
-    call CameraSetupSetField(gg_cam_Center, CAMERA_FIELD_ANGLE_OF_ATTACK, 304.0, 0.0)
-    call CameraSetupSetField(gg_cam_Center, CAMERA_FIELD_TARGET_DISTANCE, 2650.0, 0.0)
-    call CameraSetupSetField(gg_cam_Center, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Center, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Center, CAMERA_FIELD_FARZ, 5000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Center, 6544.4, - 11649.4, 0.0)
-    set gg_cam_Default = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Default, CAMERA_FIELD_ZOFFSET, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Default, CAMERA_FIELD_ROTATION, 90.0, 0.0)
-    call CameraSetupSetField(gg_cam_Default, CAMERA_FIELD_ANGLE_OF_ATTACK, 304.0, 0.0)
-    call CameraSetupSetField(gg_cam_Default, CAMERA_FIELD_TARGET_DISTANCE, 1650.0, 0.0)
-    call CameraSetupSetField(gg_cam_Default, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Default, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Default, CAMERA_FIELD_FARZ, 5000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Default, 11381.9, 1537.4, 0.0)
-    set gg_cam_Boss_Room = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Boss_Room, CAMERA_FIELD_ZOFFSET, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Boss_Room, CAMERA_FIELD_ROTATION, 90.0, 0.0)
-    call CameraSetupSetField(gg_cam_Boss_Room, CAMERA_FIELD_ANGLE_OF_ATTACK, 300.0, 0.0)
-    call CameraSetupSetField(gg_cam_Boss_Room, CAMERA_FIELD_TARGET_DISTANCE, 1700.0, 0.0)
-    call CameraSetupSetField(gg_cam_Boss_Room, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Boss_Room, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Boss_Room, CAMERA_FIELD_FARZ, 5000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Boss_Room, 2752.4, - 2051.6, 0.0)
-    set gg_cam_Camera_Portal = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Camera_Portal, CAMERA_FIELD_ZOFFSET, 150.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Portal, CAMERA_FIELD_ROTATION, 89.4, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Portal, CAMERA_FIELD_ANGLE_OF_ATTACK, 357.1, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Portal, CAMERA_FIELD_TARGET_DISTANCE, 1756.2, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Portal, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Portal, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Camera_Portal, CAMERA_FIELD_FARZ, 10000.0, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Camera_Portal, 11419.2, 2539.6, 0.0)
-    set gg_cam_Screencam = CreateCameraSetup()
-    call CameraSetupSetField(gg_cam_Screencam, CAMERA_FIELD_ZOFFSET, 150.0, 0.0)
-    call CameraSetupSetField(gg_cam_Screencam, CAMERA_FIELD_ROTATION, 90.0, 0.0)
-    call CameraSetupSetField(gg_cam_Screencam, CAMERA_FIELD_ANGLE_OF_ATTACK, 1.4, 0.0)
-    call CameraSetupSetField(gg_cam_Screencam, CAMERA_FIELD_TARGET_DISTANCE, 699.8, 0.0)
-    call CameraSetupSetField(gg_cam_Screencam, CAMERA_FIELD_ROLL, 0.0, 0.0)
-    call CameraSetupSetField(gg_cam_Screencam, CAMERA_FIELD_FIELD_OF_VIEW, 70.0, 0.0)
-    call CameraSetupSetField(gg_cam_Screencam, CAMERA_FIELD_FARZ, 1762.4, 0.0)
-    call CameraSetupSetDestPosition(gg_cam_Screencam, 11733.6, - 26459.9, 0.0)
-endfunction
-
-function Autosave takes nothing returns nothing
-    call TriggerExecute(gg_trg_CodeGen_Save)
-endfunction
-
-function Load1 takes nothing returns nothing
-    set udg_ImportCode1 = GetPlayerName(Player(15))
-    call TriggerExecute(gg_trg_CodeGen_Load)
-endfunction
-
-function Load2 takes nothing returns nothing
-    set udg_ImportCode2 = GetPlayerName(Player(15))
-    call TriggerExecute(gg_trg_CodeGen_Load_2)
-endfunction
-
-function Load3 takes nothing returns nothing
-    set udg_ImportCode3 = GetPlayerName(Player(15))
-    call TriggerExecute(gg_trg_CodeGen_Load_3)
-endfunction
-
-function Load4 takes nothing returns nothing
-    set udg_ImportCode4 = GetPlayerName(Player(15))
-    call TriggerExecute(gg_trg_CodeGen_Load_4)
-endfunction
-
-function CodeGen_SaveToDisk takes string loadcode, string filename returns nothing
-    call PreloadGenClear()
-    call PreloadGenStart()
-    call Preload(loadcode)
-    call PreloadGenEnd(filename)
-    call ClearSelection()
-endfunction
-
-function CodeGen_Init takes nothing returns nothing
-    local integer i = 1
-    local integer b = udg_SaveLoad_Base
-    local integer m = udg_SaveLoad_MaxValue
-    loop
-        exitwhen i >= udg_SaveLoad_MaxValue
-        set udg_SaveLoad_Char[i] = SubString(udg_SaveLoad_Alphabet, i, i + 1)
-        set i = i + 1
-    endloop
-    set udg_SaveLoad_Alphabet = SubString(udg_SaveLoad_Alphabet, 0, 1) + SubString(udg_SaveLoad_Alphabet, m + 1, b)
-    set udg_SaveLoad_Base = b - m
-endfunction
-
-function CodeGen_ConvertItem takes integer id returns integer
-    local integer i = 1
-    loop
-        exitwhen i > udg_SaveLoad_ItemCount
-        if(id == udg_SaveLoad_Item[i])then
-            return i
-        endif
-        set i = i + 1
-    endloop
-    return 0
-endfunction
-
-function CodeGen_ConvertUnit takes integer id returns integer
-    local integer i = 1
-    loop
-        exitwhen i > udg_SaveLoad_HeroCount
-        if(id == udg_SaveLoad_Hero[i])then
-            return i
-        endif
-        set i = i + 1
-    endloop
-    return 0
-endfunction
-
-function CodeGen_Encode takes integer i returns string
-    local integer b
-    local string s = ""
-    if i <= udg_SaveLoad_Base then
-        return SubString(udg_SaveLoad_Alphabet, i, i + 1)
-    endif
-    loop
-        exitwhen i <= 0
-        set b = i - (i / udg_SaveLoad_Base) * udg_SaveLoad_Base
-        set s = SubString(udg_SaveLoad_Alphabet, b, b + 1) + s
-        set i = i / udg_SaveLoad_Base
-    endloop
-    return s
-endfunction
-
-function CodeGen_StrPos takes string s returns integer
-    local integer i = 0
-    loop
-        exitwhen i > udg_SaveLoad_Base
-        if s == SubString(udg_SaveLoad_Alphabet, i, i + 1)then
-            return i
-        endif
-        set i = i + 1
-    endloop
-    return - 1
-endfunction
-
-function CodeGen_Decode takes string s returns integer
-    local integer a = 0
-    loop
-        exitwhen StringLength(s) == 1
-        set a = a * udg_SaveLoad_Base + udg_SaveLoad_Base * CodeGen_StrPos(SubString(s, 0, 1))
-        set s = SubString(s, 1, 99)
-    endloop
-    return a + CodeGen_StrPos(s)
-endfunction
-
-function CodeGen_StringChecksum takes string in returns integer
-    local integer i = 0
-    local integer l = StringLength(in)
-    local integer t = 0
-    local integer o = 0
-    loop
-        exitwhen i >= l
-        set t = CodeGen_Decode(SubString(in, i, i + 1))
-        set o = o + t
-        set i = i + 1
-    endloop
-    return o
-endfunction
-
-function CodeGen_Color takes string char returns string
-    local integer i = 0
-    local integer l = StringLength(udg_SaveLoad_Full)
-    local string x = ""
-    loop
-        exitwhen i >= l
-        set x = SubString(udg_SaveLoad_Full, i, i + 1)
-        if char == x then
-            if(x == "0"or S2I(x) > 0)then
-                return udg_SaveLoad_Number + char
-            elseif StringCase(x, false) == x then
-                return udg_SaveLoad_Lower + char
-            elseif StringCase(x, true) == x then
-                return udg_SaveLoad_Upper + char
-            endif
-        endif
-        set i = i + 1
-    endloop
-    return char
-endfunction
-
-function CodeGen_Format takes string s returns string
-    local integer i = 0
-    local integer x = StringLength(s)
-    local integer j = 1
-    local string s2 = ""
-    loop
-        exitwhen i >= x
-        set s2 = s2 + CodeGen_Color(SubString(s, i, i + 1))
-        if(j >= udg_SaveLoad_HyphenSpace and i != (x - 1))then
-            set j = 0
-            set s2 = s2 + udg_SaveLoad_SeperationChar
-        endif
-        set j = j + 1
-        set i = i + 1
-    endloop
-    return s2
-endfunction
-
-function CodeGen_Strip takes string s returns string
-    local integer i = 0
-    local integer x = StringLength(s)
-    local string out = ""
-    local string a = ""
-    loop
-        exitwhen i >= x
-        set a = SubString(s, i, i + 1)
-        if(a != udg_SaveLoad_SeperationChar)then
-            set out = out + a
-        endif
-        set i = i + 1
-    endloop
-    return out
-endfunction
-
-function CodeGen_Load takes string s returns nothing
-    local string str = CodeGen_Strip(s)
-    local string tmp = ""
-    local string c = ""
-    local integer x = 0
-    local integer i = 1
-    local integer l = 0
-    local integer j = 1
-    local integer f = 0
-    local boolean b = true
-    set udg_SaveLoad_Valid = false
-    if(udg_SaveLoad_Security)then
-        loop
-            exitwhen i > 3
-            if(CodeGen_Decode(SubString(str, 0, i)) == CodeGen_StringChecksum(SubString(str, i, 999)))then
-                set udg_SaveLoad_Valid = true
-                set str = SubString(str, i, 999)
-                set i = 4
-            endif
-            set i = i + 1
-        endloop
-    endif
-    if(not udg_SaveLoad_Valid)then
-        set udg_SaveLoad_Error = "Invalid Code"
-        return
-    endif
-    set i = 0
-    set l = StringLength(str)
-    if(udg_SaveLoad_CheckName)then
-        set c = CodeGen_Encode(CodeGen_StringChecksum(GetPlayerName(GetTriggerPlayer())))
-        set i = StringLength(c)
-        if(c != SubString(str, l - i, i))then
-            set udg_SaveLoad_Valid = false
-            set udg_SaveLoad_Error = "Wrong username"
-            return
-        endif
-        set l = l - i
-    endif
-    set i = 0
-    loop
-        exitwhen i >= l
-        set tmp = SubString(str, i, i + 1)
-        set b = true
-        set f = 0
-        set j = 1
-        loop
-            exitwhen f >= (udg_SaveLoad_MaxValue)
-            if(tmp == udg_SaveLoad_Char[f])then
-                set j = f + 2
-                set udg_Load[x] = CodeGen_Decode(SubString(str, i + 1, i + (j)))
-                set b = false
-                set f = udg_SaveLoad_MaxValue
-            endif
-            set f = f + 1
-        endloop
-        if(b)then
-            set udg_Load[x] = CodeGen_Decode(tmp)
-        endif
-        set i = i + j
-        set x = x + 1
-    endloop
-    set udg_SaveLoad_Valid = true
-endfunction
-
-function CodeGen_Compile takes nothing returns string
-    local integer i = 0
-    local integer j = 0
-    local string out = ""
-    local string ln = ""
-    local string x = ""
-    loop
-        exitwhen i > udg_SaveCount
-        set x = CodeGen_Encode(udg_Save[i])
-        set j = StringLength(x)
-        if(j > 1)then
-            set out = out + udg_SaveLoad_Char[j - 1]
-        endif
-        set out = out + x
-        set i = i + 1
-    endloop
-
-    if(udg_SaveLoad_CheckName)then
-        set out = out + CodeGen_Encode(CodeGen_StringChecksum(GetPlayerName(GetTriggerPlayer())))
-    endif
-
-    if(udg_SaveLoad_Security)then
-        set out = CodeGen_Encode(CodeGen_StringChecksum(out)) + out
-    endif
-
-    if udg_SaveLoad_SaveToDisk and GetLocalPlayer() == GetTriggerPlayer()then
-        call CodeGen_SaveToDisk(out, udg_SaveLoad_Directory + "\\" + udg_SaveLoad_Filename)
-    endif
-
-    return CodeGen_Format(out)
-endfunction
-
-function Trig_Initialisation_Actions takes nothing returns nothing
-    call CinematicModeBJ(true, GetPlayersAll())
-    call CinematicFadeBJ(bj_CINEFADETYPE_FADEOUT, 0.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
-    set udg_CinematicPosition = GetUnitLoc(gg_unit_H000_0004)
-    call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
-    call StopSound(bj_nightAmbientSound, true, true)
-    set udg_Arct = gg_unit_H000_0004
-    call SetUnitLifePercentBJ(udg_Arct, 100)
-    call SetUnitManaPercentBJ(udg_Arct, 100)
-    call SetSkyModel("war3mapImported\\skyLight.mdx")
-    call SetTerrainFogExBJ(0, 1100.00, 15000.00, 0.50, 0.00, 20.00, 100)
-    call UnitAddAbilityBJ(0x41303138, udg_Arct)
-    call UnitAddAbilityBJ(0x41303537, udg_Arct)
-    call UnitAddAbilityBJ(0x41303530, udg_Arct)
-    call UnitAddAbilityBJ(0x41303147, udg_Arct)
-    call UnitAddAbilityBJ(0x41303555, udg_Arct)
-    call SetPlayerAbilityAvailableBJ(false, 0x41303138, Player(0))
-    call SetPlayerAbilityAvailableBJ(false, 0x41303537, Player(0))
-    call SetPlayerAbilityAvailableBJ(false, 0x41303530, Player(0))
-    call SetPlayerAbilityAvailableBJ(false, 0x41303147, Player(0))
-    call SetPlayerAbilityAvailableBJ(false, 0x41303555, Player(0))
-    call SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, false, Player(11))
-    call UseTimeOfDayBJ(false)
-    call AddWeatherEffectSaveLast(gg_rct_Dungeon, 0x4C526D61)
-    call SelectUnitForPlayerSingle(udg_Arct, Player(0))
-    call CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Боевая система|n", "- Во время боя над монстрами может появиться одна из 3 иконок, от игрока требуется успеть нажать на один из 3 приёмов на панели умений, в зависимости от цвета появившейся иконки.|n- Правильное нажатие наносит монстру урон и исцеляет Аркта, так же повышает серию ударов, от которой зависит общий наносимый урон и получаемое исцеление.|n", "ReplaceableTextures\\CommandButtons\\BTNCombo4.blp")
-    //call CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Навыки|n", "- Навыки это способности которые Аркт автоматически применяет если правильно нажимать на приёмы (три разноцветных кнопки) необходимое количество раз подряд (зависит от того на какой серии стоит навык)."+"|n- Навык можно установить на 4 разных серии (3,5,7,9); от этого зависит сколько раз подряд нужно правильно нажать на приёмы чтобы навык применился.|n- К примеру: если выучить навык и поставить его на 3 серию, то после каждых правильных трёх нажатий на приёмы - навык будет применятся.|n- Чтобы изучить навык необходимо 300 очков навыка; одно очко дается за одно применение навыка.|n- Каждые 70 применений навык повышает свой уровень; всего у навыков 5 уровней (необходимо применить навык 350 раз чтобы полностью его улучшить).|n", "ReplaceableTextures\\CommandButtons\\BTNBeltEnhance.blp")
-    call CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Секреты (таланты)|n", "- Секреты это бесконечно улучшаемые таланты, дарующие Аркту новые пассивные способности.|n- Секреты можно раскрыть выбив рецепты с монстров и боссов или купить в лавке Онки.|n- При поднятии рецепта он появляется в замке на стене возле Ядра.|n- Чтобы прокачать секрет необходимо найти необходимые элементы (которые описаны в рецепте), затем использовать Ядро; нажать на него, добавить необходимые элементы и нажать на кнопку Изучить секрет.|n", "ReplaceableTextures\\CommandButtons\\BTNSkullFusion.blp")
-    call CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Карта Эдемиума|n", "- После захода в портал открывается Карта Эдемиума, на которой расположено множество разнообразных уровней.|n- Между уровнями можно перемещаться разными способами (обычное перемещение и телепортация) применяя необходимые способности расположенные на панели снизу.|n- После перемещения на уровень можно начать его прохождение (кнопка Отправиться).|n- Если слишком много блуждать по карте, то может произойти что-нибудь неприятное (этого можно избежать используя телепортацию).|n", "ReplaceableTextures\\CommandButtons\\BTNMove.blp")
-    call CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Прочее|n", "- Очень важно качать характеристики: они лучше всего влияют на силу Аркта.|n- После прохождения подземелий повышаются случайные хар-ки в зависимости от количества поднятых Арктом уровней.|n- Награда за прохождение уровня зависит от сложности и от количества убитых монстров.|n- Новые режимы сложности открываются после убийства боссов.|n- Телепортация между уровнями Эдемиума открывается после убийства первого босса.|n- Угол камеры в Эдемиуме можно поменять стрелками вправо/влево и отдалять/приближать стрелками вниз/вверх.|n", "ReplaceableTextures\\CommandButtons\\BTNMeditate.blp")
-    call SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, false, Player(11))
-    call SetPlayerAllianceStateBJ(Player(10), Player(0), bj_ALLIANCE_UNALLIED)
-    call RegionAddRect(udg_Region1, gg_rct_Training)
-    call RegionAddRect(udg_Region2, gg_rct_Vault_Machinery)
-    call RegionAddRect(udg_Region3, gg_rct_Vault_Leave)
-    call RegionAddRect(udg_Region4, gg_rct_Room_Portal_Leave)
-    call RegionAddRect(udg_Region5, gg_rct_Portal)
-    call RegionAddRect(udg_Region6, gg_rct_Artefatorium_Leave_2)
-    call RegionAddRect(udg_Region7, gg_rct_Artefatorium_Leave)
-    call RegionAddRect(udg_Region8, gg_rct_Vault_Machinery_Leave)
-    call RegionAddRect(udg_Region9, gg_rct_Room_Workshop_Leave)
-    call RegionAddRect(udg_Region10, gg_rct_Workshop_Machinery)
-    call RegionAddRect(udg_Region11, gg_rct_Workshop_Core)
-    call FogEnableOff()
-    call FogMaskEnableOff()
-    call CreateFogModifierRectBJ(true, Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect())
-    call EnableDawnDusk(false)
-    call StopMusicBJ(false)
-    call ClearMapMusicBJ()
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-
-
-function InitTrig_Initialisation takes nothing returns nothing
-    set gg_trg_Initialisation = CreateTrigger()
-    call TriggerAddAction(gg_trg_Initialisation, function Trig_Initialisation_Actions)
-endfunction
-
-function Trig_Initialisation_Elapsed_Func006A takes nothing returns nothing
-    if GetUnitTypeId(GetEnumUnit()) == 0x6830304B then
-        call SetUnitUserData(GetEnumUnit(), 10)
-        call SetUnitVertexColorBJ(GetEnumUnit(), 100, 100, 100, 100.00)
-    else
-        if GetUnitTypeId(GetEnumUnit()) == 0x68303132 then
-            call AddItemToStockBJ(0x49303047, GetEnumUnit(), 1, 1)
-            call SetUnitVertexColorBJ(GetEnumUnit(), 100, 100, 100, 100.00)
-            call UnitAddAbilityBJ(0x416E6575, GetEnumUnit())
-        else
-            if GetUnitTypeId(GetEnumUnit()) == 0x68303036 then
-                call SetUnitVertexColorBJ(GetEnumUnit(), 100, 100, 100, 100.00)
-                call UnitAddAbilityBJ(0x416E6575, GetEnumUnit())
-                call UnitAddAbilityBJ(0x41303241, GetEnumUnit())
-            else
-            endif
-        endif
-    endif
-endfunction
-function Trig_Initialisation_Elapsed_Func140A takes nothing returns nothing
-    call ShowUnitHide(GetEnumUnit())
-    call GroupAddUnitSimple(GetEnumUnit(), udg_SecretGroup)
-endfunction
-function Trig_Initialisation_Elapsed_Func144Func001C takes nothing returns boolean
-    return GetDestructableTypeId(GetEnumDestructable()) == 0x42303042
-endfunction
-function Trig_Initialisation_Elapsed_Func144A takes nothing returns nothing
-    if(Trig_Initialisation_Elapsed_Func144Func001C())then
-        call ShowDestructableBJ(false, GetEnumDestructable())
-    else
-    endif
-endfunction
-
-function Trig_Initialisation_Elapsed_Actions takes nothing returns nothing
-    call CreateLeaderboardBJ(bj_FORCE_PLAYER[0], ("|cFFFFFFFFСерия ударов:|r |cFF449EFF" + I2S(udg_CO_Combo)))
-    set udg_CO_ComboBoard = GetLastCreatedLeaderboard()
-    call LeaderboardDisplayBJ(false, GetLastCreatedLeaderboard())
-    set udg_UnitGroup = GetUnitsOfPlayerAll(Player(PLAYER_NEUTRAL_PASSIVE))
-    call GroupRemoveUnitSimple(gg_unit_h006_0035, udg_UnitGroup)
-    call ForGroupBJ(udg_UnitGroup, function Trig_Initialisation_Elapsed_Func006A)
-    call DestroyGroup(udg_UnitGroup)
-    call SetUnitUserData(gg_unit_h006_0081, 1)
-    call SetUnitUserData(gg_unit_h006_0075, 2)
-    call SetUnitUserData(gg_unit_h006_0077, 3)
-    call SetUnitUserData(gg_unit_h006_0079, 4)
-    call SetUnitUserData(gg_unit_h006_0082, 5)
-    call SetUnitUserData(gg_unit_h006_0076, 6)
-    call SetUnitUserData(gg_unit_h006_0078, 7)
-    call SetUnitUserData(gg_unit_h006_0080, 8)
-    call SetUnitUserData(gg_unit_h006_0071, 9)
-    call SetUnitUserData(gg_unit_h006_0069, 10)
-    call SetUnitUserData(gg_unit_h006_0073, 11)
-    call SetUnitUserData(gg_unit_h006_0067, 12)
-    call SetUnitLifeBJ(gg_unit_h00K_0095, 1.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0097, 2.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0096, 3.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0098, 4.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0101, 5.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0099, 6.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0103, 7.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0152, 8.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0154, 9.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0149, 10.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0105, 11.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0148, 12.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0151, 13.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0107, 14.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0102, 15.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0108, 16.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0109, 17.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0112, 18.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0115, 19.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0114, 20.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0111, 21.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0110, 22.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0116, 23.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0121, 24.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0126, 25.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0118, 26.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0122, 27.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0147, 28.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0113, 29.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0120, 30.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0125, 31.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0124, 32.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0127, 33.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0150, 34.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0123, 35.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0129, 36.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0128, 37.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0130, 38.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0133, 39.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0132, 40.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0134, 41.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0131, 42.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0135, 43.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0104, 44.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0117, 45.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0119, 46.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0136, 47.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0139, 48.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0138, 49.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0140, 50.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0144, 51.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0145, 52.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0146, 53.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0141, 54.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0143, 55.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0106, 56.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0155, 58.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0153, 59.00)
-    call SetUnitLifeBJ(gg_unit_h00K_0142, 60.00)
-    call SetUnitUserData(gg_unit_h012_0012, 1)
-    call SetUnitUserData(gg_unit_h012_0011, 2)
-    call SetUnitUserData(gg_unit_h012_0013, 3)
-    call SetUnitUserData(gg_unit_h00Y_0005, 1)
-    set udg_CC_SecretUnit[1] = gg_unit_h00Y_0005
-    call SetUnitUserData(gg_unit_h00H_0002, 2)
-    set udg_CC_SecretUnit[2] = gg_unit_h00H_0002
-    call SetUnitUserData(gg_unit_h00Z_0007, 3)
-    set udg_CC_SecretUnit[3] = gg_unit_h00Z_0007
-    call SetUnitUserData(gg_unit_h011_0009, 4)
-    set udg_CC_SecretUnit[4] = gg_unit_h011_0009
-    call SetUnitUserData(gg_unit_h010_0008, 5)
-    set udg_CC_SecretUnit[5] = gg_unit_h010_0008
-    call SetUnitUserData(gg_unit_h002_0010, 6)
-    set udg_CC_SecretUnit[6] = gg_unit_h002_0010
-    call SetUnitUserData(gg_unit_h003_0014, 7)
-    set udg_CC_SecretUnit[7] = gg_unit_h003_0014
-    call SetUnitUserData(gg_unit_h00U_0015, 8)
-    set udg_CC_SecretUnit[8] = gg_unit_h00U_0015
-    call SetUnitUserData(gg_unit_h015_0016, 9)
-    set udg_CC_SecretUnit[9] = gg_unit_h015_0016
-    call SetUnitUserData(gg_unit_h016_0017, 10)
-    set udg_CC_SecretUnit[10] = gg_unit_h016_0017
-    call SetUnitUserData(gg_unit_h017_0018, 11)
-    set udg_CC_SecretUnit[11] = gg_unit_h017_0018
-    call SetUnitUserData(gg_unit_h018_0019, 12)
-    set udg_CC_SecretUnit[12] = gg_unit_h018_0019
-    call SetUnitUserData(gg_unit_h019_0020, 13)
-    set udg_CC_SecretUnit[13] = gg_unit_h019_0020
-    call SetUnitUserData(gg_unit_h01A_0021, 14)
-    set udg_CC_SecretUnit[14] = gg_unit_h01A_0021
-    call SetUnitUserData(gg_unit_h01B_0022, 15)
-    set udg_CC_SecretUnit[15] = gg_unit_h01B_0022
-    call SetUnitUserData(gg_unit_h01C_0023, 16)
-    set udg_CC_SecretUnit[16] = gg_unit_h01C_0023
-    call SetUnitUserData(gg_unit_h01D_0024, 17)
-    set udg_CC_SecretUnit[17] = gg_unit_h01D_0024
-    call SetUnitUserData(gg_unit_h01E_0025, 18)
-    set udg_CC_SecretUnit[18] = gg_unit_h01E_0025
-    call SetUnitUserData(gg_unit_h01F_0026, 19)
-    set udg_CC_SecretUnit[19] = gg_unit_h01F_0026
-    call SetUnitUserData(gg_unit_h01G_0027, 20)
-    set udg_CC_SecretUnit[20] = gg_unit_h01G_0027
-    call SetUnitVertexColorBJ(gg_unit_h001_0037, 100, 100, 100, 100.00)
-    call SetUnitVertexColorBJ(gg_unit_h00V_0063, 100, 100, 100, 100.00)
-    call SetUnitVertexColorBJ(gg_unit_h006_0035, 100, 100, 100, 100.00)
-    call SetUnitVertexColorBJ(gg_unit_h00F_0003, 100, 100, 100, 100.00)
-    call ShowUnitHide(gg_unit_h00V_0029)
-    set udg_RandomNumber = 0
-    set udg_UnitGroup = GetUnitsInRectOfPlayer(gg_rct_Secrets, Player(PLAYER_NEUTRAL_PASSIVE))
-    call ForGroupBJ(udg_UnitGroup, function Trig_Initialisation_Elapsed_Func140A)
-    call DestroyGroup(udg_UnitGroup)
-    call SetUnitVertexColorBJ(gg_unit_h007_0065, 100, 100, 100, 100.00)
-    call EnumDestructablesInRectAll(gg_rct_Abilities, function Trig_Initialisation_Elapsed_Func144A)
-    call EnableSelect(true, false)
-    call EnableMinimapFilterButtons(false, false)
-    call SetMusicVolumeBJ(100.00)
-    call VolumeGroupSetVolumeBJ(SOUND_VOLUMEGROUP_MUSIC, 100)
-    call CreateTextTagUnitBJ("III|n", udg_Arct, 0.00, 11.00, 100, 100, 100, 0)
-    set udg_DungeonColdText = GetLastCreatedTextTag()
-    call ShowTextTagForceBJ(false, udg_DungeonColdText, bj_FORCE_PLAYER[0])
-    call ConditionalTriggerExecute(gg_trg_Music_Castle)
-    call DialogClearBJ(udg_InitDialog)
-    call DialogSetMessageBJ(udg_InitDialog, "|n")
-    call DialogAddButtonBJ(udg_InitDialog, "Пройти обучение|n")
-    set udg_DialogButton[1] = GetLastCreatedButtonBJ()
-    call DialogAddButtonBJ(udg_InitDialog, "Обойтись без обучения|n")
-    set udg_DialogButton[2] = GetLastCreatedButtonBJ()
-    call DialogAddButtonBJ(udg_InitDialog, "Загрузить сохранение|n")
-    set udg_DialogButton[3] = GetLastCreatedButtonBJ()
-    call DialogDisplayBJ(true, udg_InitDialog, Player(0))
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-
-function InitTrig_Initialisation_Elapsed takes nothing returns nothing
-    set gg_trg_Initialisation_Elapsed = CreateTrigger()
-    call TriggerRegisterTimerEventSingle(gg_trg_Initialisation_Elapsed, 0.00)
-    call TriggerAddAction(gg_trg_Initialisation_Elapsed, function Trig_Initialisation_Elapsed_Actions)
-endfunction
-
-function Trig_Initialisation_Dialog_Actions takes nothing returns nothing
-    if GetClickedButton() == udg_DialogButton[1] then
-        call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Artefactorium)
-        call UnitAddItemByIdSwapped(0x4930304C, gg_unit_H000_0004)
-        call ConditionalTriggerExecute(gg_trg_Tutorial_Initialisation)
-        call EnableTrigger(gg_trg_Tutorial01)
-        set udg_EM_Generate = 1
-        call ConditionalTriggerExecute(gg_trg_Map_Generate)
-        set udg_TargetPoint = GetUnitLoc(gg_unit_h00K_0095)
-        call CreateDestructableLoc(0x42303141, udg_TargetPoint, 0.00, 0.30, 0)
-        set udg_EM_Effect = GetLastCreatedDestructable()
-        call RemoveLocation(udg_TargetPoint)
-        call DestroyTrigger(GetTriggeringTrigger())
-    else
-        call SetCameraBoundsToRect(gg_rct_Camera_Bound_Portal)
-        call DestroyTrigger(gg_trg_Tutorial01)
-        call DestroyTrigger(gg_trg_Tutorial_Initialisation)
-        call DestroyTrigger(gg_trg_Tutorial_Cinematic)
-        call DisableTrigger(gg_trg_Artefactorium_Damage)
-        call DisableTrigger(gg_trg_Artefactorium_Creep_Kill)
-        call EnableTrigger(gg_trg_Escape_Dialog)
-        call EnableTrigger(gg_trg_Enter_Dialog)
-        call EnableTrigger(gg_trg_Creep_Kill)
-        call EnableTrigger(gg_trg_Camera_Fix)
-        call EnableTrigger(gg_trg_Enter_Regions)
-        call EnableTrigger(gg_trg_Item_Pickup)
-        set udg_TutorialHintsOn = false
-        call EnablePreSelect(false, false)
-
-        if GetClickedButton() == udg_DialogButton[2] then
-            call CinematicModeExBJ(false, GetPlayersAll(), 2.00)
-            call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 2.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 100.00, 100.00, 100.00, 0.00)
-            call UnitAddItemByIdSwapped(0x4930304C, gg_unit_H000_0004)
-            set udg_Target = gg_unit_h006_0081
-            call RemoveDestructable(gg_dest_B003_2936)
-            call ShowDestructableBJ(true, gg_dest_B00B_1355)
-            set udg_Point = GetUnitLoc(gg_unit_h006_0081)
-            call CreateDestructableLoc(0x42303037, udg_Point, 0.00, 0.50, 0)
-            call RemoveLocation(udg_Point)
-            set udg_MagneticField[2] = GetLastCreatedDestructable()
-            set udg_AS_Logic[2] = true
-            set udg_AS_Value[GetUnitUserData(udg_Target)] = 2
-            set udg_AS_SeriesNumber = 2
-            set udg_AS_Effect[udg_AS_SeriesNumber] = 1
-            set udg_AS_AbilityStudied[1] = 1
-            call CreateTextTagUnitBJ("5|n", gg_unit_h006_0081, 0, 15.00, 100, 100, 100, 0)
-            set udg_AS_TextNumber[2] = GetLastCreatedTextTag()
-            call UnitRemoveAbilityBJ(0x41303241, gg_unit_h006_0081)
-            call UnitAddAbilityBJ(0x41303649, gg_unit_h006_0081)
-            set udg_AS_Points = 300
-            call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 1, ("Очки навыков: " + I2S(udg_AS_Points)))
-            call ShowUnitShow(udg_CC_SecretUnit[2])
-            set udg_CC_SecretUnlocked[2] = true
-            set udg_ART[2] = (udg_ART[2] + 1)
-            set udg_Point = GetUnitLoc(udg_CC_SecretUnit[2])
-            call CreateTextTagLocBJ(I2S(udg_ART[2]), udg_Point, (GetUnitFlyHeight(udg_CC_SecretUnit[2]) + 40.00), 10, 100, 100, 100, 0)
-            set udg_CC_SecretLevel[2] = GetLastCreatedTextTag()
-            call RemoveLocation(udg_Point)
-            call CameraSetupApplyForceDuration(udg_Camera, true, 0.00)
-            set udg_RandomNumber = GetRandomInt(1, 20)
-            if not udg_CC_SecretUnlocked[udg_RandomNumber] then
-                call AddItemToStockBJ(udg_SecretsList[udg_RandomNumber], gg_unit_n009_0061, 1, 1)
-            endif
-            set udg_EM_Generate = 1
-            call ConditionalTriggerExecute(gg_trg_Map_Generate)
-            set udg_TargetPoint = GetUnitLoc(gg_unit_h00K_0095)
-            call CreateDestructableLoc(0x42303141, udg_TargetPoint, 0.00, 0.30, 0)
-            set udg_EM_Effect = GetLastCreatedDestructable()
-            call RemoveLocation(udg_TargetPoint)
-            call DestroyTrigger(GetTriggeringTrigger())
-        else
-            set udg_LoadSucces = false
-            call Preloader("Edemium\\Save1.txt")
-            call Preloader("Edemium\\Save2.txt")
-            call Preloader("Edemium\\Save3.txt")
-            call Preloader("Edemium\\Save4.txt")
-            call StartTimerBJ(udg_LoadingTimer, false, 2.00)
-        endif
-    endif
-endfunction
-function InitTrig_Initialisation_Dialog takes nothing returns nothing
-    set gg_trg_Initialisation_Dialog = CreateTrigger()
-    call TriggerRegisterDialogEventBJ(gg_trg_Initialisation_Dialog, udg_InitDialog)
-    call TriggerAddAction(gg_trg_Initialisation_Dialog, function Trig_Initialisation_Dialog_Actions)
-endfunction
-function Trig_Variables_Actions takes nothing returns nothing
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 3
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_AugmentCost[bj_forLoopAIndex] = 50
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set udg_DifficultyDamage[2] = 0x41303453
-    set udg_DifficultyDamage[3] = 0x41303454
-    set udg_DifficultyDamage[4] = 0x41303533
-    set udg_DifficultyDamage[5] = 0x41303534
-    set udg_DifficultySpeed[2] = 0x41303154
-    set udg_DifficultySpeed[3] = 0x41303531
-    set udg_DifficultySpeed[4] = 0x41303538
-    set udg_DifficultySpeed[5] = 0x4130324A
-    set udg_AS_Name[1] = "Обьятие Жизни"
-    set udg_AS_Name[2] = "Вихрь"
-    set udg_AS_Name[3] = "Привидение"
-    set udg_AS_Name[4] = "Ярь Пилигрима"
-    set udg_AS_Name[5] = "Отголоски Света"
-    set udg_AS_Name[6] = "Венец Молний"
-    set udg_AS_Name[7] = "Сверхновая"
-    set udg_AS_Name[8] = "Ассиза"
-    set udg_AS_Name[9] = "Отлучение"
-    set udg_AS_Name[10] = "Собрат"
-    set udg_AS_Name[11] = "Ледяная Эгида"
-    set udg_AS_Name[12] = "Святая Земля"
-    set udg_CreepSkillGiant[1] = 0x41303535
-    set udg_CreepSkillGiant[2] = 0x41303536
-    set udg_CreepSkillGiant[3] = 0x41303539
-    set udg_D_CreepType[1] = 0x6E303032
-    set udg_D_CreepType[2] = 0x6E303032
-    set udg_D_CreepType[3] = 0x6E303033
-    set udg_D_CreepType[4] = 0x6E30304A
-    set udg_D_CreepType[5] = 0x6E30304A
-    set udg_CS_TargetUnitType[1] = 0x4E303131
-    set udg_CS_TargetUnitType[2] = 0x4E303132
-    set udg_CS_TargetUnitType[3] = 0x55303030
-    set udg_CS_TargetUnitType[4] = 0x4E303133
-    set udg_CS_TargetUnitType[5] = 0x55303031
-    set udg_IG_ItemType[1] = 0x49303338
-    set udg_IG_ItemType[2] = 0x49303342
-    set udg_IG_ItemType[3] = 0x49303348
-    set udg_IG_ItemType[4] = 0x49303345
-    set udg_IG_ItemType[5] = 0x49303339
-    set udg_IG_ItemType[6] = 0x49303343
-    set udg_IG_ItemType[7] = 0x49303349
-    set udg_IG_ItemType[8] = 0x49303346
-    set udg_IG_ItemType[9] = 0x49303341
-    set udg_IG_ItemType[10] = 0x49303344
-    set udg_IG_ItemType[11] = 0x4930334A
-    set udg_IG_ItemType[12] = 0x49303347
-    set udg_IG_ItemModelW_R[2] = 0x41303156
-    set udg_IG_ItemModelW_R[3] = 0x41303259
-    set udg_IG_ItemModelW_R[4] = 0x41303330
-    set udg_IG_ItemModelW_R[5] = 0x41303037
-    set udg_IG_ItemModelW_R[6] = 0x41303039
-    set udg_IG_ItemModelW_R[7] = 0x41303042
-    set udg_IG_ItemModelW_R[8] = 0x4130304A
-    set udg_IG_ItemModelW_R[9] = 0x41303044
-    set udg_IG_ItemModelW_L[2] = 0x41303258
-    set udg_IG_ItemModelW_L[3] = 0x4130325A
-    set udg_IG_ItemModelW_L[4] = 0x41303336
-    set udg_IG_ItemModelW_L[5] = 0x41303038
-    set udg_IG_ItemModelW_L[6] = 0x41303041
-    set udg_IG_ItemModelW_L[7] = 0x41303043
-    set udg_IG_ItemModelW_L[8] = 0x4130304B
-    set udg_IG_ItemModelW_L[9] = 0x41303045
-    set udg_IG_ItemModelA[2] = 0x41303144
-    set udg_IG_ItemModelA[3] = 0x4130314D
-    set udg_IG_ItemModelA[4] = 0x41303235
-    set udg_IG_ItemModelA[5] = 0x4130304C
-    set udg_IG_ItemModelA[6] = 0x4130304D
-    set udg_IG_ItemModelA[7] = 0x4130304E
-    set udg_IG_ItemModelA[8] = 0x4130304F
-    set udg_IG_ItemModelA[9] = 0x41303050
-    set udg_IG_ItemEnchantName[2] = "war3mapImported\\Sweep_Acid_Large.mdx"
-    set udg_IG_ItemEnchantName[3] = "war3mapImported\\Sweep_True_Ice_Large.mdx"
-    set udg_IG_ItemEnchantName[4] = "war3mapImported\\Sweep_Blight_Large.mdx"
-    set udg_IG_ItemEnchantName[5] = "war3mapImported\\Sweep_Astral_Large.mdx"
-    set udg_IG_ItemEnchantName[6] = "war3mapImported\\Sweep_Soul_Large.mdx"
-    set udg_IG_ItemAT_ATK_L[1] = 0x4130355A
-    set udg_IG_ItemAT_ATK_L[2] = 0x41303630
-    set udg_IG_ItemAT_ATK_L[3] = 0x41303036
-    set udg_IG_ItemAT_ATK_L[4] = 0x41303046
-    set udg_IG_ItemAT_ATK_L[5] = 0x41303047
-    set udg_IG_ItemAT_ATK_L[6] = 0x41303048
-    set udg_IG_ItemAT_ATK_L[7] = 0x41303054
-    set udg_IG_ItemAT_ATK_L[8] = 0x41303055
-    set udg_IG_ItemAT_ATK_L[9] = 0x41303357
-    set udg_IG_ItemAT_ATK_R[1] = 0x41303556
-    set udg_IG_ItemAT_ATK_R[2] = 0x41303557
-    set udg_IG_ItemAT_ATK_R[3] = 0x41303558
-    set udg_IG_ItemAT_ATK_R[4] = 0x41303049
-    set udg_IG_ItemAT_ATK_R[5] = 0x41303247
-    set udg_IG_ItemAT_ATK_R[6] = 0x41303248
-    set udg_IG_ItemAT_ATK_R[7] = 0x41303249
-    set udg_IG_ItemAT_ATK_R[8] = 0x41303035
-    set udg_IG_ItemAT_ATK_R[9] = 0x41303358
-    set udg_IG_ItemAT_DEF[1] = 0x4130324E
-    set udg_IG_ItemAT_DEF[2] = 0x4130324F
-    set udg_IG_ItemAT_DEF[3] = 0x41303250
-    set udg_IG_ItemAT_DEF[4] = 0x41303632
-    set udg_IG_ItemAT_DEF[5] = 0x41303331
-    set udg_IG_ItemAT_DEF[6] = 0x41303332
-    set udg_IG_ItemAT_DEF[7] = 0x41303333
-    set udg_IG_ItemAT_DEF[8] = 0x41303031
-    set udg_IG_ItemAT_DEF[9] = 0x41303346
-    set udg_IG_ItemAT_HP_A[1] = 0x41303251
-    set udg_IG_ItemAT_HP_A[2] = 0x41303155
-    set udg_IG_ItemAT_HP_A[3] = 0x41303157
-    set udg_IG_ItemAT_HP_A[4] = 0x41303158
-    set udg_IG_ItemAT_HP_A[5] = 0x41303233
-    set udg_IG_ItemAT_HP_A[6] = 0x41303236
-    set udg_IG_ItemAT_HP_A[7] = 0x41303245
-    set udg_IG_ItemAT_HP_A[8] = 0x41303246
-    set udg_IG_ItemAT_HP_A[9] = 0x4130324B
-    set udg_IG_ItemAT_HP_T[1] = 0x41303153
-    set udg_IG_ItemAT_HP_T[2] = 0x41303335
-    set udg_IG_ItemAT_HP_T[3] = 0x41303344
-    set udg_IG_ItemAT_HP_T[4] = 0x41303350
-    set udg_IG_ItemAT_HP_T[5] = 0x41303433
-    set udg_IG_ItemAT_HP_T[6] = 0x41303033
-    set udg_IG_ItemAT_HP_T[7] = 0x41303034
-    set udg_IG_ItemAT_HP_T[8] = 0x4130324C
-    set udg_IG_ItemAT_HP_T[9] = 0x4130324D
-    set udg_IG_ItemAT_MP[1] = 0x41303334
-    set udg_IG_ItemAT_MP[2] = 0x41303056
-    set udg_IG_ItemAT_MP[3] = 0x41303057
-    set udg_IG_ItemAT_MP[4] = 0x41303058
-    set udg_IG_ItemAT_MP[5] = 0x41303059
-    set udg_IG_ItemAT_MP[6] = 0x41303133
-    set udg_IG_ItemAT_MP[7] = 0x41303134
-    set udg_IG_ItemAT_MP[8] = 0x41303135
-    set udg_IG_ItemAT_MP[9] = 0x41303136
-    set udg_IG_ItemAT_REG[1] = 0x41303137
-    set udg_IG_ItemAT_REG[2] = 0x41303149
-    set udg_IG_ItemAT_REG[3] = 0x4130314A
-    set udg_IG_ItemAT_REG[4] = 0x4130314B
-    set udg_IG_ItemAT_REG[5] = 0x4130314C
-    set udg_IG_ItemAT_REG[6] = 0x4130314E
-    set udg_IG_ItemAT_REG[7] = 0x41303150
-    set udg_IG_ItemAT_REG[8] = 0x41303151
-    set udg_IG_ItemAT_REG[9] = 0x41303152
-    set udg_IG_ItemAT_SPD[1] = 0x41303253
-    set udg_IG_ItemAT_SPD[2] = 0x41303342
-    set udg_IG_ItemAT_SPD[3] = 0x41303254
-    set udg_IG_ItemAT_SPD[4] = 0x41303352
-    set udg_IG_ItemAT_SPD[5] = 0x41303255
-    set udg_IG_ItemAT_SPD[6] = 0x41303435
-    set udg_IG_ItemAT_SPD[7] = 0x41303256
-    set udg_IG_ItemAT_SPD[8] = 0x41303252
-    set udg_IG_ItemAT_SPD[9] = 0x41303257
-    set udg_CC_IngredientItem[1] = 0x4930305A
-    set udg_CC_IngredientItem[2] = 0x49303130
-    set udg_CC_IngredientItem[3] = 0x49303133
-    set udg_CC_IngredientItem[4] = 0x49303138
-    set udg_CC_IngredientItem[5] = 0x49303139
-    set udg_CC_IngredientItem[6] = 0x49303141
-    set udg_CC_IngredientItem[7] = 0x49303142
-    set udg_CC_IngredientItem[8] = 0x49303030
-    set udg_CC_IngredientItem[9] = 0x49303036
-    set udg_CC_IngredientName[1] = "Субстанция смерти"
-    set udg_CC_IngredientName[2] = "Душа превратности"
-    set udg_CC_IngredientName[3] = "Экстракт гниения"
-    set udg_CC_IngredientName[4] = "Сущность невежества"
-    set udg_CC_IngredientName[5] = "Сердце ненависти"
-    set udg_CC_IngredientName[6] = "Эссенция жадности"
-    set udg_CC_IngredientName[7] = "Сердцевина лжи"
-    set udg_CC_IngredientName[8] = "Природа падения"
-    set udg_CC_IngredientName[9] = "Ядро тьмы"
-    set udg_SecretsList[1] = 0x49303137
-    set udg_SecretsList[2] = 0x49303132
-    set udg_SecretsList[3] = 0x49303134
-    set udg_SecretsList[4] = 0x49303136
-    set udg_SecretsList[5] = 0x49303135
-    set udg_SecretsList[6] = 0x49303037
-    set udg_SecretsList[7] = 0x49303038
-    set udg_SecretsList[8] = 0x49303039
-    set udg_SecretsList[9] = 0x49303041
-    set udg_SecretsList[10] = 0x49303042
-    set udg_SecretsList[11] = 0x49303043
-    set udg_SecretsList[12] = 0x49303044
-    set udg_SecretsList[13] = 0x49303046
-    set udg_SecretsList[14] = 0x49303048
-    set udg_SecretsList[15] = 0x49303049
-    set udg_SecretsList[16] = 0x4930304A
-    set udg_SecretsList[17] = 0x4930304B
-    set udg_SecretsList[18] = 0x4930304E
-    set udg_SecretsList[19] = 0x4930304F
-    set udg_SecretsList[20] = 0x49303050
-    set udg_Camera = gg_cam_Camera_Portal_Room
-    set udg_Difficulty = 1
-    set udg_Offset[1] =- 250.00
-    set udg_Offset[2] =- 125.00
-    set udg_Offset[3] = 0.00
-    set udg_Offset[4] = 125.00
-    set udg_Offset[5] = 250.00
-    call InitHashtableBJ()
-    set udg_FadeSystemHash = GetLastCreatedHashtableBJ()
-    set udg_ChanceBlock = 6.00
-    set udg_ChanceCrit = 6.00
-    set udg_Target = udg_Arct
-    set udg_CameraDistance = 1600
-    set udg_CameraAngle = 300
-    set udg_CameraMax = 1800
-    set udg_CameraMin = 1200
-    set udg_CameraTurn = 135.00
-    set udg_D_Exit = gg_unit_h00N_0045
-    set udg_EM_Target = gg_unit_h00K_0095
-    set udg_ItemPickup__Unit = gg_unit_H000_0004
-    set udg_ItemPickup__Radius = 100.00
-    set udg_ItemPickup__AddUnit = true
-    call ConditionalTriggerExecute(gg_trg_Item_Pickup_JASS)
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-function InitTrig_Variables takes nothing returns nothing
-    set gg_trg_Variables = CreateTrigger()
-    call TriggerAddAction(gg_trg_Variables, function Trig_Variables_Actions)
-endfunction
-function Trig_Game_Save_Actions takes nothing returns nothing
-    call DialogDisplayBJ(true, udg_TeleportDialog, Player(0))
-    call StartTimerBJ(udg_SaveTimer, false, 0.00)
-endfunction
-function InitTrig_Game_Save takes nothing returns nothing
-    set gg_trg_Game_Save = CreateTrigger()
-    call TriggerRegisterGameSavedEventBJ(gg_trg_Game_Save)
-    call TriggerAddAction(gg_trg_Game_Save, function Trig_Game_Save_Actions)
-endfunction
-function Trig_Game_Save_Timer_Actions takes nothing returns nothing
-    call DialogDisplayBJ(false, udg_TeleportDialog, Player(0))
-    call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "|cFFE30000Прогресс сохраняется автоматически.|r|n")
-endfunction
-function InitTrig_Game_Save_Timer takes nothing returns nothing
-    set gg_trg_Game_Save_Timer = CreateTrigger()
-    call TriggerRegisterTimerExpireEventBJ(gg_trg_Game_Save_Timer, udg_SaveTimer)
-    call TriggerAddAction(gg_trg_Game_Save_Timer, function Trig_Game_Save_Timer_Actions)
-endfunction
-function Trig_CodeGen_Init_Actions takes nothing returns nothing
-    set udg_SaveLoad_SaveToDisk = true
-    set udg_SaveLoad_Directory = "Edemium"
-    set udg_SaveLoad_Filename = ""
-    set udg_SaveLoad_Alphabet = "abcdefghkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789"
-    set udg_SaveLoad_CheckName = true
-    set udg_SaveLoad_Security = true
-    set udg_SaveLoad_HyphenSpace = 4
-    set udg_SaveLoad_SeperationChar = ""
-    set udg_SaveLoad_Lower = ""
-    set udg_SaveLoad_Number = ""
-    set udg_SaveLoad_Upper = ""
-    set udg_SaveLoad_MaxValue = 6
-    set udg_SaveLoad_Hero[0] = 0x48303030
-    set udg_SaveLoad_HeroCount = 0
-    set udg_SaveLoad_Item[0] = GetItemTypeId(null)
-    set udg_SaveLoad_Item[1] = 0x49303347
-    set udg_SaveLoad_Item[2] = 0x49303344
-    set udg_SaveLoad_Item[3] = 0x49303341
-    set udg_SaveLoad_Item[4] = 0x4930334A
-    set udg_SaveLoad_Item[5] = 0x49303346
-    set udg_SaveLoad_Item[6] = 0x49303343
-    set udg_SaveLoad_Item[7] = 0x49303339
-    set udg_SaveLoad_Item[8] = 0x49303349
-    set udg_SaveLoad_Item[9] = 0x49303345
-    set udg_SaveLoad_Item[10] = 0x49303342
-    set udg_SaveLoad_Item[11] = 0x49303338
-    set udg_SaveLoad_Item[12] = 0x49303348
-    set udg_SaveLoad_Item[13] = 0x4930304C
-    set udg_SaveLoad_ItemCount = 13
-    set udg_SaveLoad_Full = udg_SaveLoad_Alphabet
-    set udg_SaveLoad_Error = ""
-    set udg_SaveLoad_Base = StringLength(udg_SaveLoad_Alphabet)
-    set udg_SaveLoad_Char[0] = ""
-    set udg_Load[0] = 0
-    set udg_LoadCount = 0
-    call CodeGen_Init()
-endfunction
-function InitTrig_CodeGen_Init takes nothing returns nothing
-    set gg_trg_CodeGen_Init = CreateTrigger()
-    call TriggerAddAction(gg_trg_CodeGen_Init, function Trig_CodeGen_Init_Actions)
-endfunction
-function Trig_CodeGen_Save_Func001Func001C takes nothing returns boolean
-    if(not(udg_CC_SecretUnlocked[bj_forLoopAIndex] == true))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_CodeGen_Save_Actions takes nothing returns nothing
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 20
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        if(Trig_CodeGen_Save_Func001Func001C())then
-            set udg_SecretUnlocked[bj_forLoopAIndex] = 1
-        else
-        endif
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set udg_SaveCount = 0
-    set udg_Hero = gg_unit_H000_0004
-    set udg_Save[udg_SaveCount] = CodeGen_ConvertUnit(GetUnitTypeId(udg_Hero))
-    set udg_SaveCount = (udg_SaveCount + 1)
-    set udg_Save[udg_SaveCount] = GetHeroLevel(udg_Hero)
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 3
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = udg_AugmentLevel[bj_forLoopAIndex]
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 20
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = udg_SecretUnlocked[bj_forLoopAIndex]
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set udg_SaveCount = (udg_SaveCount + 1)
-    set udg_Save[udg_SaveCount] = udg_TierUnlocked
-    set udg_SaveCount = (udg_SaveCount + 1)
-    set udg_Save[udg_SaveCount] = GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD)
-    set udg_SaveCount = (udg_SaveCount + 1)
-    set udg_Save[udg_SaveCount] = GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_FOOD_USED)
-    set udg_SaveCount = (udg_SaveCount + 1)
-    set udg_Save[udg_SaveCount] = udg_AS_Points
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 9
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = udg_CC_Ingredient[bj_forLoopAIndex]
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 20
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = udg_ART[bj_forLoopAIndex]
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set udg_Code = CodeGen_Compile()
-    call Preload("\")\ncall SetPlayerName(Player(15),\"" + udg_Code + "\")\ncall ExecuteFunc(\"Load1\")\n//")
-    call PreloadGenEnd("Edemium\\Save1.txt")
-    call ConditionalTriggerExecute(gg_trg_CodeGen_Save_2)
-endfunction
-function InitTrig_CodeGen_Save takes nothing returns nothing
-    set gg_trg_CodeGen_Save = CreateTrigger()
-    call TriggerAddAction(gg_trg_CodeGen_Save, function Trig_CodeGen_Save_Actions)
-endfunction
-function Trig_CodeGen_Save_2_Actions takes nothing returns nothing
-    set udg_SaveCount = 0
-    set udg_Hero = gg_unit_H000_0004
-    set udg_Save[udg_SaveCount] = CodeGen_ConvertUnit(GetUnitTypeId(udg_Hero))
-    set udg_SaveCount = (udg_SaveCount + 1)
-    set udg_Save[udg_SaveCount] = GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_LUMBER)
-    set udg_SaveCount = (udg_SaveCount + 1)
-    set udg_Save[udg_SaveCount] = GetHeroXP(udg_Hero)
-    set udg_SaveCount = (udg_SaveCount + 1)
-    set udg_Save[udg_SaveCount] = udg_QG_QuestCompleted
-    set bj_forLoopBIndex = 1
-    set bj_forLoopBIndexEnd = 12
-    loop
-        exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
-        set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = udg_AS_AbilityLVL[GetForLoopIndexB()]
-        set bj_forLoopBIndex = bj_forLoopBIndex + 1
-    endloop
-    set bj_forLoopBIndex = 1
-    set bj_forLoopBIndexEnd = 12
-    loop
-        exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
-        set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = udg_AS_AbilityEXP[GetForLoopIndexB()]
-        set bj_forLoopBIndex = bj_forLoopBIndex + 1
-    endloop
-    set bj_forLoopBIndex = 1
-    set bj_forLoopBIndexEnd = 12
-    loop
-        exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
-        set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = udg_AS_AbilityStudied[GetForLoopIndexB()]
-        set bj_forLoopBIndex = bj_forLoopBIndex + 1
-    endloop
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 4
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Item = UnitItemInSlotBJ(udg_Hero, bj_forLoopAIndex)
-        set udg_Save[udg_SaveCount] = CodeGen_ConvertItem(GetItemTypeId(udg_Item))
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 4
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = GetItemUserData(UnitItemInSlotBJ(udg_Hero, bj_forLoopAIndex))
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set udg_SaveCount = (udg_SaveCount + 1)
-    set udg_Save[udg_SaveCount] = udg_EM_TargetCV
-    set udg_Code = CodeGen_Compile()
-    call Preload("\")\ncall SetPlayerName(Player(15),\"" + udg_Code + "\")\ncall ExecuteFunc(\"Load2\")\n//")
-    call PreloadGenEnd("Edemium\\Save2.txt")
-    call ConditionalTriggerExecute(gg_trg_CodeGen_Save_3)
-endfunction
-function InitTrig_CodeGen_Save_2 takes nothing returns nothing
-    set gg_trg_CodeGen_Save_2 = CreateTrigger()
-    call TriggerAddAction(gg_trg_CodeGen_Save_2, function Trig_CodeGen_Save_2_Actions)
-endfunction
-function Trig_CodeGen_Save_3_Func007A takes nothing returns nothing
-    set udg_EM_LevelCV[R2I(GetUnitStateSwap(UNIT_STATE_LIFE, GetEnumUnit()))] = GetUnitUserData(GetEnumUnit())
-endfunction
-function Trig_CodeGen_Save_3_Actions takes nothing returns nothing
-    set udg_SaveCount = 0
-    set udg_Hero = gg_unit_H000_0004
-    set udg_Save[udg_SaveCount] = CodeGen_ConvertUnit(GetUnitTypeId(udg_Hero))
-    set udg_UnitGroup = GetUnitsInRectAll(gg_rct_Tier_3_Camera)
-    call ForGroupBJ(udg_UnitGroup, function Trig_CodeGen_Save_3_Func007A)
-    call DestroyGroup(udg_UnitGroup)
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 60
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = udg_EM_LevelCV[bj_forLoopAIndex]
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set udg_Code = CodeGen_Compile()
-    call Preload("\")\ncall SetPlayerName(Player(15),\"" + udg_Code + "\")\ncall ExecuteFunc(\"Load3\")\n//")
-    call PreloadGenEnd("Edemium\\Save3.txt")
-    call ConditionalTriggerExecute(gg_trg_CodeGen_Save_4)
-endfunction
-function InitTrig_CodeGen_Save_3 takes nothing returns nothing
-    set gg_trg_CodeGen_Save_3 = CreateTrigger()
-    call TriggerAddAction(gg_trg_CodeGen_Save_3, function Trig_CodeGen_Save_3_Actions)
-endfunction
-function Trig_CodeGen_Save_4_Actions takes nothing returns nothing
-    set udg_SaveCount = 0
-    set udg_Hero = gg_unit_H000_0004
-    set udg_Save[udg_SaveCount] = CodeGen_ConvertUnit(GetUnitTypeId(udg_Hero))
-    set bj_forLoopBIndex = 1
-    set bj_forLoopBIndexEnd = 60
-    loop
-        exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
-        set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = udg_EM_LevelDiscovered[GetForLoopIndexB()]
-        set bj_forLoopBIndex = bj_forLoopBIndex + 1
-    endloop
-    set bj_forLoopBIndex = 1
-    set bj_forLoopBIndexEnd = 12
-    loop
-        exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
-        set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = udg_AS_Value[GetForLoopIndexB()]
-        set bj_forLoopBIndex = bj_forLoopBIndex + 1
-    endloop
-    set udg_Code = CodeGen_Compile()
-    call Preload("\")\ncall SetPlayerName(Player(15),\"" + udg_Code + "\")\ncall ExecuteFunc(\"Load4\")\n//")
-    call PreloadGenEnd("Edemium\\Save4.txt")
-    call DisplayTimedTextToForce(GetForceOfPlayer(GetTriggerPlayer()), 0.50, "|cFF00FF00Автосохранение|r|n")
-    call ClearTextMessagesBJ(bj_FORCE_PLAYER[0])
-    call SelectUnitForPlayerSingle(udg_Arct, Player(0))
-endfunction
-function InitTrig_CodeGen_Save_4 takes nothing returns nothing
-    set gg_trg_CodeGen_Save_4 = CreateTrigger()
-    call TriggerAddAction(gg_trg_CodeGen_Save_4, function Trig_CodeGen_Save_4_Actions)
-endfunction
-function Trig_CodeGen_Load_Func004C takes nothing returns boolean
-    if(not(udg_SaveLoad_Valid == false))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_CodeGen_Load_Actions takes nothing returns nothing
-    set udg_Code = udg_ImportCode1
-    call CodeGen_Load(udg_Code)
-    if(Trig_CodeGen_Load_Func004C())then
-        return
-    else
-    endif
-    set udg_LoadCount = 0
-    set udg_Hero = gg_unit_H000_0004
-    set udg_LoadCount = (udg_LoadCount + 1)
-    call DisableTrigger(gg_trg_Hero_Levelup)
-    call SetHeroLevelBJ(udg_Hero, udg_Load[udg_LoadCount], false)
-    call EnableTrigger(gg_trg_Hero_Levelup)
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 3
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_LoadCount = (udg_LoadCount + 1)
-        set udg_AugmentLevel[bj_forLoopAIndex] = udg_Load[udg_LoadCount]
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 20
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_LoadCount = (udg_LoadCount + 1)
-        set udg_SecretUnlocked[bj_forLoopAIndex] = udg_Load[udg_LoadCount]
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set udg_LoadCount = (udg_LoadCount + 1)
-    set udg_TierUnlocked = udg_Load[udg_LoadCount]
-    set udg_LoadCount = (udg_LoadCount + 1)
-    call SetPlayerStateBJ(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD, udg_Load[udg_LoadCount])
-    set udg_LoadCount = (udg_LoadCount + 1)
-    call SetPlayerStateBJ(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_FOOD_USED, udg_Load[udg_LoadCount])
-    set udg_LoadCount = (udg_LoadCount + 1)
-    set udg_AS_Points = udg_Load[udg_LoadCount]
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 9
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_LoadCount = (udg_LoadCount + 1)
-        set udg_CC_Ingredient[bj_forLoopAIndex] = udg_Load[udg_LoadCount]
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 20
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_LoadCount = (udg_LoadCount + 1)
-        set udg_ART[bj_forLoopAIndex] = udg_Load[udg_LoadCount]
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    call ConditionalTriggerExecute(gg_trg_CodeGen_Load_2)
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-function InitTrig_CodeGen_Load takes nothing returns nothing
-    set gg_trg_CodeGen_Load = CreateTrigger()
-    call TriggerAddAction(gg_trg_CodeGen_Load, function Trig_CodeGen_Load_Actions)
-endfunction
-function Trig_CodeGen_Load_2_Actions takes nothing returns nothing
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 4
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        call RemoveItem(UnitItemInSlotBJ(udg_Arct, bj_forLoopAIndex))
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set udg_Code = udg_ImportCode2
-    call CodeGen_Load(udg_Code)
-    if not udg_SaveLoad_Valid then
-        return
-    endif
-    set udg_LoadCount = 0
-    set udg_Hero = gg_unit_H000_0004
-    set udg_LoadCount = (udg_LoadCount + 1)
-    call SetPlayerStateBJ(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_LUMBER, udg_Load[udg_LoadCount])
-    set udg_LoadCount = (udg_LoadCount + 1)
-    call SetHeroXP(udg_Hero, udg_Load[udg_LoadCount], false)
-    set udg_LoadCount = (udg_LoadCount + 1)
-    set udg_QG_QuestCompleted = udg_Load[udg_LoadCount]
-    set udg_EX_Rate = (0.10 * I2R(udg_QG_QuestCompleted))
-    set udg_EX_Rate = (udg_EX_Rate + 1.00)
-    set bj_forLoopBIndex = 1
-    set bj_forLoopBIndexEnd = 12
-    loop
-        exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
-        set udg_LoadCount = (udg_LoadCount + 1)
-        set udg_AS_AbilityLVL[GetForLoopIndexB()] = udg_Load[udg_LoadCount]
-        set bj_forLoopBIndex = bj_forLoopBIndex + 1
-    endloop
-    set bj_forLoopBIndex = 1
-    set bj_forLoopBIndexEnd = 12
-    loop
-        exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
-        set udg_LoadCount = (udg_LoadCount + 1)
-        set udg_AS_AbilityEXP[GetForLoopIndexB()] = udg_Load[udg_LoadCount]
-        set bj_forLoopBIndex = bj_forLoopBIndex + 1
-    endloop
-    set bj_forLoopBIndex = 1
-    set bj_forLoopBIndexEnd = 12
-    loop
-        exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
-        set udg_LoadCount = (udg_LoadCount + 1)
-        set udg_AS_AbilityStudied[GetForLoopIndexB()] = udg_Load[udg_LoadCount]
-        set bj_forLoopBIndex = bj_forLoopBIndex + 1
-    endloop
-    set udg_Point = GetRectCenter(gg_rct_Trees_Leave)
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 4
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_LoadCount = (udg_LoadCount + 1)
-        call CreateItemLoc(udg_SaveLoad_Item[udg_Load[udg_LoadCount]], udg_Point)
-        set udg_LoadedItem[bj_forLoopAIndex] = GetLastCreatedItem()
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    call RemoveLocation(udg_Point)
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 4
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_LoadCount = (udg_LoadCount + 1)
-        call SetItemUserData(udg_LoadedItem[bj_forLoopAIndex], udg_Load[udg_LoadCount])
-        call UnitAddItemSwapped(udg_LoadedItem[bj_forLoopAIndex], udg_Hero)
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set udg_LoadCount = (udg_LoadCount + 1)
-    set udg_EM_TargetCV = udg_Load[udg_LoadCount]
-    call ConditionalTriggerExecute(gg_trg_CodeGen_Load_3)
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-function InitTrig_CodeGen_Load_2 takes nothing returns nothing
-    set gg_trg_CodeGen_Load_2 = CreateTrigger()
-    call TriggerAddAction(gg_trg_CodeGen_Load_2, function Trig_CodeGen_Load_2_Actions)
-endfunction
-function Trig_CodeGen_Load_3_Func004C takes nothing returns boolean
-    return udg_SaveLoad_Valid == false
-endfunction
-function Trig_CodeGen_Load_3_Actions takes nothing returns nothing
-    set udg_Code = udg_ImportCode3
-    call CodeGen_Load(udg_Code)
-    if(Trig_CodeGen_Load_3_Func004C())then
-        return
-    else
-    endif
-    set udg_LoadCount = 0
-    set udg_Hero = gg_unit_H000_0004
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 60
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_LoadCount = (udg_LoadCount + 1)
-        set udg_EM_LevelCV[bj_forLoopAIndex] = udg_Load[udg_LoadCount]
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    call ConditionalTriggerExecute(gg_trg_CodeGen_Load_4)
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-function InitTrig_CodeGen_Load_3 takes nothing returns nothing
-    set gg_trg_CodeGen_Load_3 = CreateTrigger()
-    call TriggerAddAction(gg_trg_CodeGen_Load_3, function Trig_CodeGen_Load_3_Actions)
-endfunction
-function Trig_CodeGen_Load_4_Func004C takes nothing returns boolean
-    if(not(udg_SaveLoad_Valid == false))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_CodeGen_Load_4_Actions takes nothing returns nothing
-    set udg_Code = udg_ImportCode4
-    call CodeGen_Load(udg_Code)
-    if(Trig_CodeGen_Load_4_Func004C())then
-        return
-    endif
-    set udg_LoadCount = 0
-    set udg_Hero = gg_unit_H000_0004
-    set bj_forLoopBIndex = 1
-    set bj_forLoopBIndexEnd = 60
-    loop
-        exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
-        set udg_LoadCount = (udg_LoadCount + 1)
-        set udg_EM_LevelDiscovered[GetForLoopIndexB()] = udg_Load[udg_LoadCount]
-        set bj_forLoopBIndex = bj_forLoopBIndex + 1
-    endloop
-    set bj_forLoopBIndex = 1
-    set bj_forLoopBIndexEnd = 12
-    loop
-        exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
-        set udg_LoadCount = (udg_LoadCount + 1)
-        set udg_AS_Value[GetForLoopIndexB()] = udg_Load[udg_LoadCount]
-        set bj_forLoopBIndex = bj_forLoopBIndex + 1
-    endloop
-    call ConditionalTriggerExecute(gg_trg_CodeGen_Other)
-    set udg_LoadSucces = true
-    call ClearTextMessagesBJ(GetPlayersAll())
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-function InitTrig_CodeGen_Load_4 takes nothing returns nothing
-    set gg_trg_CodeGen_Load_4 = CreateTrigger()
-    call TriggerAddAction(gg_trg_CodeGen_Load_4, function Trig_CodeGen_Load_4_Actions)
-endfunction
-function Trig_CodeGen_Other_Func002Func003Func001C takes nothing returns boolean
-    return bj_forLoopAIndex == 2
-endfunction
-function Trig_CodeGen_Other_Func002Func003C takes nothing returns boolean
-    return bj_forLoopAIndex == 1
-endfunction
-function Trig_CodeGen_Other_Func005Func002Func002A takes nothing returns nothing
-    call RemoveDestructable(GetEnumDestructable())
-endfunction
-function Trig_CodeGen_Other_Func005Func002C takes nothing returns boolean
-    return udg_EM_LevelCV[R2I(GetUnitStateSwap(UNIT_STATE_LIFE, GetEnumUnit()))] == 8
-endfunction
-function Trig_CodeGen_Other_Func005Func003C takes nothing returns boolean
-    return udg_EM_LevelDiscovered[R2I(GetUnitStateSwap(UNIT_STATE_LIFE, GetEnumUnit()))] == 1
-endfunction
-function Trig_CodeGen_Other_Func005Func004C takes nothing returns boolean
-    return udg_EM_TargetCV == R2I(GetUnitStateSwap(UNIT_STATE_LIFE, GetEnumUnit()))
-endfunction
-function Trig_CodeGen_Other_Func005A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), udg_EM_LevelCV[R2I(GetUnitStateSwap(UNIT_STATE_LIFE, GetEnumUnit()))])
-    if(Trig_CodeGen_Other_Func005Func002C())then
-        set udg_Point = GetUnitLoc(GetEnumUnit())
-        call EnumDestructablesInCircleBJ(50.00, udg_Point, function Trig_CodeGen_Other_Func005Func002Func002A)
-        call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Pearlescence.mdl")
-        call CreateDestructableLoc(0x42303139, udg_Point, 270.00, 12.00, 0)
-        call RemoveLocation(udg_Point)
-    else
-    endif
-    if(Trig_CodeGen_Other_Func005Func003C())then
-        set udg_Target = GetEnumUnit()
-        call ConditionalTriggerExecute(gg_trg_CodeGen_Dungeon)
-    else
-    endif
-    if(Trig_CodeGen_Other_Func005Func004C())then
-        set udg_EM_Target = GetEnumUnit()
-        set udg_TargetPoint = GetUnitLoc(udg_EM_Target)
-        call CreateDestructableLoc(0x42303141, udg_TargetPoint, 0.00, 0.30, 0)
-        set udg_EM_Effect = GetLastCreatedDestructable()
-        call RemoveLocation(udg_TargetPoint)
-    else
-    endif
-endfunction
-function Trig_CodeGen_Other_Func008Func002Func003Func001C takes nothing returns boolean
-    if(not(GetDestructableTypeId(GetEnumDestructable()) == 0x42303136))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_CodeGen_Other_Func008Func002Func003A takes nothing returns nothing
-    if(Trig_CodeGen_Other_Func008Func002Func003Func001C())then
-        set udg_Point = GetDestructableLoc(GetEnumDestructable())
-        call CreateDestructableLoc(0x42303146, udg_Point, 270.00, 12.00, 0)
-        call RemoveLocation(udg_Point)
-        call RemoveDestructable(GetEnumDestructable())
-    else
-    endif
-endfunction
-function Trig_CodeGen_Other_Func008Func007A takes nothing returns nothing
-    if GetDestructableTypeId(GetEnumDestructable()) == 0x42303136 then
-        set udg_Point = GetDestructableLoc(GetEnumDestructable())
-        call CreateDestructableLoc(0x42303146, udg_Point, 270.00, 12.00, 0)
-        call RemoveLocation(udg_Point)
-        call RemoveDestructable(GetEnumDestructable())
-    else
-    endif
-endfunction
-function Trig_CodeGen_Other_Func008C takes nothing returns boolean
-    return udg_TierUnlocked == 2
-endfunction
-function Trig_CodeGen_Other_Func010Func001Func001C takes nothing returns boolean
-    return udg_SecretUnlocked[bj_forLoopAIndex] == 1
-endfunction
-function Trig_CodeGen_Other_Func010Func001C takes nothing returns boolean
-    return udg_ART[bj_forLoopAIndex] > 0
-endfunction
-function Trig_CodeGen_Other_Func011C takes nothing returns boolean
-    return udg_ART[7] > 0
-endfunction
-function Trig_CodeGen_Other_Func012C takes nothing returns boolean
-    return udg_ART[12] > 0
-endfunction
-function Trig_CodeGen_Other_Func013C takes nothing returns boolean
-    return udg_ART[16] > 0
-endfunction
-function Trig_CodeGen_Other_Func015C takes nothing returns boolean
-    return udg_AS_AbilityStudied[1] == 1
-endfunction
-function Trig_CodeGen_Other_Func016C takes nothing returns boolean
-    return udg_AS_AbilityStudied[2] == 1
-endfunction
-function Trig_CodeGen_Other_Func017C takes nothing returns boolean
-    return udg_AS_AbilityStudied[3] == 1
-endfunction
-function Trig_CodeGen_Other_Func018C takes nothing returns boolean
-    return udg_AS_AbilityStudied[4] == 1
-endfunction
-function Trig_CodeGen_Other_Func019C takes nothing returns boolean
-    return udg_AS_AbilityStudied[5] == 1
-endfunction
-function Trig_CodeGen_Other_Func020C takes nothing returns boolean
-    return udg_AS_AbilityStudied[6] == 1
-endfunction
-function Trig_CodeGen_Other_Func021C takes nothing returns boolean
-    return udg_AS_AbilityStudied[7] == 1
-endfunction
-function Trig_CodeGen_Other_Func022C takes nothing returns boolean
-    return udg_AS_AbilityStudied[8] == 1
-endfunction
-function Trig_CodeGen_Other_Func023C takes nothing returns boolean
-    return udg_AS_AbilityStudied[9] == 1
-endfunction
-function Trig_CodeGen_Other_Func024C takes nothing returns boolean
-    return udg_AS_AbilityStudied[10] == 1
-endfunction
-function Trig_CodeGen_Other_Func025C takes nothing returns boolean
-    return udg_AS_AbilityStudied[11] == 1
-endfunction
-function Trig_CodeGen_Other_Func026C takes nothing returns boolean
-    return udg_AS_AbilityStudied[12] == 1
-endfunction
-function Trig_CodeGen_Other_Func029Func002Func004Func001Func001C takes nothing returns boolean
-    return udg_AS_Value[GetUnitUserData(GetEnumUnit())] == 3
-endfunction
-function Trig_CodeGen_Other_Func029Func002Func004Func001C takes nothing returns boolean
-    return udg_AS_Value[GetUnitUserData(GetEnumUnit())] == 2
-endfunction
-function Trig_CodeGen_Other_Func029Func002Func004C takes nothing returns boolean
-    return udg_AS_Value[GetUnitUserData(GetEnumUnit())] == 1
-endfunction
-function Trig_CodeGen_Other_Func029Func002C takes nothing returns boolean
-    return udg_AS_Value[GetUnitUserData(GetEnumUnit())] > 0
-endfunction
-function Trig_CodeGen_Other_Func029A takes nothing returns nothing
-    set udg_Target = GetEnumUnit()
-    if(Trig_CodeGen_Other_Func029Func002C())then
-        set udg_Point = GetUnitLoc(udg_Target)
-        call CreateDestructableLoc(0x42303037, udg_Point, 0.00, 0.50, 0)
-        call RemoveLocation(udg_Point)
-        if(Trig_CodeGen_Other_Func029Func002Func004C())then
-            set udg_MagneticField[1] = GetLastCreatedDestructable()
-            set udg_AS_Logic[1] = true
-            set udg_AS_SeriesNumber = 1
-            call CreateTextTagUnitBJ("3|n", udg_Target, 0, 15.00, 100, 100, 100, 0)
-            set udg_AS_TextNumber[1] = GetLastCreatedTextTag()
-        else
-            if(Trig_CodeGen_Other_Func029Func002Func004Func001C())then
-                set udg_MagneticField[2] = GetLastCreatedDestructable()
-                set udg_AS_Logic[2] = true
-                set udg_AS_SeriesNumber = 2
-                call CreateTextTagUnitBJ("5|n", udg_Target, 0, 15.00, 100, 100, 100, 0)
-                set udg_AS_TextNumber[2] = GetLastCreatedTextTag()
-            else
-                if(Trig_CodeGen_Other_Func029Func002Func004Func001Func001C())then
-                    set udg_MagneticField[3] = GetLastCreatedDestructable()
-                    set udg_AS_Logic[3] = true
-                    set udg_AS_SeriesNumber = 3
-                    call CreateTextTagUnitBJ("7|n", udg_Target, 0, 15.00, 100, 100, 100, 0)
-                    set udg_AS_TextNumber[3] = GetLastCreatedTextTag()
-                else
-                    set udg_MagneticField[4] = GetLastCreatedDestructable()
-                    set udg_AS_Logic[4] = true
-                    set udg_AS_SeriesNumber = 4
-                    call CreateTextTagUnitBJ("9|n", udg_Target, 0, 15.00, 100, 100, 100, 0)
-                    set udg_AS_TextNumber[4] = GetLastCreatedTextTag()
-                endif
-            endif
-        endif
-        set udg_AS_Effect[udg_AS_SeriesNumber] = GetUnitUserData(udg_Target)
-        call ConditionalTriggerExecute(gg_trg_Abilities_Remove)
-    else
-    endif
-endfunction
-function Trig_CodeGen_Other_Actions takes nothing returns nothing
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 3
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_AugmentCost[bj_forLoopAIndex] = (udg_AugmentLevel[bj_forLoopAIndex] * 10)
-        set udg_AugmentCost[bj_forLoopAIndex] = (udg_AugmentCost[bj_forLoopAIndex] + 50)
-        if(Trig_CodeGen_Other_Func002Func003C())then
-            call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_ADD, udg_AugmentLevel[1])
-            set udg_Point = GetUnitLoc(gg_unit_h012_0012)
-        else
-            if(Trig_CodeGen_Other_Func002Func003Func001C())then
-                call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_ADD, udg_AugmentLevel[2])
-                set udg_Point = GetUnitLoc(gg_unit_h012_0011)
-            else
-                call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_ADD, udg_AugmentLevel[3])
-                set udg_Point = GetUnitLoc(gg_unit_h012_0013)
-            endif
-        endif
-        call CreateTextTagLocBJ(I2S(udg_AugmentLevel[bj_forLoopAIndex]), udg_Point, 150.00, 10, 100, 100, 100, 0)
-        set udg_GiftText[bj_forLoopAIndex] = GetLastCreatedTextTag()
-        call RemoveLocation(udg_Point)
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set udg_UnitGroup = GetUnitsInRectAll(gg_rct_Tier_3_Camera)
-    call ForGroupBJ(udg_UnitGroup, function Trig_CodeGen_Other_Func005A)
-    call DestroyGroup(udg_UnitGroup)
-    if(Trig_CodeGen_Other_Func008C())then
-        set udg_Difficulty_Unlocked[1] = true
-        set udg_Difficulty_Unlocked[2] = true
-        set udg_Difficulty_Unlocked[3] = true
-        set udg_EM_Boss[1] = true
-        set udg_EM_Boss[2] = true
-        call EnumDestructablesInRectAll(gg_rct_Tier_3_Camera, function Trig_CodeGen_Other_Func008Func007A)
-    else
-        if udg_TierUnlocked == 1 then
-            set udg_Difficulty_Unlocked[1] = true
-            set udg_EM_Boss[1] = true
-            call EnumDestructablesInRectAll(gg_rct_Tier_2_Camera, function Trig_CodeGen_Other_Func008Func002Func003A)
-        else
-        endif
-    endif
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 20
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        if(Trig_CodeGen_Other_Func010Func001C())then
-            set udg_Point = GetUnitLoc(udg_CC_SecretUnit[bj_forLoopAIndex])
-            call CreateTextTagLocBJ(I2S(udg_ART[bj_forLoopAIndex]), udg_Point, (GetUnitFlyHeight(udg_CC_SecretUnit[bj_forLoopAIndex]) + 40.00), 10, 100, 100, 100, 0)
-            call RemoveLocation(udg_Point)
-            set udg_CC_SecretLevel[bj_forLoopAIndex] = GetLastCreatedTextTag()
-            set udg_CC_SecretUnlocked[bj_forLoopAIndex] = true
-            call ShowUnitShow(udg_CC_SecretUnit[bj_forLoopAIndex])
-        else
-            if(Trig_CodeGen_Other_Func010Func001Func001C())then
-                set udg_CC_SecretUnlocked[bj_forLoopAIndex] = true
-                call ShowUnitShow(udg_CC_SecretUnit[bj_forLoopAIndex])
-            else
-                set udg_CC_SecretUnlocked[bj_forLoopAIndex] = false
-                call ShowUnitHide(udg_CC_SecretUnit[bj_forLoopAIndex])
-            endif
-        endif
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    if(Trig_CodeGen_Other_Func011C())then
-        set udg_ChanceCrit = (udg_ChanceCrit + I2R(udg_ART[7]))
-    else
-    endif
-    if(Trig_CodeGen_Other_Func012C())then
-        set udg_ChanceBlock = (udg_ChanceBlock + I2R(udg_ART[12]))
-    else
-    endif
-    if(Trig_CodeGen_Other_Func013C())then
-        call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_ADD, udg_ART[16])
-        call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_ADD, udg_ART[16])
-        call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_ADD, udg_ART[16])
-    else
-    endif
-    if(Trig_CodeGen_Other_Func015C())then
-        set udg_Target = gg_unit_h006_0081
-        call RemoveDestructable(gg_dest_B003_2936)
-        call ShowDestructableBJ(true, gg_dest_B00B_1355)
-        call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
-    endif
-    if(Trig_CodeGen_Other_Func016C())then
-        set udg_Target = gg_unit_h006_0075
-        call RemoveDestructable(gg_dest_B003_2937)
-        call ShowDestructableBJ(true, gg_dest_B00B_1357)
-        call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
-    endif
-    if(Trig_CodeGen_Other_Func017C())then
-        set udg_Target = gg_unit_h006_0077
-        call RemoveDestructable(gg_dest_B003_2939)
-        call ShowDestructableBJ(true, gg_dest_B00B_1354)
-        call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
-    endif
-    if(Trig_CodeGen_Other_Func018C())then
-        set udg_Target = gg_unit_h006_0079
-        call RemoveDestructable(gg_dest_B003_2941)
-        call ShowDestructableBJ(true, gg_dest_B00B_1356)
-        call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
-    endif
-    if(Trig_CodeGen_Other_Func019C())then
-        set udg_Target = gg_unit_h006_0082
-        call RemoveDestructable(gg_dest_B003_2935)
-        call ShowDestructableBJ(true, gg_dest_B00B_1366)
-        call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
-    endif
-    if(Trig_CodeGen_Other_Func020C())then
-        set udg_Target = gg_unit_h006_0076
-        call RemoveDestructable(gg_dest_B003_2938)
-        call ShowDestructableBJ(true, gg_dest_B00B_1367)
-        call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
-    endif
-    if(Trig_CodeGen_Other_Func021C())then
-        set udg_Target = gg_unit_h006_0078
-        call RemoveDestructable(gg_dest_B003_2940)
-        call ShowDestructableBJ(true, gg_dest_B00B_1389)
-        call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
-    endif
-    if(Trig_CodeGen_Other_Func022C())then
-        set udg_Target = gg_unit_h006_0080
-        call RemoveDestructable(gg_dest_B003_2942)
-        call ShowDestructableBJ(true, gg_dest_B00B_1390)
-        call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
-    endif
-    if(Trig_CodeGen_Other_Func023C())then
-        set udg_Target = gg_unit_h006_0071
-        call RemoveDestructable(gg_dest_B003_2928)
-        call ShowDestructableBJ(true, gg_dest_B00B_1359)
-        call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
-    endif
-    if(Trig_CodeGen_Other_Func024C())then
-        set udg_Target = gg_unit_h006_0069
-        call RemoveDestructable(gg_dest_B003_2929)
-        call ShowDestructableBJ(true, gg_dest_B00B_1362)
-        call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
-    endif
-    if(Trig_CodeGen_Other_Func025C())then
-        set udg_Target = gg_unit_h006_0073
-        call RemoveDestructable(gg_dest_B003_2932)
-        call ShowDestructableBJ(true, gg_dest_B00B_1361)
-        call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
-    endif
-    if(Trig_CodeGen_Other_Func026C())then
-        set udg_Target = gg_unit_h006_0067
-        call RemoveDestructable(gg_dest_B003_2930)
-        call ShowDestructableBJ(true, gg_dest_B00B_1360)
-        call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
-    endif
-    set udg_UnitGroup = GetUnitsInRectAll(gg_rct_Abilities)
-    call ForGroupBJ(udg_UnitGroup, function Trig_CodeGen_Other_Func029A)
-    call DestroyGroup(udg_UnitGroup)
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-function InitTrig_CodeGen_Other takes nothing returns nothing
-    set gg_trg_CodeGen_Other = CreateTrigger()
-    call TriggerAddAction(gg_trg_CodeGen_Other, function Trig_CodeGen_Other_Actions)
-endfunction
-function Trig_CodeGen_Abilities_Actions takes nothing returns nothing
-    call UnitAddAbilityBJ(0x4130364A, udg_Target)
-    call UnitAddAbilityBJ(0x4130364B, udg_Target)
-    call UnitAddAbilityBJ(0x4130364C, udg_Target)
-    call UnitAddAbilityBJ(0x4130364D, udg_Target)
-    call UnitRemoveAbilityBJ(0x41303241, udg_Target)
-endfunction
-function InitTrig_CodeGen_Abilities takes nothing returns nothing
-    set gg_trg_CodeGen_Abilities = CreateTrigger()
-    call TriggerAddAction(gg_trg_CodeGen_Abilities, function Trig_CodeGen_Abilities_Actions)
-endfunction
-function Trig_CodeGen_Dungeon_Func002A takes nothing returns nothing
-    call RemoveDestructable(GetEnumDestructable())
-endfunction
-function Trig_CodeGen_Dungeon_Actions takes nothing returns nothing
-    local integer ud = GetUnitUserData(udg_Target)
-    set udg_Point = GetUnitLoc(udg_Target)
-    call EnumDestructablesInCircleBJ(50.00, udg_Point, function Trig_CodeGen_Dungeon_Func002A)
-    if ud == 1 then
-        call CreateDestructableLoc(0x42303142, udg_Point, 270.00, 12.00, 0)
-        return
-    endif
-
-    if ud == 3 then
-        call CreateDestructableLoc(0x42303143, udg_Point, 270.00, 12.00, 0)
-        return
-    endif
-
-    if ud == 4 then
-        call CreateDestructableLoc(0x42303144, udg_Point, 270.00, 12.00, 0)
-        return
-    endif
-
-    if ud == 6 then
-        call CreateDestructableLoc(0x42303137, udg_Point, 270.00, 12.00, 0)
-        return
-    endif
-
-    if ud == 71then
-        call CreateDestructableLoc(0x42303145, udg_Point, 270.00, 12.00, 0)
-        return
-    endif
-
-    if ud == 72 then
-        call CreateDestructableLoc(0x42303341, udg_Point, 270.00, 12.00, 0)
-        return
-    endif
-
-    if ud == 73 then
-        call CreateDestructableLoc(0x42303138, udg_Point, 270.00, 12.00, 0)
-        return
-    endif
-
-    if ud == 74 then
-        call CreateDestructableLoc(0x42303342, udg_Point, 270.00, 12.00, 0)
-        return
-    endif
-
-    call CreateDestructableLoc(0x42303139, udg_Point, 270.00, 12.00, 0)
-
-endfunction
-function InitTrig_CodeGen_Dungeon takes nothing returns nothing
-    set gg_trg_CodeGen_Dungeon = CreateTrigger()
-    call TriggerAddAction(gg_trg_CodeGen_Dungeon, function Trig_CodeGen_Dungeon_Actions)
-endfunction
-
-function Trig_Loading_Succes_Actions takes nothing returns nothing
-    if udg_LoadSucces then
-        call CinematicModeExBJ(false, GetPlayersAll(), 2.00)
-        call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 2.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 100.00, 100.00, 100.00, 0.00)
-        call ConditionalTriggerExecute(gg_trg_Attributes_Multiboard)
-        set udg_TutorialHint[4] = true
-        call ConditionalTriggerExecute(gg_trg_QG_Generate)
-        call DestroyTrigger(gg_trg_Initialisation_Dialog)
-    else
-        call DialogClearBJ(udg_InitDialog)
-        call DialogSetMessageBJ(udg_InitDialog, "|n")
-        call DialogAddButtonBJ(udg_InitDialog, "Пройти обучение|n")
-        set udg_DialogButton[1] = GetLastCreatedButtonBJ()
-        call DialogAddButtonBJ(udg_InitDialog, "Обойтись без обучения|n")
-        set udg_DialogButton[2] = GetLastCreatedButtonBJ()
-        call DialogDisplayBJ(true, udg_InitDialog, Player(0))
-    endif
-    call DestroyTrigger(GetTriggeringTrigger())
-endfunction
-function InitTrig_Loading_Succes takes nothing returns nothing
-    set gg_trg_Loading_Succes = CreateTrigger()
-    call TriggerRegisterTimerExpireEventBJ(gg_trg_Loading_Succes, udg_LoadingTimer)
-    call TriggerAddAction(gg_trg_Loading_Succes, function Trig_Loading_Succes_Actions)
-endfunction
-function Trig_Map_Enter_Conditions takes nothing returns boolean
-    return GetClickedButton() == udg_DialogButton[1]
-endfunction
-
-function Trig_Map_Enter_Actions takes nothing returns nothing
-    call VolumeGroupSetVolumeBJ(SOUND_VOLUMEGROUP_FIRE, 0.00)
-    call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 2.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
-    call ClearTextMessagesBJ(GetPlayersAll())
-    call SetDayNightModels("Environment\\DNC\\DNCLordaeron\\DNCLordaeronTerrain\\DNCLordaeronTerrain.mdl", "Environment\\DNC\\DNCLordaeron\\DNCLordaeronUnit\\DNCLordaeronUnit.mdl")
-    call ResetTerrainFogBJ()
-    call EnableTrigger(gg_trg_Trees_Camera_Off)
-    set udg_Point = GetRectCenter(gg_rct_Stop_Unit)
-    call SetUnitPositionLoc(udg_Arct, udg_Point)
-    call RemoveLocation(udg_Point)
-    call DisableTrigger(gg_trg_Camera_Increase)
-    call DisableTrigger(gg_trg_Camera_Hero)
-    call DisableTrigger(gg_trg_Camera_Fix)
-    call DisableTrigger(gg_trg_Camera_Decrease)
-    call DisableTrigger(gg_trg_Leave_Hero_Regions)
-    call EnableTrigger(gg_trg_Camera_Tree)
-    set udg_Target = udg_EM_Target
-    call RemoveLocation(udg_TargetPoint)
-    set udg_TargetPoint = GetUnitLoc(udg_Target)
-    set udg_Camera = gg_cam_Dungeon_Camera
-    if udg_EM_Boss[2] then
-        call SetCameraBoundsToRect(gg_rct_Tier_3_Camera)
-    else
-        if udg_EM_Boss[1] then
-            call SetCameraBoundsToRect(gg_rct_Tier_2_Camera)
-        else
-            call SetCameraBoundsToRect(gg_rct_Tier_1_Camera)
-        endif
-    endif
-    call CameraSetSmoothingFactor(10.00)
-    call CameraSetupApplyForceDuration(gg_cam_Dungeon_Camera, true, 0.00)
-    call PanCameraToTimed(GetLocationX(udg_TargetPoint), GetLocationY(udg_TargetPoint), 0.0)
-    call SelectUnitSingle(udg_EM_Target)
-    set udg_CameraDistance = 1150
-    set udg_CameraAngle = 275
-    call UnitAddAbilityBJ(0x4130354D, udg_EM_Target)
-endfunction
-function InitTrig_Map_Enter takes nothing returns nothing
-    set gg_trg_Map_Enter = CreateTrigger()
-    call TriggerRegisterDialogEventBJ(gg_trg_Map_Enter, udg_TeleportDialog)
-    call TriggerAddCondition(gg_trg_Map_Enter, Condition(function Trig_Map_Enter_Conditions))
-    call TriggerAddAction(gg_trg_Map_Enter, function Trig_Map_Enter_Actions)
-endfunction
-
-function Trig_Map_Generate_Func014Func002Func001A takes nothing returns nothing
-    set udg_Point = GetDestructableLoc(GetEnumDestructable())
-    call CreateDestructableLoc(0x42303146, udg_Point, 270.00, 12.00, 0)
-    call RemoveLocation(udg_Point)
-    if GetDestructableTypeId(GetEnumDestructable()) == 0x42303136 then
-        call RemoveDestructable(GetEnumDestructable())
-    endif
-endfunction
-function Trig_Map_Generate_Func014Func002Func003Func001Func004C takes nothing returns boolean
-    return GetDestructableTypeId(GetEnumDestructable()) == 0x42303136
-endfunction
-function Trig_Map_Generate_Func014Func002Func003Func001A takes nothing returns nothing
-    set udg_Point = GetDestructableLoc(GetEnumDestructable())
-    call CreateDestructableLoc(0x42303146, udg_Point, 270.00, 12.00, 0)
-    call RemoveLocation(udg_Point)
-    if(Trig_Map_Generate_Func014Func002Func003Func001Func004C())then
-        call RemoveDestructable(GetEnumDestructable())
-    endif
-endfunction
-function Trig_Map_Generate_Func014Func002Func003Func003A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 7)
-endfunction
-function Trig_Map_Generate_Func014Func002Func003Func010A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 1)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func002Func003Func012A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 2)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func002Func003Func014A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 3)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func002Func003Func016A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 4)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func002Func003Func018A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 71)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func002Func003Func020A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 72)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func002Func003Func022A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 74)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func002Func003C takes nothing returns boolean
-    if(not(udg_EM_Generate == 3))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Generate_Func014Func002Func007A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 7)
-endfunction
-function Trig_Map_Generate_Func014Func002Func009A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 1)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func002Func011A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 2)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func002Func013A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 3)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func002Func015A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 4)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func002Func017A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 71)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func002Func019A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 72)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func002Func021A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 74)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func002C takes nothing returns boolean
-    if(not(udg_EM_Generate == 2))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Generate_Func014Func008A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 7)
-endfunction
-function Trig_Map_Generate_Func014Func010A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 1)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func012A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 3)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func014A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 4)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func016A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 71)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014Func018A takes nothing returns nothing
-    call SetUnitUserData(GetEnumUnit(), 72)
-    call GroupRemoveUnitSimple(GetEnumUnit(), udg_UnitGroup)
-endfunction
-function Trig_Map_Generate_Func014C takes nothing returns boolean
-    if(not(udg_EM_Generate == 1))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Generate_Actions takes nothing returns nothing
-    if(Trig_Map_Generate_Func014C())then
-        set udg_UnitGroup = GetUnitsInRectAll(gg_rct_Tier_1)
-        call GroupRemoveUnitSimple(gg_unit_h00K_0105, udg_UnitGroup)
-        call GroupRemoveUnitSimple(gg_unit_h00K_0095, udg_UnitGroup)
-        call SetUnitUserData(gg_unit_h00K_0105, 6)
-        call SetUnitUserData(gg_unit_h00K_0095, 7)
-        call ForGroupBJ(udg_UnitGroup, function Trig_Map_Generate_Func014Func008A)
-        call ForGroupBJ(GetRandomSubGroup(1, udg_UnitGroup), function Trig_Map_Generate_Func014Func010A)
-        call ForGroupBJ(GetRandomSubGroup(1, udg_UnitGroup), function Trig_Map_Generate_Func014Func012A)
-        call ForGroupBJ(GetRandomSubGroup(1, udg_UnitGroup), function Trig_Map_Generate_Func014Func014A)
-        call ForGroupBJ(GetRandomSubGroup(2, udg_UnitGroup), function Trig_Map_Generate_Func014Func016A)
-        call ForGroupBJ(GetRandomSubGroup(2, udg_UnitGroup), function Trig_Map_Generate_Func014Func018A)
-        call DestroyGroup(udg_UnitGroup)
-    else
-        if(Trig_Map_Generate_Func014Func002C())then
-            call EnumDestructablesInRectAll(gg_rct_Tier_2, function Trig_Map_Generate_Func014Func002Func001A)
-            set udg_UnitGroup = GetUnitsInRectAll(gg_rct_Tier_2)
-            call GroupRemoveUnitSimple(gg_unit_h00K_0123, udg_UnitGroup)
-            call SetUnitUserData(gg_unit_h00K_0123, 6)
-            call ForGroupBJ(udg_UnitGroup, function Trig_Map_Generate_Func014Func002Func007A)
-            call ForGroupBJ(GetRandomSubGroup(1, udg_UnitGroup), function Trig_Map_Generate_Func014Func002Func009A)
-            call ForGroupBJ(GetRandomSubGroup(1, udg_UnitGroup), function Trig_Map_Generate_Func014Func002Func011A)
-            call ForGroupBJ(GetRandomSubGroup(1, udg_UnitGroup), function Trig_Map_Generate_Func014Func002Func013A)
-            call ForGroupBJ(GetRandomSubGroup(1, udg_UnitGroup), function Trig_Map_Generate_Func014Func002Func015A)
-            call ForGroupBJ(GetRandomSubGroup(3, udg_UnitGroup), function Trig_Map_Generate_Func014Func002Func017A)
-            call ForGroupBJ(GetRandomSubGroup(2, udg_UnitGroup), function Trig_Map_Generate_Func014Func002Func019A)
-            call ForGroupBJ(GetRandomSubGroup(2, udg_UnitGroup), function Trig_Map_Generate_Func014Func002Func021A)
-            call DestroyGroup(udg_UnitGroup)
-        else
-            if(Trig_Map_Generate_Func014Func002Func003C())then
-                call EnumDestructablesInRectAll(gg_rct_Tier_3, function Trig_Map_Generate_Func014Func002Func003Func001A)
-                set udg_UnitGroup = GetUnitsInRectAll(gg_rct_Tier_3)
-                call ForGroupBJ(udg_UnitGroup, function Trig_Map_Generate_Func014Func002Func003Func003A)
-                call GroupRemoveUnitSimple(gg_unit_h00K_0142, udg_UnitGroup)
-                call GroupRemoveUnitSimple(gg_unit_h00K_0100, udg_UnitGroup)
-                call GroupRemoveUnitSimple(gg_unit_h00K_0155, udg_UnitGroup)
-                call GroupRemoveUnitSimple(gg_unit_h00K_0153, udg_UnitGroup)
-                call SetUnitUserData(gg_unit_h00K_0142, 6)
-                call ForGroupBJ(GetRandomSubGroup(1, udg_UnitGroup), function Trig_Map_Generate_Func014Func002Func003Func010A)
-                call ForGroupBJ(GetRandomSubGroup(1, udg_UnitGroup), function Trig_Map_Generate_Func014Func002Func003Func012A)
-                call ForGroupBJ(GetRandomSubGroup(1, udg_UnitGroup), function Trig_Map_Generate_Func014Func002Func003Func014A)
-                call ForGroupBJ(GetRandomSubGroup(1, udg_UnitGroup), function Trig_Map_Generate_Func014Func002Func003Func016A)
-                call ForGroupBJ(GetRandomSubGroup(3, udg_UnitGroup), function Trig_Map_Generate_Func014Func002Func003Func018A)
-                call ForGroupBJ(GetRandomSubGroup(2, udg_UnitGroup), function Trig_Map_Generate_Func014Func002Func003Func020A)
-                call ForGroupBJ(GetRandomSubGroup(3, udg_UnitGroup), function Trig_Map_Generate_Func014Func002Func003Func022A)
-                call SetUnitUserData(gg_unit_h00K_0100, 73)
-                call SetUnitUserData(gg_unit_h00K_0155, 73)
-                call SetUnitUserData(gg_unit_h00K_0153, 73)
-                call DestroyGroup(udg_UnitGroup)
-            else
-            endif
-        endif
-    endif
-endfunction
-function InitTrig_Map_Generate takes nothing returns nothing
-    set gg_trg_Map_Generate = CreateTrigger()
-    call TriggerAddAction(gg_trg_Map_Generate, function Trig_Map_Generate_Actions)
-endfunction
-function Trig_Map_Buttons_Conditions takes nothing returns boolean
-    return GetUnitTypeId(GetTriggerUnit()) == 0x6830304B
-endfunction
-function Trig_Map_Buttons_Func002Func002C takes nothing returns boolean
-    return udg_EM_EncounterChance < 75
-endfunction
-function Trig_Map_Buttons_Func002Func003C takes nothing returns boolean
-    return GetRandomInt(1, 100) <= udg_EM_EncounterChance
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func001C takes nothing returns boolean
-    return GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_LUMBER) > 0
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009Func010Func001Func001C takes nothing returns boolean
-    if(not(GetTriggerUnit() == gg_unit_h00K_0142))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009Func010Func001C takes nothing returns boolean
-    if(not(GetTriggerUnit() == gg_unit_h00K_0123))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009Func010C takes nothing returns boolean
-    if(not(GetTriggerUnit() == gg_unit_h00K_0105))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009Func011C takes nothing returns boolean
-    if(not(GetTriggerUnit() == gg_unit_h00K_0142))then
-        return false
-    endif
-    if(not(GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_LUMBER) >= 3))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009C takes nothing returns boolean
-    if(not Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009Func011C())then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func010C takes nothing returns boolean
-    if(not(GetTriggerUnit() == gg_unit_h00K_0123))then
-        return false
-    endif
-    if(not(GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_LUMBER) >= 2))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009C takes nothing returns boolean
-    if(not Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func010C())then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func010C takes nothing returns boolean
-    if(not(GetTriggerUnit() == gg_unit_h00K_0105))then
-        return false
-    endif
-    if(not(GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_LUMBER) >= 1))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003C takes nothing returns boolean
-    if(not Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func010C())then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006C takes nothing returns boolean
-    if(not(GetUnitUserData(GetTriggerUnit()) == 1))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001C takes nothing returns boolean
-    if(not(GetUnitUserData(GetTriggerUnit()) == 2))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001C takes nothing returns boolean
-    if(not(GetUnitUserData(GetTriggerUnit()) == 3))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func001C takes nothing returns boolean
-    if(not(GetUnitUserData(GetTriggerUnit()) == 4))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func002Func002C takes nothing returns boolean
-    if((SubStringBJ(I2S(GetUnitUserData(udg_EM_Target)), 1, 1) == "7"))then
-        return true
-    endif
-    if((GetUnitUserData(GetTriggerUnit()) == 8))then
-        return true
-    endif
-    if((GetUnitUserData(GetTriggerUnit()) == 5))then
-        return true
-    endif
-    return false
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003Func002C takes nothing returns boolean
-    if(not(GetUnitTypeId(GetTriggerUnit()) == 0x6830304B))then
-        return false
-    endif
-    if(not Trig_Map_Buttons_Func002Func004Func001Func003Func002Func002C())then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001Func003C takes nothing returns boolean
-    if(not Trig_Map_Buttons_Func002Func004Func001Func003Func002C())then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func001C takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x4130354D))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004Func007C takes nothing returns boolean
-    if(not(GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_GOLD) >= udg_EM_Cost))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002Func004C takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x4130354E))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func002C takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x4130345A))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Func003C takes nothing returns boolean
-    if(not(udg_EM_Bool == true))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Buttons_Actions takes nothing returns nothing
-    if(Trig_Map_Buttons_Func002C())then
-        call ClearTextMessagesBJ(GetPlayersAll())
-        if(Trig_Map_Buttons_Func002Func002C())then
-            set udg_EM_EncounterChance = (udg_EM_EncounterChance + 4)
-        else
-        endif
-        if(Trig_Map_Buttons_Func002Func003C())then
-            call UnitAddAbilityBJ(0x4130345A, GetTriggerUnit())
-            set udg_EM_Bool = false
-            set udg_EM_Encounter = true
-            set udg_EM_EncounterChance =- 4
-            call ConditionalTriggerExecute(gg_trg_Map_Events)
-        else
-            set udg_EM_Encounter = false
-            set udg_EM_Bool = true
-        endif
-    else
-        if(Trig_Map_Buttons_Func002Func004C())then
-            set udg_D_Point1 = GetUnitLoc(udg_EM_Target)
-            set udg_D_Point2 = GetUnitLoc(udg_Target)
-            set udg_EM_Cost = R2I(DistanceBetweenPoints(udg_D_Point1, udg_D_Point2))
-            set udg_EM_Cost = (udg_EM_Cost / 8)
-            set udg_EM_Encounter = false
-            if(Trig_Map_Buttons_Func002Func004Func007C())then
-                set udg_EM_Bool = true
-                call SetPlayerStateBJ(Player(0), PLAYER_STATE_RESOURCE_GOLD, (GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_GOLD) - udg_EM_Cost))
-            else
-                set udg_EM_Bool = false
-                call UnitRemoveAbilityBJ(0x4130354E, GetTriggerUnit())
-                call UnitAddAbilityBJ(0x4130354E, GetTriggerUnit())
-                call ClearTextMessagesBJ(GetPlayersAll())
-                call DisplayTimedTextToForce(GetPlayersAll(), 1.00, ("Понадобится Света: " + I2S(udg_EM_Cost)))
-            endif
-        else
-            if(Trig_Map_Buttons_Func002Func004Func001C())then
-                call VolumeGroupSetVolumeBJ(SOUND_VOLUMEGROUP_FIRE, 100.00)
-                set udg_EM_BossRoom = false
-                if(Trig_Map_Buttons_Func002Func004Func001Func003C())then
-                    set bj_forLoopAIndex = 1
-                    set bj_forLoopAIndexEnd = 4
-                    loop
-                        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-                        set udg_EM_BossDead[bj_forLoopAIndex] = true
-                        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-                    endloop
-                    call ConditionalTriggerExecute(gg_trg_Trees_Camera_Off)
-                    call ConditionalTriggerExecute(gg_trg_Gen_Start)
-                else
-                    if(Trig_Map_Buttons_Func002Func004Func001Func003Func001C())then
-                        set udg_EnchantingRoom = true
-                        call EnableTrigger(gg_trg_Escape_Dialog_Dummy)
-                        call EnableTrigger(gg_trg_Escape_Dialog)
-                        call ConditionalTriggerExecute(gg_trg_Trees_Camera_Off)
-                        call SetDayNightModels("Environment\\DNC\\DNCLordaeron\\DNCLordaeronTerrain\\DNCLordaeronTerrain.mdl", "Environment\\DNC\\DNCLordaeron\\DNCLordaeronUnit\\DNCLordaeronUnit.mdl")
-                    else
-                        if(Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001C())then
-                            set udg_OnkieRoom = true
-                            call EnableTrigger(gg_trg_Escape_Dialog_Dummy)
-                            call EnableTrigger(gg_trg_Escape_Dialog)
-                            call ConditionalTriggerExecute(gg_trg_Trees_Camera_Off)
-                            call SetDayNightModels("", "")
-                        else
-                            if(Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001C())then
-                                set udg_CS_Bool = true
-                                call CinematicFadeBJ(bj_CINEFADETYPE_FADEOUT, 0.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
-                                call ConditionalTriggerExecute(gg_trg_Trees_Camera_Off)
-                                call SetDayNightModels("", "")
-                            else
-                                if(Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006C())then
-                                    if(Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func001C())then
-                                        call SetPlayerStateBJ(Player(0), PLAYER_STATE_RESOURCE_LUMBER, (GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_LUMBER) - 1))
-                                        set udg_ER_Logic = true
-                                        call ConditionalTriggerExecute(gg_trg_Trees_Camera_Off)
-                                        call CinematicFadeBJ(bj_CINEFADETYPE_FADEOUT, 0.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
-                                        call ConditionalTriggerExecute(gg_trg_Edemor_Start)
-                                    else
-                                        call ClearTextMessagesBJ(GetPlayersAll())
-                                        call DisplayTimedTextToForce(GetPlayersAll(), 1.00, "Для входа требуется Ключ Эдемора.|n")
-                                    endif
-                                else
-                                    if(Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003C())then
-                                        set udg_EM_BossEnterDialog = 1
-                                        call DialogClearBJ(udg_MapBossDialog)
-                                        call DialogSetMessageBJ(udg_MapBossDialog, "Чтобы пройти дальше нужен|n1 ключ Эдемора. Потратить?|n")
-                                        call DialogAddButtonBJ(udg_MapBossDialog, "Да.|n")
-                                        set udg_MapBossButton[1] = GetLastCreatedButtonBJ()
-                                        call DialogAddButtonBJ(udg_MapBossDialog, "Нет.|n")
-                                        set udg_MapBossButton[2] = GetLastCreatedButtonBJ()
-                                        call DialogDisplayBJ(true, udg_MapBossDialog, Player(0))
-                                    else
-                                        if(Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009C())then
-                                            set udg_EM_BossEnterDialog = 2
-                                            call DialogClearBJ(udg_MapBossDialog)
-                                            call DialogSetMessageBJ(udg_MapBossDialog, "Чтобы пройти дальше нужны|n2 ключа Эдемора. Потратить?|n")
-                                            call DialogAddButtonBJ(udg_MapBossDialog, "Да.|n")
-                                            set udg_MapBossButton[1] = GetLastCreatedButtonBJ()
-                                            call DialogAddButtonBJ(udg_MapBossDialog, "Нет.|n")
-                                            set udg_MapBossButton[2] = GetLastCreatedButtonBJ()
-                                            call DialogDisplayBJ(true, udg_MapBossDialog, Player(0))
-                                        else
-                                            if(Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009C())then
-                                                set udg_EM_BossEnterDialog = 3
-                                                call DialogClearBJ(udg_MapBossDialog)
-                                                call DialogSetMessageBJ(udg_MapBossDialog, "Чтобы пройти дальше нужны|n3 ключа Эдемора. Потратить?|n")
-                                                call DialogAddButtonBJ(udg_MapBossDialog, "Да.|n")
-                                                set udg_MapBossButton[1] = GetLastCreatedButtonBJ()
-                                                call DialogAddButtonBJ(udg_MapBossDialog, "Нет.|n")
-                                                set udg_MapBossButton[2] = GetLastCreatedButtonBJ()
-                                                call DialogDisplayBJ(true, udg_MapBossDialog, Player(0))
-                                            else
-                                                call ClearTextMessagesBJ(GetPlayersAll())
-                                                if(Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009Func010C())then
-                                                    call DisplayTimedTextToForce(GetPlayersAll(), 3.00, "Для входа требуется 1 ключ Эдемора.|n")
-                                                else
-                                                    if(Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009Func010Func001C())then
-                                                        call DisplayTimedTextToForce(GetPlayersAll(), 3.00, "Для входа требуются 2 ключа Эдемора.|n")
-                                                    else
-                                                        if(Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009Func010Func001Func001C())then
-                                                            call DisplayTimedTextToForce(GetPlayersAll(), 3.00, "Для входа требуются 3 ключа Эдемора.|n")
-                                                        else
-                                                        endif
-                                                    endif
-                                                endif
-                                            endif
-                                        endif
-                                    endif
-                                endif
-                            endif
-                        endif
-                    endif
-                endif
-            else
-            endif
-        endif
-    endif
-    if(Trig_Map_Buttons_Func003C())then
-        call ConditionalTriggerExecute(gg_trg_Map_Move)
-    else
-    endif
-endfunction
-function InitTrig_Map_Buttons takes nothing returns nothing
-    set gg_trg_Map_Buttons = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(gg_trg_Map_Buttons, EVENT_PLAYER_UNIT_SPELL_EFFECT)
-    call TriggerAddCondition(gg_trg_Map_Buttons, Condition(function Trig_Map_Buttons_Conditions))
-    call TriggerAddAction(gg_trg_Map_Buttons, function Trig_Map_Buttons_Actions)
-endfunction
-function Trig_Map_Boss_Button_Func002Func005C takes nothing returns boolean
-    return udg_EM_BossEnterDialog == 1
-endfunction
-function Trig_Map_Boss_Button_Actions takes nothing returns nothing
-    if GetClickedButton() == udg_MapBossButton[1] then
-        set udg_EM_BossRoom = true
-        set udg_EM_Bool = false
-        set udg_EM_Encounter = true
-        set udg_ARTInteger[4] = 0
-        if(Trig_Map_Boss_Button_Func002Func005C())then
-            set udg_EM_BossLevel = gg_unit_h00K_0105
-            set udg_EM_BossCreate[1] = true
-            set udg_EM_BossDead[1] = false
-            call SetPlayerStateBJ(Player(0), PLAYER_STATE_RESOURCE_LUMBER, (GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_LUMBER) - 1))
-            set udg_D_CreepType[1] = 0x6E303034
-            set udg_D_CreepType[2] = 0x6E303030
-            set udg_D_CreepType[3] = 0x6E303035
-            set udg_D_CreepType[4] = 0x6E30304A
-            set udg_D_CreepType[5] = 0x6E30304B
-            set udg_CC_IngredientDrop = 3
-            call SetTerrainFogExBJ(0, 500.00, 10000.00, 0.50, 0.00, 100.00, 0.00)
-            call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший|n", gg_snd_HeroAlchemistYes2, "Сейчас похимичим...|n", bj_TIMETYPE_ADD, 0, false)
-        else
-            if udg_EM_BossEnterDialog == 2 then
-                set udg_EM_BossLevel = gg_unit_h00K_0123
-                set udg_EM_BossCreate[2] = true
-                set udg_EM_BossDead[2] = false
-                call SetPlayerStateBJ(Player(0), PLAYER_STATE_RESOURCE_LUMBER, (GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_LUMBER) - 2))
-                call EnableTrigger(gg_trg_Boss_II_Phase_2_Init)
-                set udg_D_CreepType[1] = 0x6E30304E
-                set udg_D_CreepType[2] = 0x6E303043
-                set udg_D_CreepType[3] = 0x6E30304E
-                set udg_D_CreepType[4] = 0x6E303050
-                set udg_D_CreepType[5] = 0x6E303050
-                set udg_CC_IngredientDrop = 5
-                call SetTerrainFogExBJ(0, 1500.00, 6000.00, 0.50, 70.00, 50.00, 0.00)
-                call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Изуродов Отец|n", gg_snd_O04Mannoroth38, "*гнилой смех*|n", bj_TIMETYPE_ADD, 0, false)
-            else
-                set udg_EM_BossLevel = gg_unit_h00K_0142
-                set udg_EM_BossCreate[3] = true
-                set udg_EM_BossDead[3] = false
-                call SetPlayerStateBJ(Player(0), PLAYER_STATE_RESOURCE_LUMBER, (GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_LUMBER) - 3))
-                call EnableTrigger(gg_trg_Boss_III_Portal_Use)
-                set udg_D_CreepType[1] = 0x6E303051
-                set udg_D_CreepType[2] = 0x6E303041
-                set udg_D_CreepType[3] = 0x6E303056
-                set udg_D_CreepType[4] = 0x6E303052
-                set udg_D_CreepType[5] = 0x6E303055
-                set udg_CC_IngredientDrop = 9
-                call SetTerrainFogExBJ(0, 1300.00, 5000.00, 0.50, 0.00, 0.00, 0.00)
-            endif
-        endif
-        call ConditionalTriggerExecute(gg_trg_Trees_Camera_Off)
-        call ConditionalTriggerExecute(gg_trg_Gen_Boss)
-    else
-    endif
-endfunction
-function InitTrig_Map_Boss_Button takes nothing returns nothing
-    set gg_trg_Map_Boss_Button = CreateTrigger()
-    call TriggerRegisterDialogEventBJ(gg_trg_Map_Boss_Button, udg_MapBossDialog)
-    call TriggerAddAction(gg_trg_Map_Boss_Button, function Trig_Map_Boss_Button_Actions)
-endfunction
-function Trig_Map_Move_Func002Func003A takes nothing returns nothing
-    set udg_EM_Target = GetEnumUnit()
-endfunction
-function Trig_Map_Move_Func012A takes nothing returns nothing
-    call RemoveDestructable(GetEnumDestructable())
-endfunction
-function Trig_Map_Move_Func016Func001Func003Func001Func001Func001Func002Func002Func001C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 74
-endfunction
-function Trig_Map_Move_Func016Func001Func003Func001Func001Func001Func002Func002C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 73
-endfunction
-function Trig_Map_Move_Func016Func001Func003Func001Func001Func001Func002C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 72
-endfunction
-function Trig_Map_Move_Func016Func001Func003Func001Func001Func001C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 71
-endfunction
-function Trig_Map_Move_Func016Func001Func003Func001Func001C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 6
-endfunction
-function Trig_Map_Move_Func016Func001Func003Func001C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 4
-endfunction
-function Trig_Map_Move_Func016Func001Func003C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 3
-endfunction
-function Trig_Map_Move_Func016Func001C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 2
-endfunction
-function Trig_Map_Move_Func016C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 1
-endfunction
-function Trig_Map_Move_Actions takes nothing returns nothing
-    call UnitRemoveAbilityBJ(0x4130354D, udg_EM_Target)
-    if udg_EM_Encounter then
-        set udg_EM_Encounter = false
-        call ForGroupBJ(GetRandomSubGroup(1, udg_EM_EventGroup), function Trig_Map_Move_Func002Func003A)
-    else
-        set udg_EM_Target = udg_Target
-    endif
-    call UnitRemoveAbilityBJ(0x4130345A, udg_EM_Target)
-    call UnitRemoveAbilityBJ(0x4130354E, udg_EM_Target)
-    call UnitAddAbilityBJ(0x4130354D, udg_EM_Target)
-    set udg_EM_LevelDiscovered[R2I(GetUnitStateSwap(UNIT_STATE_LIFE, udg_EM_Target))] = 1
-    set udg_EM_TargetCV = R2I(GetUnitStateSwap(UNIT_STATE_LIFE, udg_EM_Target))
-    call GroupAddUnitSimple(udg_EM_Target, udg_EM_EventGroup)
-    call RemoveLocation(udg_TargetPoint)
-    set udg_TargetPoint = GetUnitLoc(udg_EM_Target)
-    set udg_Point = GetUnitLoc(udg_EM_Target)
-    call EnumDestructablesInCircleBJ(50.00, udg_Point, function Trig_Map_Move_Func012A)
-    call RemoveDestructable(udg_EM_Effect)
-    call CreateDestructableLoc(0x42303141, udg_TargetPoint, 0.00, 0.30, 0)
-    set udg_EM_Effect = GetLastCreatedDestructable()
-    if(Trig_Map_Move_Func016C())then
-        call CreateDestructableLoc(0x42303142, udg_Point, 270.00, 12.00, 0)
-    else
-        if(Trig_Map_Move_Func016Func001C())then
-            call CreateDestructableLoc(0x42303339, udg_Point, 270.00, 12.00, 0)
-        else
-            if(Trig_Map_Move_Func016Func001Func003C())then
-                call CreateDestructableLoc(0x42303143, udg_Point, 270.00, 12.00, 0)
-            else
-                if(Trig_Map_Move_Func016Func001Func003Func001C())then
-                    call CreateDestructableLoc(0x42303144, udg_Point, 270.00, 12.00, 0)
-                else
-                    if(Trig_Map_Move_Func016Func001Func003Func001Func001C())then
-                        call CreateDestructableLoc(0x42303137, udg_Point, 270.00, 12.00, 0)
-                    else
-                        if(Trig_Map_Move_Func016Func001Func003Func001Func001Func001C())then
-                            call CreateDestructableLoc(0x42303145, udg_Point, 270.00, 12.00, 0)
-                        else
-                            if(Trig_Map_Move_Func016Func001Func003Func001Func001Func001Func002C())then
-                                call CreateDestructableLoc(0x42303341, udg_Point, 270.00, 12.00, 0)
-                            else
-                                if(Trig_Map_Move_Func016Func001Func003Func001Func001Func001Func002Func002C())then
-                                    call CreateDestructableLoc(0x42303138, udg_Point, 270.00, 12.00, 0)
-                                else
-                                    if(Trig_Map_Move_Func016Func001Func003Func001Func001Func001Func002Func002Func001C())then
-                                        call CreateDestructableLoc(0x42303342, udg_Point, 270.00, 12.00, 0)
-                                    else
-                                        call CreateDestructableLoc(0x42303139, udg_Point, 270.00, 12.00, 0)
-                                    endif
-                                endif
-                            endif
-                        endif
-                    endif
-                endif
-            endif
-        endif
-    endif
-    call RemoveLocation(udg_Point)
-endfunction
-function InitTrig_Map_Move takes nothing returns nothing
-    set gg_trg_Map_Move = CreateTrigger()
-    call TriggerAddAction(gg_trg_Map_Move, function Trig_Map_Move_Actions)
-endfunction
-function Trig_Map_Choose_Conditions takes nothing returns boolean
-    if(not(GetUnitTypeId(GetTriggerUnit()) == 0x6830304B))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Choose_Func015Func001C takes nothing returns boolean
-    if(not(DistanceBetweenPoints(udg_D_Point1, udg_D_Point2) >= 180.00))then
-        return false
-    endif
-    if(not(GetUnitUserData(GetTriggerUnit()) != 10))then
-        return false
-    endif
-    if(not(udg_Difficulty_Unlocked[1] == true))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Choose_Func015Func003C takes nothing returns boolean
-    if(not(DistanceBetweenPoints(udg_D_Point1, udg_D_Point2) <= 180.00))then
-        return false
-    endif
-    if(not(GetTriggerUnit() != udg_EM_Target))then
-        return false
-    endif
-    if(not(GetUnitUserData(GetTriggerUnit()) != 10))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Choose_Func015C takes nothing returns boolean
-    if(not Trig_Map_Choose_Func015Func003C())then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Choose_Actions takes nothing returns nothing
-    call UnitRemoveAbilityBJ(0x4130345A, udg_Target)
-    call UnitRemoveAbilityBJ(0x4130354E, udg_Target)
-    set udg_Target = GetTriggerUnit()
-    call RemoveLocation(udg_TargetPoint)
-    set udg_TargetPoint = GetUnitLoc(udg_Target)
-    call ClearTextMessagesBJ(GetPlayersAll())
-    set udg_D_Point1 = GetUnitLoc(udg_EM_Target)
-    set udg_D_Point2 = GetUnitLoc(GetTriggerUnit())
-    call UnitAddAbilityBJ(0x4130354D, udg_EM_Target)
-    if(Trig_Map_Choose_Func015C())then
-        call UnitAddAbilityBJ(0x4130345A, GetTriggerUnit())
-    else
-        if(Trig_Map_Choose_Func015Func001C())then
-            call UnitAddAbilityBJ(0x4130354E, GetTriggerUnit())
-        else
-        endif
-    endif
-    call RemoveLocation(udg_D_Point1)
-    call RemoveLocation(udg_D_Point2)
-endfunction
-function InitTrig_Map_Choose takes nothing returns nothing
-    set gg_trg_Map_Choose = CreateTrigger()
-    call TriggerRegisterPlayerSelectionEventBJ(gg_trg_Map_Choose, Player(0), true)
-    call TriggerAddCondition(gg_trg_Map_Choose, Condition(function Trig_Map_Choose_Conditions))
-    call TriggerAddAction(gg_trg_Map_Choose, function Trig_Map_Choose_Actions)
-endfunction
-function Trig_Map_Events_Func005Func001Func001C takes nothing returns boolean
-    if(not(GetRandomInt(1, 2) == 1))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Events_Func005Func001Func002Func001C takes nothing returns boolean
-    if(not(GetRandomInt(1, 2) == 1))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Events_Func005Func001Func002Func002Func001C takes nothing returns boolean
-    if(not(GetRandomInt(1, 2) == 1))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Events_Func005Func001Func002Func002C takes nothing returns boolean
-    if(not(udg_RandomNumber == 4))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Events_Func005Func001Func002C takes nothing returns boolean
-    if(not(udg_RandomNumber == 3))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Events_Func005Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 2))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Events_Func005C takes nothing returns boolean
-    if(not(udg_RandomNumber == 1))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Map_Events_Actions takes nothing returns nothing
-    set udg_RandomNumber = GetRandomInt(1, 4)
-    set udg_EventAttribute = (10 + GetHeroLevel(udg_Arct))
-    set udg_EventLux = (udg_EventAttribute * 3)
-    call DialogClearBJ(udg_EventDialog)
-    if(Trig_Map_Events_Func005C())then
-        call DialogSetMessageBJ(udg_EventDialog, "О чем-то глубого задумавшись,|nя только спустя несколько часов|nосознал, что всё это время шёл|nнепонятно куда. Точно не туда,|nкуда хотел. Чёрт, это безыдейное|nблуждание чревато проблемами.|n")
-        call DialogAddButtonBJ(udg_EventDialog, "И где я!?|n")
-        set udg_EM_Encounter = true
-        call ConditionalTriggerExecute(gg_trg_Map_Move)
-    else
-        if(Trig_Map_Events_Func005Func001C())then
-            if(Trig_Map_Events_Func005Func001Func001C())then
-                call DialogSetMessageBJ(udg_EventDialog, "На полпути коридор с обеих |nсторон завалило непонятно |nоткуда свалившимися камнями;|nя в ловушке. Могу попробовать |nразгрести завал, но у меня |nможет не хватить сил. Чем |nдольше я тут - тем хуже.|n")
-                call DialogAddButtonBJ(udg_EventDialog, ("Разгрести (необходимо " + (I2S(udg_EventAttribute) + " стойкости).")))
-            else
-                call DialogSetMessageBJ(udg_EventDialog, "Прямо напротив одной из|nдверей подземелья стоит|nогромный валун. Наверняка|nего прикатил кто-то очень|nбольшой. Очень мило с его |nстороны, но теперь мне|nпридётся откатывать валун|nв сторону, если я планирую |nидти дальше.|n")
-                call DialogAddButtonBJ(udg_EventDialog, ("Откатить (необходимо " + (I2S(udg_EventAttribute) + " стойкости).")))
-            endif
-            set udg_EventButton[1] = GetLastCreatedButtonBJ()
-        else
-            if(Trig_Map_Events_Func005Func001Func002C())then
-                if(Trig_Map_Events_Func005Func001Func002Func001C())then
-                    call DialogSetMessageBJ(udg_EventDialog, "В конце коридора стоят две двери. |nОдна из них - та, что мне нужна, |nтолько вот какая из них? Что-то |nмне подсказывает, что открыв |nодну дверь - вторая уже не |nподдастся.|n")
-                    call DialogAddButtonBJ(udg_EventDialog, ("Изучить (необходимо " + (I2S(udg_EventAttribute) + " мудрости).")))
-                else
-                    call DialogSetMessageBJ(udg_EventDialog, "Какой-то странный парень|n(откуда он взялся?) в капюшоне |nпредлагает мне отгадать одну|nиз его загадок. Если у меня|nполучится, то он обещает не|nотбирать у меня Свет. Что же,|nя уверен в своих умственных|nсилах; можно попробовать.|n")
-                    call DialogAddButtonBJ(udg_EventDialog, ("Отгадать (необходимо " + (I2S(udg_EventAttribute) + " мудрости).")))
-                endif
-                set udg_EventButton[2] = GetLastCreatedButtonBJ()
-            else
-                if(Trig_Map_Events_Func005Func001Func002Func002C())then
-                    if(Trig_Map_Events_Func005Func001Func002Func002Func001C())then
-                        call DialogSetMessageBJ(udg_EventDialog, "Кто-то явно обо мне заботится.|nВесь коридор впереди устлан|nраскачивающимися ловушками|nс недавно заостренными лезвиями|n(если верить ярким отблескам |nметалла). Не очень хочется туда|nлезть, но у меня нет выбора.|n")
-                        call DialogAddButtonBJ(udg_EventDialog, ("Пройти (необходимо " + (I2S(udg_EventAttribute) + " ловкости).")))
-                    else
-                        call DialogSetMessageBJ(udg_EventDialog, "Мне кажется, или сзади |nприближается что-то огромное… |nи оно, судя по всему, катится... |nКатится!? Это огромный |nвалун, что-ли!?|n")
-                        call DialogAddButtonBJ(udg_EventDialog, ("Бежать! (необходимо " + (I2S(udg_EventAttribute) + " ловкости).")))
-                    endif
-                    set udg_EventButton[3] = GetLastCreatedButtonBJ()
-                else
-                endif
-            endif
-        endif
-    endif
-    call DialogDisplayBJ(true, udg_EventDialog, Player(0))
-endfunction
-function InitTrig_Map_Events takes nothing returns nothing
-    set gg_trg_Map_Events = CreateTrigger()
-    call TriggerAddAction(gg_trg_Map_Events, function Trig_Map_Events_Actions)
-endfunction
-function Trig_Map_Events_Buttons_Func001Func001Func001Func001Func001C takes nothing returns boolean
-    return GetRandomInt(1, 100) <= 50
-endfunction
-function Trig_Map_Events_Buttons_Func001Func001Func001Func001C takes nothing returns boolean
-    return GetHeroStatBJ(bj_HEROSTAT_AGI, udg_Arct, true) >= udg_EventAttribute
-endfunction
-function Trig_Map_Events_Buttons_Func001Func001Func001C takes nothing returns boolean
-    return GetClickedButton() == udg_EventButton[3]
-endfunction
-function Trig_Map_Events_Buttons_Func001Func001Func002C takes nothing returns boolean
-    return GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true) >= udg_EventAttribute
-endfunction
-function Trig_Map_Events_Buttons_Func001Func001C takes nothing returns boolean
-    return GetClickedButton() == udg_EventButton[2]
-endfunction
-function Trig_Map_Events_Buttons_Func001Func002Func001C takes nothing returns boolean
-    return GetRandomInt(1, 100) <= 50
-endfunction
-function Trig_Map_Events_Buttons_Func001Func002C takes nothing returns boolean
-    return GetHeroStatBJ(bj_HEROSTAT_STR, udg_Arct, true) >= udg_EventAttribute
-endfunction
-function Trig_Map_Events_Buttons_Func001C takes nothing returns boolean
-    return GetClickedButton() == udg_EventButton[1]
-endfunction
-function Trig_Map_Events_Buttons_Func002Func001C takes nothing returns boolean
-    return udg_RandomNumber != 1
-endfunction
-function Trig_Map_Events_Buttons_Func002C takes nothing returns boolean
-    return udg_EventSucces == true
-endfunction
-function Trig_Map_Events_Buttons_Actions takes nothing returns nothing
-    if(Trig_Map_Events_Buttons_Func001C())then
-        if(Trig_Map_Events_Buttons_Func001Func002C())then
-            set udg_EventSucces = true
-        else
-            if(Trig_Map_Events_Buttons_Func001Func002Func001C())then
-                set udg_EventSucces = true
-            else
-                set udg_EventSucces = false
-            endif
-        endif
-    else
-        if(Trig_Map_Events_Buttons_Func001Func001C())then
-            if(Trig_Map_Events_Buttons_Func001Func001Func002C())then
-                set udg_EventSucces = true
-            else
-                set udg_EventSucces = GetRandomInt(1, 100) <= 50
-            endif
-        else
-            if(Trig_Map_Events_Buttons_Func001Func001Func001C())then
-                if(Trig_Map_Events_Buttons_Func001Func001Func001Func001C())then
-                    set udg_EventSucces = true
-                else
-                    if(Trig_Map_Events_Buttons_Func001Func001Func001Func001Func001C())then
-                        set udg_EventSucces = true
-                    else
-                        set udg_EventSucces = false
-                    endif
-                endif
-            else
-            endif
-        endif
-    endif
-    if(Trig_Map_Events_Buttons_Func002C())then
-        call CreateTextTagUnitBJ("Успех!|n", udg_Target, 0, 10.00, 0.00, 100.00, 0.00, 0)
-    else
-        if(Trig_Map_Events_Buttons_Func002Func001C())then
-            call SetPlayerStateBJ(Player(0), PLAYER_STATE_RESOURCE_GOLD, (GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_GOLD) - udg_EventLux))
-            call CreateTextTagUnitBJ("Неудача (часть Света пропала)...|n", udg_Target, 0, 10.00, 100.00, 0.00, 0.00, 0)
-        else
-        endif
-    endif
-    set udg_EventSucces = false
-    call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
-    call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
-    call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 3.00)
-    call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 2.50)
-endfunction
-function InitTrig_Map_Events_Buttons takes nothing returns nothing
-    set gg_trg_Map_Events_Buttons = CreateTrigger()
-    call TriggerRegisterDialogEventBJ(gg_trg_Map_Events_Buttons, udg_EventDialog)
-    call TriggerAddAction(gg_trg_Map_Events_Buttons, function Trig_Map_Events_Buttons_Actions)
-endfunction
-function Trig_Edemor_Start_Actions takes nothing returns nothing
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 24
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_AS_AbilityEXP_Base[bj_forLoopAIndex] = udg_AS_AbilityEXP[bj_forLoopAIndex]
-        set udg_AS_AbilityLVL_Base[bj_forLoopAIndex] = udg_AS_AbilityLVL[bj_forLoopAIndex]
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set udg_AS_AbilityCountLVL_Base = udg_AS_AbilityCountLVL
-    set udg_AS_Points_Base = udg_AS_Points
-    set udg_EX_Level_Base = GetHeroLevel(udg_Arct)
-    set udg_EX_Exp_Base = GetHeroXP(udg_Arct)
-    call SetCameraBoundsToRect(GetPlayableMapRect())
-    call AddItemToStockBJ(0x49303158, gg_unit_h00V_0063, 0, 1)
-    call AddItemToStockBJ(0x49303159, gg_unit_h00V_0063, 0, 1)
-    call AddItemToStockBJ(0x4930315A, gg_unit_h00V_0063, 0, 1)
-    call AddItemToStockBJ(0x49303230, gg_unit_h00V_0063, 0, 1)
-    set udg_Point = GetRectCenter(gg_rct_Arena_Enter)
-    call SetUnitPositionLoc(udg_Arct, udg_Point)
-    call RemoveLocation(udg_Point)
-    set udg_Point = GetRectCenter(gg_rct_Artefactorium_Spawn)
-    call CreateNUnitsAtLoc(1, 0x68303039, Player(11), udg_Point, bj_UNIT_FACING)
-    call UnitAddAbilityBJ(udg_DifficultyDamage[udg_Difficulty], GetLastCreatedUnit())
-    call UnitAddAbilityBJ(udg_DifficultySpeed[udg_Difficulty], GetLastCreatedUnit())
-    call RemoveLocation(udg_Point)
-    call ShowUnitShow(gg_unit_h00V_0063)
-    call SetUnitVertexColorBJ(gg_unit_h00V_0063, 100, 100, 100, 0.00)
-    call QueueUnitAnimationBJ(gg_unit_h00V_0063, "stand")
-    set udg_Point = GetUnitLoc(gg_unit_h00V_0063)
-    call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\StompRed.mdx")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
-    call RemoveLocation(udg_Point)
-    call EnableTrigger(gg_trg_Creep_Kill)
-    call EnableTrigger(gg_trg_Armor_Use)
-    call EnableTrigger(gg_trg_Talisman_Use)
-    call DisableTrigger(gg_trg_Artefactorium_Creep_Kill)
-    call SetPlayerHandicapBJ(Player(11), (100.00 * I2R(udg_Difficulty)))
-    call ClearTextMessagesBJ(GetPlayersAll())
-    call SetPlayerAbilityAvailableBJ(true, 0x41303138, Player(0))
-    call SetPlayerAbilityAvailableBJ(true, 0x41303537, Player(0))
-    call SetPlayerAbilityAvailableBJ(true, 0x41303530, Player(0))
-    call SetPlayerAbilityAvailableBJ(false, 0x41303147, Player(0))
-    call SetPlayerAbilityAvailableBJ(false, 0x41303555, Player(0))
-    call LeaderboardDisplayBJ(true, udg_CO_ComboBoard)
-    call EnablePreSelect(true, true)
-    set udg_Point = GetRectCenter(gg_rct_WhosYourDaddy)
-    call CreateNUnitsAtLoc(1, 0x68666F6F, Player(0), udg_Point, bj_UNIT_FACING)
-    set udg_AntiCheatUnit[1] = GetLastCreatedUnit()
-    call CreateNUnitsAtLoc(1, 0x686B6E69, Player(10), udg_Point, bj_UNIT_FACING)
-    set udg_AntiCheatUnit[2] = GetLastCreatedUnit()
-    call RemoveLocation(udg_Point)
-    call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 2.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
-endfunction
-function InitTrig_Edemor_Start takes nothing returns nothing
-    set gg_trg_Edemor_Start = CreateTrigger()
-    call TriggerAddAction(gg_trg_Edemor_Start, function Trig_Edemor_Start_Actions)
-endfunction
-function Trig_Edemor_Process_Func011Func001Func001Func001Func001C takes nothing returns boolean
-    if(not(GetItemTypeId(GetSoldItem()) == 0x49303230))then
-        return false
-    endif
-    if(not(udg_ER_Count < (10 + (2 * udg_TierUnlocked))))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Process_Func011Func001Func001Func001C takes nothing returns boolean
-    if(not Trig_Edemor_Process_Func011Func001Func001Func001Func001C())then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Process_Func011Func001Func001Func002C takes nothing returns boolean
-    if(not(GetItemTypeId(GetSoldItem()) == 0x4930315A))then
-        return false
-    endif
-    if(not(udg_ER_Count < (10 + (2 * udg_TierUnlocked))))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Process_Func011Func001Func001C takes nothing returns boolean
-    if(not Trig_Edemor_Process_Func011Func001Func001Func002C())then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Process_Func011Func001Func002C takes nothing returns boolean
-    if(not(GetItemTypeId(GetSoldItem()) == 0x49303159))then
-        return false
-    endif
-    if(not(udg_ER_Count < (10 + (2 * udg_TierUnlocked))))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Process_Func011Func001C takes nothing returns boolean
-    if(not Trig_Edemor_Process_Func011Func001Func002C())then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Process_Func011Func002C takes nothing returns boolean
-    if(not(GetItemTypeId(GetSoldItem()) == 0x49303158))then
-        return false
-    endif
-    if(not(udg_ER_Count < (10 + (2 * udg_TierUnlocked))))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Process_Func011C takes nothing returns boolean
-    if(not Trig_Edemor_Process_Func011Func002C())then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Process_Func017C takes nothing returns boolean
-    if(not(GetItemTypeId(GetSoldItem()) == 0x49303231))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Process_Actions takes nothing returns nothing
-    call RemoveItemFromStockBJ(0x49303158, GetTriggerUnit())
-    call RemoveItemFromStockBJ(0x49303159, GetTriggerUnit())
-    call RemoveItemFromStockBJ(0x4930315A, GetTriggerUnit())
-    call RemoveItemFromStockBJ(0x49303230, GetTriggerUnit())
-    call RemoveItemFromStockBJ(0x49303231, GetTriggerUnit())
-    call AddItemToStockBJ(0x49303158, GetTriggerUnit(), 0, 1)
-    call AddItemToStockBJ(0x49303159, GetTriggerUnit(), 0, 1)
-    call AddItemToStockBJ(0x4930315A, GetTriggerUnit(), 0, 1)
-    call AddItemToStockBJ(0x49303230, GetTriggerUnit(), 0, 1)
-    call AddItemToStockBJ(0x49303231, GetTriggerUnit(), 0, 1)
-    if(Trig_Edemor_Process_Func011C())then
-        set udg_ER_Creeps[1] = (udg_ER_Creeps[1] + 1)
-        set udg_ER_Reward = (udg_ER_Reward + 4)
-        set udg_ER_Count = (udg_ER_Count + 1)
-    else
-        if(Trig_Edemor_Process_Func011Func001C())then
-            set udg_ER_Creeps[2] = (udg_ER_Creeps[2] + 1)
-            set udg_ER_Reward = (udg_ER_Reward + 6)
-            set udg_ER_Count = (udg_ER_Count + 1)
-        else
-            if(Trig_Edemor_Process_Func011Func001Func001C())then
-                set udg_ER_Creeps[3] = (udg_ER_Creeps[3] + 1)
-                set udg_ER_Reward = (udg_ER_Reward + 8)
-                set udg_ER_Count = (udg_ER_Count + 1)
-            else
-                if(Trig_Edemor_Process_Func011Func001Func001Func001C())then
-                    set udg_ER_Creeps[4] = (udg_ER_Creeps[4] + 1)
-                    set udg_ER_Reward = (udg_ER_Reward + 10)
-                    set udg_ER_Count = (udg_ER_Count + 1)
-                else
-                endif
-            endif
-        endif
-    endif
-    call ClearTextMessagesBJ(GetPlayersAll())
-    call DisplayTimedTextToForce(GetPlayersAll(), 600.00, ("Слабых монстров: " + I2S(udg_ER_Creeps[1])))
-    call DisplayTimedTextToForce(GetPlayersAll(), 600.00, ("Обычных монстров: " + I2S(udg_ER_Creeps[2])))
-    call DisplayTimedTextToForce(GetPlayersAll(), 600.00, ("Сильных монстров: " + I2S(udg_ER_Creeps[3])))
-    call DisplayTimedTextToForce(GetPlayersAll(), 600.00, ("Ужасных монстров: " + I2S(udg_ER_Creeps[4])))
-    if(Trig_Edemor_Process_Func017C())then
-        call RemoveItemFromStockBJ(0x49303158, GetTriggerUnit())
-        call RemoveItemFromStockBJ(0x49303159, GetTriggerUnit())
-        call RemoveItemFromStockBJ(0x4930315A, GetTriggerUnit())
-        call RemoveItemFromStockBJ(0x49303230, GetTriggerUnit())
-        call RemoveItemFromStockBJ(0x49303231, GetTriggerUnit())
-        call EnableTrigger(gg_trg_Creep_Kill)
-        call EnableTrigger(gg_trg_Edemor_Check)
-        call ClearTextMessagesBJ(GetPlayersAll())
-        call EnableTrigger(gg_trg_Edemor_Transparent)
-        call SetUnitAnimation(gg_unit_h00V_0063, "death")
-        call EnableTrigger(gg_trg_Edemium_Hero_Dies)
-        call EnableTrigger(gg_trg_Edemor_Periodic)
-    else
-    endif
-    call RemoveItem(GetSoldItem())
-endfunction
-function InitTrig_Edemor_Process takes nothing returns nothing
-    set gg_trg_Edemor_Process = CreateTrigger()
-    call TriggerRegisterUnitEvent(gg_trg_Edemor_Process, gg_unit_h00V_0063, EVENT_UNIT_SELL_ITEM)
-    call TriggerAddAction(gg_trg_Edemor_Process, function Trig_Edemor_Process_Actions)
-endfunction
-function Trig_Edemor_Periodic_Func001Func010Func012Func012C takes nothing returns boolean
-    if(not(udg_ER_Creeps[4] > 0))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Periodic_Func001Func010Func012C takes nothing returns boolean
-    if(not(udg_ER_Creeps[3] > 0))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Periodic_Func001Func010C takes nothing returns boolean
-    if(not(udg_ER_Creeps[2] > 0))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Periodic_Func001C takes nothing returns boolean
-    if(not(udg_ER_Creeps[1] > 0))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Periodic_Actions takes nothing returns nothing
-    if(Trig_Edemor_Periodic_Func001C())then
-        set udg_ER_Creeps[1] = (udg_ER_Creeps[1] - 1)
-        set udg_Point = GetRandomLocInRect(gg_rct_Arena_Spawn)
-        call CreateNUnitsAtLoc(1, udg_D_CreepType[1], Player(11), udg_Point, GetRandomReal(0, 360.00))
-        call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", udg_Arct)
-        call UnitAddAbilityBJ(0x41303345, GetLastCreatedUnit())
-        call SetUnitManaPercentBJ(GetLastCreatedUnit(), 100)
-        call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
-        call RemoveLocation(udg_Point)
-    else
-        if(Trig_Edemor_Periodic_Func001Func010C())then
-            set udg_ER_Creeps[2] = (udg_ER_Creeps[2] - 1)
-            set udg_Point = GetRandomLocInRect(gg_rct_Arena_Spawn)
-            call CreateNUnitsAtLoc(1, udg_D_CreepType[2], Player(11), udg_Point, GetRandomReal(0, 360.00))
-            call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", udg_Arct)
-            call UnitAddAbilityBJ(0x41303438, GetLastCreatedUnit())
-            call UnitAddAbilityBJ(0x41303434, GetLastCreatedUnit())
-            call UnitAddAbilityBJ(0x41303345, GetLastCreatedUnit())
-            call SetUnitManaPercentBJ(GetLastCreatedUnit(), 100)
-            call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-            call DestroyEffectBJ(GetLastCreatedEffectBJ())
-            call RemoveLocation(udg_Point)
-        else
-            if(Trig_Edemor_Periodic_Func001Func010Func012C())then
-                set udg_ER_Creeps[3] = (udg_ER_Creeps[3] - 1)
-                set udg_Point = GetRandomLocInRect(gg_rct_Arena_Spawn)
-                call CreateNUnitsAtLoc(1, udg_D_CreepType[3], Player(11), udg_Point, GetRandomReal(0, 360.00))
-                call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", udg_Arct)
-                call UnitAddAbilityBJ(0x41303436, GetLastCreatedUnit())
-                call UnitAddAbilityBJ(0x41303437, GetLastCreatedUnit())
-                call UnitAddAbilityBJ(0x41303345, GetLastCreatedUnit())
-                call SetUnitManaPercentBJ(GetLastCreatedUnit(), 100)
-                call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-                call DestroyEffectBJ(GetLastCreatedEffectBJ())
-                call RemoveLocation(udg_Point)
-            else
-                if(Trig_Edemor_Periodic_Func001Func010Func012Func012C())then
-                    set udg_ER_Creeps[4] = (udg_ER_Creeps[4] - 1)
-                    set udg_Point = GetRandomLocInRect(gg_rct_Arena_Spawn)
-                    call CreateNUnitsAtLoc(1, udg_D_CreepType[GetRandomInt(4, 5)], Player(11), udg_Point, GetRandomReal(0, 360.00))
-                    call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", udg_Arct)
-                    call UnitAddAbilityBJ(0x41303455, GetLastCreatedUnit())
-                    call UnitAddAbilityBJ(0x41303451, GetLastCreatedUnit())
-                    call UnitAddAbilityBJ(0x41303345, GetLastCreatedUnit())
-                    call SetUnitManaPercentBJ(GetLastCreatedUnit(), 100)
-                    call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-                    call DestroyEffectBJ(GetLastCreatedEffectBJ())
-                    call RemoveLocation(udg_Point)
-                else
-                    call ConditionalTriggerExecute(gg_trg_Gen_Creeps_Skills)
-                    call DisableTrigger(GetTriggeringTrigger())
-                endif
-            endif
-        endif
-    endif
-endfunction
-function InitTrig_Edemor_Periodic takes nothing returns nothing
-    set gg_trg_Edemor_Periodic = CreateTrigger()
-    call DisableTrigger(gg_trg_Edemor_Periodic)
-    call TriggerRegisterTimerEventPeriodic(gg_trg_Edemor_Periodic, 0.20)
-    call TriggerAddAction(gg_trg_Edemor_Periodic, function Trig_Edemor_Periodic_Actions)
-endfunction
-function Trig_Edemor_Transparent_Func003C takes nothing returns boolean
-    if(not(udg_Transparent >= 100.00))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Transparent_Actions takes nothing returns nothing
-    set udg_Transparent = (udg_Transparent + 2.00)
-    call SetUnitVertexColorBJ(gg_unit_h00V_0063, 100, 100, 100, udg_Transparent)
-    if(Trig_Edemor_Transparent_Func003C())then
-        call ShowUnitHide(gg_unit_h00V_0063)
-        set udg_Transparent = 0.00
-        call DisableTrigger(GetTriggeringTrigger())
-    else
-    endif
-endfunction
-function InitTrig_Edemor_Transparent takes nothing returns nothing
-    set gg_trg_Edemor_Transparent = CreateTrigger()
-    call DisableTrigger(gg_trg_Edemor_Transparent)
-    call TriggerRegisterTimerEventPeriodic(gg_trg_Edemor_Transparent, 0.10)
-    call TriggerAddAction(gg_trg_Edemor_Transparent, function Trig_Edemor_Transparent_Actions)
-endfunction
-function Trig_Edemor_Check_Func003C takes nothing returns boolean
-    if(not(udg_ER_Count == 0))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Check_Actions takes nothing returns nothing
-    set udg_UnitGroup = GetUnitsInRectOfPlayer(gg_rct_Arena_Pick, Player(11))
-    set udg_ER_Count = CountUnitsInGroup(udg_UnitGroup)
-    if(Trig_Edemor_Check_Func003C())then
-        set udg_QG_Count[3] = (udg_QG_Count[3] + 1)
-        call ConditionalTriggerExecute(gg_trg_QG_Change_Text)
-        set udg_ER_RewardReal = I2R(udg_ER_Reward)
-        set udg_ER_RewardReal = (udg_ER_RewardReal * udg_DifficultyRate)
-        set udg_ER_RewardReal = (udg_ER_RewardReal * udg_EX_Rate)
-        call AddSpecialEffectTargetUnitBJ("origin", udg_Arct, "war3mapImported\\Holy_Heal.mdx")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
-        set udg_ER_Reward = R2I(udg_ER_RewardReal)
-        call AdjustPlayerStateBJ(udg_ER_Reward, Player(0), PLAYER_STATE_RESOURCE_GOLD)
-        call DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Получено: |cFFFFFF89" + (I2S(udg_ER_Reward) + " |rСвета.")))
-        set udg_ER_Reward = 0
-        call EnableTrigger(gg_trg_Escape_Dialog_Dummy)
-        call EnableTrigger(gg_trg_Escape_Dialog)
-        call DisableTrigger(GetTriggeringTrigger())
-    else
-    endif
-    call DestroyGroup(udg_UnitGroup)
-endfunction
-function InitTrig_Edemor_Check takes nothing returns nothing
-    set gg_trg_Edemor_Check = CreateTrigger()
-    call DisableTrigger(gg_trg_Edemor_Check)
-    call TriggerRegisterTimerEventPeriodic(gg_trg_Edemor_Check, 1.00)
-    call TriggerAddAction(gg_trg_Edemor_Check, function Trig_Edemor_Check_Actions)
-endfunction
-function Trig_Edemor_Exit_Func004C takes nothing returns boolean
-    if(not(udg_AS_Effect2 == true))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Exit_Func005C takes nothing returns boolean
-    if(not(udg_AS_Effect11 == true))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Exit_Func006Func013002 takes nothing returns nothing
-    call RemoveUnit(GetEnumUnit())
-endfunction
-function Trig_Edemor_Exit_Func006C takes nothing returns boolean
-    if(not(udg_Dead == true))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Edemor_Exit_Func020002 takes nothing returns nothing
-    call RemoveItem(GetEnumItem())
-endfunction
-function Trig_Edemor_Exit_Func048002 takes nothing returns nothing
-    call RemoveUnit(GetEnumUnit())
-endfunction
-function Trig_Edemor_Exit_Actions takes nothing returns nothing
-    call DisableTrigger(gg_trg_Keeper_Look)
-    call RemoveUnit(udg_AS_Effect10Unit)
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 2
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        call RemoveUnit(udg_AntiCheatUnit[bj_forLoopAIndex])
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    if(Trig_Edemor_Exit_Func004C())then
-        set udg_AS_Effect2 = false
-        set udg_ChanceCrit = (udg_ChanceCrit - 10.00)
-    else
-    endif
-    if(Trig_Edemor_Exit_Func005C())then
-        set udg_AS_Effect11 = false
-        set udg_ChanceBlock = (udg_ChanceBlock - 20.00)
-        call DestroyEffectBJ(udg_AS_Effect11SE)
-        call SetUnitVertexColorBJ(udg_Arct, 100.00, 100.00, 100, 0)
-    else
-    endif
-    if(Trig_Edemor_Exit_Func006C())then
-        set udg_Dead = false
-        set udg_Point = GetRectCenter(gg_rct_Edemium_Leave)
-        call SetUnitPositionLoc(udg_Arct, udg_Point)
-        call ReviveHeroLoc(udg_Arct, udg_Point, false)
-        call RemoveLocation(udg_Point)
-        set udg_Camera = gg_cam_Camera_Portal_Room
-        call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
-        call DisableTrigger(gg_trg_Camera_Tree)
-        call EnableTrigger(gg_trg_Camera_Fix)
-        call CameraSetupApplyForPlayer(true, udg_Camera, Player(0), 0)
-        call SelectUnitSingle(udg_Arct)
-        set udg_UnitGroup = GetUnitsInRectOfPlayer(gg_rct_Arena_Pick, Player(11))
-        call ForGroupBJ(udg_UnitGroup, function Trig_Edemor_Exit_Func006Func013002)
-        call DestroyGroup(udg_UnitGroup)
-        call CreateItemLoc(0x4930304C, udg_Point)
-        call UnitAddItemSwapped(GetLastCreatedItem(), udg_Arct)
-    else
-    endif
-    call SetUnitLifePercentBJ(udg_Arct, 100)
-    call SetUnitManaPercentBJ(udg_Arct, 100)
-    call UnitRemoveBuffsBJ(bj_REMOVEBUFFS_ALL, udg_Arct)
-    call DisableTrigger(gg_trg_Edemium_Hero_Dies)
-    call SetPlayerAbilityAvailableBJ(false, 0x41303138, Player(0))
-    call SetPlayerAbilityAvailableBJ(false, 0x41303537, Player(0))
-    call SetPlayerAbilityAvailableBJ(false, 0x41303530, Player(0))
-    call SetPlayerAbilityAvailableBJ(false, 0x41303147, Player(0))
-    call SetPlayerAbilityAvailableBJ(false, 0x41303555, Player(0))
-    call DisableTrigger(gg_trg_Combo_Ability_Use)
-    call LeaderboardDisplayBJ(false, udg_CO_ComboBoard)
-    call EnumItemsInRectBJ(gg_rct_Arena_Pick, function Trig_Edemor_Exit_Func020002)
-    call DisableTrigger(gg_trg_Creep_Kill)
-    call DisableTrigger(gg_trg_Armor_Use)
-    call DisableTrigger(gg_trg_Talisman_Use)
-    call EnableTrigger(gg_trg_Artefactorium_Creep_Kill)
-    call EnableTrigger(gg_trg_Artefactorium_Damage)
-    call ConditionalTriggerExecute(gg_trg_Music_Castle)
-    call SetCameraBoundsToRect(gg_rct_Camera_Bound_Portal)
-    set udg_Camera = gg_cam_Camera_Portal_Room
-    call DisableTrigger(gg_trg_Camera_Hero)
-    call DisableTrigger(gg_trg_Effect_6_Periodic)
-    call DestroyEffectBJ(udg_CO_Effect6Sweep[1])
-    call DestroyEffectBJ(udg_CO_Effect6Sweep[2])
-    set udg_CO_Effect6Power = 0
-    call UnitRemoveAbilityBJ(0x4130334B, udg_Arct)
-    set udg_Point = GetUnitLoc(gg_unit_h00V_0063)
-    call SetTerrainTypeBJ(udg_Point, 0x56737470, - 1, 10, 1)
-    call RemoveLocation(udg_Point)
-    call EnablePreSelect(false, false)
-    call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
-    call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
-    call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
-    set udg_AS_Effect9Count2 = 0
-    set udg_ARTInteger[4] = 0
-    set udg_EM_EncounterChance = 0
-    call DisableTrigger(gg_trg_Follower_Movement)
-    call ForGroupBJ(udg_FollowersGroup, function Trig_Edemor_Exit_Func048002)
-    call GroupClear(udg_FollowersGroup)
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 4
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_ER_Creeps[bj_forLoopAIndex] = 0
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set udg_AS_Effect10 = false
-    set udg_ER_Reward = 0
-endfunction
-function InitTrig_Edemor_Exit takes nothing returns nothing
-    set gg_trg_Edemor_Exit = CreateTrigger()
-    call TriggerAddAction(gg_trg_Edemor_Exit, function Trig_Edemor_Exit_Actions)
-endfunction
-function Trig_Coliseum_Start_Actions takes nothing returns nothing
-    set udg_CS_Reward = 5
-    set udg_CS_RewardReal = 5.00
-    set udg_CS_TargetPower = 0
-    set udg_CS_Round = 1
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = 24
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_AS_AbilityEXP_Base[bj_forLoopAIndex] = udg_AS_AbilityEXP[bj_forLoopAIndex]
-        set udg_AS_AbilityLVL_Base[bj_forLoopAIndex] = udg_AS_AbilityLVL[bj_forLoopAIndex]
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-    set udg_AS_AbilityCountLVL_Base = udg_AS_AbilityCountLVL
-    set udg_AS_Points_Base = udg_AS_Points
-    set udg_EX_Level_Base = GetHeroLevel(udg_Arct)
-    set udg_EX_Exp_Base = GetHeroXP(udg_Arct)
-    call SetPlayerHandicapBJ(Player(11), (100.00 * I2R(udg_Difficulty)))
-    call SetPlayerAbilityAvailableBJ(true, 0x41303138, Player(0))
-    call SetPlayerAbilityAvailableBJ(true, 0x41303537, Player(0))
-    call SetPlayerAbilityAvailableBJ(true, 0x41303530, Player(0))
-    call EnablePreSelect(true, true)
-    call LeaderboardDisplayBJ(true, udg_CO_ComboBoard)
-    set udg_Point = GetRectCenter(gg_rct_Artefactorium_Spawn)
-    call CreateNUnitsAtLoc(1, 0x68303039, Player(11), udg_Point, bj_UNIT_FACING)
-    call UnitAddAbilityBJ(udg_DifficultyDamage[udg_Difficulty], GetLastCreatedUnit())
-    call UnitAddAbilityBJ(udg_DifficultySpeed[udg_Difficulty], GetLastCreatedUnit())
-    call RemoveLocation(udg_Point)
-    call EnableTrigger(gg_trg_Camera_Hero)
-    call DisableTrigger(gg_trg_Camera_Fix)
-    call EnableTrigger(gg_trg_Camera_Angle_Increase)
-    call EnableTrigger(gg_trg_Camera_Angle_Decrease)
-    call EnableTrigger(gg_trg_Camera_Increase)
-    call EnableTrigger(gg_trg_Camera_Decrease)
-    call EnableTrigger(gg_trg_Edemium_Hero_Dies)
-    call EnableTrigger(gg_trg_Armor_Use)
-    call EnableTrigger(gg_trg_Talisman_Use)
-    call UnitRemoveAbilityBJ(0x41303644, gg_unit_n006_0028)
-    call UnitAddAbilityBJ(0x41303643, gg_unit_n006_0028)
-    call ShowUnitHide(gg_unit_n006_0028)
-    call StartTimerBJ(udg_CS_Timer, false, 3.00)
-    call CameraSetSmoothingFactorBJ(1.00)
-    set udg_CS_KeeperBool = false
-    set udg_CameraDistance = 1400
-    set udg_CameraAngle = 300
-    set udg_CameraTurn = 130.00
-endfunction
-function InitTrig_Coliseum_Start takes nothing returns nothing
-    set gg_trg_Coliseum_Start = CreateTrigger()
-    call TriggerAddAction(gg_trg_Coliseum_Start, function Trig_Coliseum_Start_Actions)
-endfunction
-function Trig_Keeper_Appear_Func001C takes nothing returns boolean
-    if(not(udg_CS_KeeperBool == false))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Keeper_Appear_Actions takes nothing returns nothing
-    if(Trig_Keeper_Appear_Func001C())then
-        set udg_CS_KeeperBool = true
-        call SetUnitVertexColorBJ(gg_unit_n006_0028, 100, 100, 100, 100.00)
-        set udg_Transparent = 100.00
-        call EnableTrigger(gg_trg_Keeper_Transparent)
-        call EnableTrigger(gg_trg_Keeper_Look)
-        call ShowUnitShow(gg_unit_n006_0028)
-        call SetUnitAnimation(gg_unit_n006_0028, "Birth")
-        call SetUnitFacingToFaceUnitTimed(gg_unit_n006_0028, udg_Arct, 1.00)
-        call TriggerSleepAction(2.00)
-        call ResetUnitAnimation(gg_unit_n006_0028)
-    else
-        call ShowUnitHide(gg_unit_n006_0028)
-    endif
-endfunction
-function InitTrig_Keeper_Appear takes nothing returns nothing
-    set gg_trg_Keeper_Appear = CreateTrigger()
-    call TriggerRegisterTimerExpireEventBJ(gg_trg_Keeper_Appear, udg_CS_Timer)
-    call TriggerAddAction(gg_trg_Keeper_Appear, function Trig_Keeper_Appear_Actions)
-endfunction
-function Trig_Keeper_Transparent_Func003C takes nothing returns boolean
-    if(not(udg_Transparent <= 0.00))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Keeper_Transparent_Actions takes nothing returns nothing
-    set udg_Transparent = (udg_Transparent - 3.00)
-    call SetUnitVertexColorBJ(gg_unit_n006_0028, 100, 100, 100, udg_Transparent)
-    if(Trig_Keeper_Transparent_Func003C())then
-        call DisableTrigger(GetTriggeringTrigger())
-    else
-    endif
-endfunction
-function InitTrig_Keeper_Transparent takes nothing returns nothing
-    set gg_trg_Keeper_Transparent = CreateTrigger()
-    call DisableTrigger(gg_trg_Keeper_Transparent)
-    call TriggerRegisterTimerEventPeriodic(gg_trg_Keeper_Transparent, 0.10)
-    call TriggerAddAction(gg_trg_Keeper_Transparent, function Trig_Keeper_Transparent_Actions)
-endfunction
-function Trig_Keeper_Look_Actions takes nothing returns nothing
-    call SetUnitFacingToFaceUnitTimed(gg_unit_n006_0028, udg_Arct, 1.00)
-endfunction
-function InitTrig_Keeper_Look takes nothing returns nothing
-    set gg_trg_Keeper_Look = CreateTrigger()
-    call DisableTrigger(gg_trg_Keeper_Look)
-    call TriggerRegisterTimerEventPeriodic(gg_trg_Keeper_Look, 0.50)
-    call TriggerAddAction(gg_trg_Keeper_Look, function Trig_Keeper_Look_Actions)
-endfunction
-function Trig_Coliseum_Spawn_Conditions takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x41303643))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Coliseum_Spawn_Actions takes nothing returns nothing
-    call UnitRemoveAbilityBJ(0x41303644, GetTriggerUnit())
-    call UnitRemoveAbilityBJ(GetSpellAbilityId(), GetTriggerUnit())
-    call ClearTextMessagesBJ(GetPlayersAll())
-    set udg_Point = GetRandomLocInRect(gg_rct_Coliseum_Spawn)
-    call CreateNUnitsAtLoc(1, udg_CS_TargetUnitType[GetRandomInt(1, 5)], Player(11), udg_Point, bj_UNIT_FACING)
-    set udg_RandomNumber = (udg_CS_Round * 10)
-    set udg_RandomNumber = (udg_RandomNumber + 100)
-    call UnitAddAbilityBJ(0x41303345, GetLastCreatedUnit())
-    call SetUnitScalePercent(GetLastCreatedUnit(), I2R(udg_RandomNumber), I2R(udg_RandomNumber), I2R(udg_RandomNumber))
-    call SetHeroLevelBJ(GetLastCreatedUnit(), udg_CS_Round, false)
-    call ModifyHeroStat(bj_HEROSTAT_STR, GetLastCreatedUnit(), bj_MODIFYMETHOD_ADD, udg_CS_TargetPower)
-    call ModifyHeroStat(bj_HEROSTAT_AGI, GetLastCreatedUnit(), bj_MODIFYMETHOD_ADD, udg_CS_TargetPower)
-    call ModifyHeroStat(bj_HEROSTAT_INT, GetLastCreatedUnit(), bj_MODIFYMETHOD_ADD, udg_CS_TargetPower)
-    call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", gg_unit_H000_0004)
-    set udg_CS_TargetUnit = GetLastCreatedUnit()
-    call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
-    call RemoveLocation(udg_Point)
-    call SetUnitAnimation(gg_unit_n006_0028, "Death")
-    call TriggerSleepAction(2.40)
-    call ShowUnitHide(gg_unit_n006_0028)
-endfunction
-function InitTrig_Coliseum_Spawn takes nothing returns nothing
-    set gg_trg_Coliseum_Spawn = CreateTrigger()
-    call TriggerRegisterUnitEvent(gg_trg_Coliseum_Spawn, gg_unit_n006_0028, EVENT_UNIT_SPELL_FINISH)
-    call TriggerAddCondition(gg_trg_Coliseum_Spawn, Condition(function Trig_Coliseum_Spawn_Conditions))
-    call TriggerAddAction(gg_trg_Coliseum_Spawn, function Trig_Coliseum_Spawn_Actions)
-endfunction
-function Trig_Coliseum_Target_Kill_Conditions takes nothing returns boolean
-    if(not(GetTriggerUnit() == udg_CS_TargetUnit))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Coliseum_Target_Kill_Actions takes nothing returns nothing
-    set udg_CS_Bool = false
-    set udg_CS_Reward = (udg_CS_Reward * 2)
-    set udg_CS_RewardReal = (udg_CS_RewardReal * 2.00)
-    set udg_CS_TargetPower = (udg_CS_TargetPower + 15)
-    set udg_CS_Round = (udg_CS_Round + 1)
-    set udg_QG_Count[1] = (udg_QG_Count[1] + 1)
-    call DisplayTimedTextToForce(GetPlayersAll(), 30.00, ("Текущая награда: |cFFFFFF89" + (I2S(udg_CS_Reward) + " |rСвета.")))
-    call StartTimerBJ(udg_CS_Timer, false, 1.50)
-    call UnitAddAbilityBJ(0x41303644, gg_unit_n006_0028)
-    call UnitAddAbilityBJ(0x41303643, gg_unit_n006_0028)
-    set udg_CS_KeeperBool = false
-    call SetUnitLifePercentBJ(udg_Arct, 100)
-    call AddSpecialEffectTargetUnitBJ("origin", udg_Arct, "Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
-endfunction
-function InitTrig_Coliseum_Target_Kill takes nothing returns nothing
-    set gg_trg_Coliseum_Target_Kill = CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(gg_trg_Coliseum_Target_Kill, EVENT_PLAYER_UNIT_DEATH)
-    call TriggerAddCondition(gg_trg_Coliseum_Target_Kill, Condition(function Trig_Coliseum_Target_Kill_Conditions))
-    call TriggerAddAction(gg_trg_Coliseum_Target_Kill, function Trig_Coliseum_Target_Kill_Actions)
-endfunction
-function Trig_Coliseum_Exit_Conditions takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x41303644))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Coliseum_Exit_Func013002 takes nothing returns nothing
-    call RemoveItem(GetEnumItem())
-endfunction
-function Trig_Coliseum_Exit_Actions takes nothing returns nothing
-    call EnableTrigger(gg_trg_Escape_Dialog_Dummy)
-    call EnableTrigger(gg_trg_Escape_Dialog)
-    set udg_CS_Bool = false
-    call ClearTextMessagesBJ(GetPlayersAll())
-    call AddSpecialEffectTargetUnitBJ("origin", udg_Arct, "war3mapImported\\Holy_Heal.mdx")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
-    set udg_CS_RewardReal = (udg_CS_RewardReal * udg_EX_Rate)
-    call AdjustPlayerStateBJ(R2I(udg_CS_RewardReal), Player(0), PLAYER_STATE_RESOURCE_GOLD)
-    set udg_CS_Reward = R2I(udg_CS_RewardReal)
-    call DisplayTimedTextToForce(GetPlayersAll(), 5.00, ("Получено: |cFFFFFF89" + (I2S(udg_CS_Reward) + " |rСвета.")))
-    call UnitRemoveAbilityBJ(0x41303643, GetTriggerUnit())
-    call UnitRemoveAbilityBJ(GetSpellAbilityId(), GetTriggerUnit())
-    call EnumItemsInRectBJ(gg_rct_Coliseum, function Trig_Coliseum_Exit_Func013002)
-endfunction
-function InitTrig_Coliseum_Exit takes nothing returns nothing
-    set gg_trg_Coliseum_Exit = CreateTrigger()
-    call TriggerRegisterUnitEvent(gg_trg_Coliseum_Exit, gg_unit_n006_0028, EVENT_UNIT_SPELL_FINISH)
-    call TriggerAddCondition(gg_trg_Coliseum_Exit, Condition(function Trig_Coliseum_Exit_Conditions))
-    call TriggerAddAction(gg_trg_Coliseum_Exit, function Trig_Coliseum_Exit_Actions)
-endfunction
-function Trig_Gen_Start_Func006Func002Func002C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) > 10.00))then
-        return false
-    endif
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) <= 15.00))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Start_Func006Func002C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) > 5.00))then
-        return false
-    endif
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) <= 10.00))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Start_Func006C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) > 0.00))then
-        return false
-    endif
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) <= 5.00))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Start_Func011Func001C takes nothing returns boolean
-    if(not(GetDestructableTypeId(GetEnumDestructable()) == 0x42303131))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Start_Func011A takes nothing returns nothing
-    if(Trig_Gen_Start_Func011Func001C())then
-        set udg_D_Point1 = GetDestructableLoc(GetEnumDestructable())
-        call CreateNUnitsAtLocFacingLocBJ(1, 0x6830304C, Player(0), udg_D_Point1, GetUnitLoc(GetTriggerUnit()))
-        call RemoveLocation(udg_D_Point1)
-    else
-    endif
-endfunction
-function Trig_Gen_Start_Func023C takes nothing returns boolean
-    if(not(udg_Tutorial[5] == true))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Start_Func024C takes nothing returns boolean
-    if(not(udg_D_CreepsTotal > 75))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Start_Func025C takes nothing returns boolean
-    if(not(udg_D_Rooms > 64))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Start_Actions takes nothing returns nothing
-    call DisableTrigger(gg_trg_Camera_Fix)
-    set udg_D_Point1 = GetRectCenter(gg_rct_Dungeon_Center)
-    if(Trig_Gen_Start_Func006C())then
-        call SetTerrainFogExBJ(0, 500.00, 8000.00, 0.50, 0.00, 50.00, 25.00)
-        set udg_D_DungeonTier = 1
-        set udg_D_WallTierType[1] = 0x42303232
-        set udg_D_WallTierType[2] = 0x42303235
-        set udg_D_WallTierType[3] = 0x42303233
-        set udg_D_WallTierType[4] = 0x42303234
-        set udg_D_WallTierTypeRoom[1] = 0x42303236
-        set udg_D_WallTierTypeRoom[2] = 0x42303237
-        set udg_D_WallTierTypeRoom[3] = 0x42303238
-        set udg_D_WallTierTypeRoom[4] = 0x42303239
-        set udg_D_WallTierTypeDoor[1] = 0x4230314D
-        set udg_D_WallTierTypeDoor[2] = 0x4230314F
-        set udg_D_WallTierTypeDoor[3] = 0x4230314E
-        set udg_D_WallTierTypeDoor[4] = 0x42303150
-        set udg_D_TextureType = 0x51647272
-        set udg_D_RoomDecorType[2] = 0x42303153
-        set udg_D_RoomDecorScale[2] = 1.00
-        set udg_D_RoomDecorType[3] = 0x42303154
-        set udg_D_RoomDecorScale[3] = 1.30
-        set udg_D_RoomDecorType[4] = 0x42303155
-        set udg_D_RoomDecorScale[4] = 1.80
-        set udg_D_RoomDecorType[7] = 0x42303157
-        set udg_D_RoomDecorScale[7] = 1.30
-    else
-        if(Trig_Gen_Start_Func006Func002C())then
-            call SetTerrainFogExBJ(0, 500.00, 8000.00, 0.50, 75.00, 50.00, 25.00)
-            set udg_D_DungeonTier = 2
-            set udg_D_WallTierType[1] = 0x42303243
-            set udg_D_WallTierType[2] = 0x42303244
-            set udg_D_WallTierType[3] = 0x42303241
-            set udg_D_WallTierType[4] = 0x42303242
-            set udg_D_WallTierTypeRoom[1] = 0x42303245
-            set udg_D_WallTierTypeRoom[2] = 0x42303246
-            set udg_D_WallTierTypeRoom[3] = 0x42303247
-            set udg_D_WallTierTypeRoom[4] = 0x42303248
-            set udg_D_WallTierTypeDoor[1] = 0x42303249
-            set udg_D_WallTierTypeDoor[2] = 0x4230324A
-            set udg_D_WallTierTypeDoor[3] = 0x4230324B
-            set udg_D_WallTierTypeDoor[4] = 0x4230324C
-            set udg_D_TextureType = 0x416C7664
-            set udg_D_RoomDecorType[2] = 0x42303332
-            set udg_D_RoomDecorScale[2] = 0.70
-            set udg_D_RoomDecorType[3] = 0x42303333
-            set udg_D_RoomDecorScale[3] = 1.30
-            set udg_D_RoomDecorType[4] = 0x42303335
-            set udg_D_RoomDecorScale[4] = 1.80
-            set udg_D_RoomDecorType[7] = 0x42303334
-            set udg_D_RoomDecorScale[7] = 1.40
-        else
-            if(Trig_Gen_Start_Func006Func002Func002C())then
-                call SetTerrainFogExBJ(0, 500.00, 8000.00, 0.50, 50.00, 0.00, 0.00)
-                set udg_D_DungeonTier = 3
-                set udg_D_WallTierType[1] = 0x42303255
-                set udg_D_WallTierType[2] = 0x42303256
-                set udg_D_WallTierType[3] = 0x42303251
-                set udg_D_WallTierType[4] = 0x42303252
-                set udg_D_WallTierTypeRoom[1] = 0x42303253
-                set udg_D_WallTierTypeRoom[2] = 0x42303254
-                set udg_D_WallTierTypeRoom[3] = 0x42303257
-                set udg_D_WallTierTypeRoom[4] = 0x42303258
-                set udg_D_WallTierTypeDoor[1] = 0x4230324D
-                set udg_D_WallTierTypeDoor[2] = 0x4230324E
-                set udg_D_WallTierTypeDoor[3] = 0x4230324F
-                set udg_D_WallTierTypeDoor[4] = 0x42303250
-                set udg_D_TextureType = 0x4762726B
-                set udg_D_RoomDecorType[2] = 0x42303336
-                set udg_D_RoomDecorScale[2] = 0.50
-                set udg_D_RoomDecorType[3] = 0x42303333
-                set udg_D_RoomDecorScale[3] = 1.30
-                set udg_D_RoomDecorType[4] = 0x42303338
-                set udg_D_RoomDecorScale[4] = 2.00
-                set udg_D_RoomDecorType[7] = 0x42303337
-                set udg_D_RoomDecorScale[7] = 2.00
-            else
-            endif
-        endif
-    endif
-    call SuspendHeroXPBJ(false, udg_Arct)
-    call SetTerrainTypeBJ(udg_D_Point1, 0x4F616279, - 1, 66, 1)
-    call RemoveLocation(udg_D_Point1)
-    call EnumDestructablesInRectAll(gg_rct_Dungeon, function Trig_Gen_Start_Func011A)
-    set udg_D_Point1 = GetRectCenter(gg_rct_Dungeon_Center)
-    call CreateNUnitsAtLoc(1, 0x6830304C, Player(0), udg_D_Point1, bj_UNIT_FACING)
-    call ClearTextMessagesBJ(GetPlayersAll())
-    set udg_D_Cell = GetLastCreatedUnit()
-    call RemoveLocation(udg_D_Point1)
-    set udg_D_Point1 = GetUnitLoc(udg_D_Cell)
-    call SetTerrainTypeBJ(udg_D_Point1, 0x58626C6D, - 1, 4, 1)
-    call SetTerrainTypeBJ(udg_D_Point1, udg_D_TextureType, - 1, 3, 1)
-    call RemoveLocation(udg_D_Point1)
-    set udg_D_Torches = 0
-    set udg_D_Chests = 0
-    if(Trig_Gen_Start_Func023C())then
-        set udg_D_CreepsTotal = 42
-        set udg_D_Rooms = 42
-        set udg_D_ChestsMax = 4
-    else
-        set udg_D_Rooms = (20 + (R2I(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target)) * 2))
-        set udg_D_CreepsTotal = (20 + (R2I(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target)) * 2))
-        set udg_D_ChestsMax = GetRandomInt(2, 4)
-    endif
-    if(Trig_Gen_Start_Func024C())then
-        set udg_D_CreepsTotal = 75
-    else
-    endif
-    if(Trig_Gen_Start_Func025C())then
-        set udg_D_Rooms = 64
-    else
-    endif
-    set udg_D_Portals = 0
-    set udg_D_PortalLogic[2] = false
-    call ConditionalTriggerExecute(gg_trg_Gen_Cells)
-endfunction
-function InitTrig_Gen_Start takes nothing returns nothing
-    set gg_trg_Gen_Start = CreateTrigger()
-    call TriggerAddAction(gg_trg_Gen_Start, function Trig_Gen_Start_Actions)
-endfunction
-function Trig_Gen_Cells_Func001Func006Func003Func002C takes nothing returns boolean
-    if(not(udg_D_PortalLogic[2] == false))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Cells_Func001Func006Func003A takes nothing returns nothing
-    set udg_D_Cell = GetEnumUnit()
-    if(Trig_Gen_Cells_Func001Func006Func003Func002C())then
-        set udg_D_Point1 = GetUnitLoc(udg_D_CellPrevious)
-        call CreateDestructableLoc(0x42303134, udg_D_Point1, GetRandomDirectionDeg(), 1, 0)
-        call RemoveLocation(udg_D_Point1)
-        set udg_D_PortalLogic[2] = true
-        set udg_D_Portals = (udg_D_Portals + 1)
-    else
-    endif
-    set udg_D_PortalLogic[1] = true
-    call DestroyGroup(udg_D_Pick)
-    set udg_D_Point1 = GetUnitLoc(udg_D_Cell)
-    set udg_D_Pick = GetUnitsInRangeOfLocAll(800.00, udg_D_Point1)
-    call RemoveLocation(udg_D_Point1)
-    call GroupRemoveGroup(udg_D_Pick2, udg_D_Pick)
-    call GroupRemoveUnitSimple(udg_D_Cell, udg_D_Pick)
-endfunction
-function Trig_Gen_Cells_Func001Func006C takes nothing returns boolean
-    if(not(CountUnitsInGroup(udg_D_Pick) == 0))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Cells_Func001Func007Func008C takes nothing returns boolean
-    if(not(udg_D_PortalLogic[1] == true))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Cells_Func001Func007A takes nothing returns nothing
-    set udg_D_Cell = GetEnumUnit()
-    set udg_D_Point1 = GetUnitLoc(udg_D_Cell)
-    call CreateNUnitsAtLoc(1, 0x6830304D, Player(0), udg_D_Point1, bj_UNIT_FACING)
-    set udg_D_CellPrevious = GetLastCreatedUnit()
-    set udg_D_CellNumber[bj_forLoopAIndex] = GetLastCreatedUnit()
-    call SetTerrainTypeBJ(udg_D_Point1, 0x58626C6D, - 1, 4, 1)
-    call SetTerrainTypeBJ(udg_D_Point1, udg_D_TextureType, - 1, 3, 1)
-    if(Trig_Gen_Cells_Func001Func007Func008C())then
-        set udg_D_PortalLogic[1] = false
-        call CreateDestructableLoc(0x42303134, udg_D_Point1, GetRandomDirectionDeg(), 1, 0)
-        set udg_D_Portals = (udg_D_Portals + 1)
-        call RemoveLocation(udg_D_Point1)
-    else
-    endif
-endfunction
-function Trig_Gen_Cells_Func001Func008Func002Func001C takes nothing returns boolean
-    if(not(udg_EM_BossCreate[1] == false))then
-        return false
-    endif
-    if(not(udg_EM_BossCreate[2] == false))then
-        return false
-    endif
-    if(not(udg_EM_BossCreate[3] == false))then
-        return false
-    endif
-    if(not(udg_EM_BossCreate[4] == false))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Cells_Func001Func008Func002C takes nothing returns boolean
-    if(not Trig_Gen_Cells_Func001Func008Func002Func001C())then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Cells_Func001Func008C takes nothing returns boolean
-    if(not(bj_forLoopAIndex == udg_D_Rooms))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Cells_Actions takes nothing returns nothing
-    set bj_forLoopAIndex = 1
-    set bj_forLoopAIndexEnd = udg_D_Rooms
-    loop
-        exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        set udg_D_Pick = GetUnitsInRangeOfLocAll(800.00, GetUnitLoc(udg_D_Cell))
-        set udg_D_Pick2 = GetUnitsOfTypeIdAll(0x6830304D)
-        call GroupRemoveGroup(udg_D_Pick2, udg_D_Pick)
-        call GroupRemoveUnitSimple(udg_D_Cell, udg_D_Pick)
-        call RemoveUnit(udg_D_Cell)
-        if(Trig_Gen_Cells_Func001Func006C())then
-            call DestroyGroup(udg_D_Pick)
-            set udg_D_Pick = GetUnitsOfTypeIdAll(0x6830304C)
-            call ForGroupBJ(GetRandomSubGroup(1, udg_D_Pick), function Trig_Gen_Cells_Func001Func006Func003A)
-        else
-        endif
-        call ForGroupBJ(GetRandomSubGroup(1, udg_D_Pick), function Trig_Gen_Cells_Func001Func007A)
-        if(Trig_Gen_Cells_Func001Func008C())then
-            set udg_D_Point1 = GetUnitLoc(udg_D_Cell)
-            if(Trig_Gen_Cells_Func001Func008Func002C())then
-                call SetUnitPositionLoc(udg_D_Exit, udg_D_Point1)
-            else
-            endif
-            call RemoveLocation(udg_D_Point1)
-            call RemoveUnit(udg_D_Cell)
-            set udg_D_Point1 = GetRectCenter(gg_rct_Dungeon_Center)
-            call CreateNUnitsAtLoc(1, 0x6830304D, Player(0), udg_D_Point1, bj_UNIT_FACING)
-            set udg_D_CellLast = GetLastCreatedUnit()
-            call RemoveLocation(udg_D_Point1)
-            set udg_D_CellNumber[0] = GetLastCreatedUnit()
-            set udg_D_Point1 = GetUnitLoc(udg_D_CellNumber[0])
-            call DestroyGroup(udg_D_Pick)
-            call StartTimerBJ(udg_D_Timer3, false, 0.10)
-        else
-        endif
-        call DestroyGroup(udg_D_Pick)
-        call DestroyGroup(udg_D_Pick2)
-        set bj_forLoopAIndex = bj_forLoopAIndex + 1
-    endloop
-endfunction
-function InitTrig_Gen_Cells takes nothing returns nothing
-    set gg_trg_Gen_Cells = CreateTrigger()
-    call TriggerAddAction(gg_trg_Gen_Cells, function Trig_Gen_Cells_Actions)
-endfunction
-function Trig_Gen_Rooms_Timer_Actions takes nothing returns nothing
-    call ConditionalTriggerExecute(gg_trg_Gen_Rooms)
-endfunction
-function InitTrig_Gen_Rooms_Timer takes nothing returns nothing
-    set gg_trg_Gen_Rooms_Timer = CreateTrigger()
-    call TriggerRegisterTimerExpireEventBJ(gg_trg_Gen_Rooms_Timer, udg_D_Timer3)
-    call TriggerAddAction(gg_trg_Gen_Rooms_Timer, function Trig_Gen_Rooms_Timer_Actions)
-endfunction
-function Trig_Gen_Rooms_Func002Func001Func005C takes nothing returns boolean
-    if(not(CountUnitsInGroup(udg_D_Pick2) == 3))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Func002Func001C takes nothing returns boolean
-    if(not(GetRandomInt(1, 2) == 1))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Func002A takes nothing returns nothing
-    if(Trig_Gen_Rooms_Func002Func001C())then
-        set udg_D_Pick2 = GetUnitsInRangeOfLocAll(800.00, GetUnitLoc(GetEnumUnit()))
-        set udg_D_Pick3 = GetUnitsOfTypeIdAll(0x6830304D)
-        call GroupRemoveGroup(udg_D_Pick3, udg_D_Pick2)
-        call DestroyGroup(udg_D_Pick3)
-        if(Trig_Gen_Rooms_Func002Func001Func005C())then
-            set udg_D_Point1 = GetUnitLoc(GetEnumUnit())
-            call RemoveUnit(GetEnumUnit())
-            call CreateNUnitsAtLoc(1, 0x68303054, Player(0), udg_D_Point1, bj_UNIT_FACING)
-            call SetTerrainTypeBJ(udg_D_Point1, 0x58626C6D, - 1, 4, 1)
-            call SetTerrainTypeBJ(udg_D_Point1, udg_D_TextureType, - 1, 3, 1)
-            call RemoveLocation(udg_D_Point1)
-        else
-        endif
-        call DestroyGroup(udg_D_Pick2)
-    else
-    endif
-endfunction
-function Trig_Gen_Rooms_Actions takes nothing returns nothing
-    set udg_D_Pick = GetUnitsOfTypeIdAll(0x6830304C)
-    call ForGroupBJ(udg_D_Pick, function Trig_Gen_Rooms_Func002A)
-    call DestroyGroup(udg_D_Pick)
-    call ConditionalTriggerExecute(gg_trg_Gen_Rooms_Walls)
-endfunction
-function InitTrig_Gen_Rooms takes nothing returns nothing
-    set gg_trg_Gen_Rooms = CreateTrigger()
-    call TriggerAddAction(gg_trg_Gen_Rooms, function Trig_Gen_Rooms_Actions)
-endfunction
-function Trig_Gen_Rooms_Walls_Func002Func004A takes nothing returns nothing
-    set udg_RandomNumber = (udg_RandomNumber + 1)
-endfunction
-function Trig_Gen_Rooms_Walls_Func002Func005C takes nothing returns boolean
-    if(not(udg_RandomNumber == 0))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Walls_Func002Func009A takes nothing returns nothing
-    set udg_RandomNumber = (udg_RandomNumber + 1)
-endfunction
-function Trig_Gen_Rooms_Walls_Func002Func010C takes nothing returns boolean
-    if(not(udg_RandomNumber == 0))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Walls_Func002Func014A takes nothing returns nothing
-    set udg_RandomNumber = (udg_RandomNumber + 1)
-endfunction
-function Trig_Gen_Rooms_Walls_Func002Func015C takes nothing returns boolean
-    if(not(udg_RandomNumber == 0))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Walls_Func002Func019A takes nothing returns nothing
-    set udg_RandomNumber = (udg_RandomNumber + 1)
-endfunction
-function Trig_Gen_Rooms_Walls_Func002Func020C takes nothing returns boolean
-    if(not(udg_RandomNumber == 0))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Walls_Func002A takes nothing returns nothing
-    set udg_D_Point2 = GetUnitLoc(GetEnumUnit())
-    set udg_D_PointOffset = OffsetLocation(udg_D_Point2, 400.00, 0)
-    set udg_RandomNumber = 0
-    call EnumDestructablesInCircleBJ(256.00, udg_D_PointOffset, function Trig_Gen_Rooms_Walls_Func002Func004A)
-    if(Trig_Gen_Rooms_Walls_Func002Func005C())then
-        call CreateDestructableLoc(udg_D_WallTierTypeRoom[3], udg_D_PointOffset, 0.00, 1.40, 0)
-        call SetDestructableOccluderHeight(GetLastCreatedDestructable(), 1.00)
-    else
-    endif
-    set udg_RandomNumber = 0
-    call RemoveLocation(udg_D_PointOffset)
-    set udg_D_PointOffset = OffsetLocation(udg_D_Point2, 0.00, - 400.00)
-    call EnumDestructablesInCircleBJ(256.00, udg_D_PointOffset, function Trig_Gen_Rooms_Walls_Func002Func009A)
-    if(Trig_Gen_Rooms_Walls_Func002Func010C())then
-        call CreateDestructableLoc(udg_D_WallTierTypeRoom[1], udg_D_PointOffset, 0.00, 1.40, 0)
-    else
-    endif
-    set udg_RandomNumber = 0
-    call RemoveLocation(udg_D_PointOffset)
-    set udg_D_PointOffset = OffsetLocation(udg_D_Point2, - 350.00, 0.00)
-    call EnumDestructablesInCircleBJ(256.00, udg_D_PointOffset, function Trig_Gen_Rooms_Walls_Func002Func014A)
-    if(Trig_Gen_Rooms_Walls_Func002Func015C())then
-        call CreateDestructableLoc(udg_D_WallTierTypeRoom[4], udg_D_PointOffset, 0.00, 1.40, 0)
-        call SetDestructableOccluderHeight(GetLastCreatedDestructable(), 1.00)
-    else
-    endif
-    set udg_RandomNumber = 0
-    call RemoveLocation(udg_D_PointOffset)
-    set udg_D_PointOffset = OffsetLocation(udg_D_Point2, 0.00, 350.00)
-    call EnumDestructablesInCircleBJ(256.00, udg_D_PointOffset, function Trig_Gen_Rooms_Walls_Func002Func019A)
-    if(Trig_Gen_Rooms_Walls_Func002Func020C())then
-        call CreateDestructableLoc(udg_D_WallTierTypeRoom[2], udg_D_PointOffset, 0.00, 1.40, 0)
-    else
-    endif
-    call RemoveLocation(udg_D_PointOffset)
-    call RemoveLocation(udg_D_Point2)
-endfunction
-function Trig_Gen_Rooms_Walls_Func004Func001Func001C takes nothing returns boolean
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x4230314A))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303151))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303149))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303152))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303236))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303237))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303238))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303239))then
-        return true
-    endif
-    return false
-endfunction
-function Trig_Gen_Rooms_Walls_Func004Func001C takes nothing returns boolean
-    if(not Trig_Gen_Rooms_Walls_Func004Func001Func001C())then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Walls_Func004A takes nothing returns nothing
-    if(Trig_Gen_Rooms_Walls_Func004Func001C())then
-        call RemoveDestructable(GetEnumDestructable())
-    else
-    endif
-endfunction
-function Trig_Gen_Rooms_Walls_Func005Func001Func001C takes nothing returns boolean
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x4230314A))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303151))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303149))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303152))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303236))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303237))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303238))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303239))then
-        return true
-    endif
-    return false
-endfunction
-function Trig_Gen_Rooms_Walls_Func005Func001C takes nothing returns boolean
-    if(not Trig_Gen_Rooms_Walls_Func005Func001Func001C())then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Walls_Func005A takes nothing returns nothing
-    if(Trig_Gen_Rooms_Walls_Func005Func001C())then
-        call RemoveDestructable(GetEnumDestructable())
-    else
-    endif
-endfunction
-function Trig_Gen_Rooms_Walls_Actions takes nothing returns nothing
-    set udg_D_Pick = GetUnitsOfTypeIdAll(0x68303054)
-    call ForGroupBJ(udg_D_Pick, function Trig_Gen_Rooms_Walls_Func002A)
-    call DestroyGroup(udg_D_Pick)
-    call EnumDestructablesInRectAll(gg_rct_Cell3_Delete_1, function Trig_Gen_Rooms_Walls_Func004A)
-    call EnumDestructablesInRectAll(gg_rct_Cell3_Delete_2, function Trig_Gen_Rooms_Walls_Func005A)
-    call ConditionalTriggerExecute(gg_trg_Gen_Rooms_Doors)
-endfunction
-function InitTrig_Gen_Rooms_Walls takes nothing returns nothing
-    set gg_trg_Gen_Rooms_Walls = CreateTrigger()
-    call TriggerAddAction(gg_trg_Gen_Rooms_Walls, function Trig_Gen_Rooms_Walls_Actions)
-endfunction
-function Trig_Gen_Rooms_Doors_Func002Func009Func002Func002A takes nothing returns nothing
-    call RemoveDestructable(GetEnumDestructable())
-endfunction
-function Trig_Gen_Rooms_Doors_Func002Func009Func002Func003C takes nothing returns boolean
-    if(not(GetRandomInt(1, 20) == 1))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Doors_Func002Func009Func002C takes nothing returns boolean
-    if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) == 180.00))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Doors_Func002Func009Func003Func002A takes nothing returns nothing
-    call RemoveDestructable(GetEnumDestructable())
-endfunction
-function Trig_Gen_Rooms_Doors_Func002Func009Func003Func003C takes nothing returns boolean
-    if(not(GetRandomInt(1, 20) == 1))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Doors_Func002Func009Func003C takes nothing returns boolean
-    if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) == 90.00))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Doors_Func002Func009Func004Func002A takes nothing returns nothing
-    call RemoveDestructable(GetEnumDestructable())
-endfunction
-function Trig_Gen_Rooms_Doors_Func002Func009Func004Func003C takes nothing returns boolean
-    if(not(GetRandomInt(1, 20) == 1))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Doors_Func002Func009Func004C takes nothing returns boolean
-    if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) == 0.00))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Doors_Func002Func009Func005Func002A takes nothing returns nothing
-    call RemoveDestructable(GetEnumDestructable())
-endfunction
-function Trig_Gen_Rooms_Doors_Func002Func009Func005Func003C takes nothing returns boolean
-    if(not(GetRandomInt(1, 20) == 1))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Doors_Func002Func009Func005C takes nothing returns boolean
-    if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) ==- 90.00))then
-        return false
-    endif
-    return true
-endfunction
-function Trig_Gen_Rooms_Doors_Func002Func009A takes nothing returns nothing
-    set udg_D_Point2 = GetUnitLoc(GetEnumUnit())
-    if(Trig_Gen_Rooms_Doors_Func002Func009Func002C())then
-        set udg_D_PointOffset = OffsetLocation(udg_D_Point2, 400.00, 0)
-        call EnumDestructablesInCircleBJ(256.00, udg_D_PointOffset, function Trig_Gen_Rooms_Doors_Func002Func009Func002Func002A)
-        if(Trig_Gen_Rooms_Doors_Func002Func009Func002Func003C())then
-            call CreateDestructableLoc(0x42303159, udg_D_PointOffset, 0.00, 1.60, 0)
-        else
-            call CreateDestructableLoc(0x4230314C, udg_D_PointOffset, 0.00, 1.60, 0)
-        endif
-        set udg_D_PointOffsetDoors = OffsetLocation(udg_D_PointOffset, 0.00, 150.00)
-        call CreateDestructableLoc(udg_D_WallTierTypeDoor[3], udg_D_PointOffsetDoors, 0.00, 1.40, 0)
-        call RemoveLocation(udg_D_PointOffsetDoors)
-        set udg_D_PointOffsetDoors = OffsetLocation(udg_D_PointOffset, 0.00, - 200.00)
-        call CreateDestructableLoc(udg_D_WallTierTypeDoor[4], udg_D_PointOffsetDoors, 0.00, 1.39, 0)
-        call RemoveLocation(udg_D_PointOffsetDoors)
-        call RemoveLocation(udg_D_PointOffset)
-    else
-    endif
-    if(Trig_Gen_Rooms_Doors_Func002Func009Func003C())then
-        set udg_D_PointOffset = OffsetLocation(udg_D_Point2, 0.00, - 400.00)
-        call EnumDestructablesInCircleBJ(256.00, udg_D_PointOffset, function Trig_Gen_Rooms_Doors_Func002Func009Func003Func002A)
-        if(Trig_Gen_Rooms_Doors_Func002Func009Func003Func003C())then
-            call CreateDestructableLoc(0x4230315A, udg_D_PointOffset, 0.00, 1.60, 0)
-        else
-            call CreateDestructableLoc(0x4230314B, udg_D_PointOffset, 0.00, 1.60, 0)
-        endif
-        set udg_D_PointOffsetDoors = OffsetLocation(udg_D_PointOffset, 200.00, 0)
-        call CreateDestructableLoc(udg_D_WallTierTypeDoor[2], udg_D_PointOffsetDoors, 0.00, 1.40, 0)
-        call RemoveLocation(udg_D_PointOffsetDoors)
-        set udg_D_PointOffsetDoors = OffsetLocation(udg_D_PointOffset, - 150.00, 0)
-        call CreateDestructableLoc(udg_D_WallTierTypeDoor[1], udg_D_PointOffsetDoors, 0.00, 1.39, 0)
-        call RemoveLocation(udg_D_PointOffsetDoors)
-        call RemoveLocation(udg_D_PointOffset)
-    else
-    endif
-    if(Trig_Gen_Rooms_Doors_Func002Func009Func004C())then
-        set udg_D_PointOffset = OffsetLocation(udg_D_Point2, - 350.00, 0.00)
-        call EnumDestructablesInCircleBJ(256.00, udg_D_PointOffset, function Trig_Gen_Rooms_Doors_Func002Func009Func004Func002A)
-        if(Trig_Gen_Rooms_Doors_Func002Func009Func004Func003C())then
-            call CreateDestructableLoc(0x42303159, udg_D_PointOffset, 0.00, 1.60, 0)
-        else
-            call CreateDestructableLoc(0x4230314C, udg_D_PointOffset, 0.00, 1.60, 0)
-        endif
-        set udg_D_PointOffsetDoors = OffsetLocation(udg_D_PointOffset, 0.00, 150.00)
-        call CreateDestructableLoc(udg_D_WallTierTypeDoor[3], udg_D_PointOffsetDoors, 0.00, 1.40, 0)
-        call RemoveLocation(udg_D_PointOffsetDoors)
-        set udg_D_PointOffsetDoors = OffsetLocation(udg_D_PointOffset, 0.00, - 200.00)
-        call CreateDestructableLoc(udg_D_WallTierTypeDoor[4], udg_D_PointOffsetDoors, 0.00, 1.39, 0)
-        call RemoveLocation(udg_D_PointOffsetDoors)
-        call RemoveLocation(udg_D_PointOffset)
-    else
-    endif
-    if(Trig_Gen_Rooms_Doors_Func002Func009Func005C())then
-        set udg_D_PointOffset = OffsetLocation(udg_D_Point2, 0.00, 350.00)
-        call EnumDestructablesInCircleBJ(256.00, udg_D_PointOffset, function Trig_Gen_Rooms_Doors_Func002Func009Func005Func002A)
-        if(Trig_Gen_Rooms_Doors_Func002Func009Func005Func003C())then
-            call CreateDestructableLoc(0x4230315A, udg_D_PointOffset, 0.00, 1.60, 0)
-        else
-            call CreateDestructableLoc(0x4230314B, udg_D_PointOffset, 0.00, 1.60, 0)
-        endif
-        set udg_D_PointOffsetDoors = OffsetLocation(udg_D_PointOffset, 200.00, 0)
-        call CreateDestructableLoc(udg_D_WallTierTypeDoor[2], udg_D_PointOffsetDoors, 0.00, 1.40, 0)
-        call RemoveLocation(udg_D_PointOffsetDoors)
-        set udg_D_PointOffsetDoors = OffsetLocation(udg_D_PointOffset, - 150.00, 0)
-        call CreateDestructableLoc(udg_D_WallTierTypeDoor[1], udg_D_PointOffsetDoors, 0.00, 1.39, 0)
-        call RemoveLocation(udg_D_PointOffsetDoors)
-        call RemoveLocation(udg_D_PointOffset)
-    else
-    endif
-    call RemoveLocation(udg_D_Point2)
-endfunction
-function Trig_Gen_Rooms_Doors_Func002A takes nothing returns nothing
-    set udg_D_Point1 = GetUnitLoc(GetEnumUnit())
-    set udg_D_Pick2 = GetUnitsInRangeOfLocAll(800.00, GetUnitLoc(GetEnumUnit()))
-    set udg_D_Pick3 = GetUnitsOfTypeIdAll(0x6830304C)
-    call GroupRemoveGroup(udg_D_Pick3, udg_D_Pick2)
-    call DestroyGroup(udg_D_Pick3)
-    set udg_D_Pick3 = GetUnitsOfTypeIdAll(0x68303054)
-    call GroupRemoveGroup(udg_D_Pick3, udg_D_Pick2)
-    call DestroyGroup(udg_D_Pick3)
-    call ForGroupBJ(GetRandomSubGroup(1, udg_D_Pick2), function Trig_Gen_Rooms_Doors_Func002Func009A)
-    call RemoveLocation(udg_D_Point1)
-    call DestroyGroup(udg_D_Pick2)
-endfunction
-function Trig_Gen_Rooms_Doors_Actions takes nothing returns nothing
-    set udg_D_Pick = GetUnitsOfTypeIdAll(0x68303054)
-    call ForGroupBJ(udg_D_Pick, function Trig_Gen_Rooms_Doors_Func002A)
-    call DestroyGroup(udg_D_Pick)
-    call StartTimerBJ(udg_D_Timer, false, 0.10)
-endfunction
-function InitTrig_Gen_Rooms_Doors takes nothing returns nothing
-    set gg_trg_Gen_Rooms_Doors = CreateTrigger()
-    call TriggerAddAction(gg_trg_Gen_Rooms_Doors, function Trig_Gen_Rooms_Doors_Actions)
-endfunction
 function Trig_Gen_Walls_Func005Func009Func001Func002C takes nothing returns boolean
     if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) == 180.00))then
         return false
@@ -8194,7 +2470,7 @@ function Trig_Gen_Events_Actions takes nothing returns nothing
         call SetDayNightModels("", "")
         call SetTerrainFogExBJ(0, 0.00, 4000.00, 0.50, 0.00, 0.00, 0.00)
         call StartTimerBJ(udg_DungeonDarkTimer, false, (120.00 + I2R(GetHeroStatBJ(bj_HEROSTAT_STR, udg_Arct, true))))
-        call CreateTimerDialogBJ(GetLastCreatedTimerBJ(), "Бесстрашие: |n")
+        call CreateTimerDialogBJ(GetLastCreatedTimerBJ(), "Бесстрашие: ")
         set udg_DungeonDarkTimerWindow = GetLastCreatedTimerDialogBJ()
         call EnableTrigger(gg_trg_Dungeon_Dark)
     else
@@ -8886,8 +3162,8 @@ function Trig_Pause_Off_Actions takes nothing returns nothing
     if(Trig_Pause_Off_Func005C())then
         set udg_TutorialHint[3] = true
         call DialogClearBJ(udg_TeleportDialog)
-        call DialogSetMessageBJ(udg_TeleportDialog, "Смерть для Аркта не страшна, но|nвсё равно умирая он будет терять|nвсе предметы снаряжения. Твоя |nцель: найти и убить хозяина уровня. |nВ зависимости от сложности зависит |nнаграда за прохождение уровня. |nДа пребудут с тобой Боги Эдемиума.|n")
-        call DialogAddButtonBJ(udg_TeleportDialog, "Понятно, спасибо!|n")
+        call DialogSetMessageBJ(udg_TeleportDialog, "Смерть для Аркта не страшна, но|nвсё равно умирая он будет терять|nвсе предметы снаряжения. Твоя |nцель: найти и убить хозяина уровня. |nВ зависимости от сложности зависит |nнаграда за прохождение уровня. |nДа пребудут с тобой Боги Эдемиума.")
+        call DialogAddButtonBJ(udg_TeleportDialog, "Понятно, спасибо!")
         call DialogDisplayBJ(true, udg_TeleportDialog, Player(0))
         call TriggerSleepAction(1.00)
         set udg_TutorialHint[4] = true
@@ -8902,7 +3178,7 @@ function Trig_Pause_Off_Actions takes nothing returns nothing
     if(Trig_Pause_Off_Func006C())then
         if(Trig_Pause_Off_Func006Func001C())then
             set udg_Boss3PortalCounter = 0
-            call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Бледная Королева|n", gg_snd_AbominationYesAttack3, "Свежее мясо!|n", bj_TIMETYPE_ADD, 0, false)
+            call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Бледная Королева", gg_snd_AbominationYesAttack3, "Свежее мясо!", bj_TIMETYPE_ADD, 0, false)
             call EnableTrigger(gg_trg_Boss_III_Creep_Spawn)
             call EnableTrigger(gg_trg_Boss_III_Portal_Spawn)
             call EnableTrigger(gg_trg_Boss_III_Phase_2_Init)
@@ -8926,12 +3202,12 @@ function Trig_Events_Elapsed_Actions takes nothing returns nothing
     if(Trig_Events_Elapsed_Func002C())then
         set udg_EventAttribute = (10 + GetHeroLevel(udg_Arct))
         call DialogClearBJ(udg_EdemEventDialog)
-        call DialogSetMessageBJ(udg_EdemEventDialog, "Бродя по Эдемиуму, его стены всегда |nказались Аркту безупречно гладкими, |nбудто вытесанный и отполированный |nмрамор, однако в одном месте Аркт|nслучайно нащупал небольшое |nотверстие, идеально подходящее для |nуказательного пальца. Стоит ли Аркту |nпросунуть в отверстие палец, или нет?|n")
-        call DialogAddButtonBJ(udg_EdemEventDialog, "Засунуть палец.|n")
+        call DialogSetMessageBJ(udg_EdemEventDialog, "Бродя по Эдемиуму, его стены всегда |nказались Аркту безупречно гладкими, |nбудто вытесанный и отполированный |nмрамор, однако в одном месте Аркт|nслучайно нащупал небольшое |nотверстие, идеально подходящее для |nуказательного пальца. Стоит ли Аркту |nпросунуть в отверстие палец, или нет?")
+        call DialogAddButtonBJ(udg_EdemEventDialog, "Засунуть палец.")
         set udg_EdemEventButton[1] = GetLastCreatedButtonBJ()
         call DialogAddButtonBJ(udg_EdemEventDialog, ("Осмотреться (необходимо " + (I2S(udg_EventAttribute) + " мудрости).")))
         set udg_EdemEventButton[2] = GetLastCreatedButtonBJ()
-        call DialogAddButtonBJ(udg_EdemEventDialog, "Пройти мимо.|n")
+        call DialogAddButtonBJ(udg_EdemEventDialog, "Пройти мимо.")
         call DialogDisplayBJ(true, udg_EdemEventDialog, Player(0))
     else
     endif
@@ -8990,8 +3266,8 @@ function Trig_Events_Buttons_Actions takes nothing returns nothing
     if(Trig_Events_Buttons_Func002C())then
         if(Trig_Events_Buttons_Func002Func001C())then
             call DialogClearBJ(udg_EdemEventDialog)
-            call DialogSetMessageBJ(udg_EdemEventDialog, "Просунув палец в отверстие, оно с |nгрохотом захлопывается, оставляя |nпалец Аркта навечно запечатанным|nв стене. Резкий крик боли разлета-|nется по залам Эдемиума, оглашая |nмонстров о присутствии незваного|nгостя. Истекая кровью и с пеленой|nна глазах, Аркт продолжает схватку|nс монстрами, с Эдемиумом и с|nсамим собой.|n")
-            call DialogAddButtonBJ(udg_EdemEventDialog, "Замечательно!|n")
+            call DialogSetMessageBJ(udg_EdemEventDialog, "Просунув палец в отверстие, оно с |nгрохотом захлопывается, оставляя |nпалец Аркта навечно запечатанным|nв стене. Резкий крик боли разлета-|nется по залам Эдемиума, оглашая |nмонстров о присутствии незваного|nгостя. Истекая кровью и с пеленой|nна глазах, Аркт продолжает схватку|nс монстрами, с Эдемиумом и с|nсамим собой.")
+            call DialogAddButtonBJ(udg_EdemEventDialog, "Замечательно!")
             call DialogDisplayBJ(true, udg_EdemEventDialog, Player(0))
             set udg_Point = GetUnitLoc(udg_Arct)
             call CreateNUnitsAtLoc(1, 0x68303039, Player(11), udg_Point, bj_UNIT_FACING)
@@ -9012,8 +3288,8 @@ function Trig_Events_Buttons_Actions takes nothing returns nothing
                 endif
                 if(Trig_Events_Buttons_Func002Func001Func001Func002C())then
                     call DialogClearBJ(udg_EdemEventDialog)
-                    call DialogSetMessageBJ(udg_EdemEventDialog, "Может Аркт и опрометчив, но сейчас |nему кажется всё слишком подозри- |nтельным. Пошарив немного вокруг |nон находит небольшой кусок деревян- |nной рукояти молота. Аркт отсёк |nлишнее мечем и засунул палку в |nотверстие. Оно захлопнулось, разло- |nмав отесанную рукоять пополам, од- |nнако рядом с Арктом появился |nтяжеленный сундук.|n")
-                    call DialogAddButtonBJ(udg_EdemEventDialog, "Замечательно!|n")
+                    call DialogSetMessageBJ(udg_EdemEventDialog, "Может Аркт и опрометчив, но сейчас |nему кажется всё слишком подозри- |nтельным. Пошарив немного вокруг |nон находит небольшой кусок деревян- |nной рукояти молота. Аркт отсёк |nлишнее мечем и засунул палку в |nотверстие. Оно захлопнулось, разло- |nмав отесанную рукоять пополам, од- |nнако рядом с Арктом появился |nтяжеленный сундук.")
+                    call DialogAddButtonBJ(udg_EdemEventDialog, "Замечательно!")
                     call DialogDisplayBJ(true, udg_EdemEventDialog, Player(0))
                     set udg_Point = GetUnitLoc(udg_Arct)
                     call CreateNUnitsAtLoc(1, 0x6E303046, Player(PLAYER_NEUTRAL_PASSIVE), udg_Point, 180.00)
@@ -9023,10 +3299,10 @@ function Trig_Events_Buttons_Actions takes nothing returns nothing
                     endif
                 else
                     call DialogClearBJ(udg_EdemEventDialog)
-                    call DialogSetMessageBJ(udg_EdemEventDialog, "Может Аркт и опрометчив, но сейчас |nему кажется всё слишком подозри- |nтельным. Он решает пошарить немно- |nго вокруг, однако найти что-нибудь |nподходящее так и не получилось. |nКругом только пыль, ржавое железо |nи старые кости.|n")
-                    call DialogAddButtonBJ(udg_EdemEventDialog, "Просунуть палец.|n")
+                    call DialogSetMessageBJ(udg_EdemEventDialog, "Может Аркт и опрометчив, но сейчас |nему кажется всё слишком подозри- |nтельным. Он решает пошарить немно- |nго вокруг, однако найти что-нибудь |nподходящее так и не получилось. |nКругом только пыль, ржавое железо |nи старые кости.")
+                    call DialogAddButtonBJ(udg_EdemEventDialog, "Просунуть палец.")
                     set udg_EdemEventButton[1] = GetLastCreatedButtonBJ()
-                    call DialogAddButtonBJ(udg_EdemEventDialog, "Пройти мимо.|n")
+                    call DialogAddButtonBJ(udg_EdemEventDialog, "Пройти мимо.")
                     call DialogDisplayBJ(true, udg_EdemEventDialog, Player(0))
                 endif
             else
@@ -9165,9 +3441,9 @@ function Trig_Dungeon_Cold_Hearth_Actions takes nothing returns nothing
     else
         call IssuePointOrderLocBJ(udg_Arct, "move", udg_Point)
         if(Trig_Dungeon_Cold_Hearth_Func003Func004C())then
-            call CreateTextTagUnitBJ("Поближе бы...|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+            call CreateTextTagUnitBJ("Поближе бы...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
         else
-            call CreateTextTagUnitBJ("Слишком далеко.|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+            call CreateTextTagUnitBJ("Слишком далеко.", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
         endif
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
@@ -9204,15 +3480,15 @@ function Trig_Dungeon_Cold_Text_Func001C takes nothing returns boolean
 endfunction
 function Trig_Dungeon_Cold_Text_Actions takes nothing returns nothing
     if(Trig_Dungeon_Cold_Text_Func001C())then
-        call SetTextTagTextBJ(udg_DungeonColdText, "|cFF449EFFI|rII|n", 11.00)
+        call SetTextTagTextBJ(udg_DungeonColdText, "|cFF449EFFI|rII", 11.00)
     else
         if(Trig_Dungeon_Cold_Text_Func001Func001C())then
-            call SetTextTagTextBJ(udg_DungeonColdText, "|cFF449EFFII|rI|n", 11.00)
+            call SetTextTagTextBJ(udg_DungeonColdText, "|cFF449EFFII|rI", 11.00)
         else
             if(Trig_Dungeon_Cold_Text_Func001Func001Func001C())then
-                call SetTextTagTextBJ(udg_DungeonColdText, "|cFF449EFFIII|r|n", 11.00)
+                call SetTextTagTextBJ(udg_DungeonColdText, "|cFF449EFFIII|r", 11.00)
             else
-                call SetTextTagTextBJ(udg_DungeonColdText, "III|n", 11.00)
+                call SetTextTagTextBJ(udg_DungeonColdText, "III", 11.00)
             endif
         endif
     endif
@@ -9321,22 +3597,22 @@ function Trig_Dungeon_Battle_Portal_Actions takes nothing returns nothing
         call EnableTrigger(gg_trg_Follower_Movement)
         set udg_RandomNumber = GetRandomInt(1, 9)
         if(Trig_Dungeon_Battle_Portal_Func003Func017C())then
-            call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_HeroPaladinYesAttack1, "Да свершится правосудие!|n", bj_TIMETYPE_ADD, 0, false)
+            call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_HeroPaladinYesAttack1, "Да свершится правосудие!", bj_TIMETYPE_ADD, 0, false)
         else
             if(Trig_Dungeon_Battle_Portal_Func003Func017Func001C())then
-                call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_HeroPaladinYesAttack2, "Во имя Света!|n", bj_TIMETYPE_ADD, 0, false)
+                call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_HeroPaladinYesAttack2, "Во имя Света!", bj_TIMETYPE_ADD, 0, false)
             else
                 if(Trig_Dungeon_Battle_Portal_Func003Func017Func001Func001C())then
-                    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_HeroPaladinYesAttack3, "Смерть неверным!|n", bj_TIMETYPE_ADD, 0, false)
+                    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_HeroPaladinYesAttack3, "Смерть неверным!", bj_TIMETYPE_ADD, 0, false)
                 else
                     if(Trig_Dungeon_Battle_Portal_Func003Func017Func001Func001Func001C())then
-                        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_ArthasWhat1, "Свет даёт мне силу!|n", bj_TIMETYPE_ADD, 0, false)
+                        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_ArthasWhat1, "Свет даёт мне силу!", bj_TIMETYPE_ADD, 0, false)
                     else
                         if(Trig_Dungeon_Battle_Portal_Func003Func017Func001Func001Func001Func001C())then
-                            call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_PriestYesAttack3, "Свет испепелит тебя!|n", bj_TIMETYPE_ADD, 0, false)
+                            call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_PriestYesAttack3, "Свет испепелит тебя!", bj_TIMETYPE_ADD, 0, false)
                         else
                             if(Trig_Dungeon_Battle_Portal_Func003Func017Func001Func001Func001Func001Func001C())then
-                                call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_FootmanYesAttack3, "К оружию!|n", bj_TIMETYPE_ADD, 0, false)
+                                call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_FootmanYesAttack3, "К оружию!", bj_TIMETYPE_ADD, 0, false)
                             else
                             endif
                         endif
@@ -9347,9 +3623,9 @@ function Trig_Dungeon_Battle_Portal_Actions takes nothing returns nothing
     else
         call IssuePointOrderLocBJ(udg_Arct, "move", udg_Point)
         if(Trig_Dungeon_Battle_Portal_Func003Func004C())then
-            call CreateTextTagUnitBJ("Поближе бы...|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+            call CreateTextTagUnitBJ("Поближе бы...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
         else
-            call CreateTextTagUnitBJ("Слишком далеко.|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+            call CreateTextTagUnitBJ("Слишком далеко.", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
         endif
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
@@ -10627,28 +4903,28 @@ function Trig_IG_Text_Actions takes nothing returns nothing
         endif
         if(Trig_IG_Text_Func008Func014C())then
             if(Trig_IG_Text_Func008Func014Func001C())then
-                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFFFFFC2Скорость Света|r: рывок в указанную точку; при достижении врага он отталкивается и получает урон (зависит от стойкости)|n")
+                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFFFFFC2Скорость Света|r: рывок в указанную точку; при достижении врага он отталкивается и получает урон (зависит от стойкости)")
             else
                 if(Trig_IG_Text_Func008Func014Func001Func001C())then
-                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFFF4F20Огненный шар|r: все монстры вокруг указанной точки получают урон (зависит от мудрости и стойкости)|n")
+                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFFF4F20Огненный шар|r: все монстры вокруг указанной точки получают урон (зависит от мудрости и стойкости)")
                 else
                     if(Trig_IG_Text_Func008Func014Func001Func001Func001C())then
-                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFFF6C76Ослабление|r: понижает скорость и силу атаки цели на 50% на 10 сек.|n")
+                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFFF6C76Ослабление|r: понижает скорость и силу атаки цели на 50% на 10 сек.")
                     else
                         if(Trig_IG_Text_Func008Func014Func001Func001Func001Func001C())then
-                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFA05AFFСлово Пилигрима|r: подчиняет указанного противника (время зависит от мудрости)|n")
+                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFA05AFFСлово Пилигрима|r: подчиняет указанного противника (время зависит от мудрости)")
                         else
                             if(Trig_IG_Text_Func008Func014Func001Func001Func001Func001Func001C())then
-                                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFFFFFC9Освобождение|r: мгновенно убивает слабого врага у которого меньше 50% здоровья и создаёт Свет (кол-во зависит от ловкости)|n")
+                                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFFFFFC9Освобождение|r: мгновенно убивает слабого врага у которого меньше 50% здоровья и создаёт Свет (кол-во зависит от ловкости)")
                             else
                                 if(Trig_IG_Text_Func008Func014Func001Func001Func001Func001Func001Func001C())then
-                                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFFFDC00Осырение|r: превращает указанного монстра в сыр на 5 сек.|n")
+                                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFFFDC00Осырение|r: превращает указанного монстра в сыр на 5 сек.")
                                 else
                                     if(Trig_IG_Text_Func008Func014Func001Func001Func001Func001Func001Func001Func001C())then
-                                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBF00Пугало|r: создает на несколько секунд провоцирующее монстров пугало|n")
+                                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBF00Пугало|r: создает на несколько секунд провоцирующее монстров пугало")
                                     else
                                         if(Trig_IG_Text_Func008Func014Func001Func001Func001Func001Func001Func001Func001Func001C())then
-                                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFA90000Жнец|r: крадёт здоровье монстра и передает Аркту (зависит от ловкости)|n")
+                                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFA90000Жнец|r: крадёт здоровье монстра и передает Аркту (зависит от ловкости)")
                                         else
                                         endif
                                     endif
@@ -10679,19 +4955,19 @@ function Trig_IG_Text_Actions takes nothing returns nothing
             else
             endif
             if(Trig_IG_Text_Func008Func001Func007C())then
-                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF00AD50Ядовитое|r (при разгроме): волна яда, отравлящая стоящих перед Арктом монстров|n")
+                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF00AD50Ядовитое|r (при разгроме): волна яда, отравлящая стоящих перед Арктом монстров")
             else
                 if(Trig_IG_Text_Func008Func001Func007Func001C())then
-                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF81DBF5Морозное|r (при разгроме): замедляет скорость монстра и высасывает энергию|n")
+                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF81DBF5Морозное|r (при разгроме): замедляет скорость монстра и высасывает энергию")
                 else
                     if(Trig_IG_Text_Func008Func001Func007Func001Func001C())then
-                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF8C7A00Проклятое|r (при разгроме): сильно снижает защиту монстра и исцеляет Аркта|n")
+                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF8C7A00Проклятое|r (при разгроме): сильно снижает защиту монстра и исцеляет Аркта")
                     else
                         if(Trig_IG_Text_Func008Func001Func007Func001Func001Func001C())then
-                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF9E24A2Магическое|r (при разгроме): оглушает и временно повышает шанс разгрома|n")
+                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF9E24A2Магическое|r (при разгроме): оглушает и временно повышает шанс разгрома")
                         else
                             if(Trig_IG_Text_Func008Func001Func007Func001Func001Func001Func001C())then
-                                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF00DB93Астральное|r: разгром наносит урон монстрам всем вокруг|n")
+                                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF00DB93Астральное|r: разгром наносит урон монстрам всем вокруг")
                             else
                             endif
                         endif
@@ -10718,16 +4994,16 @@ function Trig_IG_Text_Actions takes nothing returns nothing
                 endif
                 if(Trig_IG_Text_Func008Func001Func001Func006C())then
                     if(Trig_IG_Text_Func008Func001Func001Func006Func001C())then
-                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFE32B00Жизнеотвод|r: восстанавливает энергию (10%) за счёт здоровья (20%)|n")
+                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFE32B00Жизнеотвод|r: восстанавливает энергию (10%) за счёт здоровья (20%)")
                     else
                         if(Trig_IG_Text_Func008Func001Func001Func006Func001Func001C())then
-                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF449EFFДушеотвод|r: восстанавливает здоровье (20%) за счёт энергии (20%)|n")
+                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF449EFFДушеотвод|r: восстанавливает здоровье (20%) за счёт энергии (20%)")
                         else
                             if(Trig_IG_Text_Func008Func001Func001Func006Func001Func001Func001C())then
-                                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF449EFFРунический доспех|r: создаёт случайный свиток (ценой 50% энергии)|n")
+                                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF449EFFРунический доспех|r: создаёт случайный свиток (ценой 50% энергии)")
                             else
                                 if(Trig_IG_Text_Func008Func001Func001Func006Func001Func001Func001Func001C())then
-                                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF90DFFFЗащитные символы|r: отталкивает всех вокруг и наносит урон (зависит от стойкости и ловкости)|n")
+                                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF90DFFFЗащитные символы|r: отталкивает всех вокруг и наносит урон (зависит от стойкости и ловкости)")
                                 else
                                 endif
                             endif
@@ -10925,64 +5201,64 @@ endfunction
 function Trig_Core_Secret_Select_Actions takes nothing returns nothing
     call ClearTextMessagesBJ(GetPlayersAll())
     if(Trig_Core_Secret_Select_Func003C())then
-        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Энергии Света|r: поднятие Света восстанавливает энергию (1 ед. за уровень).|n|cFFBFBFC2Элементы|r: 3 субстанции смерти, 3 души превратности.|n")
+        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Энергии Света|r: поднятие Света восстанавливает энергию (1 ед. за уровень).|n|cFFBFBFC2Элементы|r: 3 субстанции смерти, 3 души превратности.")
     else
         if(Trig_Core_Secret_Select_Func003Func001C())then
-            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Сущности Света|r: в бою каждые десять секунд создается Свет (1 ед. за уровень).|n|cFFBFBFC2Элементы|r: 3 субстанции смерти, 2 души превратности.|n")
+            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Сущности Света|r: в бою каждые десять секунд создается Свет (1 ед. за уровень).|n|cFFBFBFC2Элементы|r: 3 субстанции смерти, 2 души превратности.")
         else
             if(Trig_Core_Secret_Select_Func003Func001Func001C())then
-                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Богатой Добычи|r: увеличивает шанс выпадения предметов с монстров (1% за уровень).|n|cFFBFBFC2Элементы|r: 5 субстанций смерти, 5 душ превратности.|n")
+                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Богатой Добычи|r: увеличивает шанс выпадения предметов с монстров (1% за уровень).|n|cFFBFBFC2Элементы|r: 5 субстанций смерти, 5 душ превратности.")
             else
                 if(Trig_Core_Secret_Select_Func003Func001Func001Func001C())then
-                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Жатвы Крови|r: каждое убийство монстра восстанавливает здоровье (2% за уровень).|n|cFFBFBFC2Элементы|r: 1 субстанция смерти, 3 экстракта гниения.|n")
+                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Жатвы Крови|r: каждое убийство монстра восстанавливает здоровье (2% за уровень).|n|cFFBFBFC2Элементы|r: 1 субстанция смерти, 3 экстракта гниения.")
                 else
                     if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001C())then
-                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Искры Пилигрима|r: после убийства монстра есть шанс (3% за уровень) применить случайный навык.|n|cFFBFBFC2Элементы|r: 4 души превратности, 4 экстракта гниения.|n")
+                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Искры Пилигрима|r: после убийства монстра есть шанс (3% за уровень) применить случайный навык.|n|cFFBFBFC2Элементы|r: 4 души превратности, 4 экстракта гниения.")
                     else
                         if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001C())then
-                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Распыления|r: увеличивает количество получаемого Света за распыление (3 ед. за уровень).|n|cFFBFBFC2Элементы|r: 3 экстракта гниения, 8 сущностей невежества.|n")
+                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Распыления|r: увеличивает количество получаемого Света за распыление (3 ед. за уровень).|n|cFFBFBFC2Элементы|r: 3 экстракта гниения, 8 сущностей невежества.")
                         else
                             if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001C())then
-                                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Меча|r: увеличивает шанс разгрома (1% за уровень).|n|cFFBFBFC2Элементы|r: 10 сущностей невежества, 3 сердца ненависти.|n")
+                                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Меча|r: увеличивает шанс разгрома (1% за уровень).|n|cFFBFBFC2Элементы|r: 10 сущностей невежества, 3 сердца ненависти.")
                             else
                                 if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001C())then
-                                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Бури|r: ежесекундно шанс 5% ударить ближайшего монстра молнией (50 ед. урона за уровень).|n|cFFBFBFC2Элементы|r: 5 душ превратности, 5 экстрактов гниения.|n")
+                                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Бури|r: ежесекундно шанс 5% ударить ближайшего монстра молнией (50 ед. урона за уровень).|n|cFFBFBFC2Элементы|r: 5 душ превратности, 5 экстрактов гниения.")
                                 else
                                     if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001C())then
-                                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Пилигримов|r: в бою каждые пять секунд серия ударов увеличивается (на 1 ед. за уровень).|n|cFFBFBFC2Элементы|r: 4 природы падения, 3 ядра тьмы.|n")
+                                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Пилигримов|r: в бою каждые пять секунд серия ударов увеличивается (на 1 ед. за уровень).|n|cFFBFBFC2Элементы|r: 4 природы падения, 3 ядра тьмы.")
                                     else
                                         if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001C())then
-                                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Анимирования|r: открытие сундуков призывает на 60 сек. ожившее оружие (сила зависит от уровня) помогающее Аркту.|n|cFFBFBFC2Элементы|r: 8 сущностей невежества, 5 эссенций жадности.|n")
+                                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Анимирования|r: открытие сундуков призывает на 60 сек. ожившее оружие (сила зависит от уровня) помогающее Аркту.|n|cFFBFBFC2Элементы|r: 8 сущностей невежества, 5 эссенций жадности.")
                                         else
                                             if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C())then
-                                                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Вливания Света|r: после каждого приёма есть шанс (5% за уровень) запустить наносящий урон (сила зависит от хар-ик и серии ударов) снаряд в монстра.|n|cFFBFBFC2Элементы|r: 2 экстракта гниения, 6 сердцевин лжи.|n")
+                                                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Вливания Света|r: после каждого приёма есть шанс (5% за уровень) запустить наносящий урон (сила зависит от хар-ик и серии ударов) снаряд в монстра.|n|cFFBFBFC2Элементы|r: 2 экстракта гниения, 6 сердцевин лжи.")
                                             else
                                                 if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C())then
-                                                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Защиты|r: увеличивает шанс блока (1% за уровень).|n|cFFBFBFC2Элементы|r: 3 сердцевины лжи, 3 природы падения.|n")
+                                                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Защиты|r: увеличивает шанс блока (1% за уровень).|n|cFFBFBFC2Элементы|r: 3 сердцевины лжи, 3 природы падения.")
                                                 else
                                                     if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C())then
-                                                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Вынесения Урока|r: прохождение трех подземелий повышает случайную хар-ку (1 ед. за уровень).|n|cFFBFBFC2Элементы|r: 10 сущностей невежества.|n")
+                                                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Вынесения Урока|r: прохождение трех подземелий повышает случайную хар-ку (1 ед. за уровень).|n|cFFBFBFC2Элементы|r: 10 сущностей невежества.")
                                                     else
                                                         if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C())then
-                                                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Сильной Воли|r: при снижении здоровья до 20% - оно восстанавливается (100 ед. за уровень). Срабатывает один раз за уровень.|n|cFFBFBFC2Элементы|r: 5 сердец ненависти.|n")
+                                                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Сильной Воли|r: при снижении здоровья до 20% - оно восстанавливается (100 ед. за уровень). Срабатывает один раз за уровень.|n|cFFBFBFC2Элементы|r: 5 сердец ненависти.")
                                                         else
                                                             if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C())then
-                                                                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Отражений Души|r: при блоке создаёт иллюзию Аркта на 10 сек. (сила зависит от уровня).|n|cFFBFBFC2Элементы|r: 6 эссенций жадности, 6 сердцевин лжи.|n")
+                                                                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Отражений Души|r: при блоке создаёт иллюзию Аркта на 10 сек. (сила зависит от уровня).|n|cFFBFBFC2Элементы|r: 6 эссенций жадности, 6 сердцевин лжи.")
                                                             else
                                                                 if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C())then
-                                                                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Роста Души|r: увеличивает все хар-ки (1 ед. за уровень).|n|cFFBFBFC2Элементы|r: 5 субстанций смерти, 3 сердца ненависти.|n")
+                                                                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Роста Души|r: увеличивает все хар-ки (1 ед. за уровень).|n|cFFBFBFC2Элементы|r: 5 субстанций смерти, 3 сердца ненависти.")
                                                                 else
                                                                     if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C())then
-                                                                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Проницательности|r: увеличивает максимальное количество секретов на уровне (1 ед. за уровень).|n|cFFBFBFC2Элементы|r: 7 эссенций жадности.|n")
+                                                                        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Проницательности|r: увеличивает максимальное количество секретов на уровне (1 ед. за уровень).|n|cFFBFBFC2Элементы|r: 7 эссенций жадности.")
                                                                     else
                                                                         if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C())then
-                                                                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Мастерства|r: применение навыков дополнительно увеличивают серию ударов (1 ед. за уровень).|n|cFFBFBFC2Элементы|r: 3 природы падения, 2 ядра тьмы.|n")
+                                                                            call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Мастерства|r: применение навыков дополнительно увеличивают серию ударов (1 ед. за уровень).|n|cFFBFBFC2Элементы|r: 3 природы падения, 2 ядра тьмы.")
                                                                         else
                                                                             if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C())then
-                                                                                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Техники Стража|r: во время действия рывка увеличивается шанс блока (3% за уровень).|n|cFFBFBFC2Элементы|r: 6 сущностей невежества, 2 сердцевины лжи.|n")
+                                                                                call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Техники Стража|r: во время действия рывка увеличивается шанс блока (3% за уровень).|n|cFFBFBFC2Элементы|r: 6 сущностей невежества, 2 сердцевины лжи.")
                                                                             else
                                                                                 if(Trig_Core_Secret_Select_Func003Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001Func001C())then
-                                                                                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Единства Света|r: в начале боя на 15 сек. появляется Собрат, помогающий в бою (сила растет с уровнем).|n|cFFBFBFC2Элементы|r: 2 субстанции смерти, 2 души превратности, 2 экстракта гниения, 2 сущности невежества.|n")
+                                                                                    call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFBFBFC2Секрет Единства Света|r: в начале боя на 15 сек. появляется Собрат, помогающий в бою (сила растет с уровнем).|n|cFFBFBFC2Элементы|r: 2 субстанции смерти, 2 души превратности, 2 экстракта гниения, 2 сущности невежества.")
                                                                                 else
                                                                                 endif
                                                                             endif
@@ -11348,7 +5624,7 @@ function Trig_Core_Create_Actions takes nothing returns nothing
                                                                                     call ConditionalTriggerExecute(gg_trg_Core_Start_Timer)
                                                                                     set udg_CC_SecretNumber = GetUnitUserData(gg_unit_h01G_0027)
                                                                                 else
-                                                                                    call CreateTextTagUnitBJ("Ничего...|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+                                                                                    call CreateTextTagUnitBJ("Ничего...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
                                                                                     call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
                                                                                     call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
                                                                                     call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 3.00)
@@ -11488,7 +5764,7 @@ function Trig_Core_Item_Pickup_Actions takes nothing returns nothing
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
         call AddSpecialEffectTargetUnitBJ("overhead", gg_unit_H000_0004, "war3mapImported\\SoundEffect3.mdx")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
-        call CreateTextTagUnitBJ("Секрет раскрыт!|n", udg_Arct, 0, 11.00, 100.00, 100.00, 100.00, 0)
+        call CreateTextTagUnitBJ("Секрет раскрыт!", udg_Arct, 0, 11.00, 100.00, 100.00, 100.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.50)
@@ -11935,7 +6211,7 @@ function Trig_Combo_Ability_Use_Actions takes nothing returns nothing
         endloop
         call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - 1))
         call SetUnitLifeBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) - 2.00))
-        call CreateTextTagUnitBJ("X|n", udg_Arct, 0, 20.00, 80.00, 0.00, 0.00, 10.00)
+        call CreateTextTagUnitBJ("X", udg_Arct, 0, 20.00, 80.00, 0.00, 0.00, 10.00)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 200.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 0.60)
@@ -12229,7 +6505,7 @@ function Trig_Combat_Timer_Actions takes nothing returns nothing
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop
     call LeaderboardSetLabelBJ(udg_CO_ComboBoard, ("|cFFFFFFFFСерия ударов:|r |cFF449EFF" + I2S(udg_CO_Combo)))
-    call CreateTextTagUnitBJ("X|n", udg_Arct, 0, 20.00, 80.00, 0.00, 0.00, 10.00)
+    call CreateTextTagUnitBJ("X", udg_Arct, 0, 20.00, 80.00, 0.00, 0.00, 10.00)
     call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 200.00, 90.00)
     call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
     call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 0.50)
@@ -12328,7 +6604,7 @@ function Trig_Secret_Found_Func003A takes nothing returns nothing
                 endif
             endif
         else
-            call CreateTextTagUnitBJ("Не здесь...|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+            call CreateTextTagUnitBJ("Не здесь...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
             call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
             call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
             call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 2.00)
@@ -12391,28 +6667,28 @@ endfunction
 function Trig_Enter_Dialog_Actions takes nothing returns nothing
     if(Trig_Enter_Dialog_Func001C())then
         call DialogClearBJ(udg_TeleportDialog)
-        call DialogSetMessageBJ(udg_TeleportDialog, "Вперёд?|n")
-        call DialogAddButtonBJ(udg_TeleportDialog, "Да!|n")
+        call DialogSetMessageBJ(udg_TeleportDialog, "Вперёд?")
+        call DialogAddButtonBJ(udg_TeleportDialog, "Да!")
         set udg_DialogButton[1] = GetLastCreatedButtonBJ()
         if(Trig_Enter_Dialog_Func001Func011C())then
-            call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFF00C850Послушник|r|n")
+            call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFF00C850Послушник|r")
         else
             if(Trig_Enter_Dialog_Func001Func011Func001C())then
-                call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFBFBFC2Паломник|r|n")
+                call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFBFBFC2Паломник|r")
             else
                 if(Trig_Enter_Dialog_Func001Func011Func001Func001C())then
-                    call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFFFDC00Пастырь|r|n")
+                    call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFFFDC00Пастырь|r")
                 else
                     if(Trig_Enter_Dialog_Func001Func011Func001Func001Func001C())then
-                        call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFFF8900Паладин|r|n")
+                        call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFFF8900Паладин|r")
                     else
-                        call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFE30000Пилигрим|r|n")
+                        call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFE30000Пилигрим|r")
                     endif
                 endif
             endif
         endif
         set udg_DialogButton[2] = GetLastCreatedButtonBJ()
-        call DialogAddButtonBJ(udg_TeleportDialog, "Ещё минутку...|n")
+        call DialogAddButtonBJ(udg_TeleportDialog, "Ещё минутку...")
         call DialogDisplayBJ(true, udg_TeleportDialog, Player(0))
     else
         set udg_Tutorial[5] = false
@@ -12472,7 +6748,7 @@ function Trig_Escape_Guardian_Kill_Actions takes nothing returns nothing
     call FogEnableOff()
     call FogMaskEnableOff()
     call CreateFogModifierRectBJ(true, Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect())
-    call DisplayTimedTextToForce(GetPlayersAll(), 30.00, "Для выхода нажмите ESC.|n")
+    call DisplayTimedTextToForce(GetPlayersAll(), 30.00, "Для выхода нажмите ESC.")
     call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
     call EnableTrigger(gg_trg_Escape_Dialog_Dummy)
     call EnableTrigger(gg_trg_Escape_Dialog)
@@ -12516,14 +6792,14 @@ endfunction
 function Trig_Escape_Dialog_Actions takes nothing returns nothing
     call DestroyGroup(udg_UnitGroup)
     call DialogClearBJ(udg_LeaveDialog)
-    call DialogSetMessageBJ(udg_LeaveDialog, "Покинуть Эдемиум?|n")
-    call DialogAddButtonBJ(udg_LeaveDialog, "Да!|n")
+    call DialogSetMessageBJ(udg_LeaveDialog, "Покинуть Эдемиум?")
+    call DialogAddButtonBJ(udg_LeaveDialog, "Да!")
     if(Trig_Escape_Dialog_Func005C())then
         set udg_LeaveButton = GetLastCreatedButtonBJ()
     else
         set udg_LeaveButton2 = GetLastCreatedButtonBJ()
     endif
-    call DialogAddButtonBJ(udg_LeaveDialog, "Стоп, забыл кое-что.|n")
+    call DialogAddButtonBJ(udg_LeaveDialog, "Стоп, забыл кое-что.")
     call DialogDisplayBJ(true, udg_LeaveDialog, Player(0))
 endfunction
 function InitTrig_Escape_Dialog takes nothing returns nothing
@@ -12676,7 +6952,7 @@ function Trig_Edemium_Portals_Actions takes nothing returns nothing
         call RemoveLocation(udg_D_Point1)
         call ForGroupBJ(GetRandomSubGroup(1, udg_D_Pick), function Trig_Edemium_Portals_Func006Func008A)
     else
-        call CreateTextTagUnitBJ("Поближе бы...|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+        call CreateTextTagUnitBJ("Поближе бы...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 2.00)
@@ -12720,24 +6996,24 @@ function Trig_Edemium_Difficulty_Dialog_Func010C takes nothing returns boolean
 endfunction
 function Trig_Edemium_Difficulty_Dialog_Actions takes nothing returns nothing
     call DialogClearBJ(udg_DifficultyDialog)
-    call DialogSetMessageBJ(udg_DifficultyDialog, "Уровень сложности:|n")
-    call DialogAddButtonBJ(udg_DifficultyDialog, "|cFF00C850Послушник|r|n")
+    call DialogSetMessageBJ(udg_DifficultyDialog, "Уровень сложности:")
+    call DialogAddButtonBJ(udg_DifficultyDialog, "|cFF00C850Послушник|r")
     set udg_DialogButton[3] = GetLastCreatedButtonBJ()
-    call DialogAddButtonBJ(udg_DifficultyDialog, "|cFFBFBFC2Паломник|r|n")
+    call DialogAddButtonBJ(udg_DifficultyDialog, "|cFFBFBFC2Паломник|r")
     set udg_DialogButton[4] = GetLastCreatedButtonBJ()
-    call DialogAddButtonBJ(udg_DifficultyDialog, "|cFFFFDC00Пастырь|r|n")
+    call DialogAddButtonBJ(udg_DifficultyDialog, "|cFFFFDC00Пастырь|r")
     set udg_DialogButton[5] = GetLastCreatedButtonBJ()
     if(Trig_Edemium_Difficulty_Dialog_Func009C())then
-        call DialogAddButtonBJ(udg_DifficultyDialog, "|cFFFF9000Паладин|r|n")
+        call DialogAddButtonBJ(udg_DifficultyDialog, "|cFFFF9000Паладин|r")
         set udg_DialogButton[6] = GetLastCreatedButtonBJ()
     else
     endif
     if(Trig_Edemium_Difficulty_Dialog_Func010C())then
-        call DialogAddButtonBJ(udg_DifficultyDialog, "|cFFE30000Пилигрим|r|n")
+        call DialogAddButtonBJ(udg_DifficultyDialog, "|cFFE30000Пилигрим|r")
         set udg_DialogButton[7] = GetLastCreatedButtonBJ()
     else
     endif
-    call DialogAddButtonBJ(udg_DifficultyDialog, "Мне и так хорошо.|n")
+    call DialogAddButtonBJ(udg_DifficultyDialog, "Мне и так хорошо.")
     set udg_DialogButton[8] = GetLastCreatedButtonBJ()
     call DialogDisplayBJ(true, udg_DifficultyDialog, Player(0))
 endfunction
@@ -12833,28 +7109,28 @@ function Trig_Edemium_Difficulty_Buttons_Actions takes nothing returns nothing
         endif
     endif
     call DialogClearBJ(udg_TeleportDialog)
-    call DialogSetMessageBJ(udg_TeleportDialog, "Вперёд?|n")
-    call DialogAddButtonBJ(udg_TeleportDialog, "Да!|n")
+    call DialogSetMessageBJ(udg_TeleportDialog, "Вперёд?")
+    call DialogAddButtonBJ(udg_TeleportDialog, "Да!")
     set udg_DialogButton[1] = GetLastCreatedButtonBJ()
     if(Trig_Edemium_Difficulty_Buttons_Func006C())then
-        call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFF00C850Послушник|r|n")
+        call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFF00C850Послушник|r")
     else
         if(Trig_Edemium_Difficulty_Buttons_Func006Func001C())then
-            call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFBFBFC2Паломник|r|n")
+            call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFBFBFC2Паломник|r")
         else
             if(Trig_Edemium_Difficulty_Buttons_Func006Func001Func001C())then
-                call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFFFDC00Пастырь|r|n")
+                call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFFFDC00Пастырь|r")
             else
                 if(Trig_Edemium_Difficulty_Buttons_Func006Func001Func001Func001C())then
-                    call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFFF8900Паладин|r|n")
+                    call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFFF8900Паладин|r")
                 else
-                    call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFE30000Пилигрим|r|n")
+                    call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFE30000Пилигрим|r")
                 endif
             endif
         endif
     endif
     set udg_DialogButton[2] = GetLastCreatedButtonBJ()
-    call DialogAddButtonBJ(udg_TeleportDialog, "Ещё минутку...|n")
+    call DialogAddButtonBJ(udg_TeleportDialog, "Ещё минутку...")
     call DialogDisplayBJ(true, udg_TeleportDialog, Player(0))
 endfunction
 function InitTrig_Edemium_Difficulty_Buttons takes nothing returns nothing
@@ -13213,7 +7489,7 @@ function Trig_Decorations_Click_Actions takes nothing returns nothing
             endif
         else
             call IssuePointOrderLocBJ(udg_Arct, "move", udg_D_Point2)
-            call CreateTextTagUnitBJ("Поближе бы...|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+            call CreateTextTagUnitBJ("Поближе бы...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
             call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
             call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
             call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 2.00)
@@ -13223,7 +7499,7 @@ function Trig_Decorations_Click_Actions takes nothing returns nothing
         if(Trig_Decorations_Click_Func004Func001C())then
             call ModifyGateBJ(bj_GATEOPERATION_OPEN, GetOrderTargetDestructable())
             if(Trig_Decorations_Click_Func004Func001Func008C())then
-                call CreateTextTagUnitBJ("ЛОВУШКА!|n", udg_Arct, 0, 11.00, 100.00, 100.00, 100.00, 0)
+                call CreateTextTagUnitBJ("ЛОВУШКА!", udg_Arct, 0, 11.00, 100.00, 100.00, 100.00, 0)
                 call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
                 call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
                 call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.50)
@@ -13255,9 +7531,9 @@ function Trig_Decorations_Click_Actions takes nothing returns nothing
         else
             call IssuePointOrderLocBJ(udg_Arct, "move", udg_D_Point2)
             if(Trig_Decorations_Click_Func004Func001Func002C())then
-                call CreateTextTagUnitBJ("Поближе бы...|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+                call CreateTextTagUnitBJ("Поближе бы...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
             else
-                call CreateTextTagUnitBJ("Слишком далеко.|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+                call CreateTextTagUnitBJ("Слишком далеко.", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
             endif
             call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
             call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
@@ -13338,12 +7614,12 @@ function Trig_Chest_Unlock_Actions takes nothing returns nothing
         call DialogSetMessageBJ(udg_ChestDialog, GetUnitName(udg_Chest))
         call DialogAddButtonBJ(udg_ChestDialog, ("Открыть потратив |cFF449EFF" + (I2S(udg_ChestEnergy) + " |rэнергии.")))
         set udg_ChestButtonEnergy = GetLastCreatedButtonBJ()
-        call DialogAddButtonBJ(udg_ChestDialog, "|cFFFFFFFFОткрыть Ключом Эдемора.|r|n")
+        call DialogAddButtonBJ(udg_ChestDialog, "|cFFFFFFFFОткрыть Ключом Эдемора.|r")
         set udg_ChestButtonKey = GetLastCreatedButtonBJ()
-        call DialogAddButtonBJ(udg_ChestDialog, "Обойдусь.|n")
+        call DialogAddButtonBJ(udg_ChestDialog, "Обойдусь.")
         call DialogDisplayBJ(true, udg_ChestDialog, Player(0))
     else
-        call CreateTextTagUnitBJ("Поближе бы...|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+        call CreateTextTagUnitBJ("Поближе бы...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 2.00)
@@ -13396,14 +7672,14 @@ function Trig_Chest_Unlock_Button_Actions takes nothing returns nothing
             if(Trig_Chest_Unlock_Button_Func001Func002Func002C())then
                 call ConditionalTriggerExecute(gg_trg_Chest_Reward)
             else
-                call CreateTextTagUnitBJ("Не получилось...|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+                call CreateTextTagUnitBJ("Не получилось...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
                 call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
                 call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
                 call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 3.00)
                 call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 2.50)
             endif
         else
-            call CreateTextTagUnitBJ("Нет сил...|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+            call CreateTextTagUnitBJ("Нет сил...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
             call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
             call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
             call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 3.00)
@@ -13415,7 +7691,7 @@ function Trig_Chest_Unlock_Button_Actions takes nothing returns nothing
                 call SetPlayerStateBJ(Player(0), PLAYER_STATE_RESOURCE_LUMBER, (GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_LUMBER) - 1))
                 call ConditionalTriggerExecute(gg_trg_Chest_Reward)
             else
-                call CreateTextTagUnitBJ("Нет ключей...|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+                call CreateTextTagUnitBJ("Нет ключей...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
                 call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
                 call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
                 call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 3.00)
@@ -13499,7 +7775,7 @@ function Trig_Chest_Reward_Actions takes nothing returns nothing
     call AddSpecialEffectLocBJ(udg_IG_Point, "war3mapImported\\GoldCoinBuffLargeV.015.mdx")
     call DestroyEffectBJ(GetLastCreatedEffectBJ())
     if(Trig_Chest_Reward_Func007C())then
-        call CreateTextTagUnitBJ("ЛОВУШКА!|n", udg_Arct, 0, 11.00, 100.00, 100.00, 100.00, 0)
+        call CreateTextTagUnitBJ("ЛОВУШКА!", udg_Arct, 0, 11.00, 100.00, 100.00, 100.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.50)
@@ -13742,7 +8018,7 @@ function Trig_QG_Generate_Actions takes nothing returns nothing
         endif
     endif
     call PlaySoundBJ(gg_snd_NewQuest)
-    call CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "Миссия Пилигрима|n", ("Текущий коэффициент получения опыта и Света: |cFF00FF00" + R2SW(udg_EX_Rate, 1, 1)), "ReplaceableTextures\\CommandButtons\\BTNArcturus.blp")
+    call CreateQuestBJ(bj_QUESTTYPE_REQ_DISCOVERED, "Миссия Пилигрима", ("Текущий коэффициент получения опыта и Света: |cFF00FF00" + R2SW(udg_EX_Rate, 1, 1)), "ReplaceableTextures\\CommandButtons\\BTNArcturus.blp")
     call CreateQuestItemBJ(GetLastCreatedQuestBJ(), udg_QG_Objective[1])
     set udg_QG_Requirement[1] = GetLastCreatedQuestItemBJ()
     call CreateQuestItemBJ(GetLastCreatedQuestBJ(), udg_QG_Objective[2])
@@ -13767,7 +8043,7 @@ endfunction
 function Trig_QG_Completion_Check_Actions takes nothing returns nothing
     if(Trig_QG_Completion_Check_Func001C())then
         call DestroyQuestBJ(GetLastCreatedQuestBJ())
-        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF00FF00Миссия осуществлена, коэффициент повышен.|r|n")
+        call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF00FF00Миссия осуществлена, коэффициент повышен.|r")
         set udg_EX_Rate = (udg_EX_Rate + 0.10)
         set udg_QG_QuestCompleted = (udg_QG_QuestCompleted + 1)
         call ConditionalTriggerExecute(gg_trg_QG_Generate)
@@ -14046,7 +8322,7 @@ function Trig_Creep_Kill_Actions takes nothing returns nothing
                     if(Trig_Creep_Kill_Func003Func012Func003Func005Func002C())then
                         set udg_Difficulty_Unlocked[1] = true
                         set udg_TierUnlocked = 1
-                        call DisplayTimedTextToForce(GetPlayersAll(), 30, "|cFF00C850Открыта новая сложность!|r|n")
+                        call DisplayTimedTextToForce(GetPlayersAll(), 30, "|cFF00C850Открыта новая сложность!|r")
                         set udg_IG_Point = GetUnitLoc(udg_IG_Monster)
                         set udg_IG_ItemQuality = 3
                         call ConditionalTriggerExecute(gg_trg_IG_Generate)
@@ -14064,7 +8340,7 @@ function Trig_Creep_Kill_Actions takes nothing returns nothing
                             set udg_Difficulty_Unlocked[2] = true
                             set udg_Difficulty_Unlocked[3] = true
                             set udg_TierUnlocked = 2
-                            call DisplayTimedTextToForce(GetPlayersAll(), 30, "|cFF00C850Открыты новые сложности!|r|n")
+                            call DisplayTimedTextToForce(GetPlayersAll(), 30, "|cFF00C850Открыты новые сложности!|r")
                             set udg_IG_Point = GetUnitLoc(udg_IG_Monster)
                             set udg_IG_ItemQuality = 3
                             call ConditionalTriggerExecute(gg_trg_IG_Generate)
@@ -14079,7 +8355,7 @@ function Trig_Creep_Kill_Actions takes nothing returns nothing
                     else
                     endif
                 endif
-                call DisplayTimedTextToForce(GetPlayersAll(), 30.00, "Для выхода нажмите ESC.|n")
+                call DisplayTimedTextToForce(GetPlayersAll(), 30.00, "Для выхода нажмите ESC.")
                 set bj_forLoopAIndex = 1
                 set bj_forLoopAIndexEnd = 4
                 loop
@@ -14635,7 +8911,7 @@ function Trig_Creep_Skills_Cast_Actions takes nothing returns nothing
             endif
         endif
     endif
-    call CreateTextTagUnitBJ("!!!|n", GetTriggerUnit(), 0, 16.00, 100.00, 0.00, 0.00, 0)
+    call CreateTextTagUnitBJ("!!!", GetTriggerUnit(), 0, 16.00, 100.00, 0.00, 0.00, 0)
     call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 30.00, 90.00)
     call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
     call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.00)
@@ -15809,7 +10085,7 @@ endfunction
 function Trig_Boss_Casts_Actions takes nothing returns nothing
     if(Trig_Boss_Casts_Func001C())then
         set udg_Boss_Ability_Point = GetUnitLoc(GetSpellTargetUnit())
-        call CreateTextTagUnitBJ("!!!|n", GetTriggerUnit(), 0, 12.00, 100.00, 0.00, 0.00, 0)
+        call CreateTextTagUnitBJ("!!!", GetTriggerUnit(), 0, 12.00, 100.00, 0.00, 0.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 30.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.00)
@@ -15954,18 +10230,18 @@ function Trig_Boss_I_Throw_Actions takes nothing returns nothing
     if(Trig_Boss_I_Throw_Func007C())then
         set udg_RandomNumber = GetRandomInt(1, 5)
         if(Trig_Boss_I_Throw_Func007Func002C())then
-            call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший|n", gg_snd_HeroAlchemistYesAttack1, "Всего один эликсир! *злобно хихикает*|n", bj_TIMETYPE_ADD, 0, false)
+            call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший", gg_snd_HeroAlchemistYesAttack1, "Всего один эликсир! *злобно хихикает*", bj_TIMETYPE_ADD, 0, false)
         else
             if(Trig_Boss_I_Throw_Func007Func002Func001C())then
-                call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший|n", gg_snd_HeroAlchemistYesAttack2, "Взрываю!|n", bj_TIMETYPE_ADD, 0, false)
+                call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший", gg_snd_HeroAlchemistYesAttack2, "Взрываю!", bj_TIMETYPE_ADD, 0, false)
             else
                 if(Trig_Boss_I_Throw_Func007Func002Func001Func001C())then
-                    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший|n", gg_snd_HeroAlchemistWhat4, "Попробуем новый состав...|n", bj_TIMETYPE_ADD, 0, false)
+                    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший", gg_snd_HeroAlchemistWhat4, "Попробуем новый состав...", bj_TIMETYPE_ADD, 0, false)
                 else
                     if(Trig_Boss_I_Throw_Func007Func002Func001Func001Func001C())then
-                        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший|n", gg_snd_GoblinZeppelinYes4, "*радостное исступление*|n", bj_TIMETYPE_ADD, 0, false)
+                        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший", gg_snd_GoblinZeppelinYes4, "*радостное исступление*", bj_TIMETYPE_ADD, 0, false)
                     else
-                        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший|n", gg_snd_GoblinZeppelinYes3, "*нездоровый смех*|n", bj_TIMETYPE_ADD, 0, false)
+                        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший", gg_snd_GoblinZeppelinYes3, "*нездоровый смех*", bj_TIMETYPE_ADD, 0, false)
                     endif
                 endif
             endif
@@ -16089,7 +10365,7 @@ function Trig_Boss_II_Phase_2_Init_Conditions takes nothing returns boolean
     return true
 endfunction
 function Trig_Boss_II_Phase_2_Init_Actions takes nothing returns nothing
-    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Изуродов Отец|n", gg_snd_HPitLordYesAttack2, "Час Хаоса!|n", bj_TIMETYPE_ADD, 0, false)
+    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Изуродов Отец", gg_snd_HPitLordYesAttack2, "Час Хаоса!", bj_TIMETYPE_ADD, 0, false)
     call UnitAddAbilityBJ(0x41303553, GetTriggerUnit())
     call UnitRemoveAbilityBJ(0x4130354F, GetTriggerUnit())
     call EnableTrigger(gg_trg_Boss_II_Channel_Init)
@@ -16119,9 +10395,9 @@ function Trig_Boss_II_Channel_Init_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Boss_II_Channel_Periodic)
     call StartTimerBJ(udg_Boss2Timer, false, 5.00)
     if(Trig_Boss_II_Channel_Init_Func004C())then
-        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Изуродов Отец|n", gg_snd_PitLordYesAttack1, "*читает заклинание*|n", bj_TIMETYPE_ADD, 0, false)
+        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Изуродов Отец", gg_snd_PitLordYesAttack1, "*читает заклинание*", bj_TIMETYPE_ADD, 0, false)
     else
-        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Изуродов Отец|n", gg_snd_PitLordWhat1, "*читает заклинание*|n", bj_TIMETYPE_ADD, 0, false)
+        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Изуродов Отец", gg_snd_PitLordWhat1, "*читает заклинание*", bj_TIMETYPE_ADD, 0, false)
     endif
 endfunction
 function InitTrig_Boss_II_Channel_Init takes nothing returns nothing
@@ -16270,7 +10546,7 @@ function Trig_Boss_III_Portal_Use_Actions takes nothing returns nothing
         set udg_Boss3PortalEffect = GetLastCreatedLightningBJ()
     else
         call IssuePointOrderLocBJ(udg_Arct, "move", udg_Point2)
-        call CreateTextTagUnitBJ("Поближе бы...|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+        call CreateTextTagUnitBJ("Поближе бы...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 2.00)
@@ -16355,25 +10631,25 @@ function Trig_Boss_III_Portal_Timer_Actions takes nothing returns nothing
     call DestroyLightningBJ(udg_Boss3PortalEffect)
     set udg_RandomNumber = GetRandomInt(1, 10)
     if(Trig_Boss_III_Portal_Timer_Func012C())then
-        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_TyrandeWarcry1, "Стражи, к бою!|n", bj_TIMETYPE_ADD, 0, false)
+        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_TyrandeWarcry1, "Стражи, к бою!", bj_TIMETYPE_ADD, 0, false)
     else
         if(Trig_Boss_III_Portal_Timer_Func012Func001C())then
-            call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_TyrandePissed1, "Вечная жизнь - вечная служба.|n", bj_TIMETYPE_ADD, 0, false)
+            call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_TyrandePissed1, "Вечная жизнь - вечная служба.", bj_TIMETYPE_ADD, 0, false)
         else
             if(Trig_Boss_III_Portal_Timer_Func012Func001Func001C())then
-                call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_TyrandePissed4, "Анутерадор-мали!|n", bj_TIMETYPE_ADD, 0, false)
+                call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_TyrandePissed4, "Анутерадор-мали!", bj_TIMETYPE_ADD, 0, false)
             else
                 if(Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001C())then
-                    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_TyrandeYes4, "Без промедления!|n", bj_TIMETYPE_ADD, 0, false)
+                    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_TyrandeYes4, "Без промедления!", bj_TIMETYPE_ADD, 0, false)
                 else
                     if(Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001Func001C())then
-                        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_ArcherYesAttack4, "Пощады не будет!|n", bj_TIMETYPE_ADD, 0, false)
+                        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_ArcherYesAttack4, "Пощады не будет!", bj_TIMETYPE_ADD, 0, false)
                     else
                         if(Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001Func001Func001C())then
-                            call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_HeroWardenYesAttack2, "Да свершится правосудие!|n", bj_TIMETYPE_ADD, 0, false)
+                            call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_HeroWardenYesAttack2, "Да свершится правосудие!", bj_TIMETYPE_ADD, 0, false)
                         else
                             if(Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001Func001Func001Func001C())then
-                                call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_HeroWardenYesAttack1, "Исполняю приговор!|n", bj_TIMETYPE_ADD, 0, false)
+                                call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_HeroWardenYesAttack1, "Исполняю приговор!", bj_TIMETYPE_ADD, 0, false)
                             else
                             endif
                         endif
@@ -16483,7 +10759,7 @@ function Trig_Boss_III_Phase_2_Init_Conditions takes nothing returns boolean
     return true
 endfunction
 function Trig_Boss_III_Phase_2_Init_Actions takes nothing returns nothing
-    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Бледная Королева|n", gg_snd_AbominationYesAttack2, "Убью!|n", bj_TIMETYPE_ADD, 0, false)
+    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Бледная Королева", gg_snd_AbominationYesAttack2, "Убью!", bj_TIMETYPE_ADD, 0, false)
     set udg_Boss3Pukes = 0
     call EnableTrigger(gg_trg_Boss_III_Phase_3_Init)
     call EnableTrigger(gg_trg_Boss_III_Puke_Rain)
@@ -16506,7 +10782,7 @@ function Trig_Boss_III_Phase_3_Init_Conditions takes nothing returns boolean
     return true
 endfunction
 function Trig_Boss_III_Phase_3_Init_Actions takes nothing returns nothing
-    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Бледная Королева|n", gg_snd_AbominationYesAttack1, "Смерть!|n", bj_TIMETYPE_ADD, 0, false)
+    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Бледная Королева", gg_snd_AbominationYesAttack1, "Смерть!", bj_TIMETYPE_ADD, 0, false)
     call UnitAddAbilityBJ(0x41303553, GetTriggerUnit())
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
@@ -16638,7 +10914,7 @@ function Trig_Meditation_Cast_Func001C takes nothing returns boolean
 endfunction
 function Trig_Meditation_Cast_Actions takes nothing returns nothing
     if(Trig_Meditation_Cast_Func001C())then
-        call CreateTextTagUnitBJ("Нет сил...|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+        call CreateTextTagUnitBJ("Нет сил...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.00)
@@ -16667,7 +10943,7 @@ function Trig_Meditation_Cast_Actions takes nothing returns nothing
             call PanCameraToTimedLocForPlayer(Player(0), udg_Point, 0)
             call RemoveLocation(udg_Point)
         else
-            call CreateTextTagUnitBJ("Я в бою!|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+            call CreateTextTagUnitBJ("Я в бою!", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
             call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
             call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
             call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.00)
@@ -16814,7 +11090,7 @@ function Trig_Sprint_Cast_Func002C takes nothing returns boolean
 endfunction
 function Trig_Sprint_Cast_Actions takes nothing returns nothing
     if(Trig_Sprint_Cast_Func002C())then
-        call CreateTextTagUnitBJ("Нет сил...|n", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+        call CreateTextTagUnitBJ("Нет сил...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.00)
@@ -16981,40 +11257,40 @@ function Trig_Abilities_Info_Actions takes nothing returns nothing
     else
     endif
     if(Trig_Abilities_Info_Func008C())then
-        call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Накладывает исцеление на 5/6/7/8/9/10 сек. и повышает броню на это время на 5/10/15/20/25 ед.|n")
+        call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Накладывает исцеление на 5/6/7/8/9/10 сек. и повышает броню на это время на 5/10/15/20/25 ед.")
     else
         if(Trig_Abilities_Info_Func008Func001C())then
-            call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Наносит урон всем вокруг и повышает шанс разгрома на 10% на 4/8/12/16/20 сек.|n")
+            call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Наносит урон всем вокруг и повышает шанс разгрома на 10% на 4/8/12/16/20 сек.")
         else
             if(Trig_Abilities_Info_Func008Func001Func001C())then
-                call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Добавляет, помимо медитации и рывка, одноразовое умение невидимости, действующее 5/10/15/20/25 сек.|n")
+                call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Добавляет, помимо медитации и рывка, одноразовое умение невидимости, действующее 5/10/15/20/25 сек.")
             else
                 if(Trig_Abilities_Info_Func008Func001Func001Func001C())then
-                    call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Увеличивает скорость атаки на 50% на 3/6/9/12/15 сек. и добавляет вампиризм 30% к любому исходящему урону.|n")
+                    call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Увеличивает скорость атаки на 50% на 3/6/9/12/15 сек. и добавляет вампиризм 30% к любому исходящему урону.")
                 else
                     if(Trig_Abilities_Info_Func008Func001Func001Func001Func001C())then
-                        call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Создаёт бесплотный призрак случайного монстра, сражающегося на стороне Аркта в течение 7/9/11/13/15 сек.|n")
+                        call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Создаёт бесплотный призрак случайного монстра, сражающегося на стороне Аркта в течение 7/9/11/13/15 сек.")
                     else
                         if(Trig_Abilities_Info_Func008Func001Func001Func001Func001Func001C())then
-                            call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Пассивно периодически наносит урон случайному ближайшему противнику. При активации навыка следующие 1/2/3/4/5 ударов нанесут дополнительный урон.|n")
+                            call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Пассивно периодически наносит урон случайному ближайшему противнику. При активации навыка следующие 1/2/3/4/5 ударов нанесут дополнительный урон.")
                         else
                             if(Trig_Abilities_Info_Func008Func001Func001Func001Func001Func001Func001C())then
-                                call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Если запас энергии ниже 90%, то восстанавливает 3/4/5/6/7 ед., иначе происходит взрыв, наносящий урон в зависимости её количества.|n")
+                                call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Если запас энергии ниже 90%, то восстанавливает 3/4/5/6/7 ед., иначе происходит взрыв, наносящий урон в зависимости её количества.")
                             else
                                 if(Trig_Abilities_Info_Func008Func001Func001Func001Func001Func001Func001Func001C())then
-                                    call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Запускает шар света: если приземлится на монстре - нанесет ему урон, если на Аркте - исцелит, после этого перепрыгивает на случайную цель ещё 3/4/5/6/7 раз.|n")
+                                    call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Запускает шар света: если приземлится на монстре - нанесет ему урон, если на Аркте - исцелит, после этого перепрыгивает на случайную цель ещё 3/4/5/6/7 раз.")
                                 else
                                     if(Trig_Abilities_Info_Func008Func001Func001Func001Func001Func001Func001Func001Func002C())then
-                                        call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Создает в случайной точке недалеко от Аркта источник испепеляющего света на 2/4/6/8/10 сек., наносящего урон монстрам. Каждое третье применение повышает все хар-ки на 1 ед. (действует до конца выхода из подземелья).|n")
+                                        call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Создает в случайной точке недалеко от Аркта источник испепеляющего света на 2/4/6/8/10 сек., наносящего урон монстрам. Каждое третье применение повышает все хар-ки на 1 ед. (действует до конца выхода из подземелья).")
                                     else
                                         if(Trig_Abilities_Info_Func008Func001Func001Func001Func001Func001Func001Func001Func002Func001C())then
-                                            call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Бессрочно призывает духа помогающего в бою. Активация навыка когда дух уже призван - вызывает нову исходящую от духа, наносящую урон врагам и исцеляющую союзников. Сила духа растет с уровнем навыка.|n")
+                                            call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Бессрочно призывает духа помогающего в бою. Активация навыка когда дух уже призван - вызывает нову исходящую от духа, наносящую урон врагам и исцеляющую союзников. Сила духа растет с уровнем навыка.")
                                         else
                                             if(Trig_Abilities_Info_Func008Func001Func001Func001Func001Func001Func001Func001Func002Func001Func001C())then
-                                                call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Накладывает ледяной щит повышающий шанс блока на 20% на 4/8/12/16/20 сек. Во время этого любой блок нанесёт урон монстру и исцелит Аркта.|n")
+                                                call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Накладывает ледяной щит повышающий шанс блока на 20% на 4/8/12/16/20 сек. Во время этого любой блок нанесёт урон монстру и исцелит Аркта.")
                                             else
                                                 if(Trig_Abilities_Info_Func008Func001Func001Func001Func001Func001Func001Func001Func002Func001Func001Func001C())then
-                                                    call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Создаёт под Арктом зону, находясь в которой его сила атаки возрастает на 20/40/60/80/100%, а враги ежесекундно получают урон.|n")
+                                                    call DisplayTimedTextToForce(GetPlayersAll(), 1000000000.00, "Создаёт под Арктом зону, находясь в которой его сила атаки возрастает на 20/40/60/80/100%, а враги ежесекундно получают урон.")
                                                 else
                                                 endif
                                             endif
@@ -17198,12 +11474,12 @@ function Trig_Abilities_Study_Actions takes nothing returns nothing
             endif
         endif
     else
-        call DisplayTimedTextToForce(GetPlayersAll(), 1.00, "Недостаточно очков умений (всего требуется 300 ед.).|n")
+        call DisplayTimedTextToForce(GetPlayersAll(), 1.00, "Недостаточно очков умений (всего требуется 300 ед.).")
     endif
     if(Trig_Abilities_Study_Func002C())then
         set udg_Tutorial[2] = false
         set udg_Tutorial[3] = true
-        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба|n", gg_snd_9F, "Советую выставить навык на 3 серию. Чем меньше серия - тем меньше кнопок подряд надо нажать и тем чаще Аркт будет применять его.|n", bj_TIMETYPE_ADD, 0.00, true)
+        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_9F, "Советую выставить навык на 3 серию. Чем меньше серия - тем меньше кнопок подряд надо нажать и тем чаще Аркт будет применять его.", bj_TIMETYPE_ADD, 0.00, true)
     else
     endif
 endfunction
@@ -17285,7 +11561,7 @@ endfunction
 function Trig_Abilities_Activate_Actions takes nothing returns nothing
     if(Trig_Abilities_Activate_Func001C())then
         if(Trig_Abilities_Activate_Func001Func002C())then
-            call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Сначала необходимо деактивировать навык который уже присутствует на данной серии.|n")
+            call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Сначала необходимо деактивировать навык который уже присутствует на данной серии.")
         else
             call RemoveDestructable(udg_MagneticField[1])
             set udg_Point = GetUnitLoc(udg_Target)
@@ -17296,7 +11572,7 @@ function Trig_Abilities_Activate_Actions takes nothing returns nothing
             set udg_AS_Value[GetUnitUserData(udg_Target)] = 1
             set udg_AS_SeriesNumber = 1
             set udg_AS_Effect[udg_AS_SeriesNumber] = GetUnitUserData(udg_Target)
-            call CreateTextTagUnitBJ("3|n", udg_Target, 0, 15.00, 100, 100, 100, 0)
+            call CreateTextTagUnitBJ("3", udg_Target, 0, 15.00, 100, 100, 100, 0)
             set udg_AS_TextNumber[1] = GetLastCreatedTextTag()
             call ConditionalTriggerExecute(gg_trg_Abilities_Remove)
             call TriggerExecute(gg_trg_Abilities_Effect)
@@ -17305,7 +11581,7 @@ function Trig_Abilities_Activate_Actions takes nothing returns nothing
     endif
     if(Trig_Abilities_Activate_Func002C())then
         if(Trig_Abilities_Activate_Func002Func002C())then
-            call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Сначала необходимо деактивировать навык который уже присутствует на данной серии.|n")
+            call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Сначала необходимо деактивировать навык который уже присутствует на данной серии.")
         else
             call RemoveDestructable(udg_MagneticField[2])
             set udg_Point = GetUnitLoc(udg_Target)
@@ -17316,7 +11592,7 @@ function Trig_Abilities_Activate_Actions takes nothing returns nothing
             set udg_AS_Value[GetUnitUserData(udg_Target)] = 2
             set udg_AS_SeriesNumber = 2
             set udg_AS_Effect[udg_AS_SeriesNumber] = GetUnitUserData(udg_Target)
-            call CreateTextTagUnitBJ("5|n", udg_Target, 0, 15.00, 100, 100, 100, 0)
+            call CreateTextTagUnitBJ("5", udg_Target, 0, 15.00, 100, 100, 100, 0)
             set udg_AS_TextNumber[2] = GetLastCreatedTextTag()
             call TriggerExecute(gg_trg_Abilities_Remove)
             call TriggerExecute(gg_trg_Abilities_Effect)
@@ -17325,7 +11601,7 @@ function Trig_Abilities_Activate_Actions takes nothing returns nothing
     endif
     if(Trig_Abilities_Activate_Func003C())then
         if(Trig_Abilities_Activate_Func003Func001C())then
-            call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Сначала необходимо деактивировать навык который уже присутствует на данной серии.|n")
+            call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Сначала необходимо деактивировать навык который уже присутствует на данной серии.")
         else
             call RemoveDestructable(udg_MagneticField[3])
             set udg_Point = GetUnitLoc(udg_Target)
@@ -17336,7 +11612,7 @@ function Trig_Abilities_Activate_Actions takes nothing returns nothing
             set udg_AS_Value[GetUnitUserData(udg_Target)] = 3
             set udg_AS_SeriesNumber = 3
             set udg_AS_Effect[udg_AS_SeriesNumber] = GetUnitUserData(udg_Target)
-            call CreateTextTagUnitBJ("7|n", udg_Target, 0, 15.00, 100, 100, 100, 0)
+            call CreateTextTagUnitBJ("7", udg_Target, 0, 15.00, 100, 100, 100, 0)
             set udg_AS_TextNumber[3] = GetLastCreatedTextTag()
             call TriggerExecute(gg_trg_Abilities_Remove)
             call TriggerExecute(gg_trg_Abilities_Effect)
@@ -17345,7 +11621,7 @@ function Trig_Abilities_Activate_Actions takes nothing returns nothing
     endif
     if(Trig_Abilities_Activate_Func004C())then
         if(Trig_Abilities_Activate_Func004Func001C())then
-            call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Сначала необходимо деактивировать навык который уже присутствует на данной серии.|n")
+            call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Сначала необходимо деактивировать навык который уже присутствует на данной серии.")
         else
             call RemoveDestructable(udg_MagneticField[4])
             set udg_Point = GetUnitLoc(udg_Target)
@@ -17356,7 +11632,7 @@ function Trig_Abilities_Activate_Actions takes nothing returns nothing
             set udg_AS_Value[GetUnitUserData(udg_Target)] = 4
             set udg_AS_SeriesNumber = 4
             set udg_AS_Effect[udg_AS_SeriesNumber] = GetUnitUserData(udg_Target)
-            call CreateTextTagUnitBJ("9|n", udg_Target, 0, 15.00, 100, 100, 100, 0)
+            call CreateTextTagUnitBJ("9", udg_Target, 0, 15.00, 100, 100, 100, 0)
             set udg_AS_TextNumber[4] = GetLastCreatedTextTag()
             call TriggerExecute(gg_trg_Abilities_Remove)
             call TriggerExecute(gg_trg_Abilities_Effect)
@@ -19168,7 +13444,7 @@ function FireRecursiveDmgEv takes nothing returns nothing
         call FireDmgEv()
     else
         call ClearTextMessagesBJ(GetPlayersAll())
-        call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "WARNING: Recursion error when dealing damage! Make sure when you deal damage from within a DamageEvent trigger, do it like this:|n|n    Trigger - Turn off DamageEventTrigger|n    Unit - Cause...|n    Trigger - Turn on DamageEventTrigger|n")
+        call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "WARNING: Recursion error when dealing damage! Make sure when you deal damage from within a DamageEvent trigger, do it like this:|n|n    Trigger - Turn off DamageEventTrigger|n    Unit - Cause...|n    Trigger - Turn on DamageEventTrigger")
     endif
     set udg_DamageEventOverride = override
     set udg_DamageEventExplodesUnit = explode
@@ -19294,13 +13570,13 @@ function Trig_Augment_Info_Actions takes nothing returns nothing
         call ClearTextMessagesBJ(GetPlayersAll())
         set udg_AugmentValue = GetUnitUserData(udg_Target)
         if(Trig_Augment_Info_Func001Func007C())then
-            call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает ловкость на |cFF00D8001|r.|n")
+            call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает ловкость на |cFF00D8001|r.")
         else
             if(Trig_Augment_Info_Func001Func007Func001C())then
-                call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает стойкость на |cFF00D8001|r.|n")
+                call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает стойкость на |cFF00D8001|r.")
             else
                 if(Trig_Augment_Info_Func001Func007Func001Func001C())then
-                    call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает мудрость на |cFF00D8001|r.|n")
+                    call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает мудрость на |cFF00D8001|r.")
                 else
                 endif
             endif
@@ -19361,15 +13637,15 @@ function Trig_Augment_Buy_Actions takes nothing returns nothing
         call ClearTextMessagesBJ(GetPlayersAll())
         if(Trig_Augment_Buy_Func001Func010C())then
             call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
-            call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает ловкость на |cFF00D8001|r.|n")
+            call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает ловкость на |cFF00D8001|r.")
         else
             if(Trig_Augment_Buy_Func001Func010Func001C())then
                 call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
-                call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает стойкость на |cFF00D8001|r.|n")
+                call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает стойкость на |cFF00D8001|r.")
             else
                 if(Trig_Augment_Buy_Func001Func010Func001Func001C())then
                     call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
-                    call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает мудрость на |cFF00D8001|r.|n")
+                    call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает мудрость на |cFF00D8001|r.")
                 else
                 endif
             endif
@@ -19395,7 +13671,7 @@ function Trig_WhosYourDaddy_Conditions takes nothing returns boolean
     return true
 endfunction
 function Trig_WhosYourDaddy_Actions takes nothing returns nothing
-    call CustomDefeatBJ(Player(0), "Боги наблюдают на тобой.|n")
+    call CustomDefeatBJ(Player(0), "Боги наблюдают на тобой.")
 endfunction
 function InitTrig_WhosYourDaddy takes nothing returns nothing
     set gg_trg_WhosYourDaddy = CreateTrigger()
@@ -19410,7 +13686,7 @@ function Trig_GreedIsGood_Conditions takes nothing returns boolean
     return true
 endfunction
 function Trig_GreedIsGood_Actions takes nothing returns nothing
-    call CustomDefeatBJ(Player(0), "Жадность губит твою душу.|n")
+    call CustomDefeatBJ(Player(0), "Жадность губит твою душу.")
 endfunction
 function InitTrig_GreedIsGood takes nothing returns nothing
     set gg_trg_GreedIsGood = CreateTrigger()
@@ -19809,7 +14085,7 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         call AddUnitAnimationPropertiesBJ(true, "gold", gg_unit_H000_0004)
         set udg_Camera = gg_cam_Camera_Abilities
         call EnableTrigger(gg_trg_Trees_Choose_ESC)
-        call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Чтобы открыть новые умения нажмите ESC.|n")
+        call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Чтобы открыть новые умения нажмите ESC.")
     else
     endif
     if(Trig_Enter_Regions_Func008C())then
@@ -19828,8 +14104,8 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         if(Trig_Enter_Regions_Func010Func003C())then
             set udg_TutorialHint[6] = true
             call DialogClearBJ(udg_TeleportDialog)
-            call DialogSetMessageBJ(udg_TeleportDialog, "Ядро - это магический механизм |nдля раскрытия секретов (талантов),|nдающих Аркту пассивные умения. |nСейчас я раскрою тебе один из них|nи дам необходимые элементы, |nа дальше сам разберёшься. Не|nмаленький уже.|n")
-            call DialogAddButtonBJ(udg_TeleportDialog, "Ничего не понял, но спасибо!|n")
+            call DialogSetMessageBJ(udg_TeleportDialog, "Ядро - это магический механизм |nдля раскрытия секретов (талантов),|nдающих Аркту пассивные умения. |nСейчас я раскрою тебе один из них|nи дам необходимые элементы, |nа дальше сам разберёшься. Не|nмаленький уже.")
+            call DialogAddButtonBJ(udg_TeleportDialog, "Ничего не понял, но спасибо!")
             call DialogDisplayBJ(true, udg_TeleportDialog, Player(0))
             set udg_Point = GetRectCenter(gg_rct_Workshop_Core)
             call CreateItemLoc(0x49303132, udg_Point)
@@ -19865,7 +14141,7 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         call SetUnitFacingToFaceLocTimed(GetEnteringUnit(), udg_Point, 0)
         call RemoveLocation(udg_Point)
         if(Trig_Enter_Regions_Func011Func010C())then
-            call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба|n", gg_snd_8F, "Возле камина Аркт может войти в медитацию в которой может изучить новые навыки. Прямо сейчас у него имеется 1 очко навыка, так что можешь намедитировать что-нибудь новенькое.|n", bj_TIMETYPE_ADD, 0.00, false)
+            call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_8F, "Возле камина Аркт может войти в медитацию в которой может изучить новые навыки. Прямо сейчас у него имеется 1 очко навыка, так что можешь намедитировать что-нибудь новенькое.", bj_TIMETYPE_ADD, 0.00, false)
             set udg_Tutorial[1] = false
         else
         endif
@@ -19890,8 +14166,8 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         if(Trig_Enter_Regions_Func013Func003C())then
             set udg_TutorialHint[1] = true
             call DialogClearBJ(udg_TeleportDialog)
-            call DialogSetMessageBJ(udg_TeleportDialog, "Сложность можно менять в любое|nвремя, но в начале игры менять её |nне советую: сперва привыкни к |nбоевой системе. На лёгком уровне |nсложности монстры не применяют |nумения. И да, за повышение уровня|nАркта после прохождения подземе-|nлий повышается случайная хар-ка.|n")
-            call DialogAddButtonBJ(udg_TeleportDialog, "Понятно, спасибо!|n")
+            call DialogSetMessageBJ(udg_TeleportDialog, "Сложность можно менять в любое|nвремя, но в начале игры менять её |nне советую: сперва привыкни к |nбоевой системе. На лёгком уровне |nсложности монстры не применяют |nумения. И да, за повышение уровня|nАркта после прохождения подземе-|nлий повышается случайная хар-ка.")
+            call DialogAddButtonBJ(udg_TeleportDialog, "Понятно, спасибо!")
             call DialogDisplayBJ(true, udg_TeleportDialog, Player(0))
         else
         endif
@@ -20027,7 +14303,7 @@ function InitTrig_Core_Autosave takes nothing returns nothing
     call TriggerAddAction(gg_trg_Core_Autosave, function Trig_Core_Autosave_Actions)
 endfunction
 function Trig_Attributes_Multiboard_Actions takes nothing returns nothing
-    call CreateMultiboardBJ(1, 3, "|cFFFFFFFFХарактеристики:|r |n")
+    call CreateMultiboardBJ(1, 3, "|cFFFFFFFFХарактеристики:|r ")
     set udg_AttributesBoard = GetLastCreatedMultiboard()
     call MultiboardSetItemIconBJ(udg_AttributesBoard, 1, 1, "ReplaceableTextures\\CommandButtons\\BTNArcturus.blp")
     call MultiboardSetItemIconBJ(udg_AttributesBoard, 1, 2, "ReplaceableTextures\\CommandButtons\\PASSkill20.blp")
@@ -20471,7 +14747,7 @@ function Trig_Item_Pickup_Actions takes nothing returns nothing
                 call DestroyEffectBJ(GetLastCreatedEffectBJ())
                 call AddSpecialEffectTargetUnitBJ("overhead", gg_unit_H000_0004, "war3mapImported\\SoundEffect3.mdx")
                 call DestroyEffectBJ(GetLastCreatedEffectBJ())
-                call CreateTextTagUnitBJ("Секрет раскрыт!|n", udg_Arct, 0, 11.00, 100.00, 100.00, 100.00, 0)
+                call CreateTextTagUnitBJ("Секрет раскрыт!", udg_Arct, 0, 11.00, 100.00, 100.00, 100.00, 0)
                 call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
                 call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
                 call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.50)
@@ -21769,16 +16045,16 @@ function InitTrig_Knockback_System takes nothing returns nothing
 endfunction
 function Trig_Tutorial01_Actions takes nothing returns nothing
     call CinematicModeExBJ(false, GetPlayersAll(), 999.00)
-    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба|n", gg_snd_1F, "Наконец-то - хоть кто-то с мозгами! Добро пожаловать. Меня Беба зовут.|n", bj_TIMETYPE_ADD, 0.00, true)
-    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба|n", gg_snd_2F, "Я тут как раз решил провести тренировку с этим бездарем, я и тебя заодно научу самому главному. Начнём с боевой системы.|n", bj_TIMETYPE_ADD, 0.00, true)
+    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_1F, "Наконец-то - хоть кто-то с мозгами! Добро пожаловать. Меня Беба зовут.", bj_TIMETYPE_ADD, 0.00, true)
+    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_2F, "Я тут как раз решил провести тренировку с этим бездарем, я и тебя заодно научу самому главному. Начнём с боевой системы.", bj_TIMETYPE_ADD, 0.00, true)
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 3.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
     call CinematicModeExBJ(false, GetPlayersAll(), 3.00)
     call TriggerSleepAction(4.00)
     call CameraSetSmoothingFactorBJ(10.00)
-    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба|n", gg_snd_3F, "Смотри, всё просто. У Аркта есть три навыка, они различаются по цвету. Во время боя над монстром может появиться одна из трёх иконок.|n", bj_TIMETYPE_ADD, 0.00, true)
-    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба|n", gg_snd_4F, "Тебе нужно успеть нажать на такую же на панели умений Аркта, тогда монстр получит урон, а герой исцелится.|n", bj_TIMETYPE_ADD, 0.00, true)
-    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_H000_0004, "Аркт|n", gg_snd_4BF, "С кем ты разговариваешь?|n", bj_TIMETYPE_ADD, 0.00, true)
-    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба|n", gg_snd_5F, "Погоди ты, не мешай. Так вот. Всё понятно? Сейчас я создам монстра, а ты попробуй с помощью Аркта его убить.|n", bj_TIMETYPE_ADD, 0.00, true)
+    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_3F, "Смотри, всё просто. У Аркта есть три навыка, они различаются по цвету. Во время боя над монстром может появиться одна из трёх иконок.", bj_TIMETYPE_ADD, 0.00, true)
+    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_4F, "Тебе нужно успеть нажать на такую же на панели умений Аркта, тогда монстр получит урон, а герой исцелится.", bj_TIMETYPE_ADD, 0.00, true)
+    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_H000_0004, "Аркт", gg_snd_4BF, "С кем ты разговариваешь?", bj_TIMETYPE_ADD, 0.00, true)
+    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_5F, "Погоди ты, не мешай. Так вот. Всё понятно? Сейчас я создам монстра, а ты попробуй с помощью Аркта его убить.", bj_TIMETYPE_ADD, 0.00, true)
     call TriggerSleepAction(2.00)
     call LeaderboardDisplayBJ(true, udg_CO_ComboBoard)
     set udg_Point = GetRandomLocInRect(gg_rct_Artefactorium_Spawn)
@@ -21800,9 +16076,9 @@ endfunction
 function Trig_Tutorial02_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Enter_Regions)
     set udg_Tutorial[3] = false
-    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба|n", gg_snd_10F, "Что же. Вы готовы. Можно отправляться в портал. Удачи.|n", bj_TIMETYPE_ADD, 0.00, true)
-    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_H000_0004, "Аркт|n", gg_snd_11F, "Да с кем ты там разговариваешь!?|n", bj_TIMETYPE_ADD, 0.00, true)
-    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба|n", gg_snd_12F, "Заткнись.|n", bj_TIMETYPE_ADD, 0.00, true)
+    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_10F, "Что же. Вы готовы. Можно отправляться в портал. Удачи.", bj_TIMETYPE_ADD, 0.00, true)
+    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_H000_0004, "Аркт", gg_snd_11F, "Да с кем ты там разговариваешь!?", bj_TIMETYPE_ADD, 0.00, true)
+    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_12F, "Заткнись.", bj_TIMETYPE_ADD, 0.00, true)
     call EnableTrigger(gg_trg_Enter_Dialog)
     call EnableTrigger(gg_trg_Damage_Effects)
     call DestroyTrigger(GetTriggeringTrigger())
@@ -21888,7 +16164,7 @@ function Trig_Artefactorium_Creep_Kill_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Fade_Loop)
     call RemoveUnit(udg_CO_OpportunityUnit[GetUnitUserData(GetDyingUnit())])
     if(Trig_Artefactorium_Creep_Kill_Func008C())then
-        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба|n", gg_snd_6F, "Ну, неплохо. Если хочешь ещё парочку призвать - нажми правой кнопкой на сферу. Когда наловчишься справляться с монстрами без проблем - пойди прогуляйся с Арктом по замку.|n", bj_TIMETYPE_ADD, 0.00, true)
+        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_6F, "Ну, неплохо. Если хочешь ещё парочку призвать - нажми правой кнопкой на сферу. Когда наловчишься справляться с монстрами без проблем - пойди прогуляйся с Арктом по замку.", bj_TIMETYPE_ADD, 0.00, true)
         call EnableTrigger(gg_trg_Artefactorium_Spawn)
         call EnableTrigger(gg_trg_Enter_Regions)
         set udg_Target = gg_unit_h006_0081
@@ -21903,13 +16179,13 @@ function Trig_Artefactorium_Creep_Kill_Actions takes nothing returns nothing
         set udg_AS_SeriesNumber = 2
         set udg_AS_Effect[udg_AS_SeriesNumber] = 1
         set udg_AS_AbilityStudied[1] = 1
-        call CreateTextTagUnitBJ("5|n", gg_unit_h006_0081, 0, 15.00, 100, 100, 100, 0)
+        call CreateTextTagUnitBJ("5", gg_unit_h006_0081, 0, 15.00, 100, 100, 100, 0)
         set udg_AS_TextNumber[2] = GetLastCreatedTextTag()
         call UnitRemoveAbilityBJ(0x41303241, gg_unit_h006_0081)
         call UnitAddAbilityBJ(0x41303649, gg_unit_h006_0081)
         set udg_AS_Points = 300
         call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 1, ("Очки навыков: " + I2S(udg_AS_Points)))
-        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба|n", gg_snd_7F, "Кстати, теперь через каждые 5 правильных нажатий Аркт применяет навык, который повышает броню и периодически исцеляет. Можешь проверить.|n", bj_TIMETYPE_ADD, 0.00, true)
+        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_7F, "Кстати, теперь через каждые 5 правильных нажатий Аркт применяет навык, который повышает броню и периодически исцеляет. Можешь проверить.", bj_TIMETYPE_ADD, 0.00, true)
     else
     endif
 endfunction
@@ -22612,20 +16888,20 @@ function Trig_Ending_Init_Actions takes nothing returns nothing
     call ShowUnitShow(gg_unit_h00V_0029)
     call UnitAddAbilityBJ(0x416C6F63, gg_unit_h00V_0029)
     call TriggerSleepAction(3.00)
-    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор|n", gg_snd_Edemor1, "Путь Пилигрима пройден. Что ты чувствуешь?|n", bj_TIMETYPE_ADD, 0.00, true)
+    call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор", gg_snd_Edemor1, "Путь Пилигрима пройден. Что ты чувствуешь?", bj_TIMETYPE_ADD, 0.00, true)
     call DialogClearBJ(udg_EndingDialog)
-    call DialogSetMessageBJ(udg_EndingDialog, "Что ты чувствуешь?|n")
-    call DialogAddButtonBJ(udg_EndingDialog, "Грусть|n")
+    call DialogSetMessageBJ(udg_EndingDialog, "Что ты чувствуешь?")
+    call DialogAddButtonBJ(udg_EndingDialog, "Грусть")
     set udg_DialogButton[1] = GetLastCreatedButtonBJ()
-    call DialogAddButtonBJ(udg_EndingDialog, "Облегчение|n")
+    call DialogAddButtonBJ(udg_EndingDialog, "Облегчение")
     set udg_DialogButton[2] = GetLastCreatedButtonBJ()
-    call DialogAddButtonBJ(udg_EndingDialog, "Радость|n")
+    call DialogAddButtonBJ(udg_EndingDialog, "Радость")
     set udg_DialogButton[3] = GetLastCreatedButtonBJ()
-    call DialogAddButtonBJ(udg_EndingDialog, "Воодушевление|n")
+    call DialogAddButtonBJ(udg_EndingDialog, "Воодушевление")
     set udg_DialogButton[4] = GetLastCreatedButtonBJ()
-    call DialogAddButtonBJ(udg_EndingDialog, "Безразличие|n")
+    call DialogAddButtonBJ(udg_EndingDialog, "Безразличие")
     set udg_DialogButton[5] = GetLastCreatedButtonBJ()
-    call DialogAddButtonBJ(udg_EndingDialog, "Голод|n")
+    call DialogAddButtonBJ(udg_EndingDialog, "Голод")
     set udg_DialogButton[6] = GetLastCreatedButtonBJ()
     call DialogDisplayBJ(true, udg_EndingDialog, Player(0))
     call EnableTrigger(gg_trg_Ending_Dialogue_1)
@@ -22639,16 +16915,16 @@ endfunction
 function Trig_Ending_Dialogue_1_Actions takes nothing returns nothing
     if GetClickedButton() == udg_DialogButton[1] or GetClickedButton() == udg_DialogButton[5] or GetClickedButton() == udg_DialogButton[6] then
         call TriggerSleepAction(1.00)
-        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор|n", gg_snd_Edemor2, "Если это всё что ты чувствуешь на пороге в Эдем, мне становится неясно - зачем тогда ты прошёл весь этот путь не имея высшей цели. Эдем не открывается тем, кому он не нужен. Может когда-нибудь тебе снова выпадет шанс оказаться предо мной, но не в этой жизни.|n", bj_TIMETYPE_ADD, 1.00, true)
+        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор", gg_snd_Edemor2, "Если это всё что ты чувствуешь на пороге в Эдем, мне становится неясно - зачем тогда ты прошёл весь этот путь не имея высшей цели. Эдем не открывается тем, кому он не нужен. Может когда-нибудь тебе снова выпадет шанс оказаться предо мной, но не в этой жизни.", bj_TIMETYPE_ADD, 1.00, true)
         call ConditionalTriggerExecute(gg_trg_Bad_Ending_Good_Job)
     else
         call TriggerSleepAction(1.00)
-        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор|n", gg_snd_Edemor3, "Ты достоин войти в Эдем, но готов ли ты ради этого отбросить свои привязанности, отпустить любимых и простить врагов, отказаться от всех желаний и испытать настоящую смерть?|n", bj_TIMETYPE_ADD, 1.00, true)
+        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор", gg_snd_Edemor3, "Ты достоин войти в Эдем, но готов ли ты ради этого отбросить свои привязанности, отпустить любимых и простить врагов, отказаться от всех желаний и испытать настоящую смерть?", bj_TIMETYPE_ADD, 1.00, true)
         call DialogClearBJ(udg_EndingDialog)
-        call DialogSetMessageBJ(udg_EndingDialog, "Готов ли ты?|n")
-        call DialogAddButtonBJ(udg_EndingDialog, "Да|n")
+        call DialogSetMessageBJ(udg_EndingDialog, "Готов ли ты?")
+        call DialogAddButtonBJ(udg_EndingDialog, "Да")
         set udg_DialogButton[1] = GetLastCreatedButtonBJ()
-        call DialogAddButtonBJ(udg_EndingDialog, "Нет|n")
+        call DialogAddButtonBJ(udg_EndingDialog, "Нет")
         set udg_DialogButton[2] = GetLastCreatedButtonBJ()
         call DialogDisplayBJ(true, udg_EndingDialog, Player(0))
         call EnableTrigger(gg_trg_Ending_Dialogue_2)
@@ -22665,18 +16941,18 @@ endfunction
 function Trig_Ending_Dialogue_2_Actions takes nothing returns nothing
     if GetClickedButton() == udg_DialogButton[1] then
         call TriggerSleepAction(1.00)
-        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор|n", gg_snd_Edemor4, "Отвечай честно.|n", bj_TIMETYPE_ADD, 1.00, true)
+        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор", gg_snd_Edemor4, "Отвечай честно.", bj_TIMETYPE_ADD, 1.00, true)
         call DialogClearBJ(udg_EndingDialog)
-        call DialogSetMessageBJ(udg_EndingDialog, "Отвечай честно.|n")
-        call DialogAddButtonBJ(udg_EndingDialog, "Я готов|n")
+        call DialogSetMessageBJ(udg_EndingDialog, "Отвечай честно.")
+        call DialogAddButtonBJ(udg_EndingDialog, "Я готов")
         set udg_DialogButton[1] = GetLastCreatedButtonBJ()
-        call DialogAddButtonBJ(udg_EndingDialog, "Я не готов|n")
+        call DialogAddButtonBJ(udg_EndingDialog, "Я не готов")
         set udg_DialogButton[2] = GetLastCreatedButtonBJ()
         call DialogDisplayBJ(true, udg_EndingDialog, Player(0))
         call EnableTrigger(gg_trg_Ending_Dialogue_3)
     else
         call TriggerSleepAction(1.00)
-        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор|n", gg_snd_Edemor5, "Тогда путь был проделан зря. Твои деяния потеряли значение. Возвращайся обратно и доживай свой век на поводу у своих слабостей. Может когда-нибудь тебе снова выпадет шанс оказаться предо мной, но не в этой жизни.|n", bj_TIMETYPE_ADD, 1.00, true)
+        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор", gg_snd_Edemor5, "Тогда путь был проделан зря. Твои деяния потеряли значение. Возвращайся обратно и доживай свой век на поводу у своих слабостей. Может когда-нибудь тебе снова выпадет шанс оказаться предо мной, но не в этой жизни.", bj_TIMETYPE_ADD, 1.00, true)
         call ConditionalTriggerExecute(gg_trg_Bad_Ending_Good_Job)
     endif
     call DestroyTrigger(GetTriggeringTrigger())
@@ -22692,23 +16968,23 @@ endfunction
 function Trig_Ending_Dialogue_3_Actions takes nothing returns nothing
     if GetClickedButton() == udg_DialogButton[1] then
         call TriggerSleepAction(3.00)
-        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор|n", gg_snd_Edemor6, "Идём со мной.|n", bj_TIMETYPE_ADD, 1.00, true)
+        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор", gg_snd_Edemor6, "Идём со мной.", bj_TIMETYPE_ADD, 1.00, true)
         set udg_Transparent = 0.00
         call EnableTrigger(gg_trg_Edemor_Transparent_2)
         call CinematicFadeBJ(bj_CINEFADETYPE_FADEOUT, 4.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 100.00, 100.00, 100.00, 0.00)
         call CinematicModeExBJ(true, bj_FORCE_PLAYER[0], 5.00)
         call TriggerSleepAction(5.00)
-        call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "Аркт достиг Эдема.|n")
+        call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "Аркт достиг Эдема.")
         call StopMusicBJ(false)
         call ClearMapMusicBJ()
         call PlayMusic((("/Edemium/MusicEnding.mp3")))
         call TriggerSleepAction(10.00)
-        call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "Ты справился, красавчик! Спасибо тебе!|nОставь отзыв на сайте (xgm.guru/p/edemium) - сделай мир лучше!|n")
+        call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "Ты справился, красавчик! Спасибо тебе!|nОставь отзыв на сайте (xgm.guru/p/edemium) - сделай мир лучше!")
         call TriggerSleepAction(25.00)
-        call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "ALT + F4|n")
+        call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "ALT + F4")
     else
         call TriggerSleepAction(1.00)
-        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор|n", gg_snd_Edemor5, "Тогда путь был проделан зря. Твои деяния потеряли значение. Возвращайся обратно и доживай свой век на поводу у своих слабостей. Может когда-нибудь тебе снова выпадет шанс оказаться предо мной, но не в этой жизни.|n", bj_TIMETYPE_ADD, 1.00, true)
+        call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор", gg_snd_Edemor5, "Тогда путь был проделан зря. Твои деяния потеряли значение. Возвращайся обратно и доживай свой век на поводу у своих слабостей. Может когда-нибудь тебе снова выпадет шанс оказаться предо мной, но не в этой жизни.", bj_TIMETYPE_ADD, 1.00, true)
         call ConditionalTriggerExecute(gg_trg_Bad_Ending_Good_Job)
     endif
     call DestroyTrigger(GetTriggeringTrigger())
@@ -22726,11 +17002,11 @@ function Trig_Bad_Ending_Good_Job_Actions takes nothing returns nothing
     call CinematicModeExBJ(true, bj_FORCE_PLAYER[0], 5.00)
     call TriggerSleepAction(5.00)
     call PlayMusic((("/Edemium/MusicEnding.mp3")))
-    call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "Аркт не достиг Эдема.|n")
+    call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "Аркт не достиг Эдема.")
     call TriggerSleepAction(10.00)
-    call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "Ты не справился, но всё равно спасибо тебе!|nОставь отзыв на сайте (xgm.guru/p/edemium) - сделай мир лучше!|n")
+    call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "Ты не справился, но всё равно спасибо тебе!|nОставь отзыв на сайте (xgm.guru/p/edemium) - сделай мир лучше!")
     call TriggerSleepAction(25.00)
-    call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "ALT + F4|n")
+    call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "ALT + F4")
 endfunction
 function InitTrig_Bad_Ending_Good_Job takes nothing returns nothing
     set gg_trg_Bad_Ending_Good_Job = CreateTrigger()
