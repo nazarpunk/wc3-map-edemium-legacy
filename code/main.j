@@ -3,10 +3,6 @@
 //! import "mainInit.j"
 //! import "lib/CodeGen.j"
 
-//! zinc
-//! import "zinc/Init.zn"
-//! endzinc
-
 //! import "triggers/Initialisation.j"
 //! import "triggers/Initialisation_Elapsed.j"
 //! import "triggers/Initialisation_Dialog.j"
@@ -284,6 +280,10 @@
 //! import "triggers/chat/Exp.j"
 
 //! import "InitCustomTriggers.j"
+
+//! zinc
+//! import "zinc/Init.zn"
+//! endzinc
 
 //! inject main
     call SetCameraBounds(- 3328.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), - 28160.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 15616.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 3072.0 - GetCameraMargin(CAMERA_MARGIN_TOP), - 3328.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 3072.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 15616.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), - 28160.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM))

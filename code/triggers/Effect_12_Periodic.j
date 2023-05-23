@@ -1,6 +1,6 @@
 function Trig_Effect_12_Periodic_Func002Func007A takes nothing returns nothing
     set udg_Point2 = GetUnitLoc(GetEnumUnit())
-    if GetOwningPlayer(GetEnumUnit()) == Player(11) end GetTerrainTypeBJ(udg_Point2) == 0x446C7663 then
+    if GetOwningPlayer(GetEnumUnit()) == Player(11) and GetTerrainTypeBJ(udg_Point2) == 0x446C7663 then
         set udg_AbilityPower = (I2R(udg_CO_Power) + (I2R(udg_CO_Combo) + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true))))
         call UnitDamageTargetBJ(udg_Arct, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
         call CreateTextTagUnitBJ(I2S(R2I(udg_AbilityPower)), GetEnumUnit(), 0, 8.00, 100.00, 0.00, 0.00, 0)
