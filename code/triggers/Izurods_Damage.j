@@ -33,13 +33,10 @@ function Trig_Izurods_Damage_Actions takes nothing returns nothing
             call ResetUnitAnimation(GetTriggerUnit())
             call AddSpecialEffectTargetUnitBJ("chest", GetTriggerUnit(), "war3mapImported\\StompRed.mdx")
             call DestroyEffectBJ(GetLastCreatedEffectBJ())
-        else
         endif
-    else
     endif
     if(Trig_Izurods_Damage_Func002C())then
         call SetUnitManaBJ(GetTriggerUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetTriggerUnit()) + 10.00))
-    else
     endif
 endfunction
 

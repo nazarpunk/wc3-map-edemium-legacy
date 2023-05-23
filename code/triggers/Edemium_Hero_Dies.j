@@ -50,14 +50,12 @@ function Trig_Edemium_Hero_Dies_Actions takes nothing returns nothing
     if(Trig_Edemium_Hero_Dies_Func013C())then
         set udg_AS_Effect2 = false
         set udg_ChanceCrit = (udg_ChanceCrit - 10.00)
-    else
     endif
     if(Trig_Edemium_Hero_Dies_Func014C())then
         set udg_AS_Effect11 = false
         set udg_ChanceBlock = (udg_ChanceBlock - 20.00)
         call DestroyEffectBJ(udg_AS_Effect11SE)
         call SetUnitVertexColorBJ(udg_Arct, 100.00, 100.00, 100, 0)
-    else
     endif
     call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
     call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
@@ -85,13 +83,11 @@ function Trig_Edemium_Hero_Dies_Actions takes nothing returns nothing
         call DisableTrigger(gg_trg_Meditation_Heal)
         call DisableTrigger(gg_trg_Meditation_Cast)
         call DisableTrigger(gg_trg_Meditation_Turn_Off)
-    else
     endif
     if(Trig_Edemium_Hero_Dies_Func030C())then
         set udg_SprintLogic = false
         call SetUnitMoveSpeed(udg_Arct, GetUnitDefaultMoveSpeed(udg_Arct))
         call DisableTrigger(gg_trg_Sprint_Energy)
-    else
     endif
     call TriggerSleepAction(5.00)
     set udg_RewardDustReal = 0.00

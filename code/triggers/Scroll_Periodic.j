@@ -16,7 +16,6 @@ function Trig_Scroll_Periodic_Func017A takes nothing returns nothing
         call AddSpecialEffectLocBJ(udg_CO_Point, "war3mapImported\\Blue Lightning.mdx")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
         call RemoveLocation(udg_CO_Point)
-    else
     endif
 endfunction
 

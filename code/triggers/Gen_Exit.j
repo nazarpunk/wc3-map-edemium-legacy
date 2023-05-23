@@ -86,7 +86,6 @@ endfunction
 function Trig_Gen_Exit_Func050A takes nothing returns nothing
     if(Trig_Gen_Exit_Func050Func001C())then
         call RemoveDestructable(GetEnumDestructable())
-    else
     endif
 endfunction
 
@@ -309,14 +308,12 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     if(Trig_Gen_Exit_Func068C())then
         set udg_AS_Effect2 = false
         set udg_ChanceCrit = (udg_ChanceCrit - 10.00)
-    else
     endif
     if(Trig_Gen_Exit_Func069C())then
         set udg_AS_Effect11 = false
         set udg_ChanceBlock = (udg_ChanceBlock - 20.00)
         call DestroyEffectBJ(udg_AS_Effect11SE)
         call SetUnitVertexColorBJ(udg_Arct, 100.00, 100.00, 100, 0)
-    else
     endif
     if(Trig_Gen_Exit_Func070C())then
         set udg_ARTInteger[3] = (udg_ARTInteger[3] + 1)
@@ -332,9 +329,7 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
                     call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_ADD, (1 * udg_ART[13]))
                 endif
             endif
-        else
         endif
-    else
     endif
     if(Trig_Gen_Exit_Func071C())then
         set udg_Dead = false
@@ -397,7 +392,6 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
                     set bj_forLoopAIndex = bj_forLoopAIndex + 1
                 endloop
                 set udg_EX_LevelUp = 0
-            else
             endif
             if(Trig_Gen_Exit_Func071Func001Func002C())then
                 set udg_QG_Count[2] = (udg_QG_Count[2] + 1)
@@ -406,9 +400,7 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
                 set udg_Point = GetUnitLoc(udg_EM_Target)
                 call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Pearlescence.mdl")
                 call RemoveLocation(udg_Point)
-            else
             endif
-        else
         endif
     endif
     set udg_EM_BossRoom = false
@@ -419,7 +411,6 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
         set udg_RewardDustReal = (udg_RewardDustReal * udg_EX_Rate)
         call AdjustPlayerStateBJ(R2I(udg_RewardDustReal), Player(0), PLAYER_STATE_RESOURCE_GOLD)
         set udg_RewardDustReal = 0.00
-    else
     endif
     call DisableTrigger(gg_trg_Escape_Dialog_Dummy)
     call DisableTrigger(gg_trg_Tile_Damage)
@@ -466,13 +457,11 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
         call DisableTrigger(gg_trg_Meditation_Heal)
         call DisableTrigger(gg_trg_Meditation_Cast)
         call DisableTrigger(gg_trg_Meditation_Turn_Off)
-    else
     endif
     if(Trig_Gen_Exit_Func116C())then
         set udg_SprintLogic = false
         call IssueImmediateOrderBJ(udg_Arct, "manashieldoff")
         call DisableTrigger(gg_trg_Sprint_Energy)
-    else
     endif
     call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
     call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)

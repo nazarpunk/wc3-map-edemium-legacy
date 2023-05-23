@@ -345,7 +345,6 @@ function Trig_Gen_Decor_Walls_Actions takes nothing returns nothing
                             else
                                 if(Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001Func001Func001Func001C())then
                                     call CreateDestructableLoc(0x42303135, udg_D_PointOffset, 90.00, 1.50, 0)
-                                else
                                 endif
                             endif
                         endif
@@ -353,7 +352,6 @@ function Trig_Gen_Decor_Walls_Actions takes nothing returns nothing
                 endif
             endif
         endif
-    else
     endif
     if(Trig_Gen_Decor_Walls_Func003C())then
         if(Trig_Gen_Decor_Walls_Func003Func002C())then
@@ -387,7 +385,6 @@ function Trig_Gen_Decor_Walls_Actions takes nothing returns nothing
                             else
                                 if(Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001Func001Func001Func001C())then
                                     call CreateDestructableLoc(0x42303135, udg_D_PointOffset, 0.00, 1.50, 0)
-                                else
                                 endif
                             endif
                         endif
@@ -395,7 +392,6 @@ function Trig_Gen_Decor_Walls_Actions takes nothing returns nothing
                 endif
             endif
         endif
-    else
     endif
     if(Trig_Gen_Decor_Walls_Func004C())then
         if(Trig_Gen_Decor_Walls_Func004Func001C())then
@@ -429,7 +425,6 @@ function Trig_Gen_Decor_Walls_Actions takes nothing returns nothing
                             else
                                 if(Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001Func001Func001Func001C())then
                                     call CreateDestructableLoc(0x42303135, udg_D_PointOffset, 270.00, 1.50, 0)
-                                else
                                 endif
                             endif
                         endif
@@ -437,7 +432,6 @@ function Trig_Gen_Decor_Walls_Actions takes nothing returns nothing
                 endif
             endif
         endif
-    else
     endif
     if(Trig_Gen_Decor_Walls_Func005C())then
         if(Trig_Gen_Decor_Walls_Func005Func001C())then
@@ -471,7 +465,6 @@ function Trig_Gen_Decor_Walls_Actions takes nothing returns nothing
                             else
                                 if(Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001Func001Func001C())then
                                     call CreateDestructableLoc(0x42303135, udg_D_PointOffset, 180.00, 1.50, 0)
-                                else
                                 endif
                             endif
                         endif
@@ -479,7 +472,6 @@ function Trig_Gen_Decor_Walls_Actions takes nothing returns nothing
                 endif
             endif
         endif
-    else
     endif
     call RemoveLocation(udg_D_PointOffset)
 endfunction

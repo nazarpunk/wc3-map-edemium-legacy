@@ -82,7 +82,6 @@ function Trig_Gen_Decor_Tiles_Func002Func002A takes nothing returns nothing
                             else
                                 if(Trig_Gen_Decor_Tiles_Func002Func002Func004Func001Func001Func001Func001Func001Func001Func001C())then
                                     call CreateDestructableLoc(0x42303050, udg_D_Point1, GetRandomReal(0, 360.00), 1.30, 0)
-                                else
                                 endif
                             endif
                         endif
@@ -334,7 +333,6 @@ function Trig_Gen_Decor_Tiles_Func004A takes nothing returns nothing
                                     set udg_D_PointOffset = OffsetLocation(udg_D_Point1, udg_Offset[GetRandomInt(2, 4)], - 60.00)
                                     call RemoveLocation(udg_D_Point1)
                                     call ConditionalTriggerExecute(gg_trg_Gen_Decor_Rooms)
-                                else
                                 endif
                             endif
                         endif

@@ -81,7 +81,6 @@ function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func006A takes 
     call UnitDamageTargetBJ(udg_SB_Hero[udg_SB], GetEnumUnit(), udg_SB_Damage[udg_SB], ATTACK_TYPE_NORMAL, DAMAGE_TYPE_FORCE)
     if(Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func006Func002C())then
         call EnableTrigger(gg_trg_Knockback_System)
-    else
     endif
     set udg_KB_Skip = (udg_KB_Skip + 1)
     set udg_KB_Times = (udg_KB_Times + 1)
@@ -156,7 +155,6 @@ function Trig_Lightspeed_Loop_Actions takes nothing returns nothing
                 if(Trig_Lightspeed_Loop_Func001Func001Func001Func007C())then
                     set udg_SB_Times = 0
                     call DisableTrigger(GetTriggeringTrigger())
-                else
                 endif
             else
                 if(Trig_Lightspeed_Loop_Func001Func001Func001Func001C())then
@@ -188,7 +186,6 @@ function Trig_Lightspeed_Loop_Actions takes nothing returns nothing
                     call RemoveLocation(udg_SB_Point[3])
                 endif
             endif
-        else
         endif
         set udg_SB = udg_SB + 1
     endloop

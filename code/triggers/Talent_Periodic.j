@@ -40,7 +40,6 @@ function Trig_Talent_Periodic_Func002Func001Func011A takes nothing returns nothi
         call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Blue Lightning.mdx")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
         call RemoveLocation(udg_Point)
-    else
     endif
 endfunction
 
@@ -110,11 +109,8 @@ function Trig_Talent_Periodic_Actions takes nothing returns nothing
                 set udg_LightOrbs[1] = (udg_LightOrbs[1] + udg_RandomNumber)
                 set udg_LightIterations = (udg_LightIterations + udg_RandomNumber)
                 call EnableTrigger(gg_trg_Orbs_Spawn)
-            else
             endif
-        else
         endif
-    else
     endif
     if(Trig_Talent_Periodic_Func002C())then
         if(Trig_Talent_Periodic_Func002Func001C())then
@@ -130,9 +126,7 @@ function Trig_Talent_Periodic_Actions takes nothing returns nothing
             call DestroyGroup(udg_UnitGroupPlayer)
             call ForGroupBJ(GetRandomSubGroup(1, udg_UnitGroup), function Trig_Talent_Periodic_Func002Func001Func011A)
             call DestroyGroup(udg_UnitGroup)
-        else
         endif
-    else
     endif
     if(Trig_Talent_Periodic_Func003C())then
         if(Trig_Talent_Periodic_Func003Func001C())then
@@ -141,11 +135,8 @@ function Trig_Talent_Periodic_Actions takes nothing returns nothing
                 set udg_ARTInteger[2] = 0
                 set udg_CO_Combo = (udg_CO_Combo + (1 * udg_ART[9]))
                 call LeaderboardSetLabelBJ(udg_CO_ComboBoard, ("Серия ударов: " + I2S(udg_CO_Combo)))
-            else
             endif
-        else
         endif
-    else
     endif
     if(Trig_Talent_Periodic_Func004C())then
         set udg_AbilityPower = (GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_Arct) * 20.00)
@@ -156,11 +147,8 @@ function Trig_Talent_Periodic_Actions takes nothing returns nothing
                 call SetUnitLifeBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) + (100.00 * I2R(udg_ART[14]))))
                 call AddSpecialEffectTargetUnitBJ("origin", udg_Arct, "Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl")
                 call DestroyEffectBJ(GetLastCreatedEffectBJ())
-            else
             endif
-        else
         endif
-    else
     endif
 endfunction
 

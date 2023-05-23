@@ -37,14 +37,12 @@ endfunction
 function Trig_Effect_8_Cast_Func018A takes nothing returns nothing
     if(Trig_Effect_8_Cast_Func018Func001C())then
         set udg_BE_Target[udg_BE_MaxIndex] = GetEnumUnit()
-    else
     endif
 endfunction
 
 function Trig_Effect_8_Cast_Actions takes nothing returns nothing
     if(Trig_Effect_8_Cast_Func001C())then
         call EnableTrigger(gg_trg_Effect_8_Loop)
-    else
     endif
     set udg_BE_MaxIndex = (udg_BE_MaxIndex + 1)
     set udg_BE_Caster[udg_BE_MaxIndex] = udg_Arct

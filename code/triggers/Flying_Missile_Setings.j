@@ -67,7 +67,6 @@ endfunction
 function Trig_Flying_Missile_Setings_Actions takes nothing returns nothing
     if(Trig_Flying_Missile_Setings_Func003C())then
         call EnableTrigger(gg_trg_Flying_Missile_Loop)
-    else
     endif
     set udg_BL_Skip = (udg_BL_Skip + 1)
     set udg_BL_Times = (udg_BL_Times + 1)

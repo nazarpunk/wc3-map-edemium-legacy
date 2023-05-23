@@ -92,7 +92,6 @@ function Trig_QG_Generate_Actions takes nothing returns nothing
                     set udg_QG_CountMax[4] = udg_RandomNumber
                     set udg_QG_ObjectiveName[1] = "Открыто сундуков "
                     set udg_QG_Objective[1] = (udg_QG_ObjectiveName[1] + (I2S(udg_QG_Count[udg_QG_ObjectiveState[1]]) + ("/" + I2S(udg_QG_CountMax[udg_QG_ObjectiveState[1]]))))
-                else
                 endif
             endif
         endif
@@ -133,7 +132,6 @@ function Trig_QG_Generate_Actions takes nothing returns nothing
                     set udg_QG_CountMax[8] = udg_RandomNumber
                     set udg_QG_ObjectiveName[2] = "Изучено секретов "
                     set udg_QG_Objective[2] = (udg_QG_ObjectiveName[2] + (I2S(udg_QG_Count[udg_QG_ObjectiveState[2]]) + ("/" + I2S(udg_QG_CountMax[udg_QG_ObjectiveState[2]]))))
-                else
                 endif
             endif
         endif

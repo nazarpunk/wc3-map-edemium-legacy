@@ -32,12 +32,10 @@ function Trig_Edemium_Difficulty_Dialog_Actions takes nothing returns nothing
     if(Trig_Edemium_Difficulty_Dialog_Func009C())then
         call DialogAddButtonBJ(udg_DifficultyDialog, "|cFFFF9000Паладин|r")
         set udg_DialogButton[6] = GetLastCreatedButtonBJ()
-    else
     endif
     if(Trig_Edemium_Difficulty_Dialog_Func010C())then
         call DialogAddButtonBJ(udg_DifficultyDialog, "|cFFE30000Пилигрим|r")
         set udg_DialogButton[7] = GetLastCreatedButtonBJ()
-    else
     endif
     call DialogAddButtonBJ(udg_DifficultyDialog, "Мне и так хорошо.")
     set udg_DialogButton[8] = GetLastCreatedButtonBJ()

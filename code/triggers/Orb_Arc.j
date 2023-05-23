@@ -15,7 +15,6 @@ endfunction
 
 function Trig_Orb_Arc_Actions takes nothing returns nothing
     if(Trig_Orb_Arc_Func002C())then
-    else
     endif
     set udg_JDA_JumpHigh_Distance = 0.60
     set udg_JDA_Collusion = true

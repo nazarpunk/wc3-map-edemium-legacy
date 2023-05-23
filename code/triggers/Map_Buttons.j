@@ -184,7 +184,6 @@ function Trig_Map_Buttons_Actions takes nothing returns nothing
         call ClearTextMessagesBJ(GetPlayersAll())
         if(Trig_Map_Buttons_Func002Func002C())then
             set udg_EM_EncounterChance = (udg_EM_EncounterChance + 4)
-        else
         endif
         if(Trig_Map_Buttons_Func002Func003C())then
             call UnitAddAbilityBJ(0x4130345A, GetTriggerUnit())
@@ -299,7 +298,6 @@ function Trig_Map_Buttons_Actions takes nothing returns nothing
                                                     else
                                                         if(Trig_Map_Buttons_Func002Func004Func001Func003Func001Func001Func001Func006Func003Func009Func009Func010Func001Func001C())then
                                                             call DisplayTimedTextToForce(GetPlayersAll(), 3.00, "Для входа требуются 3 ключа Эдемора.")
-                                                        else
                                                         endif
                                                     endif
                                                 endif
@@ -311,13 +309,11 @@ function Trig_Map_Buttons_Actions takes nothing returns nothing
                         endif
                     endif
                 endif
-            else
             endif
         endif
     endif
     if(Trig_Map_Buttons_Func003C())then
         call ConditionalTriggerExecute(gg_trg_Map_Move)
-    else
     endif
 endfunction
 

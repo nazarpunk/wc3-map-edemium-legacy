@@ -388,7 +388,6 @@ function Trig_Gen_Decor_Rooms_Actions takes nothing returns nothing
                 call RemoveLocation(udg_D_PointChest)
                 if(Trig_Gen_Decor_Rooms_Func002Func001Func002Func006C())then
                     call SetUnitUserData(GetLastCreatedUnit(), 10)
-                else
                 endif
             endif
         else
@@ -419,7 +418,6 @@ function Trig_Gen_Decor_Rooms_Actions takes nothing returns nothing
                                     set udg_Point = OffsetLocation(udg_D_PointOffset, - 25.00, 0.00)
                                     call CreateDestructableLoc(0x42303231, udg_Point, 90.00, 2.30, 0)
                                     call RemoveLocation(udg_Point)
-                                else
                                 endif
                             endif
                         endif
@@ -427,7 +425,6 @@ function Trig_Gen_Decor_Rooms_Actions takes nothing returns nothing
                 endif
             endif
         endif
-    else
     endif
     if(Trig_Gen_Decor_Rooms_Func003C())then
         if(Trig_Gen_Decor_Rooms_Func003Func001C())then
@@ -448,7 +445,6 @@ function Trig_Gen_Decor_Rooms_Actions takes nothing returns nothing
                 call RemoveLocation(udg_D_PointChest)
                 if(Trig_Gen_Decor_Rooms_Func003Func001Func002Func006C())then
                     call SetUnitUserData(GetLastCreatedUnit(), 10)
-                else
                 endif
             endif
         else
@@ -479,7 +475,6 @@ function Trig_Gen_Decor_Rooms_Actions takes nothing returns nothing
                                     set udg_Point = OffsetLocation(udg_D_PointOffset, 0.00, 25.00)
                                     call CreateDestructableLoc(0x42303231, udg_Point, 180.00, 2.30, 0)
                                     call RemoveLocation(udg_Point)
-                                else
                                 endif
                             endif
                         endif
@@ -487,7 +482,6 @@ function Trig_Gen_Decor_Rooms_Actions takes nothing returns nothing
                 endif
             endif
         endif
-    else
     endif
     if(Trig_Gen_Decor_Rooms_Func004C())then
         if(Trig_Gen_Decor_Rooms_Func004Func001C())then
@@ -508,7 +502,6 @@ function Trig_Gen_Decor_Rooms_Actions takes nothing returns nothing
                 call RemoveLocation(udg_D_PointChest)
                 if(Trig_Gen_Decor_Rooms_Func004Func001Func002Func006C())then
                     call SetUnitUserData(GetLastCreatedUnit(), 10)
-                else
                 endif
             endif
         else
@@ -539,7 +532,6 @@ function Trig_Gen_Decor_Rooms_Actions takes nothing returns nothing
                                     set udg_Point = OffsetLocation(udg_D_PointOffset, 25.00, 0.00)
                                     call CreateDestructableLoc(0x42303231, udg_Point, 90.00, 2.30, 0)
                                     call RemoveLocation(udg_Point)
-                                else
                                 endif
                             endif
                         endif
@@ -547,7 +539,6 @@ function Trig_Gen_Decor_Rooms_Actions takes nothing returns nothing
                 endif
             endif
         endif
-    else
     endif
     if(Trig_Gen_Decor_Rooms_Func005C())then
         if(Trig_Gen_Decor_Rooms_Func005Func001C())then
@@ -568,7 +559,6 @@ function Trig_Gen_Decor_Rooms_Actions takes nothing returns nothing
                 call RemoveLocation(udg_D_PointChest)
                 if(Trig_Gen_Decor_Rooms_Func005Func001Func002Func006C())then
                     call SetUnitUserData(GetLastCreatedUnit(), 10)
-                else
                 endif
             endif
         else
@@ -599,7 +589,6 @@ function Trig_Gen_Decor_Rooms_Actions takes nothing returns nothing
                                     set udg_Point = OffsetLocation(udg_D_PointOffset, 0.00, - 25.00)
                                     call CreateDestructableLoc(0x42303231, udg_Point, 180.00, 2.30, 0)
                                     call RemoveLocation(udg_Point)
-                                else
                                 endif
                             endif
                         endif
@@ -607,7 +596,6 @@ function Trig_Gen_Decor_Rooms_Actions takes nothing returns nothing
                 endif
             endif
         endif
-    else
     endif
     call RemoveLocation(udg_D_PointOffset)
 endfunction

@@ -46,21 +46,17 @@ function Trig_Gen_Creeps_Func005Func002A takes nothing returns nothing
     if(Trig_Gen_Creeps_Func005Func002Func004C())then
         call CreateNUnitsAtLoc(1, udg_D_CreepType[1], Player(11), udg_D_Point1, GetRandomReal(0, 360.00))
         call SetUnitUserData(GetEnumUnit(), (GetUnitUserData(GetEnumUnit()) + 1))
-    else
     endif
     if(Trig_Gen_Creeps_Func005Func002Func005C())then
         call CreateNUnitsAtLoc(1, udg_D_CreepType[2], Player(11), udg_D_Point1, GetRandomReal(0, 360.00))
         call SetUnitUserData(GetEnumUnit(), (GetUnitUserData(GetEnumUnit()) + 1))
-    else
     endif
     if(Trig_Gen_Creeps_Func005Func002Func006C())then
         call CreateNUnitsAtLoc(1, udg_D_CreepType[3], Player(11), udg_D_Point1, GetRandomReal(0, 360.00))
         call SetUnitUserData(GetEnumUnit(), (GetUnitUserData(GetEnumUnit()) + 1))
-    else
     endif
     if(Trig_Gen_Creeps_Func005Func002Func007C())then
         call GroupRemoveUnitSimple(GetEnumUnit(), udg_D_Pick)
-    else
     endif
     call SetUnitManaPercentBJ(GetLastCreatedUnit(), 100)
     call SetUnitUserData(GetLastCreatedUnit(), udg_CO_CustomValue)
@@ -103,7 +99,6 @@ function Trig_Gen_Creeps_Func008A takes nothing returns nothing
         call IssueTargetOrderBJ(GetLastCreatedUnit(), "firebolt", GetLastReplacedUnitBJ())
         call SetUnitUserData(GetLastReplacedUnitBJ(), 70)
         call SetUnitAnimation(GetLastReplacedUnitBJ(), "death")
-    else
     endif
 endfunction
 

@@ -23,15 +23,12 @@ function Trig_Gen_Hall_Walls_Func002A takes nothing returns nothing
             set udg_D_PointOffset = OffsetLocation(udg_D_Point1, 400.00, 0)
             call CreateDestructableLoc(udg_D_WallTierType[2], udg_D_PointOffset, 0.00, 1.40, 0)
             call RemoveLocation(udg_D_PointOffset)
-        else
         endif
         if(Trig_Gen_Hall_Walls_Func002Func006Func003C())then
             set udg_D_PointOffset = OffsetLocation(udg_D_Point1, 0.00, - 400.00)
             call CreateDestructableLoc(udg_D_WallTierType[4], udg_D_PointOffset, 0.00, 1.40, 0)
             call RemoveLocation(udg_D_PointOffset)
-        else
         endif
-    else
     endif
     call DestroyGroup(udg_D_Pick2)
     call RemoveLocation(udg_D_Point1)

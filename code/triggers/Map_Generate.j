@@ -198,7 +198,6 @@ function Trig_Map_Generate_Actions takes nothing returns nothing
                 call SetUnitUserData(gg_unit_h00K_0155, 73)
                 call SetUnitUserData(gg_unit_h00K_0153, 73)
                 call DestroyGroup(udg_UnitGroup)
-            else
             endif
         endif
     endif

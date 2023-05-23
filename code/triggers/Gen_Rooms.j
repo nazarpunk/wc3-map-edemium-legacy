@@ -25,10 +25,8 @@ function Trig_Gen_Rooms_Func002A takes nothing returns nothing
             call SetTerrainTypeBJ(udg_D_Point1, 0x58626C6D, - 1, 4, 1)
             call SetTerrainTypeBJ(udg_D_Point1, udg_D_TextureType, - 1, 3, 1)
             call RemoveLocation(udg_D_Point1)
-        else
         endif
         call DestroyGroup(udg_D_Pick2)
-    else
     endif
 endfunction
 

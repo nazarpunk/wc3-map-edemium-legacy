@@ -21,11 +21,9 @@ function Trig_Follower_Movement_Func001A takes nothing returns nothing
             call RemoveLocation(udg_Point2)
             set udg_Point2 = OffsetLocation(udg_Point, GetRandomReal(120.00, 150.00), GetRandomReal(50.00, 100.00))
             call IssuePointOrderLoc(GetEnumUnit(), "attack", udg_Point2)
-        else
         endif
         call RemoveLocation(udg_Point)
         call RemoveLocation(udg_Point2)
-    else
     endif
 endfunction
 

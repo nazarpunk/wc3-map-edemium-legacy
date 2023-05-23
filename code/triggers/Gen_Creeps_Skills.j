@@ -135,7 +135,6 @@ function Trig_Gen_Creeps_Skills_Func002A takes nothing returns nothing
                                     else
                                         if(Trig_Gen_Creeps_Skills_Func002Func002Func001Func001Func001Func001Func001Func001Func001Func001Func001C())then
                                             call UnitAddAbilityBJ(0x4130354A, GetEnumUnit())
-                                        else
                                         endif
                                     endif
                                 endif
@@ -145,7 +144,6 @@ function Trig_Gen_Creeps_Skills_Func002A takes nothing returns nothing
                 endif
             endif
         endif
-    else
     endif
 endfunction
 

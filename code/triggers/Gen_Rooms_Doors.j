@@ -87,7 +87,6 @@ function Trig_Gen_Rooms_Doors_Func002Func009A takes nothing returns nothing
         call CreateDestructableLoc(udg_D_WallTierTypeDoor[4], udg_D_PointOffsetDoors, 0.00, 1.39, 0)
         call RemoveLocation(udg_D_PointOffsetDoors)
         call RemoveLocation(udg_D_PointOffset)
-    else
     endif
     if(Trig_Gen_Rooms_Doors_Func002Func009Func003C())then
         set udg_D_PointOffset = OffsetLocation(udg_D_Point2, 0.00, - 400.00)
@@ -104,7 +103,6 @@ function Trig_Gen_Rooms_Doors_Func002Func009A takes nothing returns nothing
         call CreateDestructableLoc(udg_D_WallTierTypeDoor[1], udg_D_PointOffsetDoors, 0.00, 1.39, 0)
         call RemoveLocation(udg_D_PointOffsetDoors)
         call RemoveLocation(udg_D_PointOffset)
-    else
     endif
     if(Trig_Gen_Rooms_Doors_Func002Func009Func004C())then
         set udg_D_PointOffset = OffsetLocation(udg_D_Point2, - 350.00, 0.00)
@@ -121,7 +119,6 @@ function Trig_Gen_Rooms_Doors_Func002Func009A takes nothing returns nothing
         call CreateDestructableLoc(udg_D_WallTierTypeDoor[4], udg_D_PointOffsetDoors, 0.00, 1.39, 0)
         call RemoveLocation(udg_D_PointOffsetDoors)
         call RemoveLocation(udg_D_PointOffset)
-    else
     endif
     if(Trig_Gen_Rooms_Doors_Func002Func009Func005C())then
         set udg_D_PointOffset = OffsetLocation(udg_D_Point2, 0.00, 350.00)
@@ -138,7 +135,6 @@ function Trig_Gen_Rooms_Doors_Func002Func009A takes nothing returns nothing
         call CreateDestructableLoc(udg_D_WallTierTypeDoor[1], udg_D_PointOffsetDoors, 0.00, 1.39, 0)
         call RemoveLocation(udg_D_PointOffsetDoors)
         call RemoveLocation(udg_D_PointOffset)
-    else
     endif
     call RemoveLocation(udg_D_Point2)
 endfunction

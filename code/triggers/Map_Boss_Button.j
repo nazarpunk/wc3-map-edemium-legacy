@@ -53,7 +53,6 @@ function Trig_Map_Boss_Button_Actions takes nothing returns nothing
         endif
         call ConditionalTriggerExecute(gg_trg_Trees_Camera_Off)
         call ConditionalTriggerExecute(gg_trg_Gen_Boss)
-    else
     endif
 endfunction
 

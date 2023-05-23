@@ -1,4 +1,3 @@
-
 function Trig_Dungeon_Dark_Periodic_Actions takes nothing returns nothing
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEOUT, 1.00, "ReplaceableTextures\\CameraMasks\\Scope_Mask.blp", 0, 0, 0, 0)
     call SetUnitOwner(udg_Arct, Player(1), false)

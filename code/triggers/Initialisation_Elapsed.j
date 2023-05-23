@@ -12,7 +12,6 @@ function Trig_Initialisation_Elapsed_Func006A takes nothing returns nothing
                 call SetUnitVertexColorBJ(GetEnumUnit(), 100, 100, 100, 100.00)
                 call UnitAddAbilityBJ(0x416E6575, GetEnumUnit())
                 call UnitAddAbilityBJ(0x41303241, GetEnumUnit())
-            else
             endif
         endif
     endif
@@ -30,7 +29,6 @@ endfunction
 function Trig_Initialisation_Elapsed_Func144A takes nothing returns nothing
     if(Trig_Initialisation_Elapsed_Func144Func001C())then
         call ShowDestructableBJ(false, GetEnumDestructable())
-    else
     endif
 endfunction
 
@@ -172,17 +170,17 @@ function Trig_Initialisation_Elapsed_Actions takes nothing returns nothing
     call EnableMinimapFilterButtons(false, false)
     call SetMusicVolumeBJ(100.00)
     call VolumeGroupSetVolumeBJ(SOUND_VOLUMEGROUP_MUSIC, 100)
-    call CreateTextTagUnitBJ("III|n", udg_Arct, 0.00, 11.00, 100, 100, 100, 0)
+    call CreateTextTagUnitBJ("III", udg_Arct, 0.00, 11.00, 100, 100, 100, 0)
     set udg_DungeonColdText = GetLastCreatedTextTag()
     call ShowTextTagForceBJ(false, udg_DungeonColdText, bj_FORCE_PLAYER[0])
     call ConditionalTriggerExecute(gg_trg_Music_Castle)
     call DialogClearBJ(udg_InitDialog)
-    call DialogSetMessageBJ(udg_InitDialog, "|n")
-    call DialogAddButtonBJ(udg_InitDialog, "Пройти обучение|n")
+    call DialogSetMessageBJ(udg_InitDialog, "")
+    call DialogAddButtonBJ(udg_InitDialog, "Пройти обучение")
     set udg_DialogButton[1] = GetLastCreatedButtonBJ()
-    call DialogAddButtonBJ(udg_InitDialog, "Обойтись без обучения|n")
+    call DialogAddButtonBJ(udg_InitDialog, "Обойтись без обучения")
     set udg_DialogButton[2] = GetLastCreatedButtonBJ()
-    call DialogAddButtonBJ(udg_InitDialog, "Загрузить сохранение|n")
+    call DialogAddButtonBJ(udg_InitDialog, "Загрузить сохранение")
     set udg_DialogButton[3] = GetLastCreatedButtonBJ()
     call DialogDisplayBJ(true, udg_InitDialog, Player(0))
     call DestroyTrigger(GetTriggeringTrigger())

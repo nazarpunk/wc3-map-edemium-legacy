@@ -41,25 +41,21 @@ function Trig_Gen_Walls_Func005Func009A takes nothing returns nothing
             set udg_D_PointOffset = OffsetLocation(udg_D_Point2, 400.00, 0)
             call CreateDestructableLoc(udg_D_WallTierType[2], udg_D_PointOffset, 0.00, 1.40, 0)
             call RemoveLocation(udg_D_PointOffset)
-        else
         endif
         if(Trig_Gen_Walls_Func005Func009Func001Func003C())then
             set udg_D_PointOffset = OffsetLocation(udg_D_Point2, 0.00, - 400.00)
             call CreateDestructableLoc(udg_D_WallTierType[4], udg_D_PointOffset, 0.00, 1.40, 0)
             call RemoveLocation(udg_D_PointOffset)
-        else
         endif
         if(Trig_Gen_Walls_Func005Func009Func001Func004C())then
             set udg_D_PointOffset = OffsetLocation(udg_D_Point2, - 350.00, 0.00)
             call CreateDestructableLoc(udg_D_WallTierType[1], udg_D_PointOffset, 0.00, 1.40, 0)
             call RemoveLocation(udg_D_PointOffset)
-        else
         endif
         if(Trig_Gen_Walls_Func005Func009Func001Func005C())then
             set udg_D_PointOffset = OffsetLocation(udg_D_Point2, 0.00, 350.00)
             call CreateDestructableLoc(udg_D_WallTierType[3], udg_D_PointOffset, 0.00, 1.40, 0)
             call RemoveLocation(udg_D_PointOffset)
-        else
         endif
         call RemoveLocation(udg_D_Point2)
     endif
@@ -101,7 +97,6 @@ function Trig_Gen_Walls_Actions takes nothing returns nothing
             call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Количество порталов: " + I2S(udg_D_Portals)))
             call DestroyGroup(udg_D_Pick)
             call ConditionalTriggerExecute(gg_trg_Gen_Hall_Walls)
-        else
         endif
         call RemoveLocation(udg_D_Point1)
         call DestroyGroup(udg_D_Pick)

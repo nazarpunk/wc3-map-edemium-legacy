@@ -1,4 +1,3 @@
-
 function Trig_Crit_Specialeffect_Actions takes nothing returns nothing
     call CameraSetEQNoiseForPlayer(Player(0), 3.00)
     call TriggerSleepAction(0.15)

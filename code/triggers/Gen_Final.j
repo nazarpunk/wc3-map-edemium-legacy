@@ -63,9 +63,7 @@ function Trig_Gen_Final_Func011A takes nothing returns nothing
             call RemoveDestructable(GetEnumDestructable())
             call CreateNUnitsAtLoc(1, 0x6E303049, Player(PLAYER_NEUTRAL_PASSIVE), udg_D_Point1, bj_UNIT_FACING)
             call RemoveLocation(udg_D_Point1)
-        else
         endif
-    else
     endif
 endfunction
 
@@ -104,7 +102,6 @@ endfunction
 function Trig_Gen_Final_Func012A takes nothing returns nothing
     if(Trig_Gen_Final_Func012Func001C())then
         call SetDestructableInvulnerableBJ(GetEnumDestructable(), false)
-    else
     endif
 endfunction
 

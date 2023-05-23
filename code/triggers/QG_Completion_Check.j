@@ -16,7 +16,6 @@ function Trig_QG_Completion_Check_Actions takes nothing returns nothing
         set udg_EX_Rate = (udg_EX_Rate + 0.10)
         set udg_QG_QuestCompleted = (udg_QG_QuestCompleted + 1)
         call ConditionalTriggerExecute(gg_trg_QG_Generate)
-    else
     endif
 endfunction
 

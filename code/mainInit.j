@@ -1450,7 +1450,6 @@ function CreateAllUnitsOld takes nothing returns nothing
     call CreatePlayerUnitsOld()
 endfunction
 
-
 function CreateRegionsOld takes nothing returns nothing
     local weathereffect we
     set gg_rct_Ambient_Machines = Rect(13056.0, - 224.0, 15008.0, 2048.0)

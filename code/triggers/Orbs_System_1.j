@@ -9,7 +9,6 @@ endfunction
 function Trig_Orbs_System_1_Actions takes nothing returns nothing
     if(Trig_Orbs_System_1_Func001C())then
         call EnableTrigger(gg_trg_Orbs_System_2)
-    else
     endif
     set udg_JD_Integers[1] = (udg_JD_Integers[1] + 1)
     set udg_JD_Integers[2] = (udg_JD_Integers[2] + 1)

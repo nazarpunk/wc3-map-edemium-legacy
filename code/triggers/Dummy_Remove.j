@@ -1,31 +1,6 @@
-
-function Trig_Dummy_Remove_Func002C takes nothing returns boolean
-    if((GetUnitTypeId(GetTriggerUnit()) == 0x68303039))then
-        return true
-    endif
-    if((GetUnitTypeId(GetTriggerUnit()) == 0x68303045))then
-        return true
-    endif
-    if((GetUnitTypeId(GetTriggerUnit()) == 0x68303034))then
-        return true
-    endif
-    if((GetUnitTypeId(GetTriggerUnit()) == 0x68303133))then
-        return true
-    endif
-    if((GetUnitTypeId(GetTriggerUnit()) == 0x68303134))then
-        return true
-    endif
-    if((GetUnitTypeId(GetTriggerUnit()) == 0x68303035))then
-        return true
-    endif
-    return false
-endfunction
-
 function Trig_Dummy_Remove_Conditions takes nothing returns boolean
-    if(not Trig_Dummy_Remove_Func002C())then
-        return false
-    endif
-    return true
+    local integer id = GetUnitTypeId(GetTriggerUnit())
+    return id == 0x68303039 or id == 0x68303045 or id == 0x68303034 or id == 0x68303133 or id == 0x68303134 or id == 0x68303035
 endfunction
 
 function Trig_Dummy_Remove_Actions takes nothing returns nothing

@@ -56,7 +56,6 @@ function Trig_Onkie_Sells_Actions takes nothing returns nothing
                 set udg_IG_ItemQuality = 3
                 set udg_IG_Point = GetUnitLoc(udg_Arct)
                 call ConditionalTriggerExecute(gg_trg_IG_Generate)
-            else
             endif
         endif
     endif
@@ -71,7 +70,6 @@ function Trig_Onkie_Sells_Actions takes nothing returns nothing
             if(Trig_Onkie_Sells_Func002Func003Func003C())then
                 set udg_IG_Point = GetUnitLoc(udg_Arct)
                 call CreateItemLoc(udg_CC_IngredientItem[GetRandomInt(6, 9)], udg_IG_Point)
-            else
             endif
         endif
     endif

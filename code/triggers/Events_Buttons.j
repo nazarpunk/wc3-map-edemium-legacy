@@ -82,7 +82,6 @@ function Trig_Events_Buttons_Actions takes nothing returns nothing
                     call CreateNUnitsAtLoc(1, 0x6E303046, Player(PLAYER_NEUTRAL_PASSIVE), udg_Point, 180.00)
                     if(Trig_Events_Buttons_Func002Func001Func001Func002Func013C())then
                         call SetUnitUserData(GetLastCreatedUnit(), 10)
-                    else
                     endif
                 else
                     call DialogClearBJ(udg_EdemEventDialog)
@@ -92,10 +91,8 @@ function Trig_Events_Buttons_Actions takes nothing returns nothing
                     call DialogAddButtonBJ(udg_EdemEventDialog, "Пройти мимо.")
                     call DialogDisplayBJ(true, udg_EdemEventDialog, Player(0))
                 endif
-            else
             endif
         endif
-    else
     endif
 endfunction
 

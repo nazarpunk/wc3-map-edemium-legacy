@@ -13,7 +13,6 @@ function Trig_Effect_6_Periodic_Func004A takes nothing returns nothing
         call UnitDamageTargetBJ(udg_Arct, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
         call AddSpecialEffectTargetUnitBJ("chest", GetEnumUnit(), "Abilities\\Weapons\\FarseerMissile\\FarseerMissile.mdl")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
-    else
     endif
 endfunction
 

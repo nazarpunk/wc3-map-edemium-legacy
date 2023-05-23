@@ -134,7 +134,6 @@ function Trig_Flying_Missile_Loop_Actions takes nothing returns nothing
                 call DestroyGroup(udg_BL_Group)
                 set udg_BL_Group = GetUnitsInRangeOfLocMatching(udg_BL_AoE[udg_BL], udg_BL_Point[3], Condition(function Trig_Flying_Missile_Loop_Func002Func001Func006Func002002003))
                 call ForGroupBJ(udg_BL_Group, function Trig_Flying_Missile_Loop_Func002Func001Func006Func003A)
-            else
             endif
             call RemoveLocation(udg_BL_Point[2])
             call RemoveLocation(udg_BL_Point[3])
@@ -148,11 +147,8 @@ function Trig_Flying_Missile_Loop_Actions takes nothing returns nothing
                 if(Trig_Flying_Missile_Loop_Func002Func001Func010Func006C())then
                     set udg_BL_Times = 0
                     call DisableTrigger(GetTriggeringTrigger())
-                else
                 endif
-            else
             endif
-        else
         endif
         set udg_BL = udg_BL + 1
     endloop

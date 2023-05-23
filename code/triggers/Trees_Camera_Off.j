@@ -93,7 +93,6 @@ function Trig_Trees_Camera_Off_Actions takes nothing returns nothing
                         if(Trig_Trees_Camera_Off_Func009Func002Func002Func005Func004Func002C())then
                             call RemoveLocation(udg_Point)
                             set udg_Point = GetRectCenter(gg_rct_Boss_2_Room_Enter)
-                        else
                         endif
                     endif
                     call DisableTrigger(gg_trg_Camera_Fix)
@@ -121,7 +120,6 @@ function Trig_Trees_Camera_Off_Actions takes nothing returns nothing
     call TriggerSleepAction(0.10)
     if(Trig_Trees_Camera_Off_Func018C())then
         call ConditionalTriggerExecute(gg_trg_Tutorial02)
-    else
     endif
     call DisableTrigger(GetTriggeringTrigger())
 endfunction

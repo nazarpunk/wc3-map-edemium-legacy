@@ -12,7 +12,6 @@ function Trig_Edemor_Transparent_Actions takes nothing returns nothing
         call ShowUnitHide(gg_unit_h00V_0063)
         set udg_Transparent = 0.00
         call DisableTrigger(GetTriggeringTrigger())
-    else
     endif
 endfunction
 

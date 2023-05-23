@@ -19,7 +19,6 @@ endfunction
 function Trig_Knockback_System_Func001Func001Func001Func005A takes nothing returns nothing
     if(Trig_Knockback_System_Func001Func001Func001Func005Func001C())then
         set udg_KB_Bool = false
-    else
     endif
 endfunction
 
@@ -80,14 +79,12 @@ function Trig_Knockback_System_Actions takes nothing returns nothing
                     set udg_KB_Speed[udg_KB] = udg_KB_Speed[udg_KB_Times]
                     set udg_KB_Spam[udg_KB] = udg_KB_Spam[udg_KB_Times]
                     set udg_KB_Angle[udg_KB] = udg_KB_Angle[udg_KB_Times]
-                else
                 endif
                 set udg_KB_Times = (udg_KB_Times - 1)
                 set udg_KB = (udg_KB - 1)
                 set udg_KB_Skip = (udg_KB_Skip - 1)
                 if(Trig_Knockback_System_Func001Func001Func001Func018C())then
                     call DisableTrigger(GetTriggeringTrigger())
-                else
                 endif
             else
                 set udg_KB_Point[2] = GetUnitLoc(udg_KB_Target[udg_KB])
@@ -106,12 +103,10 @@ function Trig_Knockback_System_Actions takes nothing returns nothing
                     set udg_KB_Spam[udg_KB] = 0
                     call AddSpecialEffectLocBJ(udg_KB_Point[3], "Abilities\\Spells\\Human\\FlakCannons\\FlakTarget.mdl")
                     call DestroyEffectBJ(GetLastCreatedEffectBJ())
-                else
                 endif
                 call RemoveLocation(udg_KB_Point[2])
                 call RemoveLocation(udg_KB_Point[3])
             endif
-        else
         endif
         set udg_KB = udg_KB + 1
     endloop

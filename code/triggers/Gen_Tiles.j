@@ -110,9 +110,7 @@ function Trig_Gen_Tiles_Func003A takes nothing returns nothing
                 call UnitAddAbilityBJ(0x41303052, GetLastCreatedUnit())
             endif
             call GroupRemoveUnitSimple(GetEnumUnit(), udg_D_Pick)
-        else
         endif
-    else
     endif
     if(Trig_Gen_Tiles_Func003Func004C())then
         set udg_RandomNumber = GetRandomInt(1, 2)
@@ -128,7 +126,6 @@ function Trig_Gen_Tiles_Func003A takes nothing returns nothing
         endif
         call SetTerrainTypeBJ(udg_Point, 0x43706F73, - 1, udg_RandomNumber, 0)
         call RemoveLocation(udg_Point)
-    else
     endif
     if(Trig_Gen_Tiles_Func003Func007C())then
         set udg_RandomNumber = GetRandomInt(1, 2)
@@ -144,7 +141,6 @@ function Trig_Gen_Tiles_Func003A takes nothing returns nothing
         endif
         call SetTerrainTypeBJ(udg_Point, 0x446C6176, - 1, udg_RandomNumber, 0)
         call RemoveLocation(udg_Point)
-    else
     endif
     call RemoveLocation(udg_D_Point1)
 endfunction
@@ -171,7 +167,6 @@ function Trig_Gen_Tiles_Func006A takes nothing returns nothing
         set udg_Point = OffsetLocation(udg_D_Point1, GetRandomReal(0, 300.00), GetRandomReal(0, 300.00))
         call SetTerrainTypeBJ(udg_Point, 0x43706F73, - 1, 2, 0)
         call RemoveLocation(udg_Point)
-    else
     endif
     call RemoveLocation(udg_D_Point1)
 endfunction

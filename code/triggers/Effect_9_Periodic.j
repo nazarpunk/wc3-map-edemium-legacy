@@ -14,7 +14,6 @@ function Trig_Effect_9_Periodic_Func001Func006A takes nothing returns nothing
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 0.70)
         call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 0.40)
-    else
     endif
 endfunction
 

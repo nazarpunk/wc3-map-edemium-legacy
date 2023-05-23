@@ -117,17 +117,14 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         set udg_Camera = gg_cam_Camera_Abilities
         call EnableTrigger(gg_trg_Trees_Choose_ESC)
         call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Чтобы открыть новые умения нажмите ESC.")
-    else
     endif
     if(Trig_Enter_Regions_Func008C())then
         call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Workshop_2)
         set udg_Camera = gg_cam_Camera_Workshop_2
-    else
     endif
     if(Trig_Enter_Regions_Func009C())then
         call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Workshop)
         set udg_Camera = gg_cam_Camera_Workshop
-    else
     endif
     if(Trig_Enter_Regions_Func010C())then
         call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Workshop_1)
@@ -155,11 +152,9 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
                 set bj_forLoopAIndex = bj_forLoopAIndex + 1
             endloop
             call RemoveLocation(udg_Point)
-        else
         endif
         call EnableTrigger(gg_trg_Core_Item_Pickup)
         call DisableTrigger(gg_trg_Item_Pickup)
-    else
     endif
     if(Trig_Enter_Regions_Func011C())then
         call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
@@ -174,9 +169,7 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         if(Trig_Enter_Regions_Func011Func010C())then
             call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_8F, "Возле камина Аркт может войти в медитацию в которой может изучить новые навыки. Прямо сейчас у него имеется 1 очко навыка, так что можешь намедитировать что-нибудь новенькое.", bj_TIMETYPE_ADD, 0.00, false)
             set udg_Tutorial[1] = false
-        else
         endif
-    else
     endif
     if(Trig_Enter_Regions_Func012C())then
         call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
@@ -189,7 +182,6 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         set udg_Point = GetRectCenter(gg_rct_Training)
         call SetUnitFacingToFaceLocTimed(GetEnteringUnit(), udg_Point, 0)
         call RemoveLocation(udg_Point)
-    else
     endif
     if(Trig_Enter_Regions_Func013C())then
         call SetCameraBoundsToRect(gg_rct_Camera_Bound_Gate)
@@ -200,9 +192,7 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
             call DialogSetMessageBJ(udg_TeleportDialog, "Сложность можно менять в любое|nвремя, но в начале игры менять её |nне советую: сперва привыкни к |nбоевой системе. На лёгком уровне |nсложности монстры не применяют |nумения. И да, за повышение уровня|nАркта после прохождения подземе-|nлий повышается случайная хар-ка.")
             call DialogAddButtonBJ(udg_TeleportDialog, "Понятно, спасибо!")
             call DialogDisplayBJ(true, udg_TeleportDialog, Player(0))
-        else
         endif
-    else
     endif
     if(Trig_Enter_Regions_Func014C())then
         call SuspendHeroXPBJ(false, udg_Arct)
@@ -223,7 +213,6 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         call SetPlayerAbilityAvailableBJ(true, 0x41303537, Player(0))
         call SetPlayerAbilityAvailableBJ(true, 0x41303530, Player(0))
         call EnableTrigger(gg_trg_Artefactorium_Damage)
-    else
     endif
     if(Trig_Enter_Regions_Func015C())then
         call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
@@ -242,7 +231,6 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         call RemoveLocation(udg_Point)
         call DestroyEffectBJ(udg_AR_SealEffect)
         call ClearTextMessagesBJ(GetPlayersAll())
-    else
     endif
     call CameraSetupApplyForceDuration(udg_Camera, true, 0.00)
     set udg_UnitGroup = GetUnitsOfPlayerAll(Player(11))

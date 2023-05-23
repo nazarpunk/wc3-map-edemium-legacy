@@ -11,7 +11,6 @@ function Trig_Edemium_Transparent_Actions takes nothing returns nothing
     call SetUnitVertexColorBJ(udg_Arct, 100, 100, 100, udg_Transparent)
     if(Trig_Edemium_Transparent_Func004C())then
         call DisableTrigger(GetTriggeringTrigger())
-    else
     endif
 endfunction
 

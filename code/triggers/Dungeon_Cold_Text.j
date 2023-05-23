@@ -1,33 +1,11 @@
-
-function Trig_Dungeon_Cold_Text_Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_DungeonColdLevel == 3))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Dungeon_Cold_Text_Func001Func001C takes nothing returns boolean
-    if(not(udg_DungeonColdLevel == 2))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Dungeon_Cold_Text_Func001C takes nothing returns boolean
-    if(not(udg_DungeonColdLevel == 1))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Dungeon_Cold_Text_Actions takes nothing returns nothing
-    if(Trig_Dungeon_Cold_Text_Func001C())then
+    if udg_DungeonColdLevel == 1 then
         call SetTextTagTextBJ(udg_DungeonColdText, "|cFF449EFFI|rII", 11.00)
     else
-        if(Trig_Dungeon_Cold_Text_Func001Func001C())then
+        if udg_DungeonColdLevel == 2 then
             call SetTextTagTextBJ(udg_DungeonColdText, "|cFF449EFFII|rI", 11.00)
         else
-            if(Trig_Dungeon_Cold_Text_Func001Func001Func001C())then
+            if udg_DungeonColdLevel == 3 then
                 call SetTextTagTextBJ(udg_DungeonColdText, "|cFF449EFFIII|r", 11.00)
             else
                 call SetTextTagTextBJ(udg_DungeonColdText, "III", 11.00)

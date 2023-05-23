@@ -255,7 +255,6 @@ function Trig_Gen_Creeps_List_Actions takes nothing returns nothing
                                                                     set udg_D_CreepType[5] = 0x6E303055
                                                                     set udg_CC_IngredientDrop = 9
                                                                     set udg_IG_ItemLVL_Max = 9
-                                                                else
                                                                 endif
                                                             endif
                                                         endif

@@ -43,7 +43,7 @@ function Trig_Initialisation_Dialog_Actions takes nothing returns nothing
             set udg_AS_SeriesNumber = 2
             set udg_AS_Effect[udg_AS_SeriesNumber] = 1
             set udg_AS_AbilityStudied[1] = 1
-            call CreateTextTagUnitBJ("5|n", gg_unit_h006_0081, 0, 15.00, 100, 100, 100, 0)
+            call CreateTextTagUnitBJ("5", gg_unit_h006_0081, 0, 15.00, 100, 100, 100, 0)
             set udg_AS_TextNumber[2] = GetLastCreatedTextTag()
             call UnitRemoveAbilityBJ(0x41303241, gg_unit_h006_0081)
             call UnitAddAbilityBJ(0x41303649, gg_unit_h006_0081)

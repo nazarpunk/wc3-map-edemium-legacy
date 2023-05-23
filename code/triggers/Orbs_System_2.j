@@ -62,7 +62,6 @@ function Trig_Orbs_System_2_Actions takes nothing returns nothing
                 if(Trig_Orbs_System_2_Func001Func001Func001Func019C())then
                     call AddSpecialEffectTargetUnitBJ("chest", udg_JD_Unit[udg_JD_Integers[3]], udg_JD_Effect[udg_JD_Integers[3]])
                     call DestroyEffectBJ(GetLastCreatedEffectBJ())
-                else
                 endif
                 set udg_JD_RealTimer[udg_JD_Integers[3]] = (udg_JD_RealTimer[udg_JD_Integers[3]] + (180.00 / (udg_JD_Distances[udg_JD_Integers[3]] / udg_JD_SpeedUnits[udg_JD_Integers[3]])))
                 set udg_JD_JumpHigh[udg_JD_Integers[3]] = (SinBJ(udg_JD_RealTimer[udg_JD_Integers[3]]) * udg_JD_HighSettings[udg_JD_Integers[3]])
@@ -88,7 +87,6 @@ function Trig_Orbs_System_2_Actions takes nothing returns nothing
                         if(Trig_Orbs_System_2_Func001Func001Func001Func010Func002Func002C())then
                             set udg_LightOrbs[1] = (udg_LightOrbs[1] - 1)
                             call CreateItemLoc(0x72686532, udg_Point)
-                        else
                         endif
                     endif
                 endif
@@ -97,10 +95,8 @@ function Trig_Orbs_System_2_Actions takes nothing returns nothing
                 if(Trig_Orbs_System_2_Func001Func001Func001Func014C())then
                     set udg_JD_Integers[2] = 0
                     call DisableTrigger(GetTriggeringTrigger())
-                else
                 endif
             endif
-        else
         endif
         set udg_JD_Integers[3] = udg_JD_Integers[3] + 1
     endloop

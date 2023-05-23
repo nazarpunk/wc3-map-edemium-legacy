@@ -37,7 +37,6 @@ function Trig_Scroll_Pickup_Actions takes nothing returns nothing
                 call StartTimerBJ(udg_ScrollTimer, false, 40.00)
                 call EnableTrigger(gg_trg_Scroll_Periodic)
                 call RemoveItem(GetManipulatedItem())
-            else
             endif
         endif
     endif

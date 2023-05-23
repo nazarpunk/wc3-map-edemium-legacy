@@ -40,7 +40,6 @@ endfunction
 function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func003Func007A takes nothing returns nothing
     if(Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func003Func007Func001C())then
         call IssueTargetOrderBJ(GetEnumUnit(), "attack", GetLastCreatedUnit())
-    else
     endif
 endfunction
 
@@ -141,7 +140,6 @@ endfunction
 function Trig_Talisman_Use_Func002Func001Func003Func013A takes nothing returns nothing
     if(Trig_Talisman_Use_Func002Func001Func003Func013Func001C())then
         call UnitDamageTargetBJ(udg_Arct, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
-    else
     endif
 endfunction
 
@@ -187,7 +185,6 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
             call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - udg_AbilityPower))
             if(Trig_Talisman_Use_Func002Func003Func002C())then
                 call EnableTrigger(gg_trg_Lightspeed_Loop)
-            else
             endif
             set udg_SB_Skip = (udg_SB_Skip + 1)
             set udg_SB_Times = (udg_SB_Times + 1)
@@ -205,7 +202,6 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
             call SetUnitAnimation(GetTriggerUnit(), "Attack Slam")
             call RemoveLocation(udg_SB_Point[0])
             call RemoveLocation(udg_SB_Point[1])
-        else
         endif
     else
         if(Trig_Talisman_Use_Func002Func001C())then
@@ -227,7 +223,6 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                 call RemoveLocation(udg_PointTalisman)
                 call GroupClear(udg_UnitGroup)
                 call DestroyGroup(udg_UnitGroup)
-            else
             endif
         else
             if(Trig_Talisman_Use_Func002Func001Func001C())then
@@ -240,7 +235,6 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                     call UnitAddAbilityBJ(0x53303030, GetLastCreatedUnit())
                     call UnitApplyTimedLifeBJ(1.00, 0x42544C46, GetLastCreatedUnit())
                     call IssueTargetOrderBJ(GetLastCreatedUnit(), "cripple", GetSpellTargetUnit())
-                else
                 endif
             else
                 if(Trig_Talisman_Use_Func002Func001Func001Func001C())then
@@ -254,9 +248,7 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                             call EnableTrigger(gg_trg_Follower_Movement)
                             call AddSpecialEffectTargetUnitBJ("origin", GetSpellTargetUnit(), "war3mapImported\\DarknessLeechTarget_Portrait.mdx")
                             call DestroyEffectBJ(GetLastCreatedEffectBJ())
-                        else
                         endif
-                    else
                     endif
                 else
                     if(Trig_Talisman_Use_Func002Func001Func001Func001Func001C())then
@@ -272,9 +264,7 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                                 set udg_LightOrbs[2] = (udg_LightOrbs[2] + udg_RandomNumber)
                                 set udg_LightIterations = (udg_LightIterations + udg_RandomNumber)
                                 call EnableTrigger(gg_trg_Orbs_Spawn)
-                            else
                             endif
-                        else
                         endif
                     else
                         if(Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001C())then
@@ -290,7 +280,6 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                                 call IssueTargetOrderBJ(GetLastCreatedUnit(), "hex", GetSpellTargetUnit())
                                 call IssuePointOrderLocBJ(GetSpellTargetUnit(), "move", udg_Point2)
                                 call RemoveLocation(udg_Point2)
-                            else
                             endif
                         else
                             if(Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001C())then
@@ -305,7 +294,6 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                                     call ForGroupBJ(udg_CO_UnitGroup, function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func003Func007A)
                                     call GroupClear(udg_CO_UnitGroup)
                                     call DestroyGroup(udg_CO_UnitGroup)
-                                else
                                 endif
                             else
                                 if(Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func001C())then
@@ -319,9 +307,7 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                                         call DestroyEffectBJ(GetLastCreatedEffectBJ())
                                         call AddSpecialEffectTargetUnitBJ("origin", udg_Arct, "war3mapImported\\DarknessLeechTarget_Portrait.mdx")
                                         call DestroyEffectBJ(GetLastCreatedEffectBJ())
-                                    else
                                     endif
-                                else
                                 endif
                             endif
                         endif

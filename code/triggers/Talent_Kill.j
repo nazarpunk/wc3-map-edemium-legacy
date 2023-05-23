@@ -59,15 +59,12 @@ function Trig_Talent_Kill_Actions takes nothing returns nothing
         call AddSpecialEffectTargetUnitBJ("origin", udg_Arct, "Abilities\\Spells\\Undead\\VampiricAura\\VampiricAuraTarget.mdl")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
         call SetUnitLifeBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) + udg_AbilityPower))
-    else
     endif
     if(Trig_Talent_Kill_Func003C())then
         if(Trig_Talent_Kill_Func003Func001C())then
             set udg_AS_SeriesNumber = GetRandomInt(1, 4)
             call ConditionalTriggerExecute(gg_trg_Abilities_Effects)
-        else
         endif
-    else
     endif
 endfunction
 

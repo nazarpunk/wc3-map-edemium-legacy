@@ -67,7 +67,6 @@ function Trig_Map_Events_Buttons_Actions takes nothing returns nothing
                         set udg_EventSucces = false
                     endif
                 endif
-            else
             endif
         endif
     endif
@@ -77,7 +76,6 @@ function Trig_Map_Events_Buttons_Actions takes nothing returns nothing
         if(Trig_Map_Events_Buttons_Func002Func001C())then
             call SetPlayerStateBJ(Player(0), PLAYER_STATE_RESOURCE_GOLD, (GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_GOLD) - udg_EventLux))
             call CreateTextTagUnitBJ("Неудача (часть Света пропала)...", udg_Target, 0, 10.00, 100.00, 0.00, 0.00, 0)
-        else
         endif
     endif
     set udg_EventSucces = false

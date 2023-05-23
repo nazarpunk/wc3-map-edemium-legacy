@@ -48,7 +48,6 @@ function Trig_Pause_Off_Actions takes nothing returns nothing
         if(Trig_Pause_Off_Func005Func001C())then
             set udg_TutorialHint[4] = true
             call ConditionalTriggerExecute(gg_trg_QG_Generate)
-        else
         endif
     endif
     if(Trig_Pause_Off_Func006C())then
@@ -58,9 +57,7 @@ function Trig_Pause_Off_Actions takes nothing returns nothing
             call EnableTrigger(gg_trg_Boss_III_Creep_Spawn)
             call EnableTrigger(gg_trg_Boss_III_Portal_Spawn)
             call EnableTrigger(gg_trg_Boss_III_Phase_2_Init)
-        else
         endif
-    else
     endif
 endfunction
 

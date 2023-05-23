@@ -41,7 +41,6 @@ function Trig_Meditation_Heal_Actions takes nothing returns nothing
                 call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 0.50)
             endif
             call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - 1.50))
-        else
         endif
     else
         set udg_MeditationLogic = false

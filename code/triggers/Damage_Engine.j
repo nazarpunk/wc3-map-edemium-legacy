@@ -1,102 +1,9 @@
-
-function Trig_Damage_Engine_Func009C takes nothing returns boolean
-    if(not(IsUnitType(udg_TempUnit, UNIT_TYPE_STRUCTURE) == false))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Damage_Engine_Func044C takes nothing returns boolean
-    if(not(udg_DamageEventAmount == 0.00))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Damage_Engine_Func049Func002Func003C takes nothing returns boolean
-    if(not(udg_DamageEventExplodesUnit == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Damage_Engine_Func049Func002Func008Func004C takes nothing returns boolean
-    if(not(udg_DmgEvN == 1))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Damage_Engine_Func049Func002Func008C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_DamageEventTarget) < udg_DmgEvLife))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Damage_Engine_Func049Func002C takes nothing returns boolean
-    if(not(udg_DamageEventAmount > udg_DamageEventPrevAmt))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Damage_Engine_Func049C takes nothing returns boolean
-    if(not(udg_DamageEventAmount != udg_DamageEventPrevAmt))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Damage_Engine_Func081C takes nothing returns boolean
-    if(not(udg_DamageEvent == 0.00))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Damage_Engine_Func092Func006Func003Func007C takes nothing returns boolean
-    if(not(udg_UnitDamageRegistered[udg_UDex] == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Damage_Engine_Func092Func006Func003C takes nothing returns boolean
-    if(not(udg_DamageEventsWasted == 15))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Damage_Engine_Func092Func006C takes nothing returns boolean
-    if(not(udg_UnitDamageRegistered[udg_UDex] == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Damage_Engine_Func092C takes nothing returns boolean
-    if(not(udg_UnitIndexEvent == 1.00))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Damage_Engine_Actions takes nothing returns nothing
     set udg_DamageBlockingAbility = 0x41303032
     set udg_DamageTypeSpell = 1
     set udg_DamageTypeDOT = 2
     set udg_DamageTypeRanged = 3
     call ExecuteFunc("InitDamageEvent")
-endfunction
-
-function DmgEvFilter takes nothing returns boolean
-    if(Trig_Damage_Engine_Func009C())then
-        return true
-    else
-    endif
-    return false
 endfunction
 
 function DmgEvRemoveAbilities takes nothing returns nothing
@@ -130,7 +37,7 @@ function FireDmgEv takes nothing returns nothing
     set udg_DamageEventPrevAmt = udg_DamageEventAmount
     set udg_DamageEventExplodesUnit = false
     set udg_DamageEventOverride = false
-    if(Trig_Damage_Engine_Func044C())then
+    if udg_DamageEventAmount == 0.00 then
         set udg_DamageEvent = 2.00
     else
         set udg_DamageModifierEvent = 1.00
@@ -140,33 +47,29 @@ function FireDmgEv takes nothing returns nothing
         call UnitAddAbilityBJ(udg_DamageBlockingAbility, udg_DamageEventTarget)
         call SetWidgetLife(udg_DamageEventTarget, life + GetWidgetLife(udg_DamageEventTarget) - pain)
     endif
-    if(Trig_Damage_Engine_Func049C())then
+    if udg_DamageEventAmount != udg_DamageEventPrevAmt then
         set udg_DmgEvLife = (GetUnitStateSwap(UNIT_STATE_LIFE, udg_DamageEventTarget) + (udg_DamageEventPrevAmt - udg_DamageEventAmount))
-        if(Trig_Damage_Engine_Func049Func002C())then
+        if udg_DamageEventAmount > udg_DamageEventPrevAmt then
             call SetUnitLifeBJ(udg_DamageEventTarget, RMaxBJ(0.41, udg_DmgEvLife))
             if udg_DmgEvLife <= .405 then
-                if(Trig_Damage_Engine_Func049Func002Func003C())then
+                if udg_DamageEventExplodesUnit then
                     call SetUnitExplodedBJ(udg_DamageEventTarget, true)
-                else
                 endif
                 call DisableTrigger(udg_DamageEventTrigger)
                 call UnitDamageTarget(udg_DamageEventSource, udg_DamageEventTarget, 999, false, false, null, null, null)
                 call EnableTrigger(udg_DamageEventTrigger)
             endif
         else
-            if(Trig_Damage_Engine_Func049Func002Func008C())then
+            if GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_DamageEventTarget) < udg_DmgEvLife then
                 call UnitAddAbilityBJ(udg_DamageBlockingAbility, udg_DamageEventTarget)
                 set udg_DmgEvStack[udg_DmgEvN] = udg_DamageEventTarget
                 set udg_DmgEvN = (udg_DmgEvN + 1)
-                if(Trig_Damage_Engine_Func049Func002Func008Func004C())then
+                if udg_DmgEvN == 1 then
                     call TimerStart(udg_DmgEvTimer, 0, false, function DmgEvRemoveAbilities)
-                else
                 endif
-            else
             endif
             call SetUnitLifeBJ(udg_DamageEventTarget, udg_DmgEvLife)
         endif
-    else
     endif
 endfunction
 
@@ -199,7 +102,7 @@ function FireRecursiveDmgEv takes nothing returns nothing
 endfunction
 
 function OnDmgEv takes nothing returns boolean
-    if(Trig_Damage_Engine_Func081C())then
+    if udg_DamageEvent == 0.00 then
         set udg_DmgTypPrev = udg_DamageEventType
         call DmgEvSetVars()
         call FireDmgEv()
@@ -219,33 +122,30 @@ endfunction
 
 function SetupDmgEv takes nothing returns boolean
     local integer pdex = udg_UDex
-    if(Trig_Damage_Engine_Func092C())then
+    if udg_UnitIndexEvent == 1.00 then
         set udg_TempUnit = udg_UDexUnits[udg_UDex]
-        if GetUnitAbilityLevel(udg_TempUnit, 0x416C6F63) == 0 and DmgEvFilter()then
+        if GetUnitAbilityLevel(udg_TempUnit, 0x416C6F63) == 0 and not IsUnitType(udg_TempUnit, UNIT_TYPE_STRUCTURE) then
             set udg_UnitDamageRegistered[udg_UDex] = true
             call TriggerRegisterUnitEvent(udg_DamageEventTrigger, udg_TempUnit, EVENT_UNIT_DAMAGED)
         endif
     else
-        if(Trig_Damage_Engine_Func092Func006C())then
+        if udg_UnitDamageRegistered[udg_UDex] then
             set udg_UnitDamageRegistered[udg_UDex] = false
             set udg_DamageEventsWasted = (udg_DamageEventsWasted + 1)
-            if(Trig_Damage_Engine_Func092Func006Func003C())then
+            if udg_DamageEventsWasted == 15 then
                 set udg_DamageEventsWasted = 0
                 call DestroyTrigger(udg_DamageEventTrigger)
                 call CreateDmgEv()
                 set udg_UDex = udg_UDexNext[0]
                 loop
                     exitwhen udg_UDex == 0
-                    if(Trig_Damage_Engine_Func092Func006Func003Func007C())then
+                    if udg_UnitDamageRegistered[udg_UDex] then
                         call TriggerRegisterUnitEvent(udg_DamageEventTrigger, udg_UDexUnits[udg_UDex], EVENT_UNIT_DAMAGED)
-                    else
                     endif
                     set udg_UDex = udg_UDexNext[udg_UDex]
                 endloop
                 set udg_UDex = pdex
-            else
             endif
-        else
         endif
     endif
     return false

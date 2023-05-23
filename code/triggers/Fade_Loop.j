@@ -51,7 +51,6 @@ function Trig_Fade_Loop_Func001A takes nothing returns nothing
         call GroupRemoveUnitSimple(udg_TempUnit, udg_FadeSystemGroup)
         call RemoveUnit(udg_TempUnit)
         call FlushChildHashtableBJ(udg_FadeUnitKey, udg_FadeSystemHash)
-    else
     endif
 endfunction
 
@@ -66,7 +65,6 @@ function Trig_Fade_Loop_Actions takes nothing returns nothing
     call ForGroupBJ(udg_FadeSystemGroup, function Trig_Fade_Loop_Func001A)
     if(Trig_Fade_Loop_Func002C())then
         call DisableTrigger(GetTriggeringTrigger())
-    else
     endif
 endfunction
 

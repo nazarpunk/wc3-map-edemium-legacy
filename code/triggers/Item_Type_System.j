@@ -129,7 +129,6 @@ function Trig_Item_Type_System_Actions takes nothing returns nothing
             exitwhen udg_Slot_Integer > 6
             if(Trig_Item_Type_System_Func004Func003Func001C())then
                 set udg_ItemInt = (udg_ItemInt + 1)
-            else
             endif
             set udg_Slot_Integer = udg_Slot_Integer + 1
         endloop
@@ -141,11 +140,9 @@ function Trig_Item_Type_System_Actions takes nothing returns nothing
                 if(Trig_Item_Type_System_Func004Func004Func002Func001C())then
                     call UnitRemoveItemSwapped(UnitItemInSlotBJ(udg_Arct, bj_forLoopAIndex), udg_Arct)
                     call UnitAddItemSwapped(GetOrderTargetItem(), udg_Arct)
-                else
                 endif
                 set bj_forLoopAIndex = bj_forLoopAIndex + 1
             endloop
-        else
         endif
     else
         if(Trig_Item_Type_System_Func004Func001C())then
@@ -155,7 +152,6 @@ function Trig_Item_Type_System_Actions takes nothing returns nothing
                 exitwhen udg_Slot_Integer > 6
                 if(Trig_Item_Type_System_Func004Func001Func003Func001C())then
                     set udg_ItemInt = (udg_ItemInt + 1)
-                else
                 endif
                 set udg_Slot_Integer = udg_Slot_Integer + 1
             endloop
@@ -167,11 +163,9 @@ function Trig_Item_Type_System_Actions takes nothing returns nothing
                     if(Trig_Item_Type_System_Func004Func001Func004Func002Func001C())then
                         call UnitRemoveItemSwapped(UnitItemInSlotBJ(udg_Arct, bj_forLoopAIndex), udg_Arct)
                         call UnitAddItemSwapped(GetOrderTargetItem(), udg_Arct)
-                    else
                     endif
                     set bj_forLoopAIndex = bj_forLoopAIndex + 1
                 endloop
-            else
             endif
         else
             if(Trig_Item_Type_System_Func004Func001Func001C())then
@@ -181,7 +175,6 @@ function Trig_Item_Type_System_Actions takes nothing returns nothing
                     exitwhen udg_Slot_Integer > 6
                     if(Trig_Item_Type_System_Func004Func001Func001Func003Func001C())then
                         set udg_ItemInt = (udg_ItemInt + 1)
-                    else
                     endif
                     set udg_Slot_Integer = udg_Slot_Integer + 1
                 endloop
@@ -193,11 +186,9 @@ function Trig_Item_Type_System_Actions takes nothing returns nothing
                         if(Trig_Item_Type_System_Func004Func001Func001Func004Func002Func001C())then
                             call UnitRemoveItemSwapped(UnitItemInSlotBJ(udg_Arct, bj_forLoopAIndex), udg_Arct)
                             call UnitAddItemSwapped(GetOrderTargetItem(), udg_Arct)
-                        else
                         endif
                         set bj_forLoopAIndex = bj_forLoopAIndex + 1
                     endloop
-                else
                 endif
             else
                 if(Trig_Item_Type_System_Func004Func001Func001Func001C())then
@@ -207,7 +198,6 @@ function Trig_Item_Type_System_Actions takes nothing returns nothing
                         exitwhen udg_Slot_Integer > 6
                         if(Trig_Item_Type_System_Func004Func001Func001Func001Func002Func001C())then
                             set udg_ItemInt = (udg_ItemInt + 1)
-                        else
                         endif
                         set udg_Slot_Integer = udg_Slot_Integer + 1
                     endloop
@@ -219,13 +209,10 @@ function Trig_Item_Type_System_Actions takes nothing returns nothing
                             if(Trig_Item_Type_System_Func004Func001Func001Func001Func003Func002Func001C())then
                                 call UnitRemoveItemSwapped(UnitItemInSlotBJ(udg_Arct, bj_forLoopAIndex), udg_Arct)
                                 call UnitAddItemSwapped(GetOrderTargetItem(), udg_Arct)
-                            else
                             endif
                             set bj_forLoopAIndex = bj_forLoopAIndex + 1
                         endloop
-                    else
                     endif
-                else
                 endif
             endif
         endif

@@ -268,7 +268,6 @@
 //! import "triggers/Ability_Points.j"
 //! import "triggers/Item_Max_Lvl.j"
 //! import "triggers/Heal.j"
-//! import "triggers/Damage.j"
 //! import "triggers/Ending_Init.j"
 //! import "triggers/Ending_Dialogue_1.j"
 //! import "triggers/Ending_Dialogue_2.j"
@@ -282,6 +281,7 @@
 //! import "triggers/chat/ChanceBlock.j"
 //! import "triggers/chat/ChanceCrit.j"
 //! import "triggers/chat/Check_Lvl.j"
+//! import "triggers/chat/Damage.j"
 
 //! import "InitCustomTriggers.j"
 

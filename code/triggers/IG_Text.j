@@ -308,35 +308,27 @@ function Trig_IG_Text_Actions takes nothing returns nothing
         set udg_IG_ItemValue[9] = S2I(SubStringBJ(I2S(GetItemUserData(udg_IG_InfoItem)), 9, 9))
         if(Trig_IG_Text_Func008Func006C())then
             call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Стойкость +" + I2S(udg_IG_ItemValue[1])))
-        else
         endif
         if(Trig_IG_Text_Func008Func007C())then
             call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Ловкость +" + I2S(udg_IG_ItemValue[2])))
-        else
         endif
         if(Trig_IG_Text_Func008Func008C())then
             call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Мудрость +" + I2S(udg_IG_ItemValue[3])))
-        else
         endif
         if(Trig_IG_Text_Func008Func009C())then
             call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Шанс блока +" + (I2S(udg_IG_ItemValue[4]) + "%")))
-        else
         endif
         if(Trig_IG_Text_Func008Func010C())then
             call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Шанс разгрома +" + (I2S(udg_IG_ItemValue[5]) + "%")))
-        else
         endif
         if(Trig_IG_Text_Func008Func011C())then
             call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Здоровье +" + I2S((udg_IG_ItemValue[6] * 30))))
-        else
         endif
         if(Trig_IG_Text_Func008Func012C())then
             call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Энергия +" + I2S((udg_IG_ItemValue[7] * 10))))
-        else
         endif
         if(Trig_IG_Text_Func008Func013C())then
             call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Регенерация здоровья +" + I2S(udg_IG_ItemValue[8])))
-        else
         endif
         if(Trig_IG_Text_Func008Func014C())then
             if(Trig_IG_Text_Func008Func014Func001C())then
@@ -362,7 +354,6 @@ function Trig_IG_Text_Actions takes nothing returns nothing
                                     else
                                         if(Trig_IG_Text_Func008Func014Func001Func001Func001Func001Func001Func001Func001Func001C())then
                                             call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFFA90000Жнец|r: крадёт здоровье монстра и передает Аркту (зависит от ловкости)")
-                                        else
                                         endif
                                     endif
                                 endif
@@ -371,25 +362,20 @@ function Trig_IG_Text_Actions takes nothing returns nothing
                     endif
                 endif
             endif
-        else
         endif
     else
         if(Trig_IG_Text_Func008Func001C())then
             if(Trig_IG_Text_Func008Func001Func003C())then
                 call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Атака +" + I2S((udg_IG_ItemValue[1] * 2))))
-            else
             endif
             if(Trig_IG_Text_Func008Func001Func004C())then
                 call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Шанс разгрома +" + (I2S(udg_IG_ItemValue[2]) + "%")))
-            else
             endif
             if(Trig_IG_Text_Func008Func001Func005C())then
                 call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Скорость атаки +" + (I2S((udg_IG_ItemValue[3] * 3)) + "%")))
-            else
             endif
             if(Trig_IG_Text_Func008Func001Func006C())then
                 call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Ловкость +" + I2S(udg_IG_ItemValue[4])))
-            else
             endif
             if(Trig_IG_Text_Func008Func001Func007C())then
                 call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF00AD50Ядовитое|r (при разгроме): волна яда, отравлящая стоящих перед Арктом монстров")
@@ -405,7 +391,6 @@ function Trig_IG_Text_Actions takes nothing returns nothing
                         else
                             if(Trig_IG_Text_Func008Func001Func007Func001Func001Func001Func001C())then
                                 call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF00DB93Астральное|r: разгром наносит урон монстрам всем вокруг")
-                            else
                             endif
                         endif
                     endif
@@ -415,19 +400,15 @@ function Trig_IG_Text_Actions takes nothing returns nothing
             if(Trig_IG_Text_Func008Func001Func001C())then
                 if(Trig_IG_Text_Func008Func001Func001Func002C())then
                     call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Броня +" + I2S((udg_IG_ItemValue[1] * 2))))
-                else
                 endif
                 if(Trig_IG_Text_Func008Func001Func001Func003C())then
                     call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Шанс блока +" + (I2S(udg_IG_ItemValue[2]) + "%")))
-                else
                 endif
                 if(Trig_IG_Text_Func008Func001Func001Func004C())then
                     call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Здоровье +" + I2S((udg_IG_ItemValue[3] * 30))))
-                else
                 endif
                 if(Trig_IG_Text_Func008Func001Func001Func005C())then
                     call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Стойкость +" + I2S(udg_IG_ItemValue[4])))
-                else
                 endif
                 if(Trig_IG_Text_Func008Func001Func001Func006C())then
                     if(Trig_IG_Text_Func008Func001Func001Func006Func001C())then
@@ -441,14 +422,11 @@ function Trig_IG_Text_Actions takes nothing returns nothing
                             else
                                 if(Trig_IG_Text_Func008Func001Func001Func006Func001Func001Func001Func001C())then
                                     call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF90DFFFЗащитные символы|r: отталкивает всех вокруг и наносит урон (зависит от стойкости и ловкости)")
-                                else
                                 endif
                             endif
                         endif
                     endif
-                else
                 endif
-            else
             endif
         endif
     endif

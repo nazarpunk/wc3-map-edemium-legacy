@@ -18,7 +18,6 @@ function Trig_Trap_Periodic_Explosion_Func002Func001Func005A takes nothing retur
         set udg_AbilityPower = GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_Arct)
         set udg_AbilityPower = (udg_AbilityPower / 3.00)
         call UnitDamageTargetBJ(GetTriggerUnit(), GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
-    else
     endif
 endfunction
 
@@ -41,7 +40,6 @@ function Trig_Trap_Periodic_Explosion_Func002Func006A takes nothing returns noth
         set udg_AbilityPower = GetUnitStateSwap(UNIT_STATE_MAX_MANA, udg_Arct)
         set udg_AbilityPower = (udg_AbilityPower / 3.00)
         call SetUnitManaBJ(GetEnumUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()) - udg_AbilityPower))
-    else
     endif
 endfunction
 
@@ -70,7 +68,6 @@ function Trig_Trap_Periodic_Explosion_Actions takes nothing returns nothing
             call ForGroupBJ(udg_UnitGroup, function Trig_Trap_Periodic_Explosion_Func002Func001Func005A)
             call DestroyGroup(udg_UnitGroup)
             call RemoveLocation(udg_Point)
-        else
         endif
     endif
 endfunction

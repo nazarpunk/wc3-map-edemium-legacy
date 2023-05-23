@@ -1,44 +1,18 @@
-
 function Trig_Dungeon_Deadly_Conditions takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x41303348))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Dungeon_Deadly_Func002C takes nothing returns boolean
-    if(not(udg_DungeonDeadlyCleansing == 0))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Dungeon_Deadly_Func005Func001C takes nothing returns boolean
-    if(not(udg_D_DungeonTier == 2))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Dungeon_Deadly_Func005C takes nothing returns boolean
-    if(not(udg_D_DungeonTier == 1))then
-        return false
-    endif
-    return true
+    return GetSpellAbilityId() == 0x41303348
 endfunction
 
 function Trig_Dungeon_Deadly_Actions takes nothing returns nothing
     set udg_DungeonDeadlyCleansing = (udg_DungeonDeadlyCleansing - 1)
-    if(Trig_Dungeon_Deadly_Func002C())then
+    if udg_DungeonDeadlyCleansing == 0 then
         call UnitRemoveAbilityBJ(0x41303348, GetTriggerUnit())
-    else
     endif
     set udg_PointCleansing = GetSpellTargetLoc()
     call TriggerSleepAction(0.70)
-    if(Trig_Dungeon_Deadly_Func005C())then
+    if udg_D_DungeonTier == 1 then
         set udg_D_TextureType = 0x51647272
     else
-        if(Trig_Dungeon_Deadly_Func005Func001C())then
+        if udg_D_DungeonTier == 2 then
             set udg_D_TextureType = 0x416C7664
         else
             set udg_D_TextureType = 0x4762726B

@@ -91,7 +91,6 @@ function Trig_Gen_Boss_Actions takes nothing returns nothing
                 call SetUnitUserData(GetLastCreatedUnit(), 333)
                 call SetUnitFlyHeightBJ(GetLastCreatedUnit(), - 220.00, 1.00)
                 call PlayMusic((("/Edemium/MusicBoss3.mp3")))
-            else
             endif
         endif
     endif

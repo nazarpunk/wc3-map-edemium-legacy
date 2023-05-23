@@ -44,14 +44,12 @@ function Trig_Edemor_Exit_Actions takes nothing returns nothing
     if(Trig_Edemor_Exit_Func004C())then
         set udg_AS_Effect2 = false
         set udg_ChanceCrit = (udg_ChanceCrit - 10.00)
-    else
     endif
     if(Trig_Edemor_Exit_Func005C())then
         set udg_AS_Effect11 = false
         set udg_ChanceBlock = (udg_ChanceBlock - 20.00)
         call DestroyEffectBJ(udg_AS_Effect11SE)
         call SetUnitVertexColorBJ(udg_Arct, 100.00, 100.00, 100, 0)
-    else
     endif
     if(Trig_Edemor_Exit_Func006C())then
         set udg_Dead = false
@@ -70,7 +68,6 @@ function Trig_Edemor_Exit_Actions takes nothing returns nothing
         call DestroyGroup(udg_UnitGroup)
         call CreateItemLoc(0x4930304C, udg_Point)
         call UnitAddItemSwapped(GetLastCreatedItem(), udg_Arct)
-    else
     endif
     call SetUnitLifePercentBJ(udg_Arct, 100)
     call SetUnitManaPercentBJ(udg_Arct, 100)

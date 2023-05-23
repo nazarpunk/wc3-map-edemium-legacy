@@ -40,7 +40,6 @@ function Trig_Gen_Start_Func011A takes nothing returns nothing
         set udg_D_Point1 = GetDestructableLoc(GetEnumDestructable())
         call CreateNUnitsAtLocFacingLocBJ(1, 0x6830304C, Player(0), udg_D_Point1, GetUnitLoc(GetTriggerUnit()))
         call RemoveLocation(udg_D_Point1)
-    else
     endif
 endfunction
 
@@ -142,7 +141,6 @@ function Trig_Gen_Start_Actions takes nothing returns nothing
                 set udg_D_RoomDecorScale[4] = 2.00
                 set udg_D_RoomDecorType[7] = 0x42303337
                 set udg_D_RoomDecorScale[7] = 2.00
-            else
             endif
         endif
     endif
@@ -172,11 +170,9 @@ function Trig_Gen_Start_Actions takes nothing returns nothing
     endif
     if(Trig_Gen_Start_Func024C())then
         set udg_D_CreepsTotal = 75
-    else
     endif
     if(Trig_Gen_Start_Func025C())then
         set udg_D_Rooms = 64
-    else
     endif
     set udg_D_Portals = 0
     set udg_D_PortalLogic[2] = false

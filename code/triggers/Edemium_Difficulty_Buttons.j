@@ -87,7 +87,6 @@ function Trig_Edemium_Difficulty_Buttons_Actions takes nothing returns nothing
                         set udg_Difficulty = 5
                         set udg_DifficultyRate = 3.00
                         set udg_CO_Time = 1.00
-                    else
                     endif
                 endif
             endif

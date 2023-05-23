@@ -53,7 +53,6 @@ function Trig_Map_Choose_Actions takes nothing returns nothing
     else
         if(Trig_Map_Choose_Func015Func001C())then
             call UnitAddAbilityBJ(0x4130354E, GetTriggerUnit())
-        else
         endif
     endif
     call RemoveLocation(udg_D_Point1)

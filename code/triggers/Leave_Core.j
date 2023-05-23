@@ -24,7 +24,6 @@ function Trig_Leave_Core_Actions takes nothing returns nothing
         call EnableTrigger(gg_trg_Core_Autosave)
         set udg_Autosave = GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_GOLD)
         call SetPlayerStateBJ(Player(0), PLAYER_STATE_RESOURCE_GOLD, 15000)
-    else
     endif
     call ClearTextMessagesBJ(GetPlayersAll())
 endfunction

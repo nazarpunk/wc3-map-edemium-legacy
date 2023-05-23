@@ -50,7 +50,6 @@ function Trig_Item_Disperse_Actions takes nothing returns nothing
             call AdjustPlayerStateBJ(price, GetOwningPlayer(GetSpellAbilityUnit()), PLAYER_STATE_RESOURCE_GOLD)
             call CreateTextTagUnitBJ(("+" + I2S(price)), udg_Arct, 0, 12.00, 100.00, 100.00, 0.00, 0.00)
         endif
-    else
     endif
     set udg_QG_Count[6] = (udg_QG_Count[6] + 1)
     call ConditionalTriggerExecute(gg_trg_QG_Change_Text)

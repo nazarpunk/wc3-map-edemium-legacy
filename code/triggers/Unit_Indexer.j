@@ -54,9 +54,7 @@ function ClearUnitIndex takes nothing returns nothing
             set udg_UDexUnits[udg_UDex] = null
             set udg_UDexNext[udg_UDex] = udg_UDexRecycle
             set udg_UDexRecycle = udg_UDex
-        else
         endif
-    else
     endif
 endfunction
 

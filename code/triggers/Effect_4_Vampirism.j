@@ -33,7 +33,6 @@ function Trig_Effect_4_Vampirism_Actions takes nothing returns nothing
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 0.70)
         call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 0.40)
-    else
     endif
 endfunction
 

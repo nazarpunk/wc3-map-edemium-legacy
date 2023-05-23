@@ -10,7 +10,6 @@ function Trig_Keeper_Transparent_Actions takes nothing returns nothing
     call SetUnitVertexColorBJ(gg_unit_n006_0028, 100, 100, 100, udg_Transparent)
     if(Trig_Keeper_Transparent_Func003C())then
         call DisableTrigger(GetTriggeringTrigger())
-    else
     endif
 endfunction
 

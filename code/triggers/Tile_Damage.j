@@ -31,7 +31,6 @@ function Trig_Tile_Damage_Actions takes nothing returns nothing
             call SetUnitLifeBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) - udg_AbilityPower))
             call AddSpecialEffectTargetUnitBJ("chest", udg_Arct, "Abilities\\Weapons\\LavaSpawnMissile\\LavaSpawnMissile.mdl")
             call DestroyEffectBJ(GetLastCreatedEffectBJ())
-        else
         endif
     endif
     call RemoveLocation(udg_Point)

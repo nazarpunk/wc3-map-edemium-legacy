@@ -106,7 +106,6 @@ function Trig_Effect_8_Loop_Actions takes nothing returns nothing
                 call ForGroupBJ(udg_BE_Group, function Trig_Effect_8_Loop_Func001Func001Func030Func004A)
                 if(Trig_Effect_8_Loop_Func001Func001Func030Func006C())then
                     set udg_BE_CurrentBounces[udg_BE_TempIndex] = udg_BE_Bounces[udg_BE_AbilityIndex[udg_BE_TempIndex]]
-                else
                 endif
                 set udg_BE_Target[udg_BE_TempIndex] = GroupPickRandomUnit(udg_BE_Group)
                 call SetUnitScalePercent(udg_BE_Dummy[udg_BE_TempIndex], (100.00 + udg_BE_SizeIncrement[udg_BE_TempIndex]), (100.00 + udg_BE_SizeIncrement[udg_BE_TempIndex]), (100.00 + udg_BE_SizeIncrement[udg_BE_TempIndex]))
@@ -116,7 +115,6 @@ function Trig_Effect_8_Loop_Actions takes nothing returns nothing
                 set udg_BE_SizeIncrement[udg_BE_TempIndex] = (udg_BE_SizeIncrement[udg_BE_TempIndex] + udg_BE_CSizeIncrement)
                 set udg_BE_DistanceTravelled[udg_BE_TempIndex] = 0.00
                 call DestroyGroup(udg_BE_Group)
-            else
             endif
             call RemoveLocation(udg_BE_TempPoint)
             call RemoveLocation(udg_BE_TempPoint2)
@@ -138,7 +136,6 @@ function Trig_Effect_8_Loop_Actions takes nothing returns nothing
             set udg_BE_MaxIndex = (udg_BE_MaxIndex - 1)
             if(Trig_Effect_8_Loop_Func001Func001Func016C())then
                 call DisableTrigger(gg_trg_Effect_8_Loop)
-            else
             endif
         endif
         set udg_BE_TempIndex = udg_BE_TempIndex + 1

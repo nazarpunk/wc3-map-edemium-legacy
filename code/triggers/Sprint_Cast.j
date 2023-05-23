@@ -67,7 +67,6 @@ function Trig_Sprint_Cast_Actions takes nothing returns nothing
             call SetPlayerAbilityAvailableBJ(false, 0x41303147, Player(0))
             if(Trig_Sprint_Cast_Func002Func001Func006C())then
                 set udg_ChanceBlock = (udg_ChanceBlock + (3.00 * I2R(udg_ART[19])))
-            else
             endif
         else
             if(Trig_Sprint_Cast_Func002Func001Func001C())then
@@ -77,9 +76,7 @@ function Trig_Sprint_Cast_Actions takes nothing returns nothing
                 call SetPlayerAbilityAvailableBJ(true, 0x41303147, Player(0))
                 if(Trig_Sprint_Cast_Func002Func001Func001Func005C())then
                     set udg_ChanceBlock = (udg_ChanceBlock - (3.00 * I2R(udg_ART[19])))
-                else
                 endif
-            else
             endif
         endif
     endif

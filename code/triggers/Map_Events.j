@@ -87,7 +87,6 @@ function Trig_Map_Events_Actions takes nothing returns nothing
                         call DialogAddButtonBJ(udg_EventDialog, ("Бежать! (необходимо " + (I2S(udg_EventAttribute) + " ловкости).")))
                     endif
                     set udg_EventButton[3] = GetLastCreatedButtonBJ()
-                else
                 endif
             endif
         endif

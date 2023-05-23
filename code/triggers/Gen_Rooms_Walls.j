@@ -50,7 +50,6 @@ function Trig_Gen_Rooms_Walls_Func002A takes nothing returns nothing
     if(Trig_Gen_Rooms_Walls_Func002Func005C())then
         call CreateDestructableLoc(udg_D_WallTierTypeRoom[3], udg_D_PointOffset, 0.00, 1.40, 0)
         call SetDestructableOccluderHeight(GetLastCreatedDestructable(), 1.00)
-    else
     endif
     set udg_RandomNumber = 0
     call RemoveLocation(udg_D_PointOffset)
@@ -58,7 +57,6 @@ function Trig_Gen_Rooms_Walls_Func002A takes nothing returns nothing
     call EnumDestructablesInCircleBJ(256.00, udg_D_PointOffset, function Trig_Gen_Rooms_Walls_Func002Func009A)
     if(Trig_Gen_Rooms_Walls_Func002Func010C())then
         call CreateDestructableLoc(udg_D_WallTierTypeRoom[1], udg_D_PointOffset, 0.00, 1.40, 0)
-    else
     endif
     set udg_RandomNumber = 0
     call RemoveLocation(udg_D_PointOffset)
@@ -67,7 +65,6 @@ function Trig_Gen_Rooms_Walls_Func002A takes nothing returns nothing
     if(Trig_Gen_Rooms_Walls_Func002Func015C())then
         call CreateDestructableLoc(udg_D_WallTierTypeRoom[4], udg_D_PointOffset, 0.00, 1.40, 0)
         call SetDestructableOccluderHeight(GetLastCreatedDestructable(), 1.00)
-    else
     endif
     set udg_RandomNumber = 0
     call RemoveLocation(udg_D_PointOffset)
@@ -75,7 +72,6 @@ function Trig_Gen_Rooms_Walls_Func002A takes nothing returns nothing
     call EnumDestructablesInCircleBJ(256.00, udg_D_PointOffset, function Trig_Gen_Rooms_Walls_Func002Func019A)
     if(Trig_Gen_Rooms_Walls_Func002Func020C())then
         call CreateDestructableLoc(udg_D_WallTierTypeRoom[2], udg_D_PointOffset, 0.00, 1.40, 0)
-    else
     endif
     call RemoveLocation(udg_D_PointOffset)
     call RemoveLocation(udg_D_Point2)
@@ -119,7 +115,6 @@ endfunction
 function Trig_Gen_Rooms_Walls_Func004A takes nothing returns nothing
     if(Trig_Gen_Rooms_Walls_Func004Func001C())then
         call RemoveDestructable(GetEnumDestructable())
-    else
     endif
 endfunction
 
@@ -161,7 +156,6 @@ endfunction
 function Trig_Gen_Rooms_Walls_Func005A takes nothing returns nothing
     if(Trig_Gen_Rooms_Walls_Func005Func001C())then
         call RemoveDestructable(GetEnumDestructable())
-    else
     endif
 endfunction
 

@@ -17,7 +17,6 @@ function Trig_Onkie_List_Actions takes nothing returns nothing
     set udg_RandomNumber = GetRandomInt(1, 20)
     if(Trig_Onkie_List_Func004C())then
         call AddItemToStockBJ(udg_SecretsList[udg_RandomNumber], gg_unit_n009_0061, 1, 1)
-    else
     endif
 endfunction
 

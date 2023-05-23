@@ -86,7 +86,6 @@ function Trig_Gen_Events_Actions takes nothing returns nothing
                     set udg_DungeonDeadlyCleansing = 3
                     call UnitAddAbilityBJ(0x41303348, udg_Arct)
                     call EnableTrigger(gg_trg_Dungeon_Deadly)
-                else
                 endif
             endif
         endif
@@ -98,7 +97,6 @@ function Trig_Gen_Events_Actions takes nothing returns nothing
     endif
     if(Trig_Gen_Events_Func004C())then
         call EnableTrigger(gg_trg_Events_Elapsed)
-    else
     endif
 endfunction
 

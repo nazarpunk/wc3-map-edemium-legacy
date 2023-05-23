@@ -103,7 +103,6 @@ function Trig_Edemor_Process_Actions takes nothing returns nothing
                     set udg_ER_Creeps[4] = (udg_ER_Creeps[4] + 1)
                     set udg_ER_Reward = (udg_ER_Reward + 10)
                     set udg_ER_Count = (udg_ER_Count + 1)
-                else
                 endif
             endif
         endif
@@ -126,7 +125,6 @@ function Trig_Edemor_Process_Actions takes nothing returns nothing
         call SetUnitAnimation(gg_unit_h00V_0063, "death")
         call EnableTrigger(gg_trg_Edemium_Hero_Dies)
         call EnableTrigger(gg_trg_Edemor_Periodic)
-    else
     endif
     call RemoveItem(GetSoldItem())
 endfunction

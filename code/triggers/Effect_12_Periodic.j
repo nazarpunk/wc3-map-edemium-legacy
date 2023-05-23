@@ -21,7 +21,6 @@ function Trig_Effect_12_Periodic_Func002Func007A takes nothing returns nothing
         call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 0.40)
         call AddSpecialEffectTargetUnitBJ("chest", GetEnumUnit(), "Abilities\\Weapons\\FireBallMissile\\FireBallMissile.mdl")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
-    else
     endif
     call RemoveLocation(udg_Point2)
 endfunction
@@ -44,7 +43,6 @@ function Trig_Effect_12_Periodic_Actions takes nothing returns nothing
         set udg_UnitGroup = GetUnitsInRangeOfLocAll(250.00, udg_Point)
         call ForGroupBJ(udg_UnitGroup, function Trig_Effect_12_Periodic_Func002Func007A)
         call DestroyGroup(udg_UnitGroup)
-    else
     endif
     call RemoveLocation(udg_Point)
 endfunction

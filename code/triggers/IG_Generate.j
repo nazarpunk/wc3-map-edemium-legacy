@@ -154,7 +154,6 @@ function Trig_IG_Generate_Actions takes nothing returns nothing
             set udg_IG_ItemAtt[GetRandomInt(1, 8)] = I2S(GetRandomInt(2, udg_IG_ItemLVL_Max))
             if(Trig_IG_Generate_Func005Func004Func003C())then
                 set udg_IG_ItemAtt[9] = I2S(GetRandomInt(2, 9))
-            else
             endif
         else
             set bj_forLoopAIndex = 2
@@ -226,7 +225,6 @@ function Trig_IG_Generate_Actions takes nothing returns nothing
                 set udg_IG_ItemAtt[GetRandomInt(5, 8)] = I2S(GetRandomInt(2, udg_IG_ItemLVL_Max))
                 if(Trig_IG_Generate_Func005Func001Func004Func004C())then
                     set udg_IG_ItemAtt[9] = I2S(GetRandomInt(2, 9))
-                else
                 endif
             endif
         else
@@ -276,10 +274,8 @@ function Trig_IG_Generate_Actions takes nothing returns nothing
                     set udg_IG_ItemAtt[GetRandomInt(7, 8)] = I2S(GetRandomInt(2, udg_IG_ItemLVL_Max))
                     if(Trig_IG_Generate_Func005Func001Func001Func003Func010C())then
                         set udg_IG_ItemAtt[9] = I2S(GetRandomInt(2, 9))
-                    else
                     endif
                 endif
-            else
             endif
         endif
     endif

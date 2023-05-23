@@ -9,7 +9,6 @@ endfunction
 function Trig_Trap_Periodic_Func002A takes nothing returns nothing
     if(Trig_Trap_Periodic_Func002Func001C())then
         call IssueImmediateOrderBJ(GetEnumUnit(), "roar")
-    else
     endif
 endfunction
 

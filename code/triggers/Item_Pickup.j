@@ -52,7 +52,6 @@ function Trig_Item_Pickup_Actions takes nothing returns nothing
             else
                 if(Trig_Item_Pickup_Func001Func001Func001Func001C())then
                     call RemoveItem(GetManipulatedItem())
-                else
                 endif
             endif
         endif
