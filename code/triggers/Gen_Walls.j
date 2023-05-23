@@ -70,7 +70,7 @@ function Trig_Gen_Walls_Func005Func011Func002A takes nothing returns nothing
 endfunction
 
 function Trig_Gen_Walls_Func005Func011C takes nothing returns boolean
-    if(not(GetForLoopIndexB() == udg_D_Rooms))then
+    if(not(bj_forLoopBIndex == udg_D_Rooms))then
         return false
     endif
     return true
@@ -85,9 +85,9 @@ function Trig_Gen_Walls_Actions takes nothing returns nothing
     set bj_forLoopBIndexEnd = udg_D_Rooms
     loop
         exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
-        set udg_D_Pick = GetUnitsInRangeOfLocAll(800.00, GetUnitLoc(udg_D_CellNumber[GetForLoopIndexB()]))
+        set udg_D_Pick = GetUnitsInRangeOfLocAll(800.00, GetUnitLoc(udg_D_CellNumber[bj_forLoopBIndex]))
         set udg_D_Pick2 = GetUnitsOfTypeIdAll(0x6830304D)
-        set udg_D_Point1 = GetUnitLoc(udg_D_CellNumber[GetForLoopIndexB()])
+        set udg_D_Point1 = GetUnitLoc(udg_D_CellNumber[bj_forLoopBIndex])
         call GroupRemoveGroup(udg_D_Pick2, udg_D_Pick)
         call DestroyGroup(udg_D_Pick2)
         set udg_D_Pick2 = GetUnitsOfTypeIdAll(0x68303054)

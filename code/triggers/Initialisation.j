@@ -1,6 +1,7 @@
 function Trig_Initialisation_Actions takes nothing returns nothing
-    call BJDebugMsg("jass")
     call ShowInterface(false, 0)
+    call EnableUserControl(true)
+
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEOUT, 0.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
     set udg_CinematicPosition = GetUnitLoc(gg_unit_H000_0004)
     call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")

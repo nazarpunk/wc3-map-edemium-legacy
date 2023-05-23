@@ -1,4 +1,3 @@
-
 function Trig_Creep_Lead_Timer_Actions takes nothing returns nothing
     call DestroyLightningBJ(udg_Lead)
 endfunction

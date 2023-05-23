@@ -1,8 +1,8 @@
 
 function Trig_Gen_Final_Func003Func001A takes nothing returns nothing
-    set udg_ChestKeyOwner[GetForLoopIndexB()] = GetEnumUnit()
+    set udg_ChestKeyOwner[bj_forLoopBIndex] = GetEnumUnit()
     call AddSpecialEffectTargetUnitBJ("chest", GetEnumUnit(), "war3mapImported\\LootEFFECT.mdx")
-    set udg_ChestKeyEffect[GetForLoopIndexB()] = GetLastCreatedEffectBJ()
+    set udg_ChestKeyEffect[bj_forLoopBIndex] = GetLastCreatedEffectBJ()
     call GroupRemoveUnitSimple(GetEnumUnit(), udg_D_Pick)
 endfunction
 

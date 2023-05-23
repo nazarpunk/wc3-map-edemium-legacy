@@ -1,16 +1,5 @@
-
-function Trig_Combat_Start_Func001C takes nothing returns boolean
-    if(not(udg_Combat == false))then
-        return false
-    endif
-    if(not(udg_ART[20] > 0))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Combat_Start_Actions takes nothing returns nothing
-    if(Trig_Combat_Start_Func001C())then
+    if not udg_Combat and udg_ART[20] > 0 then
         set udg_Point = GetUnitLoc(udg_Arct)
         set udg_Point2 = PolarProjectionBJ(udg_Point, 200.00, GetRandomDirectionDeg())
         call CreateNUnitsAtLoc(1, 0x48303053, Player(1), udg_Point2, bj_UNIT_FACING)
@@ -22,7 +11,6 @@ function Trig_Combat_Start_Actions takes nothing returns nothing
         call SetUnitVertexColorBJ(GetLastCreatedUnit(), 100, 100, 100, 40.00)
         call RemoveLocation(udg_Point)
         call RemoveLocation(udg_Point2)
-    else
     endif
     set udg_Combat = true
     call StartTimerBJ(udg_CO_CombatTimer, false, 6.50)

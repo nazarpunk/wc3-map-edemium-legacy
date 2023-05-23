@@ -1,16 +1,5 @@
-
 function Trig_Core_Select_Conditions takes nothing returns boolean
-    if(not(GetTriggerUnit() == gg_unit_h00F_0003))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Core_Select_Func009Func001C takes nothing returns boolean
-    if(not(udg_CC_Ingredient[bj_forLoopAIndex] > 0))then
-        return false
-    endif
-    return true
+    return GetTriggerUnit() == gg_unit_h00F_0003
 endfunction
 
 function Trig_Core_Select_Actions takes nothing returns nothing
@@ -38,9 +27,8 @@ function Trig_Core_Select_Actions takes nothing returns nothing
     set bj_forLoopAIndexEnd = 10
     loop
         exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        if(Trig_Core_Select_Func009Func001C())then
+        if udg_CC_Ingredient[bj_forLoopAIndex] > 0 then
             call AddItemToStockBJ(udg_CC_IngredientItem[bj_forLoopAIndex], gg_unit_h00F_0003, udg_CC_Ingredient[bj_forLoopAIndex], udg_CC_Ingredient[bj_forLoopAIndex])
-        else
         endif
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop

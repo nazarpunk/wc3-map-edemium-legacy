@@ -7,7 +7,7 @@ function Trig_CodeGen_Save_4_Actions takes nothing returns nothing
     loop
         exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
         set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = udg_EM_LevelDiscovered[GetForLoopIndexB()]
+        set udg_Save[udg_SaveCount] = udg_EM_LevelDiscovered[bj_forLoopBIndex]
         set bj_forLoopBIndex = bj_forLoopBIndex + 1
     endloop
     set bj_forLoopBIndex = 1
@@ -15,7 +15,7 @@ function Trig_CodeGen_Save_4_Actions takes nothing returns nothing
     loop
         exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
         set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = udg_AS_Value[GetForLoopIndexB()]
+        set udg_Save[udg_SaveCount] = udg_AS_Value[bj_forLoopBIndex]
         set bj_forLoopBIndex = bj_forLoopBIndex + 1
     endloop
     set udg_Code = CodeGen_Compile()

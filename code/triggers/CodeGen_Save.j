@@ -1,18 +1,10 @@
-function Trig_CodeGen_Save_Func001Func001C takes nothing returns boolean
-    if(not(udg_CC_SecretUnlocked[bj_forLoopAIndex] == true))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_CodeGen_Save_Actions takes nothing returns nothing
     set bj_forLoopAIndex = 1
     set bj_forLoopAIndexEnd = 20
     loop
         exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        if(Trig_CodeGen_Save_Func001Func001C())then
+        if udg_CC_SecretUnlocked[bj_forLoopAIndex] then
             set udg_SecretUnlocked[bj_forLoopAIndex] = 1
-        else
         endif
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop

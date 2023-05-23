@@ -1,4 +1,3 @@
-
 function Trig_Combo_Spawn_Timer_Expires_Actions takes nothing returns nothing
     set udg_ComboSpawnAllowed = false
 endfunction

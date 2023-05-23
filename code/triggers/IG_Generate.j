@@ -148,7 +148,7 @@ function Trig_IG_Generate_Actions takes nothing returns nothing
             set bj_forLoopBIndexEnd = 9
             loop
                 exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
-                set udg_IG_ItemAtt[GetForLoopIndexB()] = "1"
+                set udg_IG_ItemAtt[bj_forLoopBIndex] = "1"
                 set bj_forLoopBIndex = bj_forLoopBIndex + 1
             endloop
             set udg_IG_ItemAtt[GetRandomInt(1, 8)] = I2S(GetRandomInt(2, udg_IG_ItemLVL_Max))

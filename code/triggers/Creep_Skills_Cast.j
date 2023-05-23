@@ -1,136 +1,37 @@
-
-function Trig_Creep_Skills_Cast_Func004C takes nothing returns boolean
-    if(not(GetOwningPlayer(GetTriggerUnit()) == Player(11)))then
-        return false
-    endif
-    if(not(GetUnitTypeId(GetTriggerUnit()) != 0x68303039))then
-        return false
-    endif
-    if(not(GetUnitTypeId(GetTriggerUnit()) != 0x6E303053))then
-        return false
-    endif
-    if(not(GetUnitTypeId(GetTriggerUnit()) != 0x68303134))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Creep_Skills_Cast_Conditions takes nothing returns boolean
-    if(not Trig_Creep_Skills_Cast_Func004C())then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func003Func006C takes nothing returns boolean
-    if(not(GetUnitTypeId(GetTriggerUnit()) == 0x6E30305A))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func003C takes nothing returns boolean
-    if(not(GetTerrainTypeBJ(udg_Point2) != 0x4972626B))then
-        return false
-    endif
-    if(not(GetTerrainTypeBJ(udg_Point2) != 0x58626C6D))then
-        return false
-    endif
-    if(not(GetTerrainTypeBJ(udg_Point2) != 0x56737470))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func007Func001Func007C takes nothing returns boolean
-    if(not(GetUnitTypeId(GetTriggerUnit()) == 0x6E303054))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func007Func001C takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x41303551))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func007C takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x41303231))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Creep_Skills_Cast_Func005Func001Func007Func001C takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x41303639))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Creep_Skills_Cast_Func005Func001Func007C takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x4130354A))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Creep_Skills_Cast_Func005Func001C takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x41303232))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Creep_Skills_Cast_Func005Func002C takes nothing returns boolean
-    if((GetSpellAbilityId() == 0x41303139))then
-        return true
-    endif
-    if((GetSpellAbilityId() == 0x41303456))then
-        return true
-    endif
-    return false
-endfunction
-
-function Trig_Creep_Skills_Cast_Func005C takes nothing returns boolean
-    if(not Trig_Creep_Skills_Cast_Func005Func002C())then
-        return false
-    endif
-    return true
+    return GetOwningPlayer(GetTriggerUnit()) == Player(11) and GetUnitTypeId(GetTriggerUnit()) != 0x68303039 and GetUnitTypeId(GetTriggerUnit()) != 0x6E303053 and GetUnitTypeId(GetTriggerUnit()) != 0x68303134
 endfunction
 
 function Trig_Creep_Skills_Cast_Actions takes nothing returns nothing
     set udg_Combat = true
     call StartTimerBJ(udg_CO_CombatTimer, false, 6.50)
     call EnableTrigger(gg_trg_Combo_Ability_Use)
-    if(Trig_Creep_Skills_Cast_Func005C())then
+    if GetSpellAbilityId() == 0x41303139 or GetSpellAbilityId() == 0x41303456 then
         call RemoveLocation(udg_Creep_Cast_Point[GetUnitUserData(GetTriggerUnit())])
         set udg_Creep_Cast_Point[GetUnitUserData(GetTriggerUnit())] = GetUnitLoc(GetSpellTargetUnit())
         call DestroyEffectBJ(udg_CreepCastEffect[GetUnitUserData(GetTriggerUnit())])
         call AddSpecialEffectTargetUnitBJ("hand right", GetTriggerUnit(), "Abilities\\Weapons\\VengeanceMissile\\VengeanceMissile.mdl")
         set udg_CreepCastEffect[GetUnitUserData(GetTriggerUnit())] = GetLastCreatedEffectBJ()
     else
-        if(Trig_Creep_Skills_Cast_Func005Func001C())then
+        if GetSpellAbilityId() == 0x41303232 then
             call RemoveLocation(udg_Creep_Strike_Point[GetUnitUserData(GetTriggerUnit())])
             set udg_Creep_Strike_Point[GetUnitUserData(GetTriggerUnit())] = GetUnitLoc(GetSpellTargetUnit())
             call DestroyEffectBJ(udg_CreepCastEffect[GetUnitUserData(GetTriggerUnit())])
             call AddSpecialEffectTargetUnitBJ("hand right", GetTriggerUnit(), "Abilities\\Weapons\\VengeanceMissile\\VengeanceMissile.mdl")
             set udg_CreepCastEffect[GetUnitUserData(GetTriggerUnit())] = GetLastCreatedEffectBJ()
         else
-            if(Trig_Creep_Skills_Cast_Func005Func001Func007C())then
+            if GetSpellAbilityId() == 0x4130354A then
                 call IssueImmediateOrderBJ(GetTriggerUnit(), "whirlwind")
                 call IssueTargetOrderBJ(GetTriggerUnit(), "smart", udg_Arct)
             else
-                if(Trig_Creep_Skills_Cast_Func005Func001Func007Func001C())then
+                if GetSpellAbilityId() == 0x41303639 then
                     set udg_Point = GetUnitLoc(GetTriggerUnit())
                     set udg_Point2 = PolarProjectionBJ(udg_Point, 350.00, GetRandomDirectionDeg())
-                    if(Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func003C())then
+                    if GetTerrainTypeBJ(udg_Point2) != 0x4972626B and GetTerrainTypeBJ(udg_Point2) != 0x58626C6D and GetTerrainTypeBJ(udg_Point2) != 0x56737470 then
                         call SetUnitPositionLoc(GetTriggerUnit(), udg_Point2)
                         call AddSpecialEffectLocBJ(udg_Point2, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
                         call DestroyEffectBJ(GetLastCreatedEffectBJ())
-                        if(Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func003Func006C())then
+                        if GetUnitTypeId(GetTriggerUnit()) == 0x6E30305A then
                             call CreateNUnitsAtLoc(1, 0x6830314B, Player(11), udg_Point, bj_UNIT_FACING)
                         else
                             call CreateNUnitsAtLoc(1, 0x6830314C, Player(11), udg_Point, bj_UNIT_FACING)
@@ -144,22 +45,20 @@ function Trig_Creep_Skills_Cast_Actions takes nothing returns nothing
                     call RemoveLocation(udg_Point)
                     call RemoveLocation(udg_Point2)
                 else
-                    if(Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func007C())then
+                    if GetSpellAbilityId() == 0x41303231 then
                         call GroupAddUnitSimple(GetTriggerUnit(), udg_FallenGroup)
                         call EnableTrigger(gg_trg_Creep_Fallen_Spawn)
                     else
-                        if(Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func007Func001C())then
+                        if GetSpellAbilityId() == 0x41303551 then
                             set udg_CO_Point = GetUnitLoc(GetSpellAbilityUnit())
                             set udg_CO_Point2 = PolarProjectionBJ(udg_CO_Point, 70.00, GetRandomDirectionDeg())
                             call CreateNUnitsAtLoc(1, udg_D_CreepType[GetRandomInt(1, 3)], Player(11), udg_CO_Point2, bj_UNIT_FACING)
                             call UnitAddAbilityBJ(0x41303345, GetLastCreatedUnit())
                             call RemoveLocation(udg_CO_Point)
                             call RemoveLocation(udg_CO_Point2)
-                            if(Trig_Creep_Skills_Cast_Func005Func001Func007Func001Func007Func001Func007C())then
+                            if GetUnitTypeId(GetTriggerUnit()) == 0x6E303054 then
                                 call SetUnitManaBJ(GetTriggerUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetTriggerUnit()) + 15.00))
-                            else
                             endif
-                        else
                         endif
                     endif
                 endif

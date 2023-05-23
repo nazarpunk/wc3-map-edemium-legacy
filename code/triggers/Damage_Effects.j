@@ -315,7 +315,7 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
             else
                 if(Trig_Damage_Effects_Func001Func002Func006Func002C())then
                     set udg_DamageEventAmount = 0.00
-                    call AddSpecialEffectTargetUnitBJ("chest", GetAttackedUnitBJ(), "Abilities\\Spells\\Human\\Defend\\DefendCaster.mdl")
+                    call AddSpecialEffectTargetUnitBJ("chest", GetTriggerUnit(), "Abilities\\Spells\\Human\\Defend\\DefendCaster.mdl")
                     call DestroyEffectBJ(GetLastCreatedEffectBJ())
                 else
                     if(Trig_Damage_Effects_Func001Func002Func006Func002Func001C())then

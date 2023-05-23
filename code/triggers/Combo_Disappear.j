@@ -1,9 +1,5 @@
-
 function Trig_Combo_Disappear_Conditions takes nothing returns boolean
-    if(not(GetOwningPlayer(GetTriggerUnit()) == Player(9)))then
-        return false
-    endif
-    return true
+    return GetOwningPlayer(GetTriggerUnit()) == Player(9)
 endfunction
 
 function Trig_Combo_Disappear_Actions takes nothing returns nothing

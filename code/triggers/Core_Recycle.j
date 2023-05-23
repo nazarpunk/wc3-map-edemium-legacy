@@ -1,16 +1,5 @@
-
 function Trig_Core_Recycle_Conditions takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x4130344A))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Core_Recycle_Func003Func002C takes nothing returns boolean
-    if(not(udg_CC_Ingredient[bj_forLoopAIndex] > 0))then
-        return false
-    endif
-    return true
+    return GetSpellAbilityId() == 0x4130344A
 endfunction
 
 function Trig_Core_Recycle_Actions takes nothing returns nothing
@@ -28,9 +17,8 @@ function Trig_Core_Recycle_Actions takes nothing returns nothing
     loop
         exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
         call RemoveItemFromStockBJ(udg_CC_IngredientItem[bj_forLoopAIndex], gg_unit_h00F_0003)
-        if(Trig_Core_Recycle_Func003Func002C())then
+        if udg_CC_Ingredient[bj_forLoopAIndex] > 0 then
             call AddItemToStockBJ(udg_CC_IngredientItem[bj_forLoopAIndex], gg_unit_h00F_0003, udg_CC_Ingredient[bj_forLoopAIndex], udg_CC_Ingredient[bj_forLoopAIndex])
-        else
         endif
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop

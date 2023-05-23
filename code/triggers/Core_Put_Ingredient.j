@@ -1,23 +1,5 @@
-
 function Trig_Core_Put_Ingredient_Conditions takes nothing returns boolean
-    if(not(GetItemType(GetSoldItem()) == ITEM_TYPE_CAMPAIGN))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Core_Put_Ingredient_Func005Func002C takes nothing returns boolean
-    if(not(udg_CC_Ingredient[bj_forLoopAIndex] > 0))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Core_Put_Ingredient_Func007Func001C takes nothing returns boolean
-    if(not(udg_CC_IngredientAdded[bj_forLoopAIndex] > 0))then
-        return false
-    endif
-    return true
+    return GetItemType(GetSoldItem()) == ITEM_TYPE_CAMPAIGN
 endfunction
 
 function Trig_Core_Put_Ingredient_Actions takes nothing returns nothing
@@ -29,9 +11,8 @@ function Trig_Core_Put_Ingredient_Actions takes nothing returns nothing
     loop
         exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
         call RemoveItemFromStockBJ(udg_CC_IngredientItem[bj_forLoopAIndex], gg_unit_h00F_0003)
-        if(Trig_Core_Put_Ingredient_Func005Func002C())then
+        if udg_CC_Ingredient[bj_forLoopAIndex] > 0 then
             call AddItemToStockBJ(udg_CC_IngredientItem[bj_forLoopAIndex], gg_unit_h00F_0003, udg_CC_Ingredient[bj_forLoopAIndex], udg_CC_Ingredient[bj_forLoopAIndex])
-        else
         endif
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop
@@ -40,9 +21,8 @@ function Trig_Core_Put_Ingredient_Actions takes nothing returns nothing
     set bj_forLoopAIndexEnd = 9
     loop
         exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        if(Trig_Core_Put_Ingredient_Func007Func001C())then
+        if udg_CC_IngredientAdded[bj_forLoopAIndex] > 0 then
             call DisplayTimedTextToForce(GetPlayersAll(), 999.00, (udg_CC_IngredientName[bj_forLoopAIndex] + (": " + I2S(udg_CC_IngredientAdded[bj_forLoopAIndex]))))
-        else
         endif
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop

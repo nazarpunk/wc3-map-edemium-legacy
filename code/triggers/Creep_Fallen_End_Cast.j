@@ -1,9 +1,5 @@
-
 function Trig_Creep_Fallen_End_Cast_Conditions takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x41303231))then
-        return false
-    endif
-    return true
+    return GetSpellAbilityId() == 0x41303231
 endfunction
 
 function Trig_Creep_Fallen_End_Cast_Actions takes nothing returns nothing

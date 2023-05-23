@@ -1,9 +1,5 @@
-
 function Trig_Combo_Spawn_Timer_Conditions takes nothing returns boolean
-    if(not(GetAttacker() == udg_Arct))then
-        return false
-    endif
-    return true
+    return GetAttacker() == udg_Arct
 endfunction
 
 function Trig_Combo_Spawn_Timer_Actions takes nothing returns nothing

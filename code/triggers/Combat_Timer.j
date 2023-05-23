@@ -1,4 +1,3 @@
-
 function Trig_Combat_Timer_Actions takes nothing returns nothing
     set udg_Combat = false
     set udg_CO_Combo = 0

@@ -26,7 +26,7 @@ function Trig_CodeGen_Load_2_Actions takes nothing returns nothing
     loop
         exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
         set udg_LoadCount = (udg_LoadCount + 1)
-        set udg_AS_AbilityLVL[GetForLoopIndexB()] = udg_Load[udg_LoadCount]
+        set udg_AS_AbilityLVL[bj_forLoopBIndex] = udg_Load[udg_LoadCount]
         set bj_forLoopBIndex = bj_forLoopBIndex + 1
     endloop
     set bj_forLoopBIndex = 1
@@ -34,7 +34,7 @@ function Trig_CodeGen_Load_2_Actions takes nothing returns nothing
     loop
         exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
         set udg_LoadCount = (udg_LoadCount + 1)
-        set udg_AS_AbilityEXP[GetForLoopIndexB()] = udg_Load[udg_LoadCount]
+        set udg_AS_AbilityEXP[bj_forLoopBIndex] = udg_Load[udg_LoadCount]
         set bj_forLoopBIndex = bj_forLoopBIndex + 1
     endloop
     set bj_forLoopBIndex = 1
@@ -42,7 +42,7 @@ function Trig_CodeGen_Load_2_Actions takes nothing returns nothing
     loop
         exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
         set udg_LoadCount = (udg_LoadCount + 1)
-        set udg_AS_AbilityStudied[GetForLoopIndexB()] = udg_Load[udg_LoadCount]
+        set udg_AS_AbilityStudied[bj_forLoopBIndex] = udg_Load[udg_LoadCount]
         set bj_forLoopBIndex = bj_forLoopBIndex + 1
     endloop
     set udg_Point = GetRectCenter(gg_rct_Trees_Leave)

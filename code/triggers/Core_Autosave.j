@@ -1,4 +1,3 @@
-
 function Trig_Core_Autosave_Actions takes nothing returns nothing
     call SetPlayerStateBJ(Player(0), PLAYER_STATE_RESOURCE_GOLD, udg_Autosave)
     call ExecuteFunc("Autosave")

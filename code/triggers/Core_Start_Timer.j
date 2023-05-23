@@ -1,4 +1,3 @@
-
 function Trig_Core_Start_Timer_Actions takes nothing returns nothing
     call ShowUnitHide(gg_unit_h00F_0003)
     call StartTimerBJ(udg_CC_Timer, false, 3.00)

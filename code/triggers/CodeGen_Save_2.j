@@ -13,7 +13,7 @@ function Trig_CodeGen_Save_2_Actions takes nothing returns nothing
     loop
         exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
         set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = udg_AS_AbilityLVL[GetForLoopIndexB()]
+        set udg_Save[udg_SaveCount] = udg_AS_AbilityLVL[bj_forLoopBIndex]
         set bj_forLoopBIndex = bj_forLoopBIndex + 1
     endloop
     set bj_forLoopBIndex = 1
@@ -21,7 +21,7 @@ function Trig_CodeGen_Save_2_Actions takes nothing returns nothing
     loop
         exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
         set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = udg_AS_AbilityEXP[GetForLoopIndexB()]
+        set udg_Save[udg_SaveCount] = udg_AS_AbilityEXP[bj_forLoopBIndex]
         set bj_forLoopBIndex = bj_forLoopBIndex + 1
     endloop
     set bj_forLoopBIndex = 1
@@ -29,7 +29,7 @@ function Trig_CodeGen_Save_2_Actions takes nothing returns nothing
     loop
         exitwhen bj_forLoopBIndex > bj_forLoopBIndexEnd
         set udg_SaveCount = (udg_SaveCount + 1)
-        set udg_Save[udg_SaveCount] = udg_AS_AbilityStudied[GetForLoopIndexB()]
+        set udg_Save[udg_SaveCount] = udg_AS_AbilityStudied[bj_forLoopBIndex]
         set bj_forLoopBIndex = bj_forLoopBIndex + 1
     endloop
     set bj_forLoopAIndex = 1

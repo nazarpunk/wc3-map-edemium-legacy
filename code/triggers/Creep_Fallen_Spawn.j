@@ -1,4 +1,3 @@
-
 function Trig_Creep_Fallen_Spawn_Func001A takes nothing returns nothing
     set udg_Point = GetUnitLoc(GetEnumUnit())
     set udg_Point2 = PolarProjectionBJ(udg_Point, GetRandomReal(100.00, 200.00), GetRandomDirectionDeg())
@@ -12,18 +11,10 @@ function Trig_Creep_Fallen_Spawn_Func001A takes nothing returns nothing
     call RemoveLocation(udg_Point)
 endfunction
 
-function Trig_Creep_Fallen_Spawn_Func002C takes nothing returns boolean
-    if(not(CountUnitsInGroup(udg_FallenGroup) == 0))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Creep_Fallen_Spawn_Actions takes nothing returns nothing
     call ForGroupBJ(udg_FallenGroup, function Trig_Creep_Fallen_Spawn_Func001A)
-    if(Trig_Creep_Fallen_Spawn_Func002C())then
+    if CountUnitsInGroup(udg_FallenGroup) == 0 then
         call DisableTrigger(GetTriggeringTrigger())
-    else
     endif
 endfunction
 

@@ -1,25 +1,9 @@
-
-function Trig_Core_Item_Pickup_Func001C takes nothing returns boolean
-    if(not(GetItemType(GetManipulatedItem()) == ITEM_TYPE_CAMPAIGN))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Core_Item_Pickup_Func002C takes nothing returns boolean
-    if(not(GetItemType(GetManipulatedItem()) == ITEM_TYPE_PURCHASABLE))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Core_Item_Pickup_Actions takes nothing returns nothing
-    if(Trig_Core_Item_Pickup_Func001C())then
+    if GetItemType(GetManipulatedItem()) == ITEM_TYPE_CAMPAIGN then
         set udg_CC_Ingredient[GetItemLevel(GetManipulatedItem())] = (udg_CC_Ingredient[GetItemLevel(GetManipulatedItem())] + 1)
         call RemoveItem(GetManipulatedItem())
-    else
     endif
-    if(Trig_Core_Item_Pickup_Func002C())then
+    if GetItemType(GetManipulatedItem()) == ITEM_TYPE_PURCHASABLE then
         call ShowUnitShow(udg_CC_SecretUnit[GetItemLevel(GetManipulatedItem())])
         set udg_CC_SecretUnlocked[GetItemLevel(GetManipulatedItem())] = true
         call RemoveItem(GetManipulatedItem())
@@ -32,7 +16,6 @@ function Trig_Core_Item_Pickup_Actions takes nothing returns nothing
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.50)
         call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 1.30)
-    else
     endif
 endfunction
 

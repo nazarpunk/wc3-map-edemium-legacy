@@ -1,25 +1,3 @@
-
-function Trig_Core_Timer_Func010C takes nothing returns boolean
-    if(not(udg_CC_SecretNumber == 7))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Core_Timer_Func011C takes nothing returns boolean
-    if(not(udg_CC_SecretNumber == 12))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Core_Timer_Func012C takes nothing returns boolean
-    if(not(udg_CC_SecretNumber == 16))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Core_Timer_Actions takes nothing returns nothing
     set udg_ART[udg_CC_SecretNumber] = (udg_ART[udg_CC_SecretNumber] + 1)
     set udg_QG_Count[8] = (udg_QG_Count[8] + 1)
@@ -29,21 +7,18 @@ function Trig_Core_Timer_Actions takes nothing returns nothing
     call CreateTextTagLocBJ(I2S(udg_ART[udg_CC_SecretNumber]), udg_Point, (GetUnitFlyHeight(udg_CC_SecretUnit[udg_CC_SecretNumber]) + 40.00), 10, 100, 100, 100, 0)
     call RemoveLocation(udg_Point)
     set udg_CC_SecretLevel[udg_CC_SecretNumber] = GetLastCreatedTextTag()
-    if(Trig_Core_Timer_Func010C())then
+    if udg_CC_SecretNumber == 7 then
         set udg_ChanceCrit = (udg_ChanceCrit + 1)
         call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 3, ("Шанс разгрома: " + (I2S(R2I(udg_ChanceCrit)) + "%")))
-    else
     endif
-    if(Trig_Core_Timer_Func011C())then
+    if udg_CC_SecretNumber == 12 then
         set udg_ChanceBlock = (udg_ChanceBlock + 1)
         call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 2, ("Шанс блока: " + (I2S(R2I(udg_ChanceBlock)) + "%")))
-    else
     endif
-    if(Trig_Core_Timer_Func012C())then
+    if udg_CC_SecretNumber == 16 then
         call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
         call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
         call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
-    else
     endif
     call ShowUnitShow(gg_unit_h00F_0003)
     call DestroyEffectBJ(udg_CC_Effect)

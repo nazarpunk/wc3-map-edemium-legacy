@@ -1,4 +1,3 @@
-
 function Trig_Combo_Spawn_Hero_Timer_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Combo_Spawn_Hero)
 endfunction
