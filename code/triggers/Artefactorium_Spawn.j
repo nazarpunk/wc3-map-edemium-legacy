@@ -1,16 +1,9 @@
-
 function Trig_Artefactorium_Spawn_Conditions takes nothing returns boolean
-    if(not(GetOrderTargetUnit() == gg_unit_h007_0065))then
-        return false
-    endif
-    return true
+    return GetOrderTargetUnit() == gg_unit_h007_0065
 endfunction
 
 function Trig_Artefactorium_Spawn_Func002C takes nothing returns boolean
-    if(not(CountUnitsInGroup(udg_UnitGroup) < 5))then
-        return false
-    endif
-    return true
+    return CountUnitsInGroup(udg_UnitGroup) < 5
 endfunction
 
 function Trig_Artefactorium_Spawn_Actions takes nothing returns nothing
@@ -22,7 +15,6 @@ function Trig_Artefactorium_Spawn_Actions takes nothing returns nothing
         call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
         call RemoveLocation(udg_Point)
-    else
     endif
     call DestroyGroup(udg_UnitGroup)
 endfunction

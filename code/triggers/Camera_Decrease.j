@@ -1,15 +1,6 @@
-
-function Trig_Camera_Decrease_Func001C takes nothing returns boolean
-    if(not(udg_CameraDistance > udg_CameraMin))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Camera_Decrease_Actions takes nothing returns nothing
-    if(Trig_Camera_Decrease_Func001C())then
+    if udg_CameraDistance > udg_CameraMin then
         set udg_CameraDistance = (udg_CameraDistance - 100)
-    else
     endif
 endfunction
 

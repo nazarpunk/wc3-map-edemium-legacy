@@ -1,16 +1,5 @@
-
 function Trig_Artefactorium_Creep_Kill_Conditions takes nothing returns boolean
-    if(not(GetOwningPlayer(GetTriggerUnit()) == Player(11)))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Artefactorium_Creep_Kill_Func008C takes nothing returns boolean
-    if(not(GetTriggerUnit() == udg_TutorialCreep))then
-        return false
-    endif
-    return true
+    return GetOwningPlayer(GetTriggerUnit()) == Player(11)
 endfunction
 
 function Trig_Artefactorium_Creep_Kill_Actions takes nothing returns nothing
@@ -21,7 +10,7 @@ function Trig_Artefactorium_Creep_Kill_Actions takes nothing returns nothing
     call SaveBooleanBJ(false, udg_FadeUnitKey, StringHashBJ("FadeIn"), udg_FadeSystemHash)
     call EnableTrigger(gg_trg_Fade_Loop)
     call RemoveUnit(udg_CO_OpportunityUnit[GetUnitUserData(GetDyingUnit())])
-    if(Trig_Artefactorium_Creep_Kill_Func008C())then
+    if GetTriggerUnit() == udg_TutorialCreep then
         call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_6F, "Ну, неплохо. Если хочешь ещё парочку призвать - нажми правой кнопкой на сферу. Когда наловчишься справляться с монстрами без проблем - пойди прогуляйся с Арктом по замку.", bj_TIMETYPE_ADD, 0.00, true)
         call EnableTrigger(gg_trg_Artefactorium_Spawn)
         call EnableTrigger(gg_trg_Enter_Regions)
@@ -44,7 +33,6 @@ function Trig_Artefactorium_Creep_Kill_Actions takes nothing returns nothing
         set udg_AS_Points = 300
         call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 1, ("Очки навыков: " + I2S(udg_AS_Points)))
         call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_7F, "Кстати, теперь через каждые 5 правильных нажатий Аркт применяет навык, который повышает броню и периодически исцеляет. Можешь проверить.", bj_TIMETYPE_ADD, 0.00, true)
-    else
     endif
 endfunction
 

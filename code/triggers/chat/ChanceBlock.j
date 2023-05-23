@@ -1,4 +1,3 @@
-
 function Trig_ChanceBlock_Actions takes nothing returns nothing
     call ClearTextMessagesBJ(GetPlayersAll())
     call DisplayTimedTextToForce(GetPlayersAll(), 1.00, R2S(udg_ChanceBlock))

@@ -1,131 +1,34 @@
-
 function Trig_Boss_I_Throw_Conditions takes nothing returns boolean
     return GetSpellAbilityId() == 0x41303053
 endfunction
 
-function Trig_Boss_I_Throw_Func007Func002Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 4))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_I_Throw_Func007Func002Func001Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 3))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_I_Throw_Func007Func002Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 2))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_I_Throw_Func007Func002C takes nothing returns boolean
-    if(not(udg_RandomNumber == 1))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_I_Throw_Func007C takes nothing returns boolean
-    if(not(GetRandomInt(1, 2) == 1))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_I_Throw_Func010Func001Func001Func001Func001Func008Func001C takes nothing returns boolean
-    if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Boss_I_Throw_Func010Func001Func001Func001Func001Func008A takes nothing returns nothing
-    if(Trig_Boss_I_Throw_Func010Func001Func001Func001Func001Func008Func001C())then
+    if GetOwningPlayer(GetEnumUnit()) == Player(11) then
         call IssueTargetOrderBJ(GetLastCreatedUnit(), "bloodlust", GetEnumUnit())
-    else
     endif
-endfunction
-
-function Trig_Boss_I_Throw_Func010Func001Func001Func001Func001Func013Func001C takes nothing returns boolean
-    if(not(GetOwningPlayer(GetEnumUnit()) == Player(0)))then
-        return false
-    endif
-    return true
 endfunction
 
 function Trig_Boss_I_Throw_Func010Func001Func001Func001Func001Func013A takes nothing returns nothing
-    if(Trig_Boss_I_Throw_Func010Func001Func001Func001Func001Func013Func001C())then
+    if GetOwningPlayer(GetEnumUnit()) == Player(0) then
         call IssueTargetOrderBJ(GetLastCreatedUnit(), "bloodlust", GetEnumUnit())
-    else
     endif
-endfunction
-
-function Trig_Boss_I_Throw_Func010Func001Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 5))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_I_Throw_Func010Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 4))then
-        return false
-    endif
-    return true
 endfunction
 
 function Trig_Boss_I_Throw_Func010Func001Func001Func005A takes nothing returns nothing
     call UnitDamageTargetBJ(GetTriggerUnit(), GetEnumUnit(), (80.00 * I2R(udg_Difficulty)), ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL)
 endfunction
 
-function Trig_Boss_I_Throw_Func010Func001Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 3))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_I_Throw_Func010Func001Func009Func001C takes nothing returns boolean
-    if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Boss_I_Throw_Func010Func001Func009A takes nothing returns nothing
-    if(Trig_Boss_I_Throw_Func010Func001Func009Func001C())then
+    if GetOwningPlayer(GetEnumUnit()) == Player(11) then
         call IssueTargetOrderBJ(GetLastCreatedUnit(), "rejuvination", GetEnumUnit())
-    else
     endif
-endfunction
-
-function Trig_Boss_I_Throw_Func010Func001Func014Func001C takes nothing returns boolean
-    if(not(GetOwningPlayer(GetEnumUnit()) == Player(0)))then
-        return false
-    endif
-    return true
 endfunction
 
 function Trig_Boss_I_Throw_Func010Func001Func014A takes nothing returns nothing
-    if(Trig_Boss_I_Throw_Func010Func001Func014Func001C())then
+    if GetOwningPlayer(GetEnumUnit()) == Player(0) then
         call IssueTargetOrderBJ(GetLastCreatedUnit(), "rejuvination", GetEnumUnit())
-    else
     endif
 endfunction
-
-function Trig_Boss_I_Throw_Func010Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 2))then
-        return false
-    endif
-    return true
-endfunction
-
 
 function Trig_Boss_I_Throw_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(GetTriggerUnit())
@@ -134,18 +37,18 @@ function Trig_Boss_I_Throw_Actions takes nothing returns nothing
     call SetUnitAbilityLevelSwapped(0x4130305A, GetLastCreatedUnit(), 1)
     call UnitApplyTimedLifeBJ(1.00, 0x42544C46, GetLastCreatedUnit())
     call IssuePointOrderLocBJ(GetLastCreatedUnit(), "clusterrockets", udg_Boss_Ability_Point)
-    if(Trig_Boss_I_Throw_Func007C())then
+    if GetRandomInt(1, 2) == 1 then
         set udg_RandomNumber = GetRandomInt(1, 5)
-        if(Trig_Boss_I_Throw_Func007Func002C())then
+        if udg_RandomNumber == 1 then
             call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший", gg_snd_HeroAlchemistYesAttack1, "Всего один эликсир! *злобно хихикает*", bj_TIMETYPE_ADD, 0, false)
         else
-            if(Trig_Boss_I_Throw_Func007Func002Func001C())then
+            if udg_RandomNumber == 2 then
                 call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший", gg_snd_HeroAlchemistYesAttack2, "Взрываю!", bj_TIMETYPE_ADD, 0, false)
             else
-                if(Trig_Boss_I_Throw_Func007Func002Func001Func001C())then
+                if udg_RandomNumber == 3 then
                     call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший", gg_snd_HeroAlchemistWhat4, "Попробуем новый состав...", bj_TIMETYPE_ADD, 0, false)
                 else
-                    if(Trig_Boss_I_Throw_Func007Func002Func001Func001Func001C())then
+                    if udg_RandomNumber == 4 then
                         call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший", gg_snd_GoblinZeppelinYes4, "*радостное исступление*", bj_TIMETYPE_ADD, 0, false)
                     else
                         call TransmissionFromUnitWithNameBJ(GetPlayersAll(), udg_EM_BossUnit, "Сумасшедший", gg_snd_GoblinZeppelinYes3, "*нездоровый смех*", bj_TIMETYPE_ADD, 0, false)
@@ -153,7 +56,6 @@ function Trig_Boss_I_Throw_Actions takes nothing returns nothing
                 endif
             endif
         endif
-    else
     endif
     call TriggerSleepAction(0.60)
     set udg_RandomNumber = GetRandomInt(1, 5)
@@ -162,7 +64,7 @@ function Trig_Boss_I_Throw_Actions takes nothing returns nothing
         call AddSpecialEffectLocBJ(udg_Boss_Ability_Point, "war3mapImported\\GreatElderHydraAcidSpewV.153.mdx")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
     else
-        if(Trig_Boss_I_Throw_Func010Func001C())then
+        if udg_RandomNumber == 2 then
             call AddSpecialEffectLocBJ(udg_Boss_Ability_Point, "war3mapImported\\HolyAwakening.mdx")
             call DestroyEffectBJ(GetLastCreatedEffectBJ())
             set udg_UnitGroup = GetUnitsInRangeOfLocAll(400.00, udg_Boss_Ability_Point)
@@ -178,20 +80,20 @@ function Trig_Boss_I_Throw_Actions takes nothing returns nothing
             call ForGroupBJ(udg_UnitGroup, function Trig_Boss_I_Throw_Func010Func001Func014A)
             call DestroyGroup(udg_UnitGroup)
         else
-            if(Trig_Boss_I_Throw_Func010Func001Func001C())then
+            if udg_RandomNumber == 3 then
                 call AddSpecialEffectLocBJ(udg_Boss_Ability_Point, "war3mapImported\\Holy_Fire_Slam.mdx")
                 call DestroyEffectBJ(GetLastCreatedEffectBJ())
                 set udg_UnitGroup = GetUnitsInRangeOfLocAll(350.00, udg_Boss_Ability_Point)
                 call ForGroupBJ(udg_UnitGroup, function Trig_Boss_I_Throw_Func010Func001Func001Func005A)
             else
-                if(Trig_Boss_I_Throw_Func010Func001Func001Func001C())then
+                if udg_RandomNumber == 4 then
                     call AddSpecialEffectLocBJ(udg_Boss_Ability_Point, "war3mapImported\\Arcane Nova.mdx")
                     call DestroyEffectBJ(GetLastCreatedEffectBJ())
                     call CreateNUnitsAtLoc(1, udg_D_CreepType[GetRandomInt(1, 3)], Player(11), udg_Boss_Ability_Point, GetRandomReal(0, 360.00))
                     call CreateNUnitsAtLoc(1, udg_D_CreepType[GetRandomInt(4, 6)], Player(11), udg_Boss_Ability_Point, GetRandomReal(0, 360.00))
                     call CreateNUnitsAtLoc(1, udg_D_CreepType[GetRandomInt(10, 10)], Player(11), udg_Boss_Ability_Point, GetRandomReal(0, 360.00))
                 else
-                    if(Trig_Boss_I_Throw_Func010Func001Func001Func001Func001C())then
+                    if udg_RandomNumber == 5 then
                         call AddSpecialEffectLocBJ(udg_Boss_Ability_Point, "war3mapImported\\BloodEX-Special-2.mdx")
                         call DestroyEffectBJ(GetLastCreatedEffectBJ())
                         set udg_UnitGroup = GetUnitsInRangeOfLocAll(400.00, udg_Boss_Ability_Point)
@@ -206,7 +108,6 @@ function Trig_Boss_I_Throw_Actions takes nothing returns nothing
                         call UnitApplyTimedLifeBJ(1.00, 0x42544C46, GetLastCreatedUnit())
                         call ForGroupBJ(udg_UnitGroup, function Trig_Boss_I_Throw_Func010Func001Func001Func001Func001Func013A)
                         call DestroyGroup(udg_UnitGroup)
-                    else
                     endif
                 endif
             endif

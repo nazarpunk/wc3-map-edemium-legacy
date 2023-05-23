@@ -1,4 +1,3 @@
-
 function Trig_Cinematic_Transparent_Actions takes nothing returns nothing
     set udg_Transparent = (udg_Transparent + 1.40)
     call SetUnitVertexColorBJ(udg_Arct, 100, 100, 100, udg_Transparent)

@@ -1,12 +1,5 @@
-
 function Trig_Boss_II_Phase_2_Init_Conditions takes nothing returns boolean
-    if(not(GetUnitTypeId(udg_EM_BossUnit) == 0x6E303047))then
-        return false
-    endif
-    if(not(GetUnitLifePercent(udg_EM_BossUnit) < 50.00))then
-        return false
-    endif
-    return true
+    return GetUnitTypeId(udg_EM_BossUnit) == 0x6E303047 and GetUnitLifePercent(udg_EM_BossUnit) < 50.00
 endfunction
 
 function Trig_Boss_II_Phase_2_Init_Actions takes nothing returns nothing

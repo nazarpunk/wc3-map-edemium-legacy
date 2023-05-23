@@ -1,4 +1,3 @@
-
 function Trig_Boss_II_Channel_Periodic_Actions takes nothing returns nothing
     set udg_Point = GetRectCenter(gg_rct_Boss_2_Zone)
     set udg_Point2 = PolarProjectionBJ(udg_Point, 700.00, GetRandomDirectionDeg())

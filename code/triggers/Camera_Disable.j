@@ -1,4 +1,3 @@
-
 function Trig_Camera_Disable_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Camera_Fix)
     call DisableTrigger(gg_trg_Camera_Hero)

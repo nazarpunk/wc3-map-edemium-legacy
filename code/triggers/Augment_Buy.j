@@ -1,41 +1,9 @@
-
 function Trig_Augment_Buy_Conditions takes nothing returns boolean
-    if(not(GetItemTypeId(GetSoldItem()) == 0x49303047))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Augment_Buy_Func001Func010Func001Func001C takes nothing returns boolean
-    if(not(udg_Target == gg_unit_h012_0013))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Augment_Buy_Func001Func010Func001C takes nothing returns boolean
-    if(not(udg_Target == gg_unit_h012_0011))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Augment_Buy_Func001Func010C takes nothing returns boolean
-    if(not(udg_Target == gg_unit_h012_0012))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Augment_Buy_Func001C takes nothing returns boolean
-    if(not(GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_GOLD) >= udg_AugmentCost[udg_AugmentValue]))then
-        return false
-    endif
-    return true
+    return GetItemTypeId(GetSoldItem()) == 0x49303047
 endfunction
 
 function Trig_Augment_Buy_Actions takes nothing returns nothing
-    if(Trig_Augment_Buy_Func001C())then
+    if GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_GOLD) >= udg_AugmentCost[udg_AugmentValue] then
         set udg_AugmentValue = GetUnitUserData(udg_Target)
         set udg_AugmentLevel[udg_AugmentValue] = (udg_AugmentLevel[udg_AugmentValue] + 1)
         call DestroyTextTagBJ(udg_GiftText[udg_AugmentValue])
@@ -45,18 +13,17 @@ function Trig_Augment_Buy_Actions takes nothing returns nothing
         set udg_GiftText[udg_AugmentValue] = GetLastCreatedTextTag()
         set udg_AugmentPrice = udg_AugmentCost[udg_AugmentValue]
         call ClearTextMessagesBJ(GetPlayersAll())
-        if(Trig_Augment_Buy_Func001Func010C())then
+        if udg_Target == gg_unit_h012_0012 then
             call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
             call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает ловкость на |cFF00D8001|r.")
         else
-            if(Trig_Augment_Buy_Func001Func010Func001C())then
+            if udg_Target == gg_unit_h012_0011 then
                 call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
                 call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает стойкость на |cFF00D8001|r.")
             else
-                if(Trig_Augment_Buy_Func001Func010Func001Func001C())then
+                if udg_Target == gg_unit_h012_0013 then
                     call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
                     call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает мудрость на |cFF00D8001|r.")
-                else
                 endif
             endif
         endif

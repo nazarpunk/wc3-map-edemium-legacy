@@ -1,4 +1,3 @@
-
 function Trig_Camera_Fix_Actions takes nothing returns nothing
     call CameraSetupApplyForceDuration(udg_Camera, true, 0.00)
 endfunction

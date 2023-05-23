@@ -1,4 +1,3 @@
-
 function Trig_Abilities_Deactivate_Conditions takes nothing returns boolean
     return GetSpellAbilityId() == 0x41303649
 endfunction

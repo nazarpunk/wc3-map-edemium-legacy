@@ -1,4 +1,3 @@
-
 function Trig_Bad_Ending_Good_Job_Actions takes nothing returns nothing
     call StopMusicBJ(false)
     call ClearMapMusic()

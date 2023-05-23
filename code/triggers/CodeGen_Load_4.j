@@ -1,14 +1,7 @@
-function Trig_CodeGen_Load_4_Func004C takes nothing returns boolean
-    if(not(udg_SaveLoad_Valid == false))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_CodeGen_Load_4_Actions takes nothing returns nothing
     set udg_Code = udg_ImportCode4
     call CodeGen_Load(udg_Code)
-    if(Trig_CodeGen_Load_4_Func004C())then
+    if not udg_SaveLoad_Valid then
         return
     endif
     set udg_LoadCount = 0

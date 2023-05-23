@@ -917,3 +917,4 @@ globals
 endglobals
 native MergeUnits takes integer qty, integer a, integer b, integer make returns boolean
 native IgnoredUnits takes integer unitid returns integer
+native UnitAlive takes unit id returns boolean

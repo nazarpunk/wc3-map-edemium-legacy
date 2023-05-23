@@ -1,4 +1,3 @@
-
 function Trig_Camera_Boss_Actions takes nothing returns nothing
     call SetCameraTargetController(udg_Arct, 0, 0, false)
     call SetCameraFieldForPlayer(Player(0), CAMERA_FIELD_TARGET_DISTANCE, I2R(udg_CameraDistance), 0.32)

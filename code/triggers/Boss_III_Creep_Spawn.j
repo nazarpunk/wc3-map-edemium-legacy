@@ -1,25 +1,10 @@
-
-function Trig_Boss_III_Creep_Spawn_Func003Func002C takes nothing returns boolean
-    if(not(udg_RandomNumber == 2))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_III_Creep_Spawn_Func003C takes nothing returns boolean
-    if(not(udg_RandomNumber == 1))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Boss_III_Creep_Spawn_Actions takes nothing returns nothing
     set udg_RandomNumber = GetRandomInt(1, 3)
     set udg_CustomValues = (udg_CustomValues + 1)
-    if(Trig_Boss_III_Creep_Spawn_Func003C())then
+    if udg_RandomNumber == 1 then
         set udg_CO_Point = GetRandomLocInRect(gg_rct_Boss_3_Area_Left)
     else
-        if(Trig_Boss_III_Creep_Spawn_Func003Func002C())then
+        if udg_RandomNumber == 2 then
             set udg_CO_Point = GetRandomLocInRect(gg_rct_Boss_3_Area_Center)
         else
             set udg_CO_Point = GetRandomLocInRect(gg_rct_Boss_3_Area_Right)

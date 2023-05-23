@@ -1,4 +1,3 @@
-
 function Trig_Boss_III_Portal_Abort_Actions takes nothing returns nothing
     call UnitRemoveAbilityBJ(0x41303631, gg_unit_H000_0004)
     call DestroyLightningBJ(udg_Boss3PortalEffect)

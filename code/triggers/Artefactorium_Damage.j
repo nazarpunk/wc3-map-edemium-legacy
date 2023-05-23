@@ -1,19 +1,5 @@
-
-function Trig_Artefactorium_Damage_Func001C takes nothing returns boolean
-    if((udg_DamageEventTarget == gg_unit_H000_0004))then
-        return true
-    endif
-    if((udg_DamageEventTarget == gg_unit_h007_0065))then
-        return true
-    endif
-    return false
-endfunction
-
 function Trig_Artefactorium_Damage_Conditions takes nothing returns boolean
-    if(not Trig_Artefactorium_Damage_Func001C())then
-        return false
-    endif
-    return true
+    return udg_DamageEventTarget == gg_unit_H000_0004 or udg_DamageEventTarget == gg_unit_h007_0065
 endfunction
 
 function Trig_Artefactorium_Damage_Actions takes nothing returns nothing

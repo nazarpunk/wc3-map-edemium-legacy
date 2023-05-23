@@ -1,4 +1,3 @@
-
 function Trig_Boss_II_Channel_Timer_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Boss_II_Channel_Periodic)
 endfunction

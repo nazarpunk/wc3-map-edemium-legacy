@@ -1,23 +1,5 @@
-
 function Trig_Boss_III_Attacks_Conditions takes nothing returns boolean
-    if(not(GetUnitTypeId(GetAttacker()) == 0x6E303038))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_III_Attacks_Func007Func002C takes nothing returns boolean
-    if(not(udg_RandomNumber == 2))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_III_Attacks_Func007C takes nothing returns boolean
-    if(not(udg_RandomNumber == 1))then
-        return false
-    endif
-    return true
+    return GetUnitTypeId(GetAttacker()) == 0x6E303038
 endfunction
 
 function Trig_Boss_III_Attacks_Actions takes nothing returns nothing
@@ -27,10 +9,10 @@ function Trig_Boss_III_Attacks_Actions takes nothing returns nothing
     call RemoveLocation(udg_Point)
     call UnitApplyTimedLifeBJ(1.00, 0x42544C46, GetLastCreatedUnit())
     set udg_RandomNumber = GetRandomInt(1, 3)
-    if(Trig_Boss_III_Attacks_Func007C())then
+    if udg_RandomNumber == 1 then
         set udg_CO_Point = GetRandomLocInRect(gg_rct_Boss_3_Area_Left)
     else
-        if(Trig_Boss_III_Attacks_Func007Func002C())then
+        if udg_RandomNumber == 2 then
             set udg_CO_Point = GetRandomLocInRect(gg_rct_Boss_3_Area_Center)
         else
             set udg_CO_Point = GetRandomLocInRect(gg_rct_Boss_3_Area_Right)

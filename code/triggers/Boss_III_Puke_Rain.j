@@ -1,27 +1,5 @@
-
-function Trig_Boss_III_Puke_Rain_Func001Func011Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 2))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_III_Puke_Rain_Func001Func011C takes nothing returns boolean
-    if(not(udg_RandomNumber == 1))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_III_Puke_Rain_Func001C takes nothing returns boolean
-    if(not(udg_Boss3Pukes < 20))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Boss_III_Puke_Rain_Actions takes nothing returns nothing
-    if(Trig_Boss_III_Puke_Rain_Func001C())then
+    if udg_Boss3Pukes < 20 then
         set udg_Boss3Pukes = (udg_Boss3Pukes + 1)
         set udg_Point = GetRectCenter(gg_rct_Boss_3_Spawn)
         call CreateNUnitsAtLoc(1, 0x68303039, Player(11), udg_Point, bj_UNIT_FACING)
@@ -29,10 +7,10 @@ function Trig_Boss_III_Puke_Rain_Actions takes nothing returns nothing
         call UnitAddAbilityBJ(0x4130354B, GetLastCreatedUnit())
         call UnitApplyTimedLifeBJ(3.00, 0x42544C46, GetLastCreatedUnit())
         set udg_RandomNumber = GetRandomInt(1, 3)
-        if(Trig_Boss_III_Puke_Rain_Func001Func011C())then
+        if udg_RandomNumber == 1 then
             set udg_Point2 = GetRandomLocInRect(gg_rct_Boss_3_Area_Left)
         else
-            if(Trig_Boss_III_Puke_Rain_Func001Func011Func001C())then
+            if udg_RandomNumber == 2 then
                 set udg_Point2 = GetRandomLocInRect(gg_rct_Boss_3_Area_Center)
             else
                 set udg_Point2 = GetRandomLocInRect(gg_rct_Boss_3_Area_Right)

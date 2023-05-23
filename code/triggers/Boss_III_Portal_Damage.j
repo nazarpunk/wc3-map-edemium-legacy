@@ -1,12 +1,5 @@
-
 function Trig_Boss_III_Portal_Damage_Conditions takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x41303545))then
-        return false
-    endif
-    if(not(GetUnitTypeId(GetTriggerUnit()) == 0x68303039))then
-        return false
-    endif
-    return true
+    return GetSpellAbilityId() == 0x41303545 and GetUnitTypeId(GetTriggerUnit()) == 0x68303039
 endfunction
 
 function Trig_Boss_III_Portal_Damage_Actions takes nothing returns nothing

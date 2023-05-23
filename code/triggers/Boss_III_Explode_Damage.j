@@ -1,36 +1,11 @@
-
 function Trig_Boss_III_Explode_Damage_Conditions takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x41303635))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_III_Explode_Damage_Func002Func001Func001C takes nothing returns boolean
-    if((GetOwningPlayer(GetEnumUnit()) == Player(0)))then
-        return true
-    endif
-    if((GetOwningPlayer(GetEnumUnit()) == Player(1)))then
-        return true
-    endif
-    if((GetOwningPlayer(GetEnumUnit()) == Player(11)))then
-        return true
-    endif
-    return false
-endfunction
-
-function Trig_Boss_III_Explode_Damage_Func002Func001C takes nothing returns boolean
-    if(not Trig_Boss_III_Explode_Damage_Func002Func001Func001C())then
-        return false
-    endif
-    return true
+    return GetSpellAbilityId() == 0x41303635
 endfunction
 
 function Trig_Boss_III_Explode_Damage_Func002A takes nothing returns nothing
-    if(Trig_Boss_III_Explode_Damage_Func002Func001C())then
+    if GetOwningPlayer(GetEnumUnit()) == Player(0) or GetOwningPlayer(GetEnumUnit()) == Player(1) or GetOwningPlayer(GetEnumUnit()) == Player(11) then
         set udg_AbilityPower = (100.00 * I2R(udg_Difficulty))
         call UnitDamageTargetBJ(GetTriggerUnit(), GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_MAGIC)
-    else
     endif
 endfunction
 

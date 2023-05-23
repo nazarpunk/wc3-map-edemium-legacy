@@ -1,4 +1,3 @@
-
 function Trig_Boss_III_Portal_Timer_Order_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Boss_III_Portal_Abort)
 endfunction

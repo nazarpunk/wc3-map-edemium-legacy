@@ -30,12 +30,10 @@ function Trig_CodeGen_Other_Func005A takes nothing returns nothing
         call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Pearlescence.mdl")
         call CreateDestructableLoc(0x42303139, udg_Point, 270.00, 12.00, 0)
         call RemoveLocation(udg_Point)
-    else
     endif
     if(Trig_CodeGen_Other_Func005Func003C())then
         set udg_Target = GetEnumUnit()
         call ConditionalTriggerExecute(gg_trg_CodeGen_Dungeon)
-    else
     endif
     if(Trig_CodeGen_Other_Func005Func004C())then
         set udg_EM_Target = GetEnumUnit()
@@ -43,24 +41,15 @@ function Trig_CodeGen_Other_Func005A takes nothing returns nothing
         call CreateDestructableLoc(0x42303141, udg_TargetPoint, 0.00, 0.30, 0)
         set udg_EM_Effect = GetLastCreatedDestructable()
         call RemoveLocation(udg_TargetPoint)
-    else
     endif
-endfunction
-
-function Trig_CodeGen_Other_Func008Func002Func003Func001C takes nothing returns boolean
-    if(not(GetDestructableTypeId(GetEnumDestructable()) == 0x42303136))then
-        return false
-    endif
-    return true
 endfunction
 
 function Trig_CodeGen_Other_Func008Func002Func003A takes nothing returns nothing
-    if(Trig_CodeGen_Other_Func008Func002Func003Func001C())then
+    if GetDestructableTypeId(GetEnumDestructable()) == 0x42303136 then
         set udg_Point = GetDestructableLoc(GetEnumDestructable())
         call CreateDestructableLoc(0x42303146, udg_Point, 270.00, 12.00, 0)
         call RemoveLocation(udg_Point)
         call RemoveDestructable(GetEnumDestructable())
-    else
     endif
 endfunction
 
@@ -70,7 +59,6 @@ function Trig_CodeGen_Other_Func008Func007A takes nothing returns nothing
         call CreateDestructableLoc(0x42303146, udg_Point, 270.00, 12.00, 0)
         call RemoveLocation(udg_Point)
         call RemoveDestructable(GetEnumDestructable())
-    else
     endif
 endfunction
 
@@ -150,32 +138,20 @@ function Trig_CodeGen_Other_Func029Func002Func004Func001Func001C takes nothing r
     return udg_AS_Value[GetUnitUserData(GetEnumUnit())] == 3
 endfunction
 
-function Trig_CodeGen_Other_Func029Func002Func004Func001C takes nothing returns boolean
-    return udg_AS_Value[GetUnitUserData(GetEnumUnit())] == 2
-endfunction
-
-function Trig_CodeGen_Other_Func029Func002Func004C takes nothing returns boolean
-    return udg_AS_Value[GetUnitUserData(GetEnumUnit())] == 1
-endfunction
-
-function Trig_CodeGen_Other_Func029Func002C takes nothing returns boolean
-    return udg_AS_Value[GetUnitUserData(GetEnumUnit())] > 0
-endfunction
-
 function Trig_CodeGen_Other_Func029A takes nothing returns nothing
     set udg_Target = GetEnumUnit()
-    if(Trig_CodeGen_Other_Func029Func002C())then
+    if udg_AS_Value[GetUnitUserData(GetEnumUnit())] > 0 then
         set udg_Point = GetUnitLoc(udg_Target)
         call CreateDestructableLoc(0x42303037, udg_Point, 0.00, 0.50, 0)
         call RemoveLocation(udg_Point)
-        if(Trig_CodeGen_Other_Func029Func002Func004C())then
+        if udg_AS_Value[GetUnitUserData(GetEnumUnit())] == 1 then
             set udg_MagneticField[1] = GetLastCreatedDestructable()
             set udg_AS_Logic[1] = true
             set udg_AS_SeriesNumber = 1
             call CreateTextTagUnitBJ("3", udg_Target, 0, 15.00, 100, 100, 100, 0)
             set udg_AS_TextNumber[1] = GetLastCreatedTextTag()
         else
-            if(Trig_CodeGen_Other_Func029Func002Func004Func001C())then
+            if udg_AS_Value[GetUnitUserData(GetEnumUnit())] == 2 then
                 set udg_MagneticField[2] = GetLastCreatedDestructable()
                 set udg_AS_Logic[2] = true
                 set udg_AS_SeriesNumber = 2
@@ -199,7 +175,6 @@ function Trig_CodeGen_Other_Func029A takes nothing returns nothing
         endif
         set udg_AS_Effect[udg_AS_SeriesNumber] = GetUnitUserData(udg_Target)
         call ConditionalTriggerExecute(gg_trg_Abilities_Remove)
-    else
     endif
 endfunction
 
@@ -242,7 +217,6 @@ function Trig_CodeGen_Other_Actions takes nothing returns nothing
             set udg_Difficulty_Unlocked[1] = true
             set udg_EM_Boss[1] = true
             call EnumDestructablesInRectAll(gg_rct_Tier_2_Camera, function Trig_CodeGen_Other_Func008Func002Func003A)
-        else
         endif
     endif
     set bj_forLoopAIndex = 1
@@ -269,101 +243,86 @@ function Trig_CodeGen_Other_Actions takes nothing returns nothing
     endloop
     if(Trig_CodeGen_Other_Func011C())then
         set udg_ChanceCrit = (udg_ChanceCrit + I2R(udg_ART[7]))
-    else
     endif
     if(Trig_CodeGen_Other_Func012C())then
         set udg_ChanceBlock = (udg_ChanceBlock + I2R(udg_ART[12]))
-    else
     endif
     if(Trig_CodeGen_Other_Func013C())then
         call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_ADD, udg_ART[16])
         call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_ADD, udg_ART[16])
         call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_ADD, udg_ART[16])
-    else
     endif
     if(Trig_CodeGen_Other_Func015C())then
         set udg_Target = gg_unit_h006_0081
         call RemoveDestructable(gg_dest_B003_2936)
         call ShowDestructableBJ(true, gg_dest_B00B_1355)
         call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
     endif
     if(Trig_CodeGen_Other_Func016C())then
         set udg_Target = gg_unit_h006_0075
         call RemoveDestructable(gg_dest_B003_2937)
         call ShowDestructableBJ(true, gg_dest_B00B_1357)
         call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
     endif
     if(Trig_CodeGen_Other_Func017C())then
         set udg_Target = gg_unit_h006_0077
         call RemoveDestructable(gg_dest_B003_2939)
         call ShowDestructableBJ(true, gg_dest_B00B_1354)
         call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
     endif
     if(Trig_CodeGen_Other_Func018C())then
         set udg_Target = gg_unit_h006_0079
         call RemoveDestructable(gg_dest_B003_2941)
         call ShowDestructableBJ(true, gg_dest_B00B_1356)
         call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
     endif
     if(Trig_CodeGen_Other_Func019C())then
         set udg_Target = gg_unit_h006_0082
         call RemoveDestructable(gg_dest_B003_2935)
         call ShowDestructableBJ(true, gg_dest_B00B_1366)
         call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
     endif
     if(Trig_CodeGen_Other_Func020C())then
         set udg_Target = gg_unit_h006_0076
         call RemoveDestructable(gg_dest_B003_2938)
         call ShowDestructableBJ(true, gg_dest_B00B_1367)
         call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
     endif
     if(Trig_CodeGen_Other_Func021C())then
         set udg_Target = gg_unit_h006_0078
         call RemoveDestructable(gg_dest_B003_2940)
         call ShowDestructableBJ(true, gg_dest_B00B_1389)
         call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
     endif
     if(Trig_CodeGen_Other_Func022C())then
         set udg_Target = gg_unit_h006_0080
         call RemoveDestructable(gg_dest_B003_2942)
         call ShowDestructableBJ(true, gg_dest_B00B_1390)
         call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
     endif
     if(Trig_CodeGen_Other_Func023C())then
         set udg_Target = gg_unit_h006_0071
         call RemoveDestructable(gg_dest_B003_2928)
         call ShowDestructableBJ(true, gg_dest_B00B_1359)
         call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
     endif
     if(Trig_CodeGen_Other_Func024C())then
         set udg_Target = gg_unit_h006_0069
         call RemoveDestructable(gg_dest_B003_2929)
         call ShowDestructableBJ(true, gg_dest_B00B_1362)
         call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
     endif
     if(Trig_CodeGen_Other_Func025C())then
         set udg_Target = gg_unit_h006_0073
         call RemoveDestructable(gg_dest_B003_2932)
         call ShowDestructableBJ(true, gg_dest_B00B_1361)
         call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
     endif
     if(Trig_CodeGen_Other_Func026C())then
         set udg_Target = gg_unit_h006_0067
         call RemoveDestructable(gg_dest_B003_2930)
         call ShowDestructableBJ(true, gg_dest_B00B_1360)
         call ConditionalTriggerExecute(gg_trg_CodeGen_Abilities)
-    else
     endif
     set udg_UnitGroup = GetUnitsInRectAll(gg_rct_Abilities)
     call ForGroupBJ(udg_UnitGroup, function Trig_CodeGen_Other_Func029A)

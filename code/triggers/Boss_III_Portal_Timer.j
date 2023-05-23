@@ -1,53 +1,3 @@
-
-function Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 7))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 6))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 5))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 4))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_III_Portal_Timer_Func012Func001Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 3))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_III_Portal_Timer_Func012Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 2))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_III_Portal_Timer_Func012C takes nothing returns boolean
-    if(not(udg_RandomNumber == 1))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Boss_III_Portal_Timer_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(udg_Boss3Portal)
     call CreateNUnitsAtLoc(1, 0x4830314A, Player(1), udg_Point, bj_UNIT_FACING)
@@ -60,27 +10,26 @@ function Trig_Boss_III_Portal_Timer_Actions takes nothing returns nothing
     set udg_Boss3PortalCounter = (udg_Boss3PortalCounter - 1)
     call DestroyLightningBJ(udg_Boss3PortalEffect)
     set udg_RandomNumber = GetRandomInt(1, 10)
-    if(Trig_Boss_III_Portal_Timer_Func012C())then
+    if udg_RandomNumber == 1 then
         call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_TyrandeWarcry1, "Стражи, к бою!", bj_TIMETYPE_ADD, 0, false)
     else
-        if(Trig_Boss_III_Portal_Timer_Func012Func001C())then
+        if udg_RandomNumber == 2 then
             call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_TyrandePissed1, "Вечная жизнь - вечная служба.", bj_TIMETYPE_ADD, 0, false)
         else
-            if(Trig_Boss_III_Portal_Timer_Func012Func001Func001C())then
+            if udg_RandomNumber == 3 then
                 call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_TyrandePissed4, "Анутерадор-мали!", bj_TIMETYPE_ADD, 0, false)
             else
-                if(Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001C())then
+                if udg_RandomNumber == 4 then
                     call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_TyrandeYes4, "Без промедления!", bj_TIMETYPE_ADD, 0, false)
                 else
-                    if(Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001Func001C())then
+                    if udg_RandomNumber == 5 then
                         call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_ArcherYesAttack4, "Пощады не будет!", bj_TIMETYPE_ADD, 0, false)
                     else
-                        if(Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001Func001Func001C())then
+                        if udg_RandomNumber == 6 then
                             call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_HeroWardenYesAttack2, "Да свершится правосудие!", bj_TIMETYPE_ADD, 0, false)
                         else
-                            if(Trig_Boss_III_Portal_Timer_Func012Func001Func001Func001Func001Func001Func001C())then
+                            if udg_RandomNumber == 7 then
                                 call TransmissionFromUnitWithNameBJ(GetPlayersAll(), GetLastCreatedUnit(), GetUnitName(GetLastCreatedUnit()), gg_snd_HeroWardenYesAttack1, "Исполняю приговор!", bj_TIMETYPE_ADD, 0, false)
-                            else
                             endif
                         endif
                     endif

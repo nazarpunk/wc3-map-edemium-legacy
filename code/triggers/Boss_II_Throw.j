@@ -1,23 +1,11 @@
-
 function Trig_Boss_II_Throw_Conditions takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x41303130))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_II_Throw_Func011Func001C takes nothing returns boolean
-    if(not(GetEnumUnit() == udg_Arct))then
-        return false
-    endif
-    return true
+    return GetSpellAbilityId() == 0x41303130
 endfunction
 
 function Trig_Boss_II_Throw_Func011A takes nothing returns nothing
-    if(Trig_Boss_II_Throw_Func011Func001C())then
+    if GetEnumUnit() == udg_Arct then
         call IssueTargetOrderBJ(GetLastCreatedUnit(), "firebolt", udg_Arct)
         call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 1.50, "ReplaceableTextures\\CameraMasks\\HazeAndFogFilter_Mask.blp", 0.00, 70.00, 100.00, 0.00)
-    else
     endif
 endfunction
 

@@ -1,4 +1,3 @@
-
 function Trig_Attributes_Multiboard_Actions takes nothing returns nothing
     call CreateMultiboardBJ(1, 3, "|cFFFFFFFFХарактеристики:|r ")
     set udg_AttributesBoard = GetLastCreatedMultiboard()

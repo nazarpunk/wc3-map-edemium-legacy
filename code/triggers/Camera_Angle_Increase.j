@@ -1,15 +1,6 @@
-
-function Trig_Camera_Angle_Increase_Func001C takes nothing returns boolean
-    if(not(R2I(udg_CameraTurn) < 360))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Camera_Angle_Increase_Actions takes nothing returns nothing
-    if(Trig_Camera_Angle_Increase_Func001C())then
+    if R2I(udg_CameraTurn) < 360 then
         set udg_CameraTurn = (udg_CameraTurn + 20.00)
-    else
     endif
 endfunction
 

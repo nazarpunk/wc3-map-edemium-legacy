@@ -1,22 +1,12 @@
 
 function Trig_Boss_III_Portal_Use_Conditions takes nothing returns boolean
-    if(not(GetUnitTypeId(GetOrderTargetUnit()) == 0x6E303048))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Boss_III_Portal_Use_Func003C takes nothing returns boolean
-    if(not(DistanceBetweenPoints(udg_Point, udg_Point2) < 400.00))then
-        return false
-    endif
-    return true
+    return GetUnitTypeId(GetOrderTargetUnit()) == 0x6E303048
 endfunction
 
 function Trig_Boss_III_Portal_Use_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(GetTriggerUnit())
     set udg_Point2 = GetUnitLoc(GetOrderTargetUnit())
-    if(Trig_Boss_III_Portal_Use_Func003C())then
+    if DistanceBetweenPoints(udg_Point, udg_Point2) < 400.00 then
         set udg_Boss3Portal = GetOrderTargetUnit()
         call StartTimerBJ(udg_Boss3Timer, false, 2.00)
         call UnitAddAbilityBJ(0x41303631, gg_unit_H000_0004)

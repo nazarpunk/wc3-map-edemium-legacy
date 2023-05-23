@@ -1,4 +1,3 @@
-
 function Trig_Check_Lvl_Actions takes nothing returns nothing
     call DisplayTimedTextToForce(GetPlayersAll(), 1.00, I2S(GetHeroLevel(udg_Arct)))
 endfunction

@@ -1,4 +1,3 @@
-
 function Trig_Camera_Tree_Actions takes nothing returns nothing
     call PanCameraToTimed(GetLocationX(udg_TargetPoint), GetLocationY(udg_TargetPoint), 0.32)
     call SetCameraFieldForPlayer(Player(0), CAMERA_FIELD_TARGET_DISTANCE, I2R(udg_CameraDistance), 0.32)

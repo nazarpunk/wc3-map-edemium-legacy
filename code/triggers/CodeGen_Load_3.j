@@ -1,13 +1,8 @@
-function Trig_CodeGen_Load_3_Func004C takes nothing returns boolean
-    return udg_SaveLoad_Valid == false
-endfunction
-
 function Trig_CodeGen_Load_3_Actions takes nothing returns nothing
     set udg_Code = udg_ImportCode3
     call CodeGen_Load(udg_Code)
-    if(Trig_CodeGen_Load_3_Func004C())then
+    if not udg_SaveLoad_Valid then
         return
-    else
     endif
     set udg_LoadCount = 0
     set udg_Hero = gg_unit_H000_0004

@@ -1,4 +1,3 @@
-
 function Trig_Abilities_Remove_Actions takes nothing returns nothing
     call AddSpecialEffectTargetUnitBJ("origin", udg_Target, "Abilities\\Spells\\Undead\\ReplenishMana\\ReplenishManaCasterOverhead.mdl")
     call DestroyEffectBJ(GetLastCreatedEffectBJ())

@@ -1,4 +1,3 @@
-
 function Trig_Boss_Units_Remove_Func002002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
 endfunction
