@@ -253,7 +253,6 @@
 //! import "triggers/Orbs_System_2.j"
 //! import "triggers/Item_Pickup_JASS.j"
 //! import "triggers/Quest_Progress.j"
-//! import "triggers/Exp.j"
 //! import "triggers/Level.j"
 //! import "triggers/Scrolls.j"
 //! import "triggers/Suicide.j"
@@ -282,6 +281,7 @@
 //! import "triggers/chat/ChanceCrit.j"
 //! import "triggers/chat/Check_Lvl.j"
 //! import "triggers/chat/Damage.j"
+//! import "triggers/chat/Exp.j"
 
 //! import "InitCustomTriggers.j"
 

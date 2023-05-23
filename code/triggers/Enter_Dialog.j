@@ -1,62 +1,23 @@
-
 function Trig_Enter_Dialog_Conditions takes nothing returns boolean
-    if(not(GetEnteringUnit() == udg_Arct))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Enter_Dialog_Func001Func011Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_Difficulty == 4))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Enter_Dialog_Func001Func011Func001Func001C takes nothing returns boolean
-    if(not(udg_Difficulty == 3))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Enter_Dialog_Func001Func011Func001C takes nothing returns boolean
-    if(not(udg_Difficulty == 2))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Enter_Dialog_Func001Func011C takes nothing returns boolean
-    if(not(udg_Difficulty == 1))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Enter_Dialog_Func001C takes nothing returns boolean
-    if(not(udg_Tutorial[5] == false))then
-        return false
-    endif
-    return true
+    return GetEnteringUnit() == udg_Arct
 endfunction
 
 function Trig_Enter_Dialog_Actions takes nothing returns nothing
-    if(Trig_Enter_Dialog_Func001C())then
+    if not udg_Tutorial[5] then
         call DialogClearBJ(udg_TeleportDialog)
         call DialogSetMessageBJ(udg_TeleportDialog, "Вперёд?")
         call DialogAddButtonBJ(udg_TeleportDialog, "Да!")
         set udg_DialogButton[1] = GetLastCreatedButtonBJ()
-        if(Trig_Enter_Dialog_Func001Func011C())then
+        if udg_Difficulty == 1 then
             call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFF00C850Послушник|r")
         else
-            if(Trig_Enter_Dialog_Func001Func011Func001C())then
+            if udg_Difficulty == 2 then
                 call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFBFBFC2Паломник|r")
             else
-                if(Trig_Enter_Dialog_Func001Func011Func001Func001C())then
+                if udg_Difficulty == 3 then
                     call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFFFDC00Пастырь|r")
                 else
-                    if(Trig_Enter_Dialog_Func001Func011Func001Func001Func001C())then
+                    if udg_Difficulty == 4 then
                         call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFFF8900Паладин|r")
                     else
                         call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFFE30000Пилигрим|r")

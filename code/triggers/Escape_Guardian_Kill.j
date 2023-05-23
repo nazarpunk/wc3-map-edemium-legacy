@@ -1,9 +1,5 @@
-
 function Trig_Escape_Guardian_Kill_Conditions takes nothing returns boolean
-    if(not(GetTriggerUnit() == udg_D_Guardian))then
-        return false
-    endif
-    return true
+    return GetTriggerUnit() == udg_D_Guardian
 endfunction
 
 function Trig_Escape_Guardian_Kill_Actions takes nothing returns nothing

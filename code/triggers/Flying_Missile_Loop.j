@@ -1,4 +1,3 @@
-
 function Trig_Flying_Missile_Loop_Func002Func001Func005002003001001 takes nothing returns boolean
     return(IsUnitType(GetFilterUnit(), UNIT_TYPE_STRUCTURE) == false)
 endfunction

@@ -1,5 +1,3 @@
-
-
 function Trig_Ending_Dialogue_2_Actions takes nothing returns nothing
     if GetClickedButton() == udg_DialogButton[1] then
         call TriggerSleepAction(1.00)
@@ -19,7 +17,6 @@ function Trig_Ending_Dialogue_2_Actions takes nothing returns nothing
     endif
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
-
 
 function InitTrig_Ending_Dialogue_2 takes nothing returns nothing
     set gg_trg_Ending_Dialogue_2 = CreateTrigger()

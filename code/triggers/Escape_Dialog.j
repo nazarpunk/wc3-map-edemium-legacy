@@ -1,33 +1,9 @@
-
-function Trig_Escape_Dialog_Func005Func001C takes nothing returns boolean
-    if(not(udg_EnchantingRoom == false))then
-        return false
-    endif
-    if(not(udg_ER_Logic == false))then
-        return false
-    endif
-    if(not(udg_OnkieRoom == false))then
-        return false
-    endif
-    if(not(udg_CS_Bool == false))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Escape_Dialog_Func005C takes nothing returns boolean
-    if(not Trig_Escape_Dialog_Func005Func001C())then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Escape_Dialog_Actions takes nothing returns nothing
     call DestroyGroup(udg_UnitGroup)
     call DialogClearBJ(udg_LeaveDialog)
     call DialogSetMessageBJ(udg_LeaveDialog, "Покинуть Эдемиум?")
     call DialogAddButtonBJ(udg_LeaveDialog, "Да!")
-    if(Trig_Escape_Dialog_Func005C())then
+    if not udg_EnchantingRoom and not udg_ER_Logic and not udg_OnkieRoom and not udg_CS_Bool then
         set udg_LeaveButton = GetLastCreatedButtonBJ()
     else
         set udg_LeaveButton2 = GetLastCreatedButtonBJ()

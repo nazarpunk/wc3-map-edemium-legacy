@@ -1,4 +1,3 @@
-
 function Trig_Exp_Actions takes nothing returns nothing
     call AddHeroXPSwapped(100, gg_unit_H000_0004, false)
 endfunction

@@ -1,9 +1,5 @@
-
 function Trig_Escape_Initiate_Conditions takes nothing returns boolean
-    if(not(GetTriggerUnit() == udg_Arct))then
-        return false
-    endif
-    return true
+    return GetTriggerUnit() == udg_Arct
 endfunction
 
 function Trig_Escape_Initiate_Actions takes nothing returns nothing

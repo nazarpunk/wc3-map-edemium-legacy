@@ -1,4 +1,3 @@
-
 function Trig_Ending_Init_Actions takes nothing returns nothing
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 2.00, "ReplaceableTextures\\CameraMasks\\White_mask.blp", 100.00, 100.00, 100.00, 20.00)
     call DisableTrigger(gg_trg_Camera_Boss)

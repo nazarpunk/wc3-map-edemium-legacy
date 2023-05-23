@@ -1,5 +1,3 @@
-
-
 function Trig_Ending_Dialogue_1_Actions takes nothing returns nothing
     if GetClickedButton() == udg_DialogButton[1] or GetClickedButton() == udg_DialogButton[5] or GetClickedButton() == udg_DialogButton[6] then
         call TriggerSleepAction(1.00)

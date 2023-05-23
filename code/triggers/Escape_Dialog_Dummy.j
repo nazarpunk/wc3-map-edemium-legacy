@@ -1,4 +1,3 @@
-
 function Trig_Escape_Dialog_Dummy_Actions takes nothing returns nothing
     call IssueImmediateOrderBJ(gg_unit_h009_0006, "berserk")
 endfunction
