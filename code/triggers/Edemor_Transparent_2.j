@@ -1,13 +1,8 @@
-
-function Trig_Edemor_Transparent_2_Func004C takes nothing returns boolean
-    return udg_Transparent >= 100.00
-endfunction
-
 function Trig_Edemor_Transparent_2_Actions takes nothing returns nothing
     set udg_Transparent = (udg_Transparent + 3.00)
     call SetUnitVertexColorBJ(gg_unit_h00V_0029, 100, 100, 100, udg_Transparent)
     call SetUnitVertexColorBJ(gg_unit_H000_0004, 100, 100, 100, udg_Transparent)
-    if(Trig_Edemor_Transparent_2_Func004C())then
+    if udg_Transparent >= 100.00 then
         call ShowUnitHide(gg_unit_h00V_0029)
         call ShowUnitHide(gg_unit_H000_0004)
         set udg_Transparent = 0.00

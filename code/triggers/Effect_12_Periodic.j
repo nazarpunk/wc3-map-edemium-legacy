@@ -1,17 +1,6 @@
-
-function Trig_Effect_12_Periodic_Func002Func007Func002C takes nothing returns boolean
-    if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
-        return false
-    endif
-    if(not(GetTerrainTypeBJ(udg_Point2) == 0x446C7663))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Effect_12_Periodic_Func002Func007A takes nothing returns nothing
     set udg_Point2 = GetUnitLoc(GetEnumUnit())
-    if(Trig_Effect_12_Periodic_Func002Func007Func002C())then
+    if GetOwningPlayer(GetEnumUnit()) == Player(11) end GetTerrainTypeBJ(udg_Point2) == 0x446C7663 then
         set udg_AbilityPower = (I2R(udg_CO_Power) + (I2R(udg_CO_Combo) + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true))))
         call UnitDamageTargetBJ(udg_Arct, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
         call CreateTextTagUnitBJ(I2S(R2I(udg_AbilityPower)), GetEnumUnit(), 0, 8.00, 100.00, 0.00, 0.00, 0)
@@ -25,16 +14,9 @@ function Trig_Effect_12_Periodic_Func002Func007A takes nothing returns nothing
     call RemoveLocation(udg_Point2)
 endfunction
 
-function Trig_Effect_12_Periodic_Func002C takes nothing returns boolean
-    if(not(GetTerrainTypeBJ(udg_Point) == 0x446C7663))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Effect_12_Periodic_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(udg_Arct)
-    if(Trig_Effect_12_Periodic_Func002C())then
+    if GetTerrainTypeBJ(udg_Point) == 0x446C7663 then
         call CreateNUnitsAtLoc(1, 0x68303039, Player(0), udg_Point, bj_UNIT_FACING)
         call UnitAddAbilityBJ(0x4130334C, GetLastCreatedUnit())
         call UnitApplyTimedLifeBJ(1.00, 0x42544C46, GetLastCreatedUnit())

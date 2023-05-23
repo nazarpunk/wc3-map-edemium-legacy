@@ -1,9 +1,5 @@
-
 function Trig_Effect_3_Use_Conditions takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x4130334B))then
-        return false
-    endif
-    return true
+    return GetSpellAbilityId() == 0x4130334B
 endfunction
 
 function Trig_Effect_3_Use_Actions takes nothing returns nothing

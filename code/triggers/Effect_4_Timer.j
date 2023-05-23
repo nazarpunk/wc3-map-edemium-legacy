@@ -1,4 +1,3 @@
-
 function Trig_Effect_4_Timer_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Effect_4_Vampirism)
 endfunction

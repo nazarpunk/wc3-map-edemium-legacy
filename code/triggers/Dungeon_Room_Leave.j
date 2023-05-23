@@ -1,4 +1,3 @@
-
 function Trig_Dungeon_Room_Leave_Conditions takes nothing returns boolean
     return GetClickedButton() == udg_LeaveButton2
 endfunction

@@ -1,39 +1,3 @@
-
-function Trig_Edemium_Hero_Dies_Func013C takes nothing returns boolean
-    if(not(udg_AS_Effect2 == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Edemium_Hero_Dies_Func014C takes nothing returns boolean
-    if(not(udg_AS_Effect11 == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Edemium_Hero_Dies_Func029C takes nothing returns boolean
-    if(not(udg_MeditationLogic == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Edemium_Hero_Dies_Func030C takes nothing returns boolean
-    if(not(udg_SprintLogic == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Edemium_Hero_Dies_Func035C takes nothing returns boolean
-    if(not(udg_ER_Logic == true))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Edemium_Hero_Dies_Actions takes nothing returns nothing
     set udg_Dead = true
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEOUT, 2.50, "ReplaceableTextures\\CameraMasks\\White_mask.blp", 100.00, 100.00, 100.00, 0)
@@ -47,11 +11,11 @@ function Trig_Edemium_Hero_Dies_Actions takes nothing returns nothing
     set udg_AS_Effect10 = false
     call AdjustPlayerStateBJ(1, Player(0), PLAYER_STATE_RESOURCE_FOOD_USED)
     call SetUnitLifePercentBJ(udg_EM_BossUnit, 100)
-    if(Trig_Edemium_Hero_Dies_Func013C())then
+    if udg_AS_Effect2 then
         set udg_AS_Effect2 = false
         set udg_ChanceCrit = (udg_ChanceCrit - 10.00)
     endif
-    if(Trig_Edemium_Hero_Dies_Func014C())then
+    if udg_AS_Effect11 then
         set udg_AS_Effect11 = false
         set udg_ChanceBlock = (udg_ChanceBlock - 20.00)
         call DestroyEffectBJ(udg_AS_Effect11SE)
@@ -74,7 +38,7 @@ function Trig_Edemium_Hero_Dies_Actions takes nothing returns nothing
     call SetHeroLevelBJ(udg_Arct, udg_EX_Level_Base, false)
     call SetHeroXP(udg_Arct, udg_EX_Exp_Base, false)
     set udg_EX_LevelUp = 0
-    if(Trig_Edemium_Hero_Dies_Func029C())then
+    if udg_MeditationLogic then
         set udg_MeditationLogic = false
         call AddUnitAnimationPropertiesBJ(false, "gold", gg_unit_H000_0004)
         call SetUnitMoveSpeed(gg_unit_H000_0004, GetUnitDefaultMoveSpeed(gg_unit_H000_0004))
@@ -84,7 +48,7 @@ function Trig_Edemium_Hero_Dies_Actions takes nothing returns nothing
         call DisableTrigger(gg_trg_Meditation_Cast)
         call DisableTrigger(gg_trg_Meditation_Turn_Off)
     endif
-    if(Trig_Edemium_Hero_Dies_Func030C())then
+    if udg_SprintLogic then
         set udg_SprintLogic = false
         call SetUnitMoveSpeed(udg_Arct, GetUnitDefaultMoveSpeed(udg_Arct))
         call DisableTrigger(gg_trg_Sprint_Energy)
@@ -93,7 +57,7 @@ function Trig_Edemium_Hero_Dies_Actions takes nothing returns nothing
     set udg_RewardDustReal = 0.00
     set udg_EM_EncounterChance =- 4
     set udg_EM_Encounter = false
-    if(Trig_Edemium_Hero_Dies_Func035C())then
+    if udg_ER_Logic then
         set udg_ER_Logic = false
         call TriggerExecute(gg_trg_Edemor_Exit)
     else

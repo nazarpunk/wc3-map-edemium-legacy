@@ -1,26 +1,5 @@
-function Trig_Edemor_Exit_Func004C takes nothing returns boolean
-    if(not(udg_AS_Effect2 == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Edemor_Exit_Func005C takes nothing returns boolean
-    if(not(udg_AS_Effect11 == true))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Edemor_Exit_Func006Func013002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
-endfunction
-
-function Trig_Edemor_Exit_Func006C takes nothing returns boolean
-    if(not(udg_Dead == true))then
-        return false
-    endif
-    return true
 endfunction
 
 function Trig_Edemor_Exit_Func020002 takes nothing returns nothing
@@ -41,17 +20,18 @@ function Trig_Edemor_Exit_Actions takes nothing returns nothing
         call RemoveUnit(udg_AntiCheatUnit[bj_forLoopAIndex])
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop
-    if(Trig_Edemor_Exit_Func004C())then
+    if udg_AS_Effect2 then
         set udg_AS_Effect2 = false
         set udg_ChanceCrit = (udg_ChanceCrit - 10.00)
     endif
-    if(Trig_Edemor_Exit_Func005C())then
+    if udg_AS_Effect11 then
         set udg_AS_Effect11 = false
         set udg_ChanceBlock = (udg_ChanceBlock - 20.00)
         call DestroyEffectBJ(udg_AS_Effect11SE)
         call SetUnitVertexColorBJ(udg_Arct, 100.00, 100.00, 100, 0)
     endif
-    if(Trig_Edemor_Exit_Func006C())then
+
+    if udg_Dead then
         set udg_Dead = false
         set udg_Point = GetRectCenter(gg_rct_Edemium_Leave)
         call SetUnitPositionLoc(udg_Arct, udg_Point)
@@ -69,6 +49,7 @@ function Trig_Edemor_Exit_Actions takes nothing returns nothing
         call CreateItemLoc(0x4930304C, udg_Point)
         call UnitAddItemSwapped(GetLastCreatedItem(), udg_Arct)
     endif
+    
     call SetUnitLifePercentBJ(udg_Arct, 100)
     call SetUnitManaPercentBJ(udg_Arct, 100)
     call UnitRemoveBuffsBJ(bj_REMOVEBUFFS_ALL, udg_Arct)

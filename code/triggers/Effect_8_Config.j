@@ -1,4 +1,3 @@
-
 function Trig_Effect_8_Config_Actions takes nothing returns nothing
     set udg_BE_DummyType = 0x6E303053
     set udg_BE_Model = "Abilities\\Weapons\\FaerieDragonMissile\\FaerieDragonMissile.mdl"

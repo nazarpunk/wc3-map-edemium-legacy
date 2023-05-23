@@ -1,4 +1,3 @@
-
 function Trig_Effect_1_Heal_Actions takes nothing returns nothing
     set udg_AbilityPower = ((I2R(udg_CO_Power) * (0.50 + (0.20 * I2R(udg_AS_AbilityLVL[1])))) + I2R(udg_CO_Combo))
     set udg_AbilityPower = (udg_AbilityPower + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true)))

@@ -1,4 +1,3 @@
-
 function Trig_Edemium_Portals_Cooldown_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Edemium_Portals)
 endfunction

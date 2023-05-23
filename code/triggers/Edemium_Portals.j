@@ -1,19 +1,5 @@
-
-function Trig_Edemium_Portals_Func001C takes nothing returns boolean
-    if(not(GetUnitTypeId(GetOrderTargetUnit()) == 0x6E303049))then
-        return false
-    endif
-    if(not(GetTriggerUnit() == udg_Arct))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Edemium_Portals_Conditions takes nothing returns boolean
-    if(not Trig_Edemium_Portals_Func001C())then
-        return false
-    endif
-    return true
+    return GetUnitTypeId(GetOrderTargetUnit()) == 0x6E303049 and GetTriggerUnit() == udg_Arct
 endfunction
 
 function Trig_Edemium_Portals_Func006Func008Func004A takes nothing returns nothing
@@ -32,19 +18,12 @@ function Trig_Edemium_Portals_Func006Func008A takes nothing returns nothing
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
 
-function Trig_Edemium_Portals_Func006C takes nothing returns boolean
-    if(not(DistanceBetweenPoints(udg_D_Point1, udg_D_Point2) < 300.00))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Edemium_Portals_Actions takes nothing returns nothing
     set udg_D_Pick = GetUnitsOfTypeIdAll(0x6E303049)
     call GroupRemoveUnitSimple(GetOrderTargetUnit(), udg_D_Pick)
     set udg_D_Point1 = GetUnitLoc(udg_Arct)
     set udg_D_Point2 = GetUnitLoc(GetOrderTargetUnit())
-    if(Trig_Edemium_Portals_Func006C())then
+    if DistanceBetweenPoints(udg_D_Point1, udg_D_Point2) < 300.00 then
         call RemoveLocation(udg_D_Point1)
         call ForGroupBJ(GetRandomSubGroup(1, udg_D_Pick), function Trig_Edemium_Portals_Func006Func008A)
     else

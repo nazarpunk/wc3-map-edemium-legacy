@@ -1,15 +1,7 @@
-
-function Trig_Edemium_Transparent_Func004C takes nothing returns boolean
-    if(not(udg_Transparent <= 0.00))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Edemium_Transparent_Actions takes nothing returns nothing
     set udg_Transparent = (udg_Transparent - 4.00)
     call SetUnitVertexColorBJ(udg_Arct, 100, 100, 100, udg_Transparent)
-    if(Trig_Edemium_Transparent_Func004C())then
+    if udg_Transparent <= 0.00 then
         call DisableTrigger(GetTriggeringTrigger())
     endif
 endfunction

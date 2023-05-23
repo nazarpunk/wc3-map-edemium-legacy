@@ -1,13 +1,5 @@
-
-function Trig_Effect_11_Timer_Func001C takes nothing returns boolean
-    if(not(udg_AS_Effect11 == true))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Effect_11_Timer_Actions takes nothing returns nothing
-    if(Trig_Effect_11_Timer_Func001C())then
+    if udg_AS_Effect11 then
         set udg_AS_Effect11 = false
         set udg_ChanceBlock = (udg_ChanceBlock - 20.00)
         call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 2, ("Шанс блока: " + (I2S(R2I(udg_ChanceBlock)) + "%")))

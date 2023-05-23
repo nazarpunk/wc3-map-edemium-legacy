@@ -1,78 +1,16 @@
-
-function Trig_Effect_8_Loop_Func001Func001Func016C takes nothing returns boolean
-    if(not(udg_BE_MaxIndex == 0))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Effect_8_Loop_Func001Func001Func030Func001C takes nothing returns boolean
-    if(not(IsUnitAlly(udg_BE_Target[udg_BE_TempIndex], udg_BE_Player[udg_BE_TempIndex]) == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Effect_8_Loop_Func001Func001Func030Func004Func002Func005C takes nothing returns boolean
-    if((GetOwningPlayer(udg_BE_PickedUnits) == Player(0)))then
-        return true
-    endif
-    if((GetOwningPlayer(udg_BE_PickedUnits) == Player(11)))then
-        return true
-    endif
-    return false
-endfunction
-
-function Trig_Effect_8_Loop_Func001Func001Func030Func004Func002C takes nothing returns boolean
-    if(not(IsUnitType(udg_BE_PickedUnits, UNIT_TYPE_STRUCTURE) == false))then
-        return false
-    endif
-    if(not(IsUnitAliveBJ(udg_BE_PickedUnits) == true))then
-        return false
-    endif
-    if(not(udg_BE_PickedUnits != udg_BE_Target[udg_BE_TempIndex]))then
-        return false
-    endif
-    if(not Trig_Effect_8_Loop_Func001Func001Func030Func004Func002Func005C())then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Effect_8_Loop_Func001Func001Func030Func004A takes nothing returns nothing
     set udg_BE_PickedUnits = GetEnumUnit()
-    if(Trig_Effect_8_Loop_Func001Func001Func030Func004Func002C())then
+    if not IsUnitType(udg_BE_PickedUnits, UNIT_TYPE_STRUCTURE) and UnitAlive(udg_BE_PickedUnits) and udg_BE_PickedUnits != udg_BE_Target[udg_BE_TempIndex] and (GetOwningPlayer(udg_BE_PickedUnits) == Player(0) or GetOwningPlayer(udg_BE_PickedUnits) == Player(11)) then
     else
         call GroupRemoveUnitSimple(udg_BE_PickedUnits, udg_BE_Group)
     endif
-endfunction
-
-function Trig_Effect_8_Loop_Func001Func001Func030Func006C takes nothing returns boolean
-    if(not(CountUnitsInGroup(udg_BE_Group) == 0))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Effect_8_Loop_Func001Func001Func030C takes nothing returns boolean
-    if(not(udg_BE_Distance[udg_BE_TempIndex] <= 50.00))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Effect_8_Loop_Func001Func001C takes nothing returns boolean
-    if(not(udg_BE_CurrentBounces[udg_BE_TempIndex] <= udg_BE_Bounces[udg_BE_AbilityIndex[udg_BE_TempIndex]]))then
-        return false
-    endif
-    return true
 endfunction
 
 function Trig_Effect_8_Loop_Actions takes nothing returns nothing
     set udg_BE_TempIndex = 1
     loop
         exitwhen udg_BE_TempIndex > udg_BE_MaxIndex
-        if(Trig_Effect_8_Loop_Func001Func001C())then
+        if udg_BE_CurrentBounces[udg_BE_TempIndex] <= udg_BE_Bounces[udg_BE_AbilityIndex[udg_BE_TempIndex]] then
             set udg_BE_TempPoint3 = GetUnitLoc(udg_BE_Target[udg_BE_TempIndex])
             set udg_BE_TempPoint2 = GetUnitLoc(udg_BE_Dummy[udg_BE_TempIndex])
             set udg_BE_Distance[udg_BE_TempIndex] = DistanceBetweenPoints(udg_BE_TempPoint3, udg_BE_TempPoint2)
@@ -82,8 +20,8 @@ function Trig_Effect_8_Loop_Actions takes nothing returns nothing
             set udg_BE_TempPoint = PolarProjectionBJ(udg_BE_TempPoint2, udg_BE_Speed[udg_BE_AbilityIndex[udg_BE_TempIndex]], udg_BE_Angle[udg_BE_TempIndex])
             call SetUnitFlyHeightBJ(udg_BE_Dummy[udg_BE_TempIndex], ((4.00 * udg_BE_Height[udg_BE_AbilityIndex[udg_BE_TempIndex]]) * (udg_BE_DistanceTravelled[udg_BE_TempIndex] * ((udg_BE_TotalDistance - udg_BE_DistanceTravelled[udg_BE_TempIndex]) / (udg_BE_TotalDistance * udg_BE_TotalDistance)))), 0.00)
             call SetUnitPositionLocFacingBJ(udg_BE_Dummy[udg_BE_TempIndex], udg_BE_TempPoint, udg_BE_Angle[udg_BE_TempIndex])
-            if(Trig_Effect_8_Loop_Func001Func001Func030C())then
-                if(Trig_Effect_8_Loop_Func001Func001Func030Func001C())then
+            if udg_BE_Distance[udg_BE_TempIndex] <= 50.00 then
+                if IsUnitAlly(udg_BE_Target[udg_BE_TempIndex], udg_BE_Player[udg_BE_TempIndex]) then
                     call SetUnitLifeBJ(udg_BE_Target[udg_BE_TempIndex], (GetUnitStateSwap(UNIT_STATE_LIFE, udg_BE_Target[udg_BE_TempIndex]) + udg_BE_Heal[udg_BE_TempIndex]))
                     call AddSpecialEffectLocBJ(udg_BE_TempPoint3, udg_BE_PosSpecialEffect)
                     call DestroyEffectBJ(GetLastCreatedEffectBJ())
@@ -104,7 +42,7 @@ function Trig_Effect_8_Loop_Actions takes nothing returns nothing
                 endif
                 set udg_BE_Group = GetUnitsInRangeOfLocAll(udg_BE_SearchAoE[udg_BE_AbilityIndex[udg_BE_TempIndex]], udg_BE_TempPoint2)
                 call ForGroupBJ(udg_BE_Group, function Trig_Effect_8_Loop_Func001Func001Func030Func004A)
-                if(Trig_Effect_8_Loop_Func001Func001Func030Func006C())then
+                if CountUnitsInGroup(udg_BE_Group) == 0 then
                     set udg_BE_CurrentBounces[udg_BE_TempIndex] = udg_BE_Bounces[udg_BE_AbilityIndex[udg_BE_TempIndex]]
                 endif
                 set udg_BE_Target[udg_BE_TempIndex] = GroupPickRandomUnit(udg_BE_Group)
@@ -134,7 +72,7 @@ function Trig_Effect_8_Loop_Actions takes nothing returns nothing
             set udg_BE_SizeIncrement[udg_BE_TempIndex] = udg_BE_SizeIncrement[udg_BE_MaxIndex]
             set udg_BE_TempIndex = (udg_BE_TempIndex - 1)
             set udg_BE_MaxIndex = (udg_BE_MaxIndex - 1)
-            if(Trig_Effect_8_Loop_Func001Func001Func016C())then
+            if udg_BE_MaxIndex == 0 then
                 call DisableTrigger(gg_trg_Effect_8_Loop)
             endif
         endif

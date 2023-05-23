@@ -1,13 +1,5 @@
-
-function Trig_Effect_9_Periodic_Func001Func006Func001C takes nothing returns boolean
-    if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Effect_9_Periodic_Func001Func006A takes nothing returns nothing
-    if(Trig_Effect_9_Periodic_Func001Func006Func001C())then
+    if GetOwningPlayer(GetEnumUnit()) == Player(11) then
         call UnitDamageTargetBJ(udg_Arct, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
         call CreateTextTagUnitBJ(I2S(R2I(udg_AbilityPower)), GetEnumUnit(), 0, 8.00, 100.00, 0.00, 0.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 90.00, GetRandomReal(80.00, 100.00))

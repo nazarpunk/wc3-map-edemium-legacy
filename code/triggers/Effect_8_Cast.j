@@ -1,47 +1,11 @@
-
-function Trig_Effect_8_Cast_Func001C takes nothing returns boolean
-    if(not(udg_BE_MaxIndex == 0))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Effect_8_Cast_Func010Func001C takes nothing returns boolean
-    if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Effect_8_Cast_Func013Func001C takes nothing returns boolean
-    if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Effect_8_Cast_Func016Func001C takes nothing returns boolean
-    if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Effect_8_Cast_Func018Func001C takes nothing returns boolean
-    if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Effect_8_Cast_Func018A takes nothing returns nothing
-    if(Trig_Effect_8_Cast_Func018Func001C())then
+    if GetOwningPlayer(GetEnumUnit()) == Player(11) then
         set udg_BE_Target[udg_BE_MaxIndex] = GetEnumUnit()
     endif
 endfunction
 
 function Trig_Effect_8_Cast_Actions takes nothing returns nothing
-    if(Trig_Effect_8_Cast_Func001C())then
+    if udg_BE_MaxIndex == 0 then
         call EnableTrigger(gg_trg_Effect_8_Loop)
     endif
     set udg_BE_MaxIndex = (udg_BE_MaxIndex + 1)
