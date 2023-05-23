@@ -1,7 +1,11 @@
 //! import "globals.j"
 
 //! import "mainInit.j"
-//! import "CodeGen.j"
+//! import "lib/CodeGen.j"
+
+//! zinc
+//! import "zinc/Init.zn"
+//! endzinc
 
 //! import "triggers/Initialisation.j"
 //! import "triggers/Initialisation_Elapsed.j"
@@ -296,8 +300,9 @@
     call CreateAllUnitsOld()
     call InitBlizzard()
     call InitGlobalsOld()
-    call InitCustomTriggersOld()
+    
     //! dovjassinit
+    call InitCustomTriggersOld()
 //! endinject
 
 //! inject config

@@ -1,0 +1,6 @@
+library Init {
+
+    function onInit() {
+        BJDebugMsg("zinc");
+    }
+}
