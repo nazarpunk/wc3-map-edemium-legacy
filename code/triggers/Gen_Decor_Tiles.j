@@ -38,7 +38,7 @@ endfunction
 
 function Trig_Gen_Decor_Tiles_Func004A takes nothing returns nothing
     local integer id = GetDestructableTypeId(GetEnumDestructable())
-    if id == 0x42303235 or or id == 0x42303244 or id == 0x44546737 or id == 0x42303256 then
+    if id == 0x42303235 or id == 0x42303244 or id == 0x44546737 or id == 0x42303256 then
         set udg_D_WallType = 1
         set udg_D_Point1 = GetDestructableLoc(GetEnumDestructable())
         set udg_D_PointOffset = OffsetLocation(udg_D_Point1, 60.00, udg_Offset[GetRandomInt(1, 5)])
