@@ -27,7 +27,8 @@ library Init {
             h = GetFrameHeight(fa);
             ClearFrameAllPoints(fa);
 
-            SetFrameAbsolutePoint(fa,FRAMEPOINT_BOTTOMLEFT, 0.0, 0.0);
+            // command button
+            SetFrameAbsolutePoint(fa, FRAMEPOINT_BOTTOMLEFT, .0, .0);
             SetFrameSize(fa, w, h);
 
             for (1 <= i <= 11) {
@@ -35,8 +36,14 @@ library Init {
                 fb = GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, i);
                 ClearFrameAllPoints(fb);
                 SetFrameSize(fb, w, h);
-                SetFrameRelativePoint(fb, FRAMEPOINT_LEFT, fa, FRAMEPOINT_RIGHT, 0,0);
+                SetFrameRelativePoint(fb, FRAMEPOINT_LEFT, fa, FRAMEPOINT_RIGHT, 0, 0);
             }
+
+            /*
+            INFO_BAR -> CSimpleFontString ищи в дочерних фреймах.
+            CSimpleFontString если что расширяет CSimpleRegion, не CSimpleFrame.
+            Потому можешь проверять все дочерние фреймы через IsFrameSimpleRegion.
+            */
 
             fa = null;
             fb = null;

@@ -1,73 +1,15 @@
-function Trig_Gen_Start_Func006Func002Func002C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) > 10.00))then
-        return false
-    endif
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) <= 15.00))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Start_Func006Func002C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) > 5.00))then
-        return false
-    endif
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) <= 10.00))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Start_Func006C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) > 0.00))then
-        return false
-    endif
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) <= 5.00))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Start_Func011Func001C takes nothing returns boolean
-    if(not(GetDestructableTypeId(GetEnumDestructable()) == 0x42303131))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Gen_Start_Func011A takes nothing returns nothing
-    if(Trig_Gen_Start_Func011Func001C())then
+    if GetDestructableTypeId(GetEnumDestructable()) == 0x42303131 then
         set udg_D_Point1 = GetDestructableLoc(GetEnumDestructable())
         call CreateNUnitsAtLocFacingLocBJ(1, 0x6830304C, Player(0), udg_D_Point1, GetUnitLoc(GetTriggerUnit()))
         call RemoveLocation(udg_D_Point1)
     endif
 endfunction
 
-function Trig_Gen_Start_Func023C takes nothing returns boolean
-    if(not(udg_Tutorial[5] == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Start_Func024C takes nothing returns boolean
-    if(not(udg_D_CreepsTotal > 75))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Start_Func025C takes nothing returns boolean
-    if(not(udg_D_Rooms > 64))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Gen_Start_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Camera_Fix)
     set udg_D_Point1 = GetRectCenter(gg_rct_Dungeon_Center)
-    if(Trig_Gen_Start_Func006C())then
+    if GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) > 0.00 and GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) <= 5.00 then
         call SetTerrainFogExBJ(0, 500.00, 8000.00, 0.50, 0.00, 50.00, 25.00)
         set udg_D_DungeonTier = 1
         set udg_D_WallTierType[1] = 0x42303232
@@ -92,7 +34,7 @@ function Trig_Gen_Start_Actions takes nothing returns nothing
         set udg_D_RoomDecorType[7] = 0x42303157
         set udg_D_RoomDecorScale[7] = 1.30
     else
-        if(Trig_Gen_Start_Func006Func002C())then
+        if GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) > 5.00 and GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) <= 10.00 then
             call SetTerrainFogExBJ(0, 500.00, 8000.00, 0.50, 75.00, 50.00, 25.00)
             set udg_D_DungeonTier = 2
             set udg_D_WallTierType[1] = 0x42303243
@@ -117,7 +59,7 @@ function Trig_Gen_Start_Actions takes nothing returns nothing
             set udg_D_RoomDecorType[7] = 0x42303334
             set udg_D_RoomDecorScale[7] = 1.40
         else
-            if(Trig_Gen_Start_Func006Func002Func002C())then
+            if GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) > 10.00 and GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target) <= 15.00 then
                 call SetTerrainFogExBJ(0, 500.00, 8000.00, 0.50, 50.00, 0.00, 0.00)
                 set udg_D_DungeonTier = 3
                 set udg_D_WallTierType[1] = 0x42303255
@@ -159,7 +101,7 @@ function Trig_Gen_Start_Actions takes nothing returns nothing
     call RemoveLocation(udg_D_Point1)
     set udg_D_Torches = 0
     set udg_D_Chests = 0
-    if(Trig_Gen_Start_Func023C())then
+    if udg_Tutorial[5] then
         set udg_D_CreepsTotal = 42
         set udg_D_Rooms = 42
         set udg_D_ChestsMax = 4
@@ -168,10 +110,10 @@ function Trig_Gen_Start_Actions takes nothing returns nothing
         set udg_D_CreepsTotal = (20 + (R2I(GetUnitStateSwap(UNIT_STATE_MANA, udg_EM_Target)) * 2))
         set udg_D_ChestsMax = GetRandomInt(2, 4)
     endif
-    if(Trig_Gen_Start_Func024C())then
+    if udg_D_CreepsTotal > 75 then
         set udg_D_CreepsTotal = 75
     endif
-    if(Trig_Gen_Start_Func025C())then
+    if udg_D_Rooms > 64 then
         set udg_D_Rooms = 64
     endif
     set udg_D_Portals = 0

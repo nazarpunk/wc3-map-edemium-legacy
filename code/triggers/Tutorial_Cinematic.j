@@ -7,7 +7,7 @@ function Trig_Tutorial_Cinematic_Actions takes nothing returns nothing
     call CameraSetSmoothingFactorBJ(0.00)
     call CinematicModeBJ(true, GetPlayersAll())
     call TriggerSleepAction(3.00)
-    call SetCameraBoundsToRect(GetPlayableMapRect())
+    call SetCameraBoundsToRect(bj_mapInitialPlayableArea)
     call CameraSetupApplyForceDuration(gg_cam_Camera02, true, 0.00)
     call PlaySoundBJ(gg_snd_EdemiumHit)
     call TriggerSleepAction(0.25)

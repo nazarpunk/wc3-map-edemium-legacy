@@ -11,7 +11,7 @@ function Trig_Escape_Guardian_Kill_Actions takes nothing returns nothing
     call DestroyFogModifier(GetLastCreatedFogModifier())
     call FogEnableOff()
     call FogMaskEnableOff()
-    call CreateFogModifierRectBJ(true, Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect())
+    call CreateFogModifierRectBJ(true, Player(0), FOG_OF_WAR_VISIBLE, bj_mapInitialPlayableArea)
     call DisplayTimedTextToForce(GetPlayersAll(), 30.00, "Для выхода нажмите ESC.")
     call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
     call EnableTrigger(gg_trg_Escape_Dialog_Dummy)

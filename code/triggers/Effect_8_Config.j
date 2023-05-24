@@ -47,7 +47,7 @@ function Trig_Effect_8_Config_Actions takes nothing returns nothing
     set udg_BE_PosSpecialEffect = "war3mapImported\\HolySmiteMissileNew.mdx"
     set udg_BE_DamageType = DAMAGE_TYPE_MAGIC
     set udg_BE_AttackType = ATTACK_TYPE_NORMAL
-    set udg_BE_TempPoint = GetRectCenter(GetPlayableMapRect())
+    set udg_BE_TempPoint = GetRectCenter(bj_mapInitialPlayableArea)
     call CreateNUnitsAtLoc(1, 0x6E303053, Player(PLAYER_NEUTRAL_PASSIVE), udg_BE_TempPoint, bj_UNIT_FACING)
     set udg_BE_PreloadUnit = GetLastCreatedUnit()
     call RemoveUnit(GetLastCreatedUnit())

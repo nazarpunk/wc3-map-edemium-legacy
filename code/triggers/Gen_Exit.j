@@ -1,9 +1,6 @@
 
 function Trig_Gen_Exit_Conditions takes nothing returns boolean
-    if(not(GetClickedButton() == udg_LeaveButton))then
-        return false
-    endif
-    return true
+    return GetClickedButton() == udg_LeaveButton
 endfunction
 
 function Trig_Gen_Exit_Func010002 takes nothing returns nothing
@@ -66,165 +63,14 @@ function Trig_Gen_Exit_Func049002 takes nothing returns nothing
     call RemoveItem(GetEnumItem())
 endfunction
 
-function Trig_Gen_Exit_Func050Func001Func001C takes nothing returns boolean
-    if(not(GetDestructableTypeId(GetEnumDestructable()) != 0x42303131))then
-        return false
-    endif
-    if(not(GetDestructableTypeId(GetEnumDestructable()) != 0x4230304A))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Exit_Func050Func001C takes nothing returns boolean
-    if(not Trig_Gen_Exit_Func050Func001Func001C())then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Gen_Exit_Func050A takes nothing returns nothing
-    if(Trig_Gen_Exit_Func050Func001C())then
+    if GetDestructableTypeId(GetEnumDestructable()) != 0x42303131 and GetDestructableTypeId(GetEnumDestructable()) != 0x4230304A then
         call RemoveDestructable(GetEnumDestructable())
     endif
 endfunction
 
-function Trig_Gen_Exit_Func068C takes nothing returns boolean
-    if(not(udg_AS_Effect2 == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Exit_Func069C takes nothing returns boolean
-    if(not(udg_AS_Effect11 == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Exit_Func070Func002Func003Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 2))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Exit_Func070Func002Func003C takes nothing returns boolean
-    if(not(udg_RandomNumber == 1))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Exit_Func070Func002C takes nothing returns boolean
-    if(not(udg_ARTInteger[3] == 3))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Exit_Func070C takes nothing returns boolean
-    if(not(udg_ART[13] > 0))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Exit_Func071Func001Func001Func001Func002Func002C takes nothing returns boolean
-    if(not(udg_RandomNumber == 2))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Exit_Func071Func001Func001Func001Func002C takes nothing returns boolean
-    if(not(udg_RandomNumber == 1))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Exit_Func071Func001Func001C takes nothing returns boolean
-    if(not(udg_EX_LevelUp > 0))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Exit_Func071Func001Func002Func007C takes nothing returns boolean
-    if((GetUnitUserData(udg_EM_Target) == 7))then
-        return true
-    endif
-    if((GetUnitUserData(udg_EM_Target) == 71))then
-        return true
-    endif
-    if((GetUnitUserData(udg_EM_Target) == 72))then
-        return true
-    endif
-    if((GetUnitUserData(udg_EM_Target) == 73))then
-        return true
-    endif
-    if((GetUnitUserData(udg_EM_Target) == 74))then
-        return true
-    endif
-    if((GetUnitUserData(udg_EM_Target) == 5))then
-        return true
-    endif
-    return false
-endfunction
-
-function Trig_Gen_Exit_Func071Func001Func002C takes nothing returns boolean
-    if(not Trig_Gen_Exit_Func071Func001Func002Func007C())then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Exit_Func071Func001C takes nothing returns boolean
-    if(not(udg_EM_Encounter == false))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Exit_Func071Func007C takes nothing returns boolean
-    if(not(udg_EM_BossRoom == false))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Exit_Func071C takes nothing returns boolean
-    if(not(udg_Dead == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Exit_Func075C takes nothing returns boolean
-    if(not(R2I(udg_RewardDustReal) > 0))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Gen_Exit_Func108002 takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
-endfunction
-
-function Trig_Gen_Exit_Func115C takes nothing returns boolean
-    if(not(udg_MeditationLogic == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Exit_Func116C takes nothing returns boolean
-    if(not(udg_SprintLogic == true))then
-        return false
-    endif
-    return true
 endfunction
 
 function Trig_Gen_Exit_Actions takes nothing returns nothing
@@ -305,25 +151,25 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     call DestroyEffectBJ(udg_CO_Effect6Sweep[1])
     call DestroyEffectBJ(udg_CO_Effect6Sweep[2])
     set udg_CO_Effect6Power = 0
-    if(Trig_Gen_Exit_Func068C())then
+    if udg_AS_Effect2 then
         set udg_AS_Effect2 = false
         set udg_ChanceCrit = (udg_ChanceCrit - 10.00)
     endif
-    if(Trig_Gen_Exit_Func069C())then
+    if udg_AS_Effect11 then
         set udg_AS_Effect11 = false
         set udg_ChanceBlock = (udg_ChanceBlock - 20.00)
         call DestroyEffectBJ(udg_AS_Effect11SE)
         call SetUnitVertexColorBJ(udg_Arct, 100.00, 100.00, 100, 0)
     endif
-    if(Trig_Gen_Exit_Func070C())then
+    if udg_ART[13] > 0 then
         set udg_ARTInteger[3] = (udg_ARTInteger[3] + 1)
-        if(Trig_Gen_Exit_Func070Func002C())then
+        if udg_ARTInteger[3] == 3 then
             set udg_ARTInteger[3] = 0
             set udg_RandomNumber = GetRandomInt(1, 3)
-            if(Trig_Gen_Exit_Func070Func002Func003C())then
+            if udg_RandomNumber == 1 then
                 call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_ADD, (1 * udg_ART[13]))
             else
-                if(Trig_Gen_Exit_Func070Func002Func003Func001C())then
+                if udg_RandomNumber == 2 then
                     call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_ADD, (1 * udg_ART[13]))
                 else
                     call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_ADD, (1 * udg_ART[13]))
@@ -331,13 +177,13 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
             endif
         endif
     endif
-    if(Trig_Gen_Exit_Func071C())then
+    if udg_Dead then
         set udg_Dead = false
         set udg_Point = GetUnitLoc(GetTriggerUnit())
         call ReviveHeroLoc(udg_Arct, udg_Point, false)
         call RemoveLocation(udg_Point)
         set udg_EX_LevelUp = 0
-        if(Trig_Gen_Exit_Func071Func007C())then
+        if not udg_EM_BossRoom then
             set bj_forLoopAIndex = 1
             set bj_forLoopAIndexEnd = 4
             loop
@@ -361,18 +207,18 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
             endloop
         endif
     else
-        if(Trig_Gen_Exit_Func071Func001C())then
-            if(Trig_Gen_Exit_Func071Func001Func001C())then
+        if not udg_EM_Encounter then
+            if udg_EX_LevelUp > 0 then
                 set bj_forLoopAIndex = 1
                 set bj_forLoopAIndexEnd = udg_EX_LevelUp
                 loop
                     exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
                     set udg_RandomNumber = GetRandomInt(1, 3)
-                    if(Trig_Gen_Exit_Func071Func001Func001Func001Func002C())then
+                    if udg_RandomNumber == 1 then
                         set udg_Target = gg_unit_h012_0011
                         call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
                     else
-                        if(Trig_Gen_Exit_Func071Func001Func001Func001Func002Func002C())then
+                        if udg_RandomNumber == 2 then
                             set udg_Target = gg_unit_h012_0012
                             call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
                         else
@@ -393,7 +239,7 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
                 endloop
                 set udg_EX_LevelUp = 0
             endif
-            if(Trig_Gen_Exit_Func071Func001Func002C())then
+            if GetUnitUserData(udg_EM_Target) == 7 or GetUnitUserData(udg_EM_Target) == 71 or GetUnitUserData(udg_EM_Target) == 72 or GetUnitUserData(udg_EM_Target) == 73 or GetUnitUserData(udg_EM_Target) == 74 or GetUnitUserData(udg_EM_Target) == 5 then
                 set udg_QG_Count[2] = (udg_QG_Count[2] + 1)
                 call ConditionalTriggerExecute(gg_trg_QG_Change_Text)
                 call SetUnitUserData(udg_EM_Target, 8)
@@ -406,7 +252,7 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     set udg_EM_BossRoom = false
     call SetUnitLifePercentBJ(udg_Arct, 100)
     call SetUnitManaPercentBJ(udg_Arct, 100)
-    if(Trig_Gen_Exit_Func075C())then
+    if R2I(udg_RewardDustReal) > 0 then
         set udg_RewardDustReal = (udg_RewardDustReal * udg_DifficultyRate)
         set udg_RewardDustReal = (udg_RewardDustReal * udg_EX_Rate)
         call AdjustPlayerStateBJ(R2I(udg_RewardDustReal), Player(0), PLAYER_STATE_RESOURCE_GOLD)
@@ -448,7 +294,7 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     call ShowTextTagForceBJ(false, udg_DungeonColdText, bj_FORCE_PLAYER[0])
     call UnitRemoveAbilityBJ(0x41303348, udg_Arct)
     call RemoveUnit(udg_AS_Effect10Unit)
-    if(Trig_Gen_Exit_Func115C())then
+    if udg_MeditationLogic then
         set udg_MeditationLogic = false
         call AddUnitAnimationPropertiesBJ(false, "gold", udg_Arct)
         call SetUnitMoveSpeed(udg_Arct, GetUnitDefaultMoveSpeed(udg_Arct))
@@ -458,7 +304,7 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
         call DisableTrigger(gg_trg_Meditation_Cast)
         call DisableTrigger(gg_trg_Meditation_Turn_Off)
     endif
-    if(Trig_Gen_Exit_Func116C())then
+    if udg_SprintLogic then
         set udg_SprintLogic = false
         call IssueImmediateOrderBJ(udg_Arct, "manashieldoff")
         call DisableTrigger(gg_trg_Sprint_Energy)
@@ -479,7 +325,7 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     call DestroyFogModifier(GetLastCreatedFogModifier())
     call FogEnableOff()
     call FogMaskEnableOff()
-    call CreateFogModifierRectBJ(true, Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect())
+    call CreateFogModifierRectBJ(true, Player(0), FOG_OF_WAR_VISIBLE, bj_mapInitialPlayableArea)
     call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
     call SetTerrainFogExBJ(0, 1100.00, 15000.00, 0.50, 0.00, 20.00, 100)
     call LeaderboardDisplayBJ(false, udg_CO_ComboBoard)

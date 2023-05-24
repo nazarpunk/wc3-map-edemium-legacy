@@ -11,7 +11,7 @@ function Trig_Edemor_Start_Actions takes nothing returns nothing
     set udg_AS_Points_Base = udg_AS_Points
     set udg_EX_Level_Base = GetHeroLevel(udg_Arct)
     set udg_EX_Exp_Base = GetHeroXP(udg_Arct)
-    call SetCameraBoundsToRect(GetPlayableMapRect())
+    call SetCameraBoundsToRect(bj_mapInitialPlayableArea)
     call AddItemToStockBJ(0x49303158, gg_unit_h00V_0063, 0, 1)
     call AddItemToStockBJ(0x49303159, gg_unit_h00V_0063, 0, 1)
     call AddItemToStockBJ(0x4930315A, gg_unit_h00V_0063, 0, 1)

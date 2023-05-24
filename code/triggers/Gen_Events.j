@@ -1,23 +1,8 @@
-
-function Trig_Gen_Events_Func002Func001Func001Func001C takes nothing returns boolean
-    if(not(GetUnitUserData(udg_EM_Target) == 74))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Gen_Events_Func002Func001Func001Func005A takes nothing returns nothing
     set udg_Point = GetUnitLoc(GetEnumUnit())
     call CreateNUnitsAtLoc(1, 0x6E303048, Player(PLAYER_NEUTRAL_PASSIVE), udg_Point, bj_UNIT_FACING)
     call SetUnitUserData(GetLastCreatedUnit(), 100)
     call RemoveLocation(udg_Point)
-endfunction
-
-function Trig_Gen_Events_Func002Func001Func001C takes nothing returns boolean
-    if(not(GetUnitUserData(udg_EM_Target) == 73))then
-        return false
-    endif
-    return true
 endfunction
 
 function Trig_Gen_Events_Func002Func001Func005A takes nothing returns nothing
@@ -26,39 +11,8 @@ function Trig_Gen_Events_Func002Func001Func005A takes nothing returns nothing
     call RemoveLocation(udg_Point)
 endfunction
 
-function Trig_Gen_Events_Func002Func001C takes nothing returns boolean
-    if(not(GetUnitUserData(udg_EM_Target) == 72))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Events_Func002C takes nothing returns boolean
-    if(not(GetUnitUserData(udg_EM_Target) == 71))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Events_Func003C takes nothing returns boolean
-    if(not(GetHeroLevel(udg_Arct) == 3))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Events_Func004C takes nothing returns boolean
-    if(not(udg_EdemEventBool[udg_EdemEventType] == false))then
-        return false
-    endif
-    if(not(udg_EdemEventType != 0))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Gen_Events_Actions takes nothing returns nothing
-    if(Trig_Gen_Events_Func002C())then
+    if GetUnitUserData(udg_EM_Target) == 71 then
         call SetDayNightModels("", "")
         call SetTerrainFogExBJ(0, 0.00, 4000.00, 0.50, 0.00, 0.00, 0.00)
         call StartTimerBJ(udg_DungeonDarkTimer, false, (120.00 + I2R(GetHeroStatBJ(bj_HEROSTAT_STR, udg_Arct, true))))
@@ -66,7 +20,7 @@ function Trig_Gen_Events_Actions takes nothing returns nothing
         set udg_DungeonDarkTimerWindow = GetLastCreatedTimerDialogBJ()
         call EnableTrigger(gg_trg_Dungeon_Dark)
     else
-        if(Trig_Gen_Events_Func002Func001C())then
+        if GetUnitUserData(udg_EM_Target) == 72 then
             call SetTerrainFogExBJ(0, 500.00, 8000.00, 0.50, 0.00, 100.00, 100.00)
             set udg_UnitGroup = GetUnitsInRectOfPlayer(gg_rct_Dungeon_Camera, Player(11))
             call ForGroupBJ(GetRandomSubGroup(GetRandomInt(5, 7), udg_UnitGroup), function Trig_Gen_Events_Func002Func001Func005A)
@@ -77,12 +31,12 @@ function Trig_Gen_Events_Actions takes nothing returns nothing
             call EnableTrigger(gg_trg_Dungeon_Cold_Text)
             call EnableTrigger(gg_trg_Dungeon_Cold_Hearth)
         else
-            if(Trig_Gen_Events_Func002Func001Func001C())then
+            if GetUnitUserData(udg_EM_Target) == 73 then
                 set udg_UnitGroup = GetUnitsInRectOfPlayer(gg_rct_Dungeon_Camera, Player(11))
                 call ForGroupBJ(GetRandomSubGroup(GetRandomInt(4, 5), udg_UnitGroup), function Trig_Gen_Events_Func002Func001Func001Func005A)
                 call EnableTrigger(gg_trg_Dungeon_Battle_Portal)
             else
-                if(Trig_Gen_Events_Func002Func001Func001Func001C())then
+                if GetUnitUserData(udg_EM_Target) == 74 then
                     set udg_DungeonDeadlyCleansing = 3
                     call UnitAddAbilityBJ(0x41303348, udg_Arct)
                     call EnableTrigger(gg_trg_Dungeon_Deadly)
@@ -90,12 +44,12 @@ function Trig_Gen_Events_Actions takes nothing returns nothing
             endif
         endif
     endif
-    if(Trig_Gen_Events_Func003C())then
+    if GetHeroLevel(udg_Arct) == 3 then
         set udg_EdemEventType = 1
     else
         set udg_EdemEventType = 0
     endif
-    if(Trig_Gen_Events_Func004C())then
+    if not udg_EdemEventBool[udg_EdemEventType] and udg_EdemEventType != 0 then
         call EnableTrigger(gg_trg_Events_Elapsed)
     endif
 endfunction

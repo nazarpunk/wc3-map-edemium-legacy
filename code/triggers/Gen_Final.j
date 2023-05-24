@@ -1,4 +1,3 @@
-
 function Trig_Gen_Final_Func003Func001A takes nothing returns nothing
     set udg_ChestKeyOwner[bj_forLoopBIndex] = GetEnumUnit()
     call AddSpecialEffectTargetUnitBJ("chest", GetEnumUnit(), "war3mapImported\\LootEFFECT.mdx")
@@ -16,49 +15,12 @@ function Trig_Gen_Final_Func007Func001A takes nothing returns nothing
     call GroupRemoveUnitSimple(GetEnumUnit(), udg_D_Pick)
 endfunction
 
-function Trig_Gen_Final_Func011Func001Func001C takes nothing returns boolean
-    if((GetDestructableTypeId(GetEnumDestructable()) != 0x42303156))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) != 0x42303053))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) != 0x4230314B))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) != 0x4230314C))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) != 0x4230315A))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) != 0x42303159))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) != 0x42303231))then
-        return true
-    endif
-    return false
-endfunction
-
-function Trig_Gen_Final_Func011Func001Func003C takes nothing returns boolean
-    if(not(GetDestructableTypeId(GetEnumDestructable()) == 0x42303134))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Final_Func011Func001C takes nothing returns boolean
-    if(not Trig_Gen_Final_Func011Func001Func001C())then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Gen_Final_Func011A takes nothing returns nothing
-    if(Trig_Gen_Final_Func011Func001C())then
+    local integer id = GetDestructableTypeId(GetEnumDestructable())
+
+    if id != 0x42303156 or id != 0x42303053 or id != 0x4230314B or id != 0x4230314C or id != 0x4230315A or id != 0x42303159 or id != 0x42303231 then
         call SetDestructableInvulnerableBJ(GetEnumDestructable(), true)
-        if(Trig_Gen_Final_Func011Func001Func003C())then
+        if id == 0x42303134 then
             set udg_D_Point1 = GetDestructableLoc(GetEnumDestructable())
             call RemoveDestructable(GetEnumDestructable())
             call CreateNUnitsAtLoc(1, 0x6E303049, Player(PLAYER_NEUTRAL_PASSIVE), udg_D_Point1, bj_UNIT_FACING)
@@ -67,40 +29,10 @@ function Trig_Gen_Final_Func011A takes nothing returns nothing
     endif
 endfunction
 
-function Trig_Gen_Final_Func012Func001Func001C takes nothing returns boolean
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303156))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303053))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x4230314B))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x4230314C))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x4230315A))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303159))then
-        return true
-    endif
-    if((GetDestructableTypeId(GetEnumDestructable()) == 0x42303231))then
-        return true
-    endif
-    return false
-endfunction
-
-function Trig_Gen_Final_Func012Func001C takes nothing returns boolean
-    if(not Trig_Gen_Final_Func012Func001Func001C())then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Gen_Final_Func012A takes nothing returns nothing
-    if(Trig_Gen_Final_Func012Func001C())then
+    local integer id = GetDestructableTypeId(GetEnumDestructable())
+
+    if id == 0x42303156 or id == 0x42303053 or id == 0x4230314B or id == 0x4230314C or id == 0x4230315A or id == 0x42303159 or id == 0x42303231 then
         call SetDestructableInvulnerableBJ(GetEnumDestructable(), false)
     endif
 endfunction

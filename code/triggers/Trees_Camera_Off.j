@@ -74,14 +74,14 @@ function Trig_Trees_Camera_Off_Actions takes nothing returns nothing
             set udg_Point = GetRectCenter(gg_rct_Onkie_Room_Enter)
             set udg_Camera = gg_cam_Onkie_Room
         else
-            call SetCameraBoundsToRect(GetPlayableMapRect())
+            call SetCameraBoundsToRect(bj_mapInitialPlayableArea)
             if(Trig_Trees_Camera_Off_Func009Func002Func002C())then
                 call ConditionalTriggerExecute(gg_trg_Coliseum_Start)
                 set udg_Point = GetRectCenter(gg_rct_Coliseum_Enter)
                 call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 3.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
             else
                 if(Trig_Trees_Camera_Off_Func009Func002Func002Func005C())then
-                    call SetCameraBoundsToRect(GetPlayableMapRect())
+                    call SetCameraBoundsToRect(bj_mapInitialPlayableArea)
                     call CinematicFadeBJ(bj_CINEFADETYPE_FADEOUT, 0.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
                     set udg_Point = GetRectCenter(gg_rct_Boss_Room_Enter)
                     if(Trig_Trees_Camera_Off_Func009Func002Func002Func005Func004C())then

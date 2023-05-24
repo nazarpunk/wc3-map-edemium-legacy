@@ -1,24 +1,10 @@
-function Trig_Gen_Rooms_Func002Func001Func005C takes nothing returns boolean
-    if(not(CountUnitsInGroup(udg_D_Pick2) == 3))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Rooms_Func002Func001C takes nothing returns boolean
-    if(not(GetRandomInt(1, 2) == 1))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Gen_Rooms_Func002A takes nothing returns nothing
-    if(Trig_Gen_Rooms_Func002Func001C())then
+    if GetRandomInt(1, 2) == 1 then
         set udg_D_Pick2 = GetUnitsInRangeOfLocAll(800.00, GetUnitLoc(GetEnumUnit()))
         set udg_D_Pick3 = GetUnitsOfTypeIdAll(0x6830304D)
         call GroupRemoveGroup(udg_D_Pick3, udg_D_Pick2)
         call DestroyGroup(udg_D_Pick3)
-        if(Trig_Gen_Rooms_Func002Func001Func005C())then
+        if CountUnitsInGroup(udg_D_Pick2) == 3 then
             set udg_D_Point1 = GetUnitLoc(GetEnumUnit())
             call RemoveUnit(GetEnumUnit())
             call CreateNUnitsAtLoc(1, 0x68303054, Player(0), udg_D_Point1, bj_UNIT_FACING)

@@ -2,12 +2,14 @@ function Trig_Initialisation_Actions takes nothing returns nothing
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEOUT, 0.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
     set udg_CinematicPosition = GetUnitLoc(gg_unit_H000_0004)
     call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
+    call SetSkyModel("war3mapImported\\skyLight.mdx")
+    call SetTerrainFogExBJ(0, 1100.00, 15000.00, 0.50, 0.00, 20.00, 100)
+    
     call StopSound(bj_nightAmbientSound, true, true)
+
     set udg_Arct = gg_unit_H000_0004
     call SetUnitLifePercentBJ(udg_Arct, 100)
     call SetUnitManaPercentBJ(udg_Arct, 100)
-    call SetSkyModel("war3mapImported\\skyLight.mdx")
-    call SetTerrainFogExBJ(0, 1100.00, 15000.00, 0.50, 0.00, 20.00, 100)
     call UnitAddAbilityBJ(0x41303138, udg_Arct)
     call UnitAddAbilityBJ(0x41303537, udg_Arct)
     call UnitAddAbilityBJ(0x41303530, udg_Arct)
@@ -44,7 +46,7 @@ function Trig_Initialisation_Actions takes nothing returns nothing
     call RegionAddRect(udg_Region11, gg_rct_Workshop_Core)
     call FogEnable(false)
     call FogMaskEnable(false)
-    call CreateFogModifierRectBJ(true, Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect())
+    call CreateFogModifierRectBJ(true, Player(0), FOG_OF_WAR_VISIBLE, bj_mapInitialPlayableArea)
     call EnableDawnDusk(false)
     call StopMusic(false)
     call ClearMapMusic()
