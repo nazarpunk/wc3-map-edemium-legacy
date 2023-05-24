@@ -15,16 +15,9 @@ function Trig_Fade_Loop_Func001A takes nothing returns nothing
     endif
 endfunction
 
-function Trig_Fade_Loop_Func002C takes nothing returns boolean
-    if(not(CountUnitsInGroup(udg_FadeSystemGroup) == 0))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Fade_Loop_Actions takes nothing returns nothing
     call ForGroupBJ(udg_FadeSystemGroup, function Trig_Fade_Loop_Func001A)
-    if(Trig_Fade_Loop_Func002C())then
+    if CountUnitsInGroup(udg_FadeSystemGroup) == 0 then
         call DisableTrigger(GetTriggeringTrigger())
     endif
 endfunction

@@ -6,19 +6,8 @@ function Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001Func001Func001F
     return true
 endfunction
 
-function Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001Func001Func001Func005001 takes nothing returns boolean
-    return(udg_RandomNumber == 6)
-endfunction
-
-function Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001Func001Func001Func005002 takes nothing returns boolean
-    return(udg_RandomNumber == 7)
-endfunction
-
 function Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
-    if(not GetBooleanOr(Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001Func001Func001Func005001(), Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001Func001Func001Func005002()))then
-        return false
-    endif
-    return true
+    return udg_RandomNumber == 6 or udg_RandomNumber == 7
 endfunction
 
 function Trig_Gen_Decor_Walls_Func002Func001Func001Func001Func001Func001C takes nothing returns boolean
@@ -84,19 +73,8 @@ function Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001Func001Func001F
     return true
 endfunction
 
-function Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001Func001Func001Func005001 takes nothing returns boolean
-    return(udg_RandomNumber == 6)
-endfunction
-
-function Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001Func001Func001Func005002 takes nothing returns boolean
-    return(udg_RandomNumber == 7)
-endfunction
-
 function Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001Func001Func001C takes nothing returns boolean
-    if(not GetBooleanOr(Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001Func001Func001Func005001(), Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001Func001Func001Func005002()))then
-        return false
-    endif
-    return true
+    return udg_RandomNumber == 6 or udg_RandomNumber == 7
 endfunction
 
 function Trig_Gen_Decor_Walls_Func003Func002Func001Func001Func001Func001C takes nothing returns boolean
@@ -162,19 +140,8 @@ function Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001Func001Func001F
     return true
 endfunction
 
-function Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001Func001Func001Func005001 takes nothing returns boolean
-    return(udg_RandomNumber == 6)
-endfunction
-
-function Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001Func001Func001Func005002 takes nothing returns boolean
-    return(udg_RandomNumber == 7)
-endfunction
-
 function Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
-    if(not GetBooleanOr(Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001Func001Func001Func005001(), Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001Func001Func001Func005002()))then
-        return false
-    endif
-    return true
+    return udg_RandomNumber == 6 or udg_RandomNumber == 7
 endfunction
 
 function Trig_Gen_Decor_Walls_Func004Func001Func001Func001Func001Func001C takes nothing returns boolean
@@ -228,84 +195,6 @@ endfunction
 
 function Trig_Gen_Decor_Walls_Func004C takes nothing returns boolean
     if(not(udg_D_WallType == 3))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 8))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001Func001Func005001 takes nothing returns boolean
-    return(udg_RandomNumber == 6)
-endfunction
-
-function Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001Func001Func005002 takes nothing returns boolean
-    return(udg_RandomNumber == 7)
-endfunction
-
-function Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
-    if(not GetBooleanOr(Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001Func001Func005001(), Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001Func001Func005002()))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 5))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 4))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func003C takes nothing returns boolean
-    if(not(GetRandomInt(1, 2) == 1))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Decor_Walls_Func005Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 3))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Decor_Walls_Func005Func001Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 2))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Decor_Walls_Func005Func001Func002C takes nothing returns boolean
-    if(not(udg_D_Torches == 5))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Decor_Walls_Func005Func001C takes nothing returns boolean
-    if(not(udg_RandomNumber == 1))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Decor_Walls_Func005C takes nothing returns boolean
-    if(not(udg_D_WallType == 4))then
         return false
     endif
     return true
@@ -433,37 +322,36 @@ function Trig_Gen_Decor_Walls_Actions takes nothing returns nothing
             endif
         endif
     endif
-    if(Trig_Gen_Decor_Walls_Func005C())then
-        if(Trig_Gen_Decor_Walls_Func005Func001C())then
-            if(Trig_Gen_Decor_Walls_Func005Func001Func002C())then
-            else
+    if udg_D_WallType == 4 then
+        if udg_RandomNumber == 1 then
+            if udg_D_Torches != 5 then
                 set udg_D_Torches = (udg_D_Torches + 1)
                 call CreateDestructableLoc(0x42303051, udg_D_PointOffset, 90.00, 1.80, 0)
             endif
         else
-            if(Trig_Gen_Decor_Walls_Func005Func001Func001C())then
+            if udg_RandomNumber == 2 then
                 call CreateDestructableLoc(0x4230304C, udg_D_PointOffset, 190.00, 2.30, 0)
             else
-                if(Trig_Gen_Decor_Walls_Func005Func001Func001Func001C())then
+                if udg_RandomNumber == 3 then
                     call CreateDestructableLoc(0x4230304D, udg_D_PointOffset, 180.00, 2.70, 0)
-                    if(Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func003C())then
+                    if GetRandomInt(1, 2) == 1 then
                         call CreateDestructableLoc(0x4230304F, udg_D_PointOffset, GetRandomReal(0, 360.00), 1.30, 0)
                     else
                         call CreateDestructableLoc(0x4230304E, udg_D_PointOffset, GetRandomReal(0, 360.00), 1.00, 0)
                     endif
                 else
-                    if(Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001C())then
+                    if udg_RandomNumber == 4 then
                         call CreateDestructableLoc(0x4230304B, udg_D_PointOffset, 90.00, 2.40, 0)
                     else
-                        if(Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001C())then
+                        if udg_RandomNumber == 5 then
                             call CreateDestructableLoc(0x42303052, udg_D_PointOffset, 0.00, 2.40, 0)
                         else
-                            if(Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001Func001C())then
+                            if udg_RandomNumber == 6 or udg_RandomNumber == 7 then
                                 set udg_Point = OffsetLocation(udg_D_PointOffset, 0.00, 30.00)
                                 call CreateDestructableLoc(0x42303053, udg_Point, 90.00, 0.90, 0)
                                 call RemoveLocation(udg_Point)
                             else
-                                if(Trig_Gen_Decor_Walls_Func005Func001Func001Func001Func001Func001Func001Func001C())then
+                                if udg_RandomNumber == 8 then
                                     call CreateDestructableLoc(0x42303135, udg_D_PointOffset, 180.00, 1.50, 0)
                                 endif
                             endif

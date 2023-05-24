@@ -249,7 +249,6 @@
 //! import "triggers/Orbs_System_2.j"
 //! import "triggers/Item_Pickup_JASS.j"
 //! import "triggers/Quest_Progress.j"
-//! import "triggers/Level.j"
 //! import "triggers/Scrolls.j"
 //! import "triggers/Suicide.j"
 //! import "triggers/Unlock_Difficulties.j"
@@ -262,7 +261,6 @@
 //! import "triggers/Item_Clear.j"
 //! import "triggers/Ability_Points.j"
 //! import "triggers/Item_Max_Lvl.j"
-//! import "triggers/Heal.j"
 //! import "triggers/Ending_Init.j"
 //! import "triggers/Ending_Dialogue_1.j"
 //! import "triggers/Ending_Dialogue_2.j"
@@ -278,6 +276,8 @@
 //! import "triggers/chat/Check_Lvl.j"
 //! import "triggers/chat/Damage.j"
 //! import "triggers/chat/Exp.j"
+//! import "triggers/chat/Heal.j"
+//! import "triggers/chat/Level.j"
 
 //! import "InitCustomTriggers.j"
 

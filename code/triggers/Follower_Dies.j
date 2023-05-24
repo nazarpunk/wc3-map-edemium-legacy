@@ -1,9 +1,5 @@
-
 function Trig_Follower_Dies_Conditions takes nothing returns boolean
-    if(not(IsUnitInGroup(GetTriggerUnit(), udg_FollowersGroup) == true))then
-        return false
-    endif
-    return true
+    return IsUnitInGroup(GetTriggerUnit(), udg_FollowersGroup)
 endfunction
 
 function Trig_Follower_Dies_Actions takes nothing returns nothing

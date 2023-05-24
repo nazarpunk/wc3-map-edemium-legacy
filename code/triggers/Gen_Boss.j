@@ -1,25 +1,3 @@
-
-function Trig_Gen_Boss_Func042Func001Func001C takes nothing returns boolean
-    if(not(udg_EM_BossCreate[3] == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Boss_Func042Func001C takes nothing returns boolean
-    if(not(udg_EM_BossCreate[2] == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Boss_Func042C takes nothing returns boolean
-    if(not(udg_EM_BossCreate[1] == true))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Gen_Boss_Actions takes nothing returns nothing
     set udg_Training = false
     call SetPlayerHandicapBJ(Player(11), (100.00 * I2R(udg_Difficulty)))
@@ -65,14 +43,14 @@ function Trig_Gen_Boss_Actions takes nothing returns nothing
     set udg_AS_AbilityCountLVL_Base = udg_AS_AbilityCountLVL
     set udg_AS_Points_Base = udg_AS_Points
     set udg_D_Point1 = GetRectCenter(gg_rct_Boss_Spawn)
-    if(Trig_Gen_Boss_Func042C())then
+    if udg_EM_BossCreate[1] then
         set udg_EM_BossCreate[1] = false
         call CreateNUnitsAtLoc(1, 0x6E30304C, Player(11), udg_D_Point1, bj_UNIT_FACING)
         call SetUnitUserData(GetLastCreatedUnit(), 111)
         call PlayMusic((("/Edemium/MusicBoss1.mp3")))
         call EnableTrigger(gg_trg_Boss_Creep_Spawn)
     else
-        if(Trig_Gen_Boss_Func042Func001C())then
+        if udg_EM_BossCreate[2] then
             set udg_EM_BossCreate[2] = false
             call RemoveLocation(udg_D_Point1)
             set udg_D_Point1 = GetRectCenter(gg_rct_Boss_2_Spawn)
@@ -83,7 +61,7 @@ function Trig_Gen_Boss_Actions takes nothing returns nothing
             call DisableTrigger(gg_trg_Boss_II_Channel_Periodic)
             call DisableTrigger(gg_trg_Boss_II_Channel_Init)
         else
-            if(Trig_Gen_Boss_Func042Func001Func001C())then
+            if udg_EM_BossCreate[3] then
                 set udg_EM_BossCreate[3] = false
                 call RemoveLocation(udg_D_Point1)
                 set udg_D_Point1 = GetRectCenter(gg_rct_Boss_3_Spawn)

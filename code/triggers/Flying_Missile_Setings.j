@@ -1,71 +1,9 @@
-
 function Trig_Flying_Missile_Setings_Conditions takes nothing returns boolean
-    if(not(0x4130354B == GetSpellAbilityId()))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Flying_Missile_Setings_Func003C takes nothing returns boolean
-    if(not(udg_BL_Skip == 0))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Flying_Missile_Setings_Func019Func001Func001Func001Func009Func001C takes nothing returns boolean
-    if(not(GetUnitTypeId(GetTriggerUnit()) == 0x68303149))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Flying_Missile_Setings_Func019Func001Func001Func001Func009C takes nothing returns boolean
-    if(not(udg_BL_Idol == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Flying_Missile_Setings_Func019Func001Func001Func001C takes nothing returns boolean
-    if(not(GetUnitTypeId(GetTriggerUnit()) == 0x68303039))then
-        return false
-    endif
-    if(not(GetUnitUserData(GetTriggerUnit()) == 33))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Flying_Missile_Setings_Func019Func001Func001C takes nothing returns boolean
-    if(not(GetUnitTypeId(GetTriggerUnit()) == 0x68303134))then
-        return false
-    endif
-    if(not(GetUnitUserData(GetTriggerUnit()) == 22))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Flying_Missile_Setings_Func019Func001C takes nothing returns boolean
-    if(not(GetUnitTypeId(GetTriggerUnit()) == 0x68303134))then
-        return false
-    endif
-    if(not(GetUnitUserData(GetTriggerUnit()) != 22))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Flying_Missile_Setings_Func019C takes nothing returns boolean
-    if(not(GetUnitTypeId(GetTriggerUnit()) == 0x68303133))then
-        return false
-    endif
-    return true
+    return 0x4130354B == GetSpellAbilityId()
 endfunction
 
 function Trig_Flying_Missile_Setings_Actions takes nothing returns nothing
-    if(Trig_Flying_Missile_Setings_Func003C())then
+    if udg_BL_Skip == 0 then
         call EnableTrigger(gg_trg_Flying_Missile_Loop)
     endif
     set udg_BL_Skip = (udg_BL_Skip + 1)
@@ -82,28 +20,28 @@ function Trig_Flying_Missile_Setings_Actions takes nothing returns nothing
     call CreateNUnitsAtLoc(1, 0x6E303053, GetOwningPlayer(udg_BL_Hero[udg_BL_Times]), udg_BL_Point[0], udg_BL_Angle[udg_BL_Times])
     set udg_BL_Missile[udg_BL_Times] = GetLastCreatedUnit()
     call SetUnitFlyHeightBJ(udg_BL_Missile[udg_BL_Times], 30.00, 0.00)
-    if(Trig_Flying_Missile_Setings_Func019C())then
+    if GetUnitTypeId(GetTriggerUnit()) == 0x68303133 then
         set udg_BL_Dmg[udg_BL_Times] = (50.00 * I2R(udg_Difficulty))
         call AddSpecialEffectTargetUnitBJ("chest", udg_BL_Missile[udg_BL_Times], "Abilities\\Weapons\\LordofFlameMissile\\LordofFlameMissile.mdl")
         set udg_BL_Effect1[udg_BL_Times] = GetLastCreatedEffectBJ()
         call AddSpecialEffectTargetUnitBJ("chest", udg_BL_Missile[udg_BL_Times], "Abilities\\Weapons\\VengeanceMissile\\VengeanceMissile.mdl")
         set udg_BL_Effect2[udg_BL_Times] = GetLastCreatedEffectBJ()
     else
-        if(Trig_Flying_Missile_Setings_Func019Func001C())then
+        if GetUnitTypeId(GetTriggerUnit()) == 0x68303134 and GetUnitUserData(GetTriggerUnit()) != 22 then
             set udg_BL_Dmg[udg_BL_Times] = (50.00 * I2R(udg_Difficulty))
             call AddSpecialEffectTargetUnitBJ("chest", udg_BL_Missile[udg_BL_Times], "Abilities\\Weapons\\AvengerMissile\\AvengerMissile.mdl")
             set udg_BL_Effect1[udg_BL_Times] = GetLastCreatedEffectBJ()
             call AddSpecialEffectTargetUnitBJ("chest", udg_BL_Missile[udg_BL_Times], "Abilities\\Weapons\\AvengerMissile\\AvengerMissile.mdl")
             set udg_BL_Effect2[udg_BL_Times] = GetLastCreatedEffectBJ()
         else
-            if(Trig_Flying_Missile_Setings_Func019Func001Func001C())then
+            if GetUnitTypeId(GetTriggerUnit()) == 0x68303134 and GetUnitUserData(GetTriggerUnit()) == 22 then
                 set udg_BL_Dmg[udg_BL_Times] = (120.00 * I2R(udg_Difficulty))
                 call AddSpecialEffectTargetUnitBJ("chest", udg_BL_Missile[udg_BL_Times], "Abilities\\Weapons\\GreenDragonMissile\\GreenDragonMissile.mdl")
                 set udg_BL_Effect1[udg_BL_Times] = GetLastCreatedEffectBJ()
                 call AddSpecialEffectTargetUnitBJ("chest", udg_BL_Missile[udg_BL_Times], "Abilities\\Weapons\\ChimaeraAcidMissile\\ChimaeraAcidMissile.mdl")
                 set udg_BL_Effect2[udg_BL_Times] = GetLastCreatedEffectBJ()
             else
-                if(Trig_Flying_Missile_Setings_Func019Func001Func001Func001C())then
+                if GetUnitTypeId(GetTriggerUnit()) == 0x68303039 and GetUnitUserData(GetTriggerUnit()) == 33 then
                     set udg_BL_Dmg[udg_BL_Times] = (200.00 * I2R(udg_Difficulty))
                     call AddSpecialEffectTargetUnitBJ("chest", udg_BL_Missile[udg_BL_Times], "war3mapImported\\Black Missile.mdx")
                     set udg_BL_Effect1[udg_BL_Times] = GetLastCreatedEffectBJ()
@@ -111,14 +49,14 @@ function Trig_Flying_Missile_Setings_Actions takes nothing returns nothing
                     set udg_BL_Effect2[udg_BL_Times] = GetLastCreatedEffectBJ()
                     set udg_BL_Speed[udg_BL_Times] = (14.00 + I2R(udg_Difficulty))
                 else
-                    if(Trig_Flying_Missile_Setings_Func019Func001Func001Func001Func009C())then
+                    if udg_BL_Idol then
                         set udg_BL_Dmg[udg_BL_Times] = (50.00 * I2R(udg_Difficulty))
                         call AddSpecialEffectTargetUnitBJ("chest", udg_BL_Missile[udg_BL_Times], "Abilities\\Weapons\\AncestralGuardianMissile\\AncestralGuardianMissile.mdl")
                         set udg_BL_Effect1[udg_BL_Times] = GetLastCreatedEffectBJ()
                         call AddSpecialEffectTargetUnitBJ("chest", udg_BL_Missile[udg_BL_Times], "Abilities\\Weapons\\VengeanceMissile\\VengeanceMissile.mdl")
                         set udg_BL_Effect2[udg_BL_Times] = GetLastCreatedEffectBJ()
                     else
-                        if(Trig_Flying_Missile_Setings_Func019Func001Func001Func001Func009Func001C())then
+                        if GetUnitTypeId(GetTriggerUnit()) == 0x68303149 then
                             set udg_BL_Dmg[udg_BL_Times] = (I2R(udg_CO_Power) * 3.00)
                             set udg_BL_Dmg[udg_BL_Times] = (udg_BL_Dmg[udg_BL_Times] + I2R(udg_CO_Combo))
                             call AddSpecialEffectTargetUnitBJ("chest", udg_BL_Missile[udg_BL_Times], "Abilities\\Weapons\\PriestMissile\\PriestMissile.mdl")

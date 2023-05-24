@@ -1,13 +1,6 @@
-function Trig_Gen_Cells_Func001Func006Func003Func002C takes nothing returns boolean
-    if(not(udg_D_PortalLogic[2] == false))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Gen_Cells_Func001Func006Func003A takes nothing returns nothing
     set udg_D_Cell = GetEnumUnit()
-    if(Trig_Gen_Cells_Func001Func006Func003Func002C())then
+    if not udg_D_PortalLogic[2] then
         set udg_D_Point1 = GetUnitLoc(udg_D_CellPrevious)
         call CreateDestructableLoc(0x42303134, udg_D_Point1, GetRandomDirectionDeg(), 1, 0)
         call RemoveLocation(udg_D_Point1)
@@ -23,20 +16,6 @@ function Trig_Gen_Cells_Func001Func006Func003A takes nothing returns nothing
     call GroupRemoveUnitSimple(udg_D_Cell, udg_D_Pick)
 endfunction
 
-function Trig_Gen_Cells_Func001Func006C takes nothing returns boolean
-    if(not(CountUnitsInGroup(udg_D_Pick) == 0))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Cells_Func001Func007Func008C takes nothing returns boolean
-    if(not(udg_D_PortalLogic[1] == true))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Gen_Cells_Func001Func007A takes nothing returns nothing
     set udg_D_Cell = GetEnumUnit()
     set udg_D_Point1 = GetUnitLoc(udg_D_Cell)
@@ -45,42 +24,12 @@ function Trig_Gen_Cells_Func001Func007A takes nothing returns nothing
     set udg_D_CellNumber[bj_forLoopAIndex] = GetLastCreatedUnit()
     call SetTerrainTypeBJ(udg_D_Point1, 0x58626C6D, - 1, 4, 1)
     call SetTerrainTypeBJ(udg_D_Point1, udg_D_TextureType, - 1, 3, 1)
-    if(Trig_Gen_Cells_Func001Func007Func008C())then
+    if udg_D_PortalLogic[1] then
         set udg_D_PortalLogic[1] = false
         call CreateDestructableLoc(0x42303134, udg_D_Point1, GetRandomDirectionDeg(), 1, 0)
         set udg_D_Portals = (udg_D_Portals + 1)
         call RemoveLocation(udg_D_Point1)
     endif
-endfunction
-
-function Trig_Gen_Cells_Func001Func008Func002Func001C takes nothing returns boolean
-    if(not(udg_EM_BossCreate[1] == false))then
-        return false
-    endif
-    if(not(udg_EM_BossCreate[2] == false))then
-        return false
-    endif
-    if(not(udg_EM_BossCreate[3] == false))then
-        return false
-    endif
-    if(not(udg_EM_BossCreate[4] == false))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Cells_Func001Func008Func002C takes nothing returns boolean
-    if(not Trig_Gen_Cells_Func001Func008Func002Func001C())then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Cells_Func001Func008C takes nothing returns boolean
-    if(not(bj_forLoopAIndex == udg_D_Rooms))then
-        return false
-    endif
-    return true
 endfunction
 
 function Trig_Gen_Cells_Actions takes nothing returns nothing
@@ -93,15 +42,15 @@ function Trig_Gen_Cells_Actions takes nothing returns nothing
         call GroupRemoveGroup(udg_D_Pick2, udg_D_Pick)
         call GroupRemoveUnitSimple(udg_D_Cell, udg_D_Pick)
         call RemoveUnit(udg_D_Cell)
-        if(Trig_Gen_Cells_Func001Func006C())then
+        if CountUnitsInGroup(udg_D_Pick) == 0 then
             call DestroyGroup(udg_D_Pick)
             set udg_D_Pick = GetUnitsOfTypeIdAll(0x6830304C)
             call ForGroupBJ(GetRandomSubGroup(1, udg_D_Pick), function Trig_Gen_Cells_Func001Func006Func003A)
         endif
         call ForGroupBJ(GetRandomSubGroup(1, udg_D_Pick), function Trig_Gen_Cells_Func001Func007A)
-        if(Trig_Gen_Cells_Func001Func008C())then
+        if bj_forLoopAIndex == udg_D_Rooms then
             set udg_D_Point1 = GetUnitLoc(udg_D_Cell)
-            if(Trig_Gen_Cells_Func001Func008Func002C())then
+            if not udg_EM_BossCreate[1] and not udg_EM_BossCreate[2] and not udg_EM_BossCreate[3] and not udg_EM_BossCreate[4] then
                 call SetUnitPositionLoc(udg_D_Exit, udg_D_Point1)
             endif
             call RemoveLocation(udg_D_Point1)

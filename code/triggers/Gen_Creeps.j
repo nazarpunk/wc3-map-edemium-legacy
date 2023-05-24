@@ -3,59 +3,23 @@ function Trig_Gen_Creeps_Func003002 takes nothing returns nothing
     call SetUnitUserData(GetEnumUnit(), 0)
 endfunction
 
-function Trig_Gen_Creeps_Func005Func002Func004C takes nothing returns boolean
-    if(not(udg_RandomNumber <= 50))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Creeps_Func005Func002Func005Func003001 takes nothing returns boolean
-    return(udg_RandomNumber > 50)
-endfunction
-
-function Trig_Gen_Creeps_Func005Func002Func005Func003002 takes nothing returns boolean
-    return(udg_RandomNumber <= 91)
-endfunction
-
-function Trig_Gen_Creeps_Func005Func002Func005C takes nothing returns boolean
-    if(not GetBooleanAnd(Trig_Gen_Creeps_Func005Func002Func005Func003001(), Trig_Gen_Creeps_Func005Func002Func005Func003002()))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Creeps_Func005Func002Func006C takes nothing returns boolean
-    if(not(udg_RandomNumber > 91))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Creeps_Func005Func002Func007C takes nothing returns boolean
-    if(not(GetUnitUserData(GetEnumUnit()) == 2))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Gen_Creeps_Func005Func002A takes nothing returns nothing
     set udg_CO_CustomValue = (udg_CO_CustomValue + 1)
     set udg_D_Point2 = GetUnitLoc(GetEnumUnit())
     set udg_D_Point1 = OffsetLocation(udg_D_Point2, GetRandomReal(- 300.00, 300.00), GetRandomReal(- 300.00, 300.00))
-    if(Trig_Gen_Creeps_Func005Func002Func004C())then
+    if udg_RandomNumber <= 50 then
         call CreateNUnitsAtLoc(1, udg_D_CreepType[1], Player(11), udg_D_Point1, GetRandomReal(0, 360.00))
         call SetUnitUserData(GetEnumUnit(), (GetUnitUserData(GetEnumUnit()) + 1))
     endif
-    if(Trig_Gen_Creeps_Func005Func002Func005C())then
+    if udg_RandomNumber > 50 and udg_RandomNumber <= 91 then
         call CreateNUnitsAtLoc(1, udg_D_CreepType[2], Player(11), udg_D_Point1, GetRandomReal(0, 360.00))
         call SetUnitUserData(GetEnumUnit(), (GetUnitUserData(GetEnumUnit()) + 1))
     endif
-    if(Trig_Gen_Creeps_Func005Func002Func006C())then
+    if udg_RandomNumber > 91 then
         call CreateNUnitsAtLoc(1, udg_D_CreepType[3], Player(11), udg_D_Point1, GetRandomReal(0, 360.00))
         call SetUnitUserData(GetEnumUnit(), (GetUnitUserData(GetEnumUnit()) + 1))
     endif
-    if(Trig_Gen_Creeps_Func005Func002Func007C())then
+    if GetUnitUserData(GetEnumUnit()) == 2 then
         call GroupRemoveUnitSimple(GetEnumUnit(), udg_D_Pick)
     endif
     call SetUnitManaPercentBJ(GetLastCreatedUnit(), 100)
@@ -64,33 +28,12 @@ function Trig_Gen_Creeps_Func005Func002A takes nothing returns nothing
     call RemoveLocation(udg_D_Point1)
 endfunction
 
-function Trig_Gen_Creeps_Func007Func002C takes nothing returns boolean
-    if(not(udg_D_Rooms < 45))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Creeps_Func007C takes nothing returns boolean
-    if(not(udg_EM_Encounter == false))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Creeps_Func008Func005C takes nothing returns boolean
-    if(not(udg_D_CreepType[udg_RandomNumber] == 0x6E30304F))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Gen_Creeps_Func008A takes nothing returns nothing
     set udg_RandomNumber = GetRandomInt(4, 5)
     call ReplaceUnitBJ(GetEnumUnit(), udg_D_CreepType[udg_RandomNumber], bj_UNIT_STATE_METHOD_RELATIVE)
     call SetUnitOwner(GetLastReplacedUnitBJ(), Player(11), false)
     call SetUnitManaPercentBJ(GetLastReplacedUnitBJ(), 100)
-    if(Trig_Gen_Creeps_Func008Func005C())then
+    if udg_D_CreepType[udg_RandomNumber] == 0x6E30304F then
         set udg_Point = GetUnitLoc(GetLastReplacedUnitBJ())
         call CreateNUnitsAtLoc(1, 0x68303039, Player(0), udg_Point, bj_UNIT_FACING)
         call RemoveLocation(udg_Point)
@@ -121,8 +64,8 @@ function Trig_Gen_Creeps_Actions takes nothing returns nothing
         call ForGroupBJ(GetRandomSubGroup(1, udg_D_Pick), function Trig_Gen_Creeps_Func005Func002A)
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop
-    if(Trig_Gen_Creeps_Func007C())then
-        if(Trig_Gen_Creeps_Func007Func002C())then
+    if not udg_EM_Encounter then
+        if udg_D_Rooms < 45 then
             set udg_RandomNumber = GetRandomInt(2, 4)
         else
             set udg_RandomNumber = GetRandomInt(4, 6)

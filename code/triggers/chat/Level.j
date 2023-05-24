@@ -1,4 +1,3 @@
-
 function Trig_Level_Actions takes nothing returns nothing
     call SetHeroLevelBJ(udg_Arct, S2I(SubStringBJ(GetEventPlayerChatString(), 5, 6)), false)
 endfunction

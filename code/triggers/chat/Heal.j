@@ -1,4 +1,3 @@
-
 function Trig_Heal_Actions takes nothing returns nothing
     call SetUnitLifePercentBJ(udg_Arct, 100)
     call SetUnitManaPercentBJ(udg_Arct, 100)
