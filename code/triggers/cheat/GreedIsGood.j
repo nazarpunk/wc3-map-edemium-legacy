@@ -1,9 +1,6 @@
 
 function Trig_GreedIsGood_Conditions takes nothing returns boolean
-    if(not(GetPlayerState(Player(10), PLAYER_STATE_RESOURCE_GOLD) > 0))then
-        return false
-    endif
-    return true
+    return GetPlayerState(Player(10), PLAYER_STATE_RESOURCE_GOLD) > 0
 endfunction
 
 function Trig_GreedIsGood_Actions takes nothing returns nothing

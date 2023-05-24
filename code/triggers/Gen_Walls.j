@@ -1,58 +1,22 @@
-function Trig_Gen_Walls_Func005Func009Func001Func002C takes nothing returns boolean
-    if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) == 180.00))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Walls_Func005Func009Func001Func003C takes nothing returns boolean
-    if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) == 90.00))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Walls_Func005Func009Func001Func004C takes nothing returns boolean
-    if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) == 0.00))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Walls_Func005Func009Func001Func005C takes nothing returns boolean
-    if(not(AngleBetweenPoints(udg_D_Point1, udg_D_Point2) ==- 90.00))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Gen_Walls_Func005Func009Func001C takes nothing returns boolean
-    if(not(CountUnitsInGroup(udg_D_Pick) == 0))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Gen_Walls_Func005Func009A takes nothing returns nothing
-    if(Trig_Gen_Walls_Func005Func009Func001C())then
-    else
+    if CountUnitsInGroup(udg_D_Pick) != 0 then
         set udg_D_Point2 = GetUnitLoc(GetEnumUnit())
-        if(Trig_Gen_Walls_Func005Func009Func001Func002C())then
+        if AngleBetweenPoints(udg_D_Point1, udg_D_Point2) == 180.00 then
             set udg_D_PointOffset = OffsetLocation(udg_D_Point2, 400.00, 0)
             call CreateDestructableLoc(udg_D_WallTierType[2], udg_D_PointOffset, 0.00, 1.40, 0)
             call RemoveLocation(udg_D_PointOffset)
         endif
-        if(Trig_Gen_Walls_Func005Func009Func001Func003C())then
+        if AngleBetweenPoints(udg_D_Point1, udg_D_Point2) == 90.00 then
             set udg_D_PointOffset = OffsetLocation(udg_D_Point2, 0.00, - 400.00)
             call CreateDestructableLoc(udg_D_WallTierType[4], udg_D_PointOffset, 0.00, 1.40, 0)
             call RemoveLocation(udg_D_PointOffset)
         endif
-        if(Trig_Gen_Walls_Func005Func009Func001Func004C())then
+        if AngleBetweenPoints(udg_D_Point1, udg_D_Point2) == 0.00 then
             set udg_D_PointOffset = OffsetLocation(udg_D_Point2, - 350.00, 0.00)
             call CreateDestructableLoc(udg_D_WallTierType[1], udg_D_PointOffset, 0.00, 1.40, 0)
             call RemoveLocation(udg_D_PointOffset)
         endif
-        if(Trig_Gen_Walls_Func005Func009Func001Func005C())then
+        if AngleBetweenPoints(udg_D_Point1, udg_D_Point2) ==- 90.00 then
             set udg_D_PointOffset = OffsetLocation(udg_D_Point2, 0.00, 350.00)
             call CreateDestructableLoc(udg_D_WallTierType[3], udg_D_PointOffset, 0.00, 1.40, 0)
             call RemoveLocation(udg_D_PointOffset)
@@ -63,13 +27,6 @@ endfunction
 
 function Trig_Gen_Walls_Func005Func011Func002A takes nothing returns nothing
     call RemoveUnit(GetEnumUnit())
-endfunction
-
-function Trig_Gen_Walls_Func005Func011C takes nothing returns boolean
-    if(not(bj_forLoopBIndex == udg_D_Rooms))then
-        return false
-    endif
-    return true
 endfunction
 
 function Trig_Gen_Walls_Actions takes nothing returns nothing
@@ -91,7 +48,7 @@ function Trig_Gen_Walls_Actions takes nothing returns nothing
         call DestroyGroup(udg_D_Pick2)
         call ForGroupBJ(udg_D_Pick, function Trig_Gen_Walls_Func005Func009A)
         call RemoveUnit(GetEnumUnit())
-        if(Trig_Gen_Walls_Func005Func011C())then
+        if bj_forLoopBIndex == udg_D_Rooms then
             set udg_D_Pick = GetUnitsOfTypeIdAll(0x6830304C)
             call ForGroupBJ(udg_D_Pick, function Trig_Gen_Walls_Func005Func011Func002A)
             call DisplayTimedTextToForce(GetPlayersAll(), 10.00, ("Количество порталов: " + I2S(udg_D_Portals)))

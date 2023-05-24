@@ -192,7 +192,6 @@
 //! import "triggers/Augment_Info.j"
 //! import "triggers/Augment_Buy.j"
 //! import "triggers/WhosYourDaddy.j"
-//! import "triggers/GreedIsGood.j"
 //! import "triggers/ISeeDeadPeople.j"
 //! import "triggers/Camera_Hero.j"
 //! import "triggers/Camera_Tree.j"
@@ -256,7 +255,6 @@
 //! import "triggers/Camera_Disable.j"
 //! import "triggers/Set_Ingredients.j"
 //! import "triggers/Unhide_Recipes.j"
-//! import "triggers/God_Mode.j"
 //! import "triggers/Item_Generate.j"
 //! import "triggers/Item_Clear.j"
 //! import "triggers/Ability_Points.j"
@@ -278,6 +276,9 @@
 //! import "triggers/chat/Exp.j"
 //! import "triggers/chat/Heal.j"
 //! import "triggers/chat/Level.j"
+//! import "triggers/chat/God_Mode.j"
+
+//! import "triggers/cheat/GreedIsGood.j"
 
 //! import "InitCustomTriggers.j"
 

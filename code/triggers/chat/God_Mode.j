@@ -1,4 +1,3 @@
-
 function Trig_God_Mode_Actions takes nothing returns nothing
     call DestroyTrigger(gg_trg_WhosYourDaddy)
     call DestroyTrigger(gg_trg_GreedIsGood)

@@ -1,4 +1,3 @@
-
 function Trig_Hero_Levelup_Actions takes nothing returns nothing
     set udg_EX_LevelUp = (udg_EX_LevelUp + 1)
     call AddSpecialEffectTargetUnitBJ("origin", GetTriggerUnit(), "war3mapImported\\Holy_Retribution.mdx")
