@@ -1,60 +1,3 @@
-
-function Trig_Trees_Camera_Off_Func009Func002Func002Func005Func004Func002C takes nothing returns boolean
-    if(not(udg_EM_BossCreate[2] == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Trees_Camera_Off_Func009Func002Func002Func005Func004C takes nothing returns boolean
-    if(not(udg_EM_BossCreate[3] == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Trees_Camera_Off_Func009Func002Func002Func005Func006C takes nothing returns boolean
-    if(not(udg_ER_Logic == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Trees_Camera_Off_Func009Func002Func002Func005C takes nothing returns boolean
-    if(not(udg_EM_BossRoom == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Trees_Camera_Off_Func009Func002Func002C takes nothing returns boolean
-    if(not(udg_CS_Bool == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Trees_Camera_Off_Func009Func002C takes nothing returns boolean
-    if(not(udg_OnkieRoom == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Trees_Camera_Off_Func009C takes nothing returns boolean
-    if(not(udg_EnchantingRoom == true))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Trees_Camera_Off_Func018C takes nothing returns boolean
-    if(not(udg_Tutorial[3] == true))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Trees_Camera_Off_Actions takes nothing returns nothing
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 1.50, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
     call CameraSetSmoothingFactorBJ(0.00)
@@ -64,40 +7,40 @@ function Trig_Trees_Camera_Off_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Camera_Fix)
     call EnableTrigger(gg_trg_Leave_Hero_Regions)
     call AddUnitAnimationPropertiesBJ(false, "gold", gg_unit_H000_0004)
-    if(Trig_Trees_Camera_Off_Func009C())then
+    if udg_EnchantingRoom then
         call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Cavern)
         set udg_Point = GetRectCenter(gg_rct_Enchanting_Room_Enter)
         set udg_Camera = gg_cam_Enchanting_Cavern
     else
-        if(Trig_Trees_Camera_Off_Func009Func002C())then
+        if udg_OnkieRoom then
             call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Onkie)
             set udg_Point = GetRectCenter(gg_rct_Onkie_Room_Enter)
             set udg_Camera = gg_cam_Onkie_Room
         else
             call SetCameraBoundsToRect(bj_mapInitialPlayableArea)
-            if(Trig_Trees_Camera_Off_Func009Func002Func002C())then
+            if udg_CS_Bool then
                 call ConditionalTriggerExecute(gg_trg_Coliseum_Start)
                 set udg_Point = GetRectCenter(gg_rct_Coliseum_Enter)
                 call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 3.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
             else
-                if(Trig_Trees_Camera_Off_Func009Func002Func002Func005C())then
+                if udg_EM_BossRoom then
                     call SetCameraBoundsToRect(bj_mapInitialPlayableArea)
                     call CinematicFadeBJ(bj_CINEFADETYPE_FADEOUT, 0.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
                     set udg_Point = GetRectCenter(gg_rct_Boss_Room_Enter)
-                    if(Trig_Trees_Camera_Off_Func009Func002Func002Func005Func004C())then
+                    if udg_EM_BossCreate[3] then
                         call RemoveLocation(udg_Point)
                         set udg_Point = GetRectCenter(gg_rct_Boss_3_Room_Enter)
                         call EnableTrigger(gg_trg_Camera_Boss)
                     else
                         call EnableTrigger(gg_trg_Camera_Hero)
-                        if(Trig_Trees_Camera_Off_Func009Func002Func002Func005Func004Func002C())then
+                        if udg_EM_BossCreate[2] then
                             call RemoveLocation(udg_Point)
                             set udg_Point = GetRectCenter(gg_rct_Boss_2_Room_Enter)
                         endif
                     endif
                     call DisableTrigger(gg_trg_Camera_Fix)
                 else
-                    if(Trig_Trees_Camera_Off_Func009Func002Func002Func005Func006C())then
+                    if udg_ER_Logic then
                         set udg_Point = GetRectCenter(gg_rct_Arena_Enter)
                         call EnableTrigger(gg_trg_Camera_Hero)
                         call DisableTrigger(gg_trg_Camera_Fix)
@@ -118,7 +61,7 @@ function Trig_Trees_Camera_Off_Actions takes nothing returns nothing
     set udg_CameraDistance = 1700
     set udg_CameraAngle = 300
     call TriggerSleepAction(0.10)
-    if(Trig_Trees_Camera_Off_Func018C())then
+    if udg_Tutorial[3] then
         call ConditionalTriggerExecute(gg_trg_Tutorial02)
     endif
     call DisableTrigger(GetTriggeringTrigger())

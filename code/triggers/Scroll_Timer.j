@@ -1,4 +1,3 @@
-
 function Trig_Scroll_Timer_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Scroll_Periodic)
 endfunction

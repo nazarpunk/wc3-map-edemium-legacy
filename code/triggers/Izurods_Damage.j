@@ -1,33 +1,8 @@
-
-function Trig_Izurods_Damage_Func001Func003C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_LIFE, GetTriggerUnit()) <= I2R(udg_RandomNumber)))then
-        return false
-    endif
-    if(not(GetUnitUserData(GetTriggerUnit()) == 70))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Izurods_Damage_Func001C takes nothing returns boolean
-    if(not(GetUnitTypeId(udg_DamageEventTarget) == 0x6E30304F))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Izurods_Damage_Func002C takes nothing returns boolean
-    if(not(UnitHasBuffBJ(GetTriggerUnit(), 0x42486162) == true))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Izurods_Damage_Actions takes nothing returns nothing
-    if(Trig_Izurods_Damage_Func001C())then
+    if GetUnitTypeId(udg_DamageEventTarget) == 0x6E30304F then
         set udg_RandomNumber = (R2I(GetUnitStateSwap(UNIT_STATE_MAX_LIFE, GetTriggerUnit())) * 85)
         set udg_RandomNumber = (udg_RandomNumber / 100)
-        if(Trig_Izurods_Damage_Func001Func003C())then
+        if GetUnitStateSwap(UNIT_STATE_LIFE, GetTriggerUnit()) <= I2R(udg_RandomNumber) and GetUnitUserData(GetTriggerUnit()) == 70 then
             call SetUnitUserData(GetTriggerUnit(), 71)
             call UnitRemoveBuffBJ(0x42303045, GetTriggerUnit())
             call ResetUnitAnimation(GetTriggerUnit())
@@ -35,7 +10,7 @@ function Trig_Izurods_Damage_Actions takes nothing returns nothing
             call DestroyEffectBJ(GetLastCreatedEffectBJ())
         endif
     endif
-    if(Trig_Izurods_Damage_Func002C())then
+    if UnitHasBuffBJ(GetTriggerUnit(), 0x42486162) then
         call SetUnitManaBJ(GetTriggerUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetTriggerUnit()) + 10.00))
     endif
 endfunction

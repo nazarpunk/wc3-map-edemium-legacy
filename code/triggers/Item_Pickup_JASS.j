@@ -1,9 +1,6 @@
-
-
 function ItemPickup_FilterItem takes unit picker, item whichItem returns boolean
     return GetItemType(GetFilterItem()) == ITEM_TYPE_POWERUP
 endfunction
-
 
 function ItemPickup_EnumItems takes nothing returns nothing
     local item i = GetFilterItem()

@@ -18,12 +18,12 @@ function Trig_Chest_Unlock_Actions takes nothing returns nothing
             endif
         endif
         set udg_Chest = GetOrderTargetUnit()
-        call DialogClearBJ(udg_ChestDialog)
-        call DialogSetMessageBJ(udg_ChestDialog, GetUnitName(udg_Chest))
+        call DialogClear(udg_ChestDialog)
+        call DialogSetMessage(udg_ChestDialog, GetUnitName(udg_Chest))
         call DialogAddButtonBJ(udg_ChestDialog, ("Открыть потратив |cFF449EFF" + (I2S(udg_ChestEnergy) + " |rэнергии.")))
-        set udg_ChestButtonEnergy = GetLastCreatedButtonBJ()
+        set udg_ChestButtonEnergy = bj_lastCreatedButton
         call DialogAddButtonBJ(udg_ChestDialog, "|cFFFFFFFFОткрыть Ключом Эдемора.|r")
-        set udg_ChestButtonKey = GetLastCreatedButtonBJ()
+        set udg_ChestButtonKey = bj_lastCreatedButton
         call DialogAddButtonBJ(udg_ChestDialog, "Обойдусь.")
         call DialogDisplayBJ(true, udg_ChestDialog, Player(0))
     else

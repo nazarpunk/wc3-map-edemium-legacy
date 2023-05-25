@@ -1,22 +1,5 @@
-
-function Trig_Scroll_Use_Func001C takes nothing returns boolean
-    if((GetSpellAbilityId() == 0x41303648))then
-        return true
-    endif
-    if((GetSpellAbilityId() == 0x41303645))then
-        return true
-    endif
-    if((GetSpellAbilityId() == 0x41303646))then
-        return true
-    endif
-    return false
-endfunction
-
 function Trig_Scroll_Use_Conditions takes nothing returns boolean
-    if(not Trig_Scroll_Use_Func001C())then
-        return false
-    endif
-    return true
+    return GetSpellAbilityId() == 0x41303648 or GetSpellAbilityId() == 0x41303645 or GetSpellAbilityId() == 0x41303646
 endfunction
 
 function Trig_Scroll_Use_Actions takes nothing returns nothing

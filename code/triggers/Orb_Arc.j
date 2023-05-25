@@ -1,21 +1,8 @@
-
 function Trig_Orb_Arc_Conditions takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x4130334A))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Orb_Arc_Func002C takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x4130334A))then
-        return false
-    endif
-    return true
+    return GetSpellAbilityId() == 0x4130334A
 endfunction
 
 function Trig_Orb_Arc_Actions takes nothing returns nothing
-    if(Trig_Orb_Arc_Func002C())then
-    endif
     set udg_JDA_JumpHigh_Distance = 0.60
     set udg_JDA_Collusion = true
     set udg_JDA_TargetPoint = GetSpellTargetLoc()

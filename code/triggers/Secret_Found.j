@@ -1,55 +1,24 @@
 
 function Trig_Secret_Found_Conditions takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x4130335A))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Secret_Found_Func003Func001Func002Func011Func005C takes nothing returns boolean
-    if(not(udg_RandomNumber == 2))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Secret_Found_Func003Func001Func002Func011C takes nothing returns boolean
-    if(not(udg_RandomNumber == 1))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Secret_Found_Func003Func001Func002C takes nothing returns boolean
-    if(not(DistanceBetweenPoints(udg_Point, udg_D_Point1) <= 200.00))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Secret_Found_Func003Func001C takes nothing returns boolean
-    if(not(GetUnitTypeId(GetEnumUnit()) == 0x68303044))then
-        return false
-    endif
-    return true
+    return GetSpellAbilityId() == 0x4130335A
 endfunction
 
 function Trig_Secret_Found_Func003A takes nothing returns nothing
-    if(Trig_Secret_Found_Func003Func001C())then
+    if GetUnitTypeId(GetEnumUnit()) == 0x68303044 then
         set udg_Point = GetUnitLoc(GetEnumUnit())
-        if(Trig_Secret_Found_Func003Func001Func002C())then
+        if DistanceBetweenPoints(udg_Point, udg_D_Point1) <= 200.00 then
             call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal.mdx")
             call DestroyEffectBJ(GetLastCreatedEffectBJ())
             call RemoveUnit(GetEnumUnit())
             call UnitRemoveBuffBJ(0x42303039, udg_Arct)
             set udg_RandomNumber = GetRandomInt(1, 2)
-            if(Trig_Secret_Found_Func003Func001Func002Func011C())then
+            if udg_RandomNumber == 1 then
                 set udg_RandomNumber = GetRandomInt(6, 10)
                 set udg_LightOrbs[2] = (udg_LightOrbs[2] + udg_RandomNumber)
                 set udg_LightIterations = (udg_LightIterations + GetRandomInt(6, 10))
                 call EnableTrigger(gg_trg_Orbs_Spawn)
             else
-                if(Trig_Secret_Found_Func003Func001Func002Func011Func005C())then
+                if udg_RandomNumber == 2 then
                     set udg_RandomNumber = GetRandomInt(1, 2)
                     set bj_forLoopAIndex = 1
                     set bj_forLoopAIndexEnd = udg_RandomNumber

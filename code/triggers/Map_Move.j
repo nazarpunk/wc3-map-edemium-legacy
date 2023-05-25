@@ -6,42 +6,6 @@ function Trig_Map_Move_Func012A takes nothing returns nothing
     call RemoveDestructable(GetEnumDestructable())
 endfunction
 
-function Trig_Map_Move_Func016Func001Func003Func001Func001Func001Func002Func002Func001C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 74
-endfunction
-
-function Trig_Map_Move_Func016Func001Func003Func001Func001Func001Func002Func002C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 73
-endfunction
-
-function Trig_Map_Move_Func016Func001Func003Func001Func001Func001Func002C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 72
-endfunction
-
-function Trig_Map_Move_Func016Func001Func003Func001Func001Func001C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 71
-endfunction
-
-function Trig_Map_Move_Func016Func001Func003Func001Func001C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 6
-endfunction
-
-function Trig_Map_Move_Func016Func001Func003Func001C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 4
-endfunction
-
-function Trig_Map_Move_Func016Func001Func003C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 3
-endfunction
-
-function Trig_Map_Move_Func016Func001C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 2
-endfunction
-
-function Trig_Map_Move_Func016C takes nothing returns boolean
-    return GetUnitUserData(udg_EM_Target) == 1
-endfunction
-
 function Trig_Map_Move_Actions takes nothing returns nothing
     call UnitRemoveAbilityBJ(0x4130354D, udg_EM_Target)
     if udg_EM_Encounter then
@@ -63,31 +27,31 @@ function Trig_Map_Move_Actions takes nothing returns nothing
     call RemoveDestructable(udg_EM_Effect)
     call CreateDestructableLoc(0x42303141, udg_TargetPoint, 0.00, 0.30, 0)
     set udg_EM_Effect = GetLastCreatedDestructable()
-    if(Trig_Map_Move_Func016C())then
+    if GetUnitUserData(udg_EM_Target) == 1 then
         call CreateDestructableLoc(0x42303142, udg_Point, 270.00, 12.00, 0)
     else
-        if(Trig_Map_Move_Func016Func001C())then
+        if GetUnitUserData(udg_EM_Target) == 2 then
             call CreateDestructableLoc(0x42303339, udg_Point, 270.00, 12.00, 0)
         else
-            if(Trig_Map_Move_Func016Func001Func003C())then
+            if GetUnitUserData(udg_EM_Target) == 3 then
                 call CreateDestructableLoc(0x42303143, udg_Point, 270.00, 12.00, 0)
             else
-                if(Trig_Map_Move_Func016Func001Func003Func001C())then
+                if GetUnitUserData(udg_EM_Target) == 4 then
                     call CreateDestructableLoc(0x42303144, udg_Point, 270.00, 12.00, 0)
                 else
-                    if(Trig_Map_Move_Func016Func001Func003Func001Func001C())then
+                    if GetUnitUserData(udg_EM_Target) == 6 then
                         call CreateDestructableLoc(0x42303137, udg_Point, 270.00, 12.00, 0)
                     else
-                        if(Trig_Map_Move_Func016Func001Func003Func001Func001Func001C())then
+                        if GetUnitUserData(udg_EM_Target) == 71 then
                             call CreateDestructableLoc(0x42303145, udg_Point, 270.00, 12.00, 0)
                         else
-                            if(Trig_Map_Move_Func016Func001Func003Func001Func001Func001Func002C())then
+                            if GetUnitUserData(udg_EM_Target) == 72 then
                                 call CreateDestructableLoc(0x42303341, udg_Point, 270.00, 12.00, 0)
                             else
-                                if(Trig_Map_Move_Func016Func001Func003Func001Func001Func001Func002Func002C())then
+                                if GetUnitUserData(udg_EM_Target) == 73 then
                                     call CreateDestructableLoc(0x42303138, udg_Point, 270.00, 12.00, 0)
                                 else
-                                    if(Trig_Map_Move_Func016Func001Func003Func001Func001Func001Func002Func002Func001C())then
+                                    if GetUnitUserData(udg_EM_Target) == 74 then
                                         call CreateDestructableLoc(0x42303342, udg_Point, 270.00, 12.00, 0)
                                     else
                                         call CreateDestructableLoc(0x42303139, udg_Point, 270.00, 12.00, 0)

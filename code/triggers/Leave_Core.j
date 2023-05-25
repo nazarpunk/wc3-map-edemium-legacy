@@ -1,16 +1,6 @@
 
 function Trig_Leave_Core_Conditions takes nothing returns boolean
-    if(not(GetLeavingUnit() == udg_Arct))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Leave_Core_Func006C takes nothing returns boolean
-    if(not(udg_AutosaveBool == true))then
-        return false
-    endif
-    return true
+    return GetLeavingUnit() == udg_Arct
 endfunction
 
 function Trig_Leave_Core_Actions takes nothing returns nothing
@@ -19,7 +9,7 @@ function Trig_Leave_Core_Actions takes nothing returns nothing
     call CameraSetupApplyForceDuration(udg_Camera, true, 0.00)
     call EnableTrigger(gg_trg_Item_Pickup)
     call DisableTrigger(gg_trg_Core_Item_Pickup)
-    if(Trig_Leave_Core_Func006C())then
+    if udg_AutosaveBool then
         set udg_AutosaveBool = false
         call EnableTrigger(gg_trg_Core_Autosave)
         set udg_Autosave = GetPlayerState(Player(0), PLAYER_STATE_RESOURCE_GOLD)

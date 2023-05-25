@@ -1,29 +1,7 @@
-
-function Trig_Meditation_Heal_Func001Func001Func001C takes nothing returns boolean
-    if(not(GetRandomInt(1, 100) <= GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true)))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Meditation_Heal_Func001Func001C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) != GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_Arct)))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Meditation_Heal_Func001C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > 0.00))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Meditation_Heal_Actions takes nothing returns nothing
-    if(Trig_Meditation_Heal_Func001C())then
-        if(Trig_Meditation_Heal_Func001Func001C())then
-            if(Trig_Meditation_Heal_Func001Func001Func001C())then
+    if GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > 0.00 then
+        if GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) != GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_Arct) then
+            if GetRandomInt(1, 100) <= GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true) then
                 call SetUnitLifeBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) + (I2R(udg_MeditationPower) * 3.00)))
                 call AddSpecialEffectTargetUnitBJ("origin", udg_Arct, "war3mapImported\\Holy_Heal.mdx")
                 call DestroyEffectBJ(GetLastCreatedEffectBJ())

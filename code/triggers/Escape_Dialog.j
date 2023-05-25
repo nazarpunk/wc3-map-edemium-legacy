@@ -1,12 +1,12 @@
 function Trig_Escape_Dialog_Actions takes nothing returns nothing
     call DestroyGroup(udg_UnitGroup)
-    call DialogClearBJ(udg_LeaveDialog)
-    call DialogSetMessageBJ(udg_LeaveDialog, "Покинуть Эдемиум?")
+    call DialogClear(udg_LeaveDialog)
+    call DialogSetMessage(udg_LeaveDialog, "Покинуть Эдемиум?")
     call DialogAddButtonBJ(udg_LeaveDialog, "Да!")
     if not udg_EnchantingRoom and not udg_ER_Logic and not udg_OnkieRoom and not udg_CS_Bool then
-        set udg_LeaveButton = GetLastCreatedButtonBJ()
+        set udg_LeaveButton = bj_lastCreatedButton
     else
-        set udg_LeaveButton2 = GetLastCreatedButtonBJ()
+        set udg_LeaveButton2 = bj_lastCreatedButton
     endif
     call DialogAddButtonBJ(udg_LeaveDialog, "Стоп, забыл кое-что.")
     call DialogDisplayBJ(true, udg_LeaveDialog, Player(0))

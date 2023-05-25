@@ -1,4 +1,3 @@
-
 function Trig_Unhide_Recipes_Func002002 takes nothing returns nothing
     call ShowUnitShow(GetEnumUnit())
 endfunction

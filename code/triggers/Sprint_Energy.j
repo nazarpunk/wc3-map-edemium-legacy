@@ -1,13 +1,5 @@
-
-function Trig_Sprint_Energy_Func001C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > 0.00))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Sprint_Energy_Actions takes nothing returns nothing
-    if(Trig_Sprint_Energy_Func001C())then
+    if GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > 0.00 then
         call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - 2.00))
         call CreateTextTagUnitBJ(I2S(R2I(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct))), udg_Arct, 0, 10.00, 0.00, 80.00, 100.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 90.00, 90.00)

@@ -22,12 +22,8 @@ function Trig_Initialisation_Elapsed_Func140A takes nothing returns nothing
     call GroupAddUnitSimple(GetEnumUnit(), udg_SecretGroup)
 endfunction
 
-function Trig_Initialisation_Elapsed_Func144Func001C takes nothing returns boolean
-    return GetDestructableTypeId(GetEnumDestructable()) == 0x42303042
-endfunction
-
 function Trig_Initialisation_Elapsed_Func144A takes nothing returns nothing
-    if(Trig_Initialisation_Elapsed_Func144Func001C())then
+    if GetDestructableTypeId(GetEnumDestructable()) == 0x42303042 then
         call ShowDestructableBJ(false, GetEnumDestructable())
     endif
 endfunction
@@ -166,22 +162,17 @@ function Trig_Initialisation_Elapsed_Actions takes nothing returns nothing
     call DestroyGroup(udg_UnitGroup)
     call SetUnitVertexColorBJ(gg_unit_h007_0065, 100, 100, 100, 100.00)
     call EnumDestructablesInRectAll(gg_rct_Abilities, function Trig_Initialisation_Elapsed_Func144A)
-    call EnableSelect(true, false)
-    call EnableMinimapFilterButtons(false, false)
     call SetMusicVolumeBJ(100.00)
     call VolumeGroupSetVolumeBJ(SOUND_VOLUMEGROUP_MUSIC, 100)
     call CreateTextTagUnitBJ("III", udg_Arct, 0.00, 11.00, 100, 100, 100, 0)
     set udg_DungeonColdText = GetLastCreatedTextTag()
     call ShowTextTagForceBJ(false, udg_DungeonColdText, bj_FORCE_PLAYER[0])
     call ConditionalTriggerExecute(gg_trg_Music_Castle)
-    call DialogClearBJ(udg_InitDialog)
-    call DialogSetMessageBJ(udg_InitDialog, "")
-    call DialogAddButtonBJ(udg_InitDialog, "Пройти обучение")
-    set udg_DialogButton[1] = GetLastCreatedButtonBJ()
-    call DialogAddButtonBJ(udg_InitDialog, "Обойтись без обучения")
-    set udg_DialogButton[2] = GetLastCreatedButtonBJ()
-    call DialogAddButtonBJ(udg_InitDialog, "Загрузить сохранение")
-    set udg_DialogButton[3] = GetLastCreatedButtonBJ()
+    call DialogClear(udg_InitDialog)
+    call DialogSetMessage(udg_InitDialog, "")
+    set udg_DialogButton[1] = DialogAddButton(udg_InitDialog, "Пройти обучение", 0)
+    set udg_DialogButton[2] = DialogAddButton(udg_InitDialog, "Обойтись без обучения", 0)
+    set udg_DialogButton[3] = DialogAddButtonBJ(udg_InitDialog, "Загрузить сохранение", 0)
     call DialogDisplayBJ(true, udg_InitDialog, Player(0))
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction

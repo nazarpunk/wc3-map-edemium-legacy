@@ -25,10 +25,10 @@ function Trig_Edemium_Difficulty_Buttons_Actions takes nothing returns nothing
         set udg_CO_Time = 1.00
     endif
 
-    call DialogClearBJ(udg_TeleportDialog)
-    call DialogSetMessageBJ(udg_TeleportDialog, "Вперёд?")
+    call DialogClear(udg_TeleportDialog)
+    call DialogSetMessage(udg_TeleportDialog, "Вперёд?")
     call DialogAddButtonBJ(udg_TeleportDialog, "Да!")
-    set udg_DialogButton[1] = GetLastCreatedButtonBJ()
+    set udg_DialogButton[1] = bj_lastCreatedButton
     if udg_Difficulty == 1 then
         call DialogAddButtonBJ(udg_TeleportDialog, "Уровень сложности: |cFF00C850Послушник|r")
     else
@@ -46,7 +46,7 @@ function Trig_Edemium_Difficulty_Buttons_Actions takes nothing returns nothing
             endif
         endif
     endif
-    set udg_DialogButton[2] = GetLastCreatedButtonBJ()
+    set udg_DialogButton[2] = bj_lastCreatedButton
     call DialogAddButtonBJ(udg_TeleportDialog, "Ещё минутку...")
     call DialogDisplayBJ(true, udg_TeleportDialog, Player(0))
 endfunction

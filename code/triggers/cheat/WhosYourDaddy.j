@@ -1,9 +1,5 @@
-
 function Trig_WhosYourDaddy_Conditions takes nothing returns boolean
-    if(not(GetTriggerUnit() == udg_AntiCheatUnit[2]))then
-        return false
-    endif
-    return true
+    return GetTriggerUnit() == udg_AntiCheatUnit[2]
 endfunction
 
 function Trig_WhosYourDaddy_Actions takes nothing returns nothing

@@ -1,6 +1,5 @@
-
 function Trig_Tutorial_Cinematic_Actions takes nothing returns nothing
-    call StopMusicBJ(false)
+    call StopMusic(false)
     call ClearMapMusic()
     set udg_Transparent = 0.00
     call SetUnitPositionLocFacingBJ(gg_unit_H000_0004, udg_CinematicPosition, 90.00)

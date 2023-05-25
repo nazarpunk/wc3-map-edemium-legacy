@@ -4,7 +4,7 @@ function Trig_Ending_Init_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Camera_Hero)
     call SetUnitLifePercentBJ(udg_Arct, 100)
     call SetUnitManaPercentBJ(udg_Arct, 100)
-    call StopMusicBJ(true)
+    call StopMusic(true)
     call UnitAddAbilityBJ(0x4176756C, udg_Arct)
     call DestroyLightningBJ(udg_Boss3PortalEffect)
     call DisableTrigger(gg_trg_Boss_III_Creep_Spawn)
@@ -29,20 +29,20 @@ function Trig_Ending_Init_Actions takes nothing returns nothing
     call UnitAddAbilityBJ(0x416C6F63, gg_unit_h00V_0029)
     call TriggerSleepAction(3.00)
     call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор", gg_snd_Edemor1, "Путь Пилигрима пройден. Что ты чувствуешь?", bj_TIMETYPE_ADD, 0.00, true)
-    call DialogClearBJ(udg_EndingDialog)
-    call DialogSetMessageBJ(udg_EndingDialog, "Что ты чувствуешь?")
+    call DialogClear(udg_EndingDialog)
+    call DialogSetMessage(udg_EndingDialog, "Что ты чувствуешь?")
     call DialogAddButtonBJ(udg_EndingDialog, "Грусть")
-    set udg_DialogButton[1] = GetLastCreatedButtonBJ()
+    set udg_DialogButton[1] = bj_lastCreatedButton
     call DialogAddButtonBJ(udg_EndingDialog, "Облегчение")
-    set udg_DialogButton[2] = GetLastCreatedButtonBJ()
+    set udg_DialogButton[2] = bj_lastCreatedButton
     call DialogAddButtonBJ(udg_EndingDialog, "Радость")
-    set udg_DialogButton[3] = GetLastCreatedButtonBJ()
+    set udg_DialogButton[3] = bj_lastCreatedButton
     call DialogAddButtonBJ(udg_EndingDialog, "Воодушевление")
-    set udg_DialogButton[4] = GetLastCreatedButtonBJ()
+    set udg_DialogButton[4] = bj_lastCreatedButton
     call DialogAddButtonBJ(udg_EndingDialog, "Безразличие")
-    set udg_DialogButton[5] = GetLastCreatedButtonBJ()
+    set udg_DialogButton[5] = bj_lastCreatedButton
     call DialogAddButtonBJ(udg_EndingDialog, "Голод")
-    set udg_DialogButton[6] = GetLastCreatedButtonBJ()
+    set udg_DialogButton[6] = bj_lastCreatedButton
     call DialogDisplayBJ(true, udg_EndingDialog, Player(0))
     call EnableTrigger(gg_trg_Ending_Dialogue_1)
     call DestroyTrigger(GetTriggeringTrigger())

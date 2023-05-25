@@ -1,16 +1,5 @@
-
-function Trig_QG_Completion_Check_Func001C takes nothing returns boolean
-    if(not(udg_QG_Count[udg_QG_ObjectiveState[1]] >= udg_QG_ObjectiveStateMax[1]))then
-        return false
-    endif
-    if(not(udg_QG_Count[udg_QG_ObjectiveState[2]] >= udg_QG_ObjectiveStateMax[2]))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_QG_Completion_Check_Actions takes nothing returns nothing
-    if(Trig_QG_Completion_Check_Func001C())then
+    if udg_QG_Count[udg_QG_ObjectiveState[1]] >= udg_QG_ObjectiveStateMax[1] and udg_QG_Count[udg_QG_ObjectiveState[2]] >= udg_QG_ObjectiveStateMax[2] then
         call DestroyQuestBJ(GetLastCreatedQuestBJ())
         call DisplayTimedTextToForce(GetPlayersAll(), 10.00, "|cFF00FF00Миссия осуществлена, коэффициент повышен.|r")
         set udg_EX_Rate = (udg_EX_Rate + 0.10)

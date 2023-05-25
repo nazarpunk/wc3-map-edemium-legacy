@@ -1,4 +1,3 @@
-
 function Trig_Scrolls_Actions takes nothing returns nothing
     call CreateItemLoc(0x49303143, GetUnitLoc(udg_Arct))
     call CreateItemLoc(0x49303131, GetUnitLoc(udg_Arct))

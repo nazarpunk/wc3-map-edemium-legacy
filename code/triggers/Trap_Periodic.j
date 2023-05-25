@@ -1,13 +1,5 @@
-
-function Trig_Trap_Periodic_Func002Func001C takes nothing returns boolean
-    if(not(GetUnitTypeId(GetEnumUnit()) == 0x68303057))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Trap_Periodic_Func002A takes nothing returns nothing
-    if(Trig_Trap_Periodic_Func002Func001C())then
+    if GetUnitTypeId(GetEnumUnit()) == 0x68303057 then
         call IssueImmediateOrderBJ(GetEnumUnit(), "roar")
     endif
 endfunction

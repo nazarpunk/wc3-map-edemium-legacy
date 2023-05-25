@@ -1,4 +1,3 @@
-
 function Trig_Unlock_Difficulties_Actions takes nothing returns nothing
     set bj_forLoopAIndex = 1
     set bj_forLoopAIndexEnd = 3

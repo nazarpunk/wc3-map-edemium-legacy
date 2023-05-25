@@ -1,4 +1,3 @@
-
 function Trig_Sprint_Timer_Actions takes nothing returns nothing
     call IssueImmediateOrderBJ(udg_Arct, "manashieldoff")
 endfunction

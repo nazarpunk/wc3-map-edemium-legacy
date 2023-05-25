@@ -191,8 +191,6 @@
 //! import "triggers/Crit_Specialeffect.j"
 //! import "triggers/Augment_Info.j"
 //! import "triggers/Augment_Buy.j"
-//! import "triggers/WhosYourDaddy.j"
-//! import "triggers/ISeeDeadPeople.j"
 //! import "triggers/Camera_Hero.j"
 //! import "triggers/Camera_Tree.j"
 //! import "triggers/Camera_Fix.j"
@@ -249,7 +247,6 @@
 //! import "triggers/Item_Pickup_JASS.j"
 //! import "triggers/Quest_Progress.j"
 //! import "triggers/Scrolls.j"
-//! import "triggers/Suicide.j"
 //! import "triggers/Unlock_Difficulties.j"
 //! import "triggers/Talent_Level.j"
 //! import "triggers/Camera_Disable.j"
@@ -277,13 +274,16 @@
 //! import "triggers/chat/Heal.j"
 //! import "triggers/chat/Level.j"
 //! import "triggers/chat/God_Mode.j"
+//! import "triggers/chat/Suicide.j"
 
 //! import "triggers/cheat/GreedIsGood.j"
+//! import "triggers/cheat/WhosYourDaddy.j"
 
 //! import "InitCustomTriggers.j"
 
 //! zinc
 //! import "zinc/Init.zn"
+//! import "zinc/UI.zn"
 //! endzinc
 
 //! inject main

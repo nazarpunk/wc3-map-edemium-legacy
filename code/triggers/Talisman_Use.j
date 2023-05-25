@@ -1,189 +1,25 @@
-
-function Trig_Talisman_Use_Func001C takes nothing returns boolean
-    if((GetSpellAbilityId() == 0x41303532))then
-        return true
-    endif
-    if((GetSpellAbilityId() == 0x41303347))then
-        return true
-    endif
-    return false
-endfunction
-
 function Trig_Talisman_Use_Conditions takes nothing returns boolean
-    if(not Trig_Talisman_Use_Func001C())then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func001Func002C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_IG_ItemEnchant[2] == 9))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func003Func007Func001C takes nothing returns boolean
-    if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
-        return false
-    endif
-    return true
+    return GetSpellAbilityId() == 0x41303532 or GetSpellAbilityId() == 0x41303347
 endfunction
 
 function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func003Func007A takes nothing returns nothing
-    if(Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func003Func007Func001C())then
+    if GetOwningPlayer(GetEnumUnit()) == Player(11) then
         call IssueTargetOrderBJ(GetEnumUnit(), "attack", GetLastCreatedUnit())
     endif
 endfunction
 
-function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func003C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_IG_ItemEnchant[2] == 8))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func003C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_IG_ItemEnchant[2] == 7))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func003Func002C takes nothing returns boolean
-    if(not(GetUnitAbilityLevelSwapped(0x41303345, GetSpellTargetUnit()) == 1))then
-        return false
-    endif
-    if(not(GetUnitStateSwap(UNIT_STATE_LIFE, GetSpellTargetUnit()) < I2R(udg_RandomNumber)))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001Func001Func001Func001Func003C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_IG_ItemEnchant[2] == 6))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001Func001Func001Func003Func001C takes nothing returns boolean
-    if(not(GetUnitAbilityLevelSwapped(0x41303345, GetSpellTargetUnit()) == 1))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001Func001Func001Func003C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001Func001Func001C takes nothing returns boolean
-    if(not(udg_IG_ItemEnchant[2] == 5))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001Func001Func003C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001Func001C takes nothing returns boolean
-    if(not(udg_IG_ItemEnchant[2] == 4))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001Func003Func013Func001C takes nothing returns boolean
-    if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Talisman_Use_Func002Func001Func003Func013A takes nothing returns nothing
-    if(Trig_Talisman_Use_Func002Func001Func003Func013Func001C())then
+    if GetOwningPlayer(GetEnumUnit()) == Player(11) then
         call UnitDamageTargetBJ(udg_Arct, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
     endif
 endfunction
 
-function Trig_Talisman_Use_Func002Func001Func003C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func001C takes nothing returns boolean
-    if(not(udg_IG_ItemEnchant[2] == 3))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func003Func002C takes nothing returns boolean
-    if(not(udg_SB_Skip == 0))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002Func003C takes nothing returns boolean
-    if(not(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Talisman_Use_Func002C takes nothing returns boolean
-    if(not(udg_IG_ItemEnchant[2] == 2))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Talisman_Use_Actions takes nothing returns nothing
-    if(Trig_Talisman_Use_Func002C())then
+    if udg_IG_ItemEnchant[2] == 2 then
         set udg_AbilityPower = ((GetUnitStateSwap(UNIT_STATE_MAX_MANA, udg_Arct) * 10.00) / 100.00)
-        if(Trig_Talisman_Use_Func002Func003C())then
+        if GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower then
             call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - udg_AbilityPower))
-            if(Trig_Talisman_Use_Func002Func003Func002C())then
+            if udg_SB_Skip == 0 then
                 call EnableTrigger(gg_trg_Lightspeed_Loop)
             endif
             set udg_SB_Skip = (udg_SB_Skip + 1)
@@ -204,9 +40,9 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
             call RemoveLocation(udg_SB_Point[1])
         endif
     else
-        if(Trig_Talisman_Use_Func002Func001C())then
+        if udg_IG_ItemEnchant[2] == 3 then
             set udg_AbilityPower = ((GetUnitStateSwap(UNIT_STATE_MAX_MANA, udg_Arct) * 20.00) / 100.00)
-            if(Trig_Talisman_Use_Func002Func001Func003C())then
+            if GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower then
                 call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - udg_AbilityPower))
                 set udg_Point = GetUnitLoc(udg_Arct)
                 set udg_PointTalisman = GetSpellTargetLoc()
@@ -225,9 +61,9 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                 call DestroyGroup(udg_UnitGroup)
             endif
         else
-            if(Trig_Talisman_Use_Func002Func001Func001C())then
+            if udg_IG_ItemEnchant[2] == 4 then
                 set udg_AbilityPower = ((GetUnitStateSwap(UNIT_STATE_MAX_MANA, udg_Arct) * 20.00) / 100.00)
-                if(Trig_Talisman_Use_Func002Func001Func001Func003C())then
+                if GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower then
                     call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - udg_AbilityPower))
                     set udg_Point = GetUnitLoc(GetSpellTargetUnit())
                     call CreateNUnitsAtLoc(1, 0x68303039, Player(0), udg_Point, bj_UNIT_FACING)
@@ -237,10 +73,10 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                     call IssueTargetOrderBJ(GetLastCreatedUnit(), "cripple", GetSpellTargetUnit())
                 endif
             else
-                if(Trig_Talisman_Use_Func002Func001Func001Func001C())then
+                if udg_IG_ItemEnchant[2] == 5 then
                     set udg_AbilityPower = ((GetUnitStateSwap(UNIT_STATE_MAX_MANA, udg_Arct) * 20.00) / 100.00)
-                    if(Trig_Talisman_Use_Func002Func001Func001Func001Func003C())then
-                        if(Trig_Talisman_Use_Func002Func001Func001Func001Func003Func001C())then
+                    if GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower then
+                        if GetUnitAbilityLevelSwapped(0x41303345, GetSpellTargetUnit()) == 1 then
                             call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - udg_AbilityPower))
                             call SetUnitOwner(GetSpellTargetUnit(), Player(1), true)
                             call GroupAddUnitSimple(GetSpellTargetUnit(), udg_FollowersGroup)
@@ -251,11 +87,11 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                         endif
                     endif
                 else
-                    if(Trig_Talisman_Use_Func002Func001Func001Func001Func001C())then
+                    if udg_IG_ItemEnchant[2] == 6 then
                         set udg_AbilityPower = ((GetUnitStateSwap(UNIT_STATE_MAX_MANA, udg_Arct) * 20.00) / 100.00)
-                        if(Trig_Talisman_Use_Func002Func001Func001Func001Func001Func003C())then
+                        if GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower then
                             set udg_RandomNumber = ((R2I(GetUnitStateSwap(UNIT_STATE_MAX_LIFE, GetSpellTargetUnit())) * 50) / 100)
-                            if(Trig_Talisman_Use_Func002Func001Func001Func001Func001Func003Func002C())then
+                            if GetUnitAbilityLevelSwapped(0x41303345, GetSpellTargetUnit()) == 1 and GetUnitStateSwap(UNIT_STATE_LIFE, GetSpellTargetUnit()) < I2R(udg_RandomNumber) then
                                 call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - udg_AbilityPower))
                                 call AddSpecialEffectTargetUnitBJ("origin", GetSpellTargetUnit(), "war3mapImported\\BloodEX-Special-2.mdx")
                                 call DestroyEffectBJ(GetLastCreatedEffectBJ())
@@ -267,9 +103,9 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                             endif
                         endif
                     else
-                        if(Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001C())then
+                        if udg_IG_ItemEnchant[2] == 7 then
                             set udg_AbilityPower = ((GetUnitStateSwap(UNIT_STATE_MAX_MANA, udg_Arct) * 20.00) / 100.00)
-                            if(Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func003C())then
+                            if GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower then
                                 call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - udg_AbilityPower))
                                 set udg_Point = GetUnitLoc(GetSpellTargetUnit())
                                 set udg_Point2 = PolarProjectionBJ(udg_Point, GetRandomReal(300.00, 450.00), GetRandomDirectionDeg())
@@ -282,9 +118,9 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                                 call RemoveLocation(udg_Point2)
                             endif
                         else
-                            if(Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001C())then
+                            if udg_IG_ItemEnchant[2] == 8 then
                                 set udg_AbilityPower = ((GetUnitStateSwap(UNIT_STATE_MAX_MANA, udg_Arct) * 20.00) / 100.00)
-                                if(Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func003C())then
+                                if GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower then
                                     call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - udg_AbilityPower))
                                     set udg_Point = GetSpellTargetLoc()
                                     call CreateNUnitsAtLoc(1, 0x68303035, Player(0), udg_Point, bj_UNIT_FACING)
@@ -296,9 +132,9 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                                     call DestroyGroup(udg_CO_UnitGroup)
                                 endif
                             else
-                                if(Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func001C())then
+                                if udg_IG_ItemEnchant[2] == 9 then
                                     set udg_AbilityPower = ((GetUnitStateSwap(UNIT_STATE_MAX_MANA, udg_Arct) * 20.00) / 100.00)
-                                    if(Trig_Talisman_Use_Func002Func001Func001Func001Func001Func001Func001Func001Func002C())then
+                                    if GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > udg_AbilityPower then
                                         call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - udg_AbilityPower))
                                         set udg_AbilityPower = (I2R(GetHeroStatBJ(bj_HEROSTAT_AGI, udg_Arct, true)) * 3.00)
                                         call UnitDamageTargetBJ(udg_Arct, GetSpellTargetUnit(), udg_AbilityPower, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_MAGIC)

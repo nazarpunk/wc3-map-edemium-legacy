@@ -37,8 +37,8 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         set udg_Camera = gg_cam_Camera_Workshop_1
         if udg_TutorialHintsOn and not udg_TutorialHint[6] then
             set udg_TutorialHint[6] = true
-            call DialogClearBJ(udg_TeleportDialog)
-            call DialogSetMessageBJ(udg_TeleportDialog, "Ядро - это магический механизм |nдля раскрытия секретов (талантов),|nдающих Аркту пассивные умения. |nСейчас я раскрою тебе один из них|nи дам необходимые элементы, |nа дальше сам разберёшься. Не|nмаленький уже.")
+            call DialogClear(udg_TeleportDialog)
+            call DialogSetMessage(udg_TeleportDialog, "Ядро - это магический механизм |nдля раскрытия секретов (талантов),|nдающих Аркту пассивные умения. |nСейчас я раскрою тебе один из них|nи дам необходимые элементы, |nа дальше сам разберёшься. Не|nмаленький уже.")
             call DialogAddButtonBJ(udg_TeleportDialog, "Ничего не понял, но спасибо!")
             call DialogDisplayBJ(true, udg_TeleportDialog, Player(0))
             set udg_Point = GetRectCenter(gg_rct_Workshop_Core)
@@ -94,8 +94,8 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         set udg_Camera = gg_cam_Camera_Portal
         if udg_TutorialHintsOn and not udg_TutorialHint[1] then
             set udg_TutorialHint[1] = true
-            call DialogClearBJ(udg_TeleportDialog)
-            call DialogSetMessageBJ(udg_TeleportDialog, "Сложность можно менять в любое|nвремя, но в начале игры менять её |nне советую: сперва привыкни к |nбоевой системе. На лёгком уровне |nсложности монстры не применяют |nумения. И да, за повышение уровня|nАркта после прохождения подземе-|nлий повышается случайная хар-ка.")
+            call DialogClear(udg_TeleportDialog)
+            call DialogSetMessage(udg_TeleportDialog, "Сложность можно менять в любое|nвремя, но в начале игры менять её |nне советую: сперва привыкни к |nбоевой системе. На лёгком уровне |nсложности монстры не применяют |nумения. И да, за повышение уровня|nАркта после прохождения подземе-|nлий повышается случайная хар-ка.")
             call DialogAddButtonBJ(udg_TeleportDialog, "Понятно, спасибо!")
             call DialogDisplayBJ(true, udg_TeleportDialog, Player(0))
         endif

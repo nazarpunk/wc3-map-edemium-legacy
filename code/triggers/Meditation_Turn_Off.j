@@ -1,4 +1,3 @@
-
 function Trig_Meditation_Turn_Off_Actions takes nothing returns nothing
     set udg_MeditationLogic = false
     call AddUnitAnimationPropertiesBJ(false, "gold", gg_unit_H000_0004)

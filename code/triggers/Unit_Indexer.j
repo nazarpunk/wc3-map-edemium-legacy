@@ -1,50 +1,11 @@
-
-function Trig_Unit_Indexer_Func005Func002C takes nothing returns boolean
-    if(not(udg_UnitIndexLock[udg_UDex] == 0))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Unit_Indexer_Func005C takes nothing returns boolean
-    if(not(GetUnitUserData(udg_UDexUnits[udg_UDex]) == 0))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Unit_Indexer_Func011Func003C takes nothing returns boolean
-    if(not(udg_UDexWasted == 15))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Unit_Indexer_Func011Func005C takes nothing returns boolean
-    if(not(udg_UDexRecycle == 0))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Unit_Indexer_Func011C takes nothing returns boolean
-    if(not(udg_UnitIndexerEnabled == true))then
-        return false
-    endif
-    if(not(GetUnitUserData(GetFilterUnit()) == 0))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Unit_Indexer_Actions takes nothing returns nothing
     call ExecuteFunc("InitializeUnitIndexer")
 endfunction
 
 function ClearUnitIndex takes nothing returns nothing
-    if(Trig_Unit_Indexer_Func005C())then
+    if GetUnitUserData(udg_UDexUnits[udg_UDex]) == 0 then
         set udg_UnitIndexLock[udg_UDex] = (udg_UnitIndexLock[udg_UDex] - 1)
-        if(Trig_Unit_Indexer_Func005Func002C())then
+        if udg_UnitIndexLock[udg_UDex] == 0 then
             set udg_UDexNext[udg_UDexPrev[udg_UDex]] = udg_UDexNext[udg_UDex]
             set udg_UDexPrev[udg_UDexNext[udg_UDex]] = udg_UDexPrev[udg_UDex]
             set udg_UDexPrev[udg_UDex] = 0
@@ -61,9 +22,9 @@ endfunction
 function IndexUnit takes nothing returns boolean
     local integer pdex = udg_UDex
     local integer ndex
-    if(Trig_Unit_Indexer_Func011C())then
+    if udg_UnitIndexerEnabled and GetUnitUserData(GetFilterUnit()) == 0 then
         set udg_UDexWasted = (udg_UDexWasted + 1)
-        if(Trig_Unit_Indexer_Func011Func003C())then
+        if udg_UDexWasted == 15 then
             set udg_UDexWasted = 0
             set udg_UDex = udg_UDexNext[0]
             loop
@@ -73,7 +34,7 @@ function IndexUnit takes nothing returns boolean
                 set udg_UDex = ndex
             endloop
         endif
-        if(Trig_Unit_Indexer_Func011Func005C())then
+        if udg_UDexRecycle == 0 then
             set udg_UDex = (udg_UDexGen + 1)
             set udg_UDexGen = udg_UDex
         else

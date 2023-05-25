@@ -1,4 +1,3 @@
-
 function Trig_Tutorial_Initialisation_Actions takes nothing returns nothing
     set udg_Tutorial[4] = true
     set udg_Tutorial[5] = true

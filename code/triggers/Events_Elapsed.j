@@ -1,12 +1,12 @@
 function Trig_Events_Elapsed_Actions takes nothing returns nothing
     if udg_EdemEventType == 1 then
         set udg_EventAttribute = (10 + GetHeroLevel(udg_Arct))
-        call DialogClearBJ(udg_EdemEventDialog)
-        call DialogSetMessageBJ(udg_EdemEventDialog, "Бродя по Эдемиуму, его стены всегда |nказались Аркту безупречно гладкими, |nбудто вытесанный и отполированный |nмрамор, однако в одном месте Аркт|nслучайно нащупал небольшое |nотверстие, идеально подходящее для |nуказательного пальца. Стоит ли Аркту |nпросунуть в отверстие палец, или нет?")
+        call DialogClear(udg_EdemEventDialog)
+        call DialogSetMessage(udg_EdemEventDialog, "Бродя по Эдемиуму, его стены всегда |nказались Аркту безупречно гладкими, |nбудто вытесанный и отполированный |nмрамор, однако в одном месте Аркт|nслучайно нащупал небольшое |nотверстие, идеально подходящее для |nуказательного пальца. Стоит ли Аркту |nпросунуть в отверстие палец, или нет?")
         call DialogAddButtonBJ(udg_EdemEventDialog, "Засунуть палец.")
-        set udg_EdemEventButton[1] = GetLastCreatedButtonBJ()
+        set udg_EdemEventButton[1] = bj_lastCreatedButton
         call DialogAddButtonBJ(udg_EdemEventDialog, ("Осмотреться (необходимо " + (I2S(udg_EventAttribute) + " мудрости).")))
-        set udg_EdemEventButton[2] = GetLastCreatedButtonBJ()
+        set udg_EdemEventButton[2] = bj_lastCreatedButton
         call DialogAddButtonBJ(udg_EdemEventDialog, "Пройти мимо.")
         call DialogDisplayBJ(true, udg_EdemEventDialog, Player(0))
     endif

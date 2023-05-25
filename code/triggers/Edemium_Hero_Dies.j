@@ -6,7 +6,7 @@ function Trig_Edemium_Hero_Dies_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Escape_Dialog_Dummy)
     call DisableTrigger(gg_trg_Edemor_Check)
     call DisableTrigger(gg_trg_Boss_II_Phase_2_Init)
-    call StopMusicBJ(true)
+    call StopMusic(true)
     call RemoveUnit(udg_AS_Effect10Unit)
     set udg_AS_Effect10 = false
     call AdjustPlayerStateBJ(1, Player(0), PLAYER_STATE_RESOURCE_FOOD_USED)

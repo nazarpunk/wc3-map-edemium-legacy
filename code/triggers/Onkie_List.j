@@ -1,11 +1,3 @@
-
-function Trig_Onkie_List_Func004C takes nothing returns boolean
-    if(not(udg_CC_SecretUnlocked[udg_RandomNumber] == false))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Onkie_List_Actions takes nothing returns nothing
     set bj_forLoopAIndex = 1
     set bj_forLoopAIndexEnd = 20
@@ -15,7 +7,7 @@ function Trig_Onkie_List_Actions takes nothing returns nothing
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop
     set udg_RandomNumber = GetRandomInt(1, 20)
-    if(Trig_Onkie_List_Func004C())then
+    if not udg_CC_SecretUnlocked[udg_RandomNumber] then
         call AddItemToStockBJ(udg_SecretsList[udg_RandomNumber], gg_unit_n009_0061, 1, 1)
     endif
 endfunction

@@ -2,8 +2,8 @@ function Trig_Events_Buttons_Actions takes nothing returns nothing
     set udg_EdemEventBool[udg_EdemEventType] = true
     if udg_EdemEventType == 1 then
         if GetClickedButton() == udg_EdemEventButton[1] then
-            call DialogClearBJ(udg_EdemEventDialog)
-            call DialogSetMessageBJ(udg_EdemEventDialog, "Просунув палец в отверстие, оно с |nгрохотом захлопывается, оставляя |nпалец Аркта навечно запечатанным|nв стене. Резкий крик боли разлета-|nется по залам Эдемиума, оглашая |nмонстров о присутствии незваного|nгостя. Истекая кровью и с пеленой|nна глазах, Аркт продолжает схватку|nс монстрами, с Эдемиумом и с|nсамим собой.")
+            call DialogClear(udg_EdemEventDialog)
+            call DialogSetMessage(udg_EdemEventDialog, "Просунув палец в отверстие, оно с |nгрохотом захлопывается, оставляя |nпалец Аркта навечно запечатанным|nв стене. Резкий крик боли разлета-|nется по залам Эдемиума, оглашая |nмонстров о присутствии незваного|nгостя. Истекая кровью и с пеленой|nна глазах, Аркт продолжает схватку|nс монстрами, с Эдемиумом и с|nсамим собой.")
             call DialogAddButtonBJ(udg_EdemEventDialog, "Замечательно!")
             call DialogDisplayBJ(true, udg_EdemEventDialog, Player(0))
             set udg_Point = GetUnitLoc(udg_Arct)
@@ -24,8 +24,8 @@ function Trig_Events_Buttons_Actions takes nothing returns nothing
                     endif
                 endif
                 if udg_EventSucces then
-                    call DialogClearBJ(udg_EdemEventDialog)
-                    call DialogSetMessageBJ(udg_EdemEventDialog, "Может Аркт и опрометчив, но сейчас |nему кажется всё слишком подозри- |nтельным. Пошарив немного вокруг |nон находит небольшой кусок деревян- |nной рукояти молота. Аркт отсёк |nлишнее мечем и засунул палку в |nотверстие. Оно захлопнулось, разло- |nмав отесанную рукоять пополам, од- |nнако рядом с Арктом появился |nтяжеленный сундук.")
+                    call DialogClear(udg_EdemEventDialog)
+                    call DialogSetMessage(udg_EdemEventDialog, "Может Аркт и опрометчив, но сейчас |nему кажется всё слишком подозри- |nтельным. Пошарив немного вокруг |nон находит небольшой кусок деревян- |nной рукояти молота. Аркт отсёк |nлишнее мечем и засунул палку в |nотверстие. Оно захлопнулось, разло- |nмав отесанную рукоять пополам, од- |nнако рядом с Арктом появился |nтяжеленный сундук.")
                     call DialogAddButtonBJ(udg_EdemEventDialog, "Замечательно!")
                     call DialogDisplayBJ(true, udg_EdemEventDialog, Player(0))
                     set udg_Point = GetUnitLoc(udg_Arct)
@@ -34,10 +34,10 @@ function Trig_Events_Buttons_Actions takes nothing returns nothing
                         call SetUnitUserData(GetLastCreatedUnit(), 10)
                     endif
                 else
-                    call DialogClearBJ(udg_EdemEventDialog)
-                    call DialogSetMessageBJ(udg_EdemEventDialog, "Может Аркт и опрометчив, но сейчас |nему кажется всё слишком подозри- |nтельным. Он решает пошарить немно- |nго вокруг, однако найти что-нибудь |nподходящее так и не получилось. |nКругом только пыль, ржавое железо |nи старые кости.")
+                    call DialogClear(udg_EdemEventDialog)
+                    call DialogSetMessage(udg_EdemEventDialog, "Может Аркт и опрометчив, но сейчас |nему кажется всё слишком подозри- |nтельным. Он решает пошарить немно- |nго вокруг, однако найти что-нибудь |nподходящее так и не получилось. |nКругом только пыль, ржавое железо |nи старые кости.")
                     call DialogAddButtonBJ(udg_EdemEventDialog, "Просунуть палец.")
-                    set udg_EdemEventButton[1] = GetLastCreatedButtonBJ()
+                    set udg_EdemEventButton[1] = bj_lastCreatedButton
                     call DialogAddButtonBJ(udg_EdemEventDialog, "Пройти мимо.")
                     call DialogDisplayBJ(true, udg_EdemEventDialog, Player(0))
                 endif

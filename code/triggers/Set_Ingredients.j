@@ -1,4 +1,3 @@
-
 function Trig_Set_Ingredients_Actions takes nothing returns nothing
     set udg_CC_Ingredient[S2I(SubStringBJ(GetEventPlayerChatString(), 2, 2))] = S2I(SubStringBJ(GetEventPlayerChatString(), 4, 5))
 endfunction

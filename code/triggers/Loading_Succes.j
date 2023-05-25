@@ -7,12 +7,12 @@ function Trig_Loading_Succes_Actions takes nothing returns nothing
         call ConditionalTriggerExecute(gg_trg_QG_Generate)
         call DestroyTrigger(gg_trg_Initialisation_Dialog)
     else
-        call DialogClearBJ(udg_InitDialog)
-        call DialogSetMessageBJ(udg_InitDialog, "")
+        call DialogClear(udg_InitDialog)
+        call DialogSetMessage(udg_InitDialog, "")
         call DialogAddButtonBJ(udg_InitDialog, "Пройти обучение")
-        set udg_DialogButton[1] = GetLastCreatedButtonBJ()
+        set udg_DialogButton[1] = bj_lastCreatedButton
         call DialogAddButtonBJ(udg_InitDialog, "Обойтись без обучения")
-        set udg_DialogButton[2] = GetLastCreatedButtonBJ()
+        set udg_DialogButton[2] = bj_lastCreatedButton
         call DialogDisplayBJ(true, udg_InitDialog, Player(0))
     endif
     call DestroyTrigger(GetTriggeringTrigger())

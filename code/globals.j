@@ -699,7 +699,6 @@ globals
     trigger gg_trg_Augment_Buy = null
     trigger gg_trg_WhosYourDaddy = null
     trigger gg_trg_GreedIsGood = null
-    trigger gg_trg_ISeeDeadPeople = null
     trigger gg_trg_Camera_Hero = null
     trigger gg_trg_Camera_Tree = null
     trigger gg_trg_Camera_Fix = null

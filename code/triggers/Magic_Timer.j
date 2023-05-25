@@ -1,4 +1,3 @@
-
 function Trig_Magic_Timer_Actions takes nothing returns nothing
     set udg_ChanceCrit = (udg_ChanceCrit - 5.00)
     call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 3, ("Шанс разгрома: " + (I2S(R2I(udg_ChanceCrit)) + "%")))

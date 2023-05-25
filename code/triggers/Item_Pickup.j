@@ -1,42 +1,13 @@
-
-function Trig_Item_Pickup_Func001Func001Func001Func001C takes nothing returns boolean
-    if(not(GetItemType(GetManipulatedItem()) == ITEM_TYPE_POWERUP))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Item_Pickup_Func001Func001Func001C takes nothing returns boolean
-    if(not(GetItemType(GetManipulatedItem()) == ITEM_TYPE_PURCHASABLE))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Item_Pickup_Func001Func001C takes nothing returns boolean
-    if(not(GetItemType(GetManipulatedItem()) == ITEM_TYPE_CAMPAIGN))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Item_Pickup_Func001C takes nothing returns boolean
-    if(not(GetItemTypeId(GetManipulatedItem()) == 0x4930304D))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Item_Pickup_Actions takes nothing returns nothing
-    if(Trig_Item_Pickup_Func001C())then
+    if GetItemTypeId(GetManipulatedItem()) == 0x4930304D then
         call AdjustPlayerStateBJ(1, Player(0), PLAYER_STATE_RESOURCE_LUMBER)
         call RemoveItem(GetManipulatedItem())
     else
-        if(Trig_Item_Pickup_Func001Func001C())then
+        if GetItemType(GetManipulatedItem()) == ITEM_TYPE_CAMPAIGN then
             set udg_CC_Ingredient[GetItemLevel(GetManipulatedItem())] = (udg_CC_Ingredient[GetItemLevel(GetManipulatedItem())] + 1)
             call RemoveItem(GetManipulatedItem())
         else
-            if(Trig_Item_Pickup_Func001Func001Func001C())then
+            if GetItemType(GetManipulatedItem()) == ITEM_TYPE_PURCHASABLE then
                 call ShowUnitShow(udg_CC_SecretUnit[GetItemLevel(GetManipulatedItem())])
                 set udg_CC_SecretUnlocked[GetItemLevel(GetManipulatedItem())] = true
                 call RemoveItem(GetManipulatedItem())
@@ -50,7 +21,7 @@ function Trig_Item_Pickup_Actions takes nothing returns nothing
                 call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.50)
                 call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 1.30)
             else
-                if(Trig_Item_Pickup_Func001Func001Func001Func001C())then
+                if GetItemType(GetManipulatedItem()) == ITEM_TYPE_POWERUP then
                     call RemoveItem(GetManipulatedItem())
                 endif
             endif

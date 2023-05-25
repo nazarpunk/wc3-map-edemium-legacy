@@ -1,14 +1,6 @@
-
-function Trig_Orbs_Spawn_Func002C takes nothing returns boolean
-    if(not(udg_LightIterations > 0))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Orbs_Spawn_Actions takes nothing returns nothing
     set udg_LightIterations = (udg_LightIterations - 1)
-    if(Trig_Orbs_Spawn_Func002C())then
+    if udg_LightIterations > 0 then
         set udg_Point = GetUnitLoc(udg_Arct)
         call CreateNUnitsAtLoc(1, 0x68303034, Player(0), udg_Point, bj_UNIT_FACING)
         set udg_Point2 = PolarProjectionBJ(udg_Point, GetRandomReal(100.00, 120.00), GetRandomReal(0, 360.00))

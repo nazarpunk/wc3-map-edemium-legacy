@@ -1,4 +1,3 @@
-
 function Trig_Trees_Choose_ESC_Actions takes nothing returns nothing
     call CameraSetSmoothingFactorBJ(10.00)
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 1.50, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)

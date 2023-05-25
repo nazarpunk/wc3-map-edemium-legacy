@@ -1,14 +1,10 @@
-function Trig_Map_Boss_Button_Func002Func005C takes nothing returns boolean
-    return udg_EM_BossEnterDialog == 1
-endfunction
-
 function Trig_Map_Boss_Button_Actions takes nothing returns nothing
     if GetClickedButton() == udg_MapBossButton[1] then
         set udg_EM_BossRoom = true
         set udg_EM_Bool = false
         set udg_EM_Encounter = true
         set udg_ARTInteger[4] = 0
-        if(Trig_Map_Boss_Button_Func002Func005C())then
+        if udg_EM_BossEnterDialog == 1 then
             set udg_EM_BossLevel = gg_unit_h00K_0105
             set udg_EM_BossCreate[1] = true
             set udg_EM_BossDead[1] = false

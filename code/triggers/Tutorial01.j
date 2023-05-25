@@ -1,4 +1,3 @@
-
 function Trig_Tutorial01_Actions takes nothing returns nothing
     call CinematicModeExBJ(false, GetPlayersAll(), 999.00)
     call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_1F, "Наконец-то - хоть кто-то с мозгами! Добро пожаловать. Меня Беба зовут.", bj_TIMETYPE_ADD, 0.00, true)

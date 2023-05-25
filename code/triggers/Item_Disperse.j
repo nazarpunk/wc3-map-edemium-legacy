@@ -1,42 +1,11 @@
-
-function Trig_Item_Disperse_Func017C takes nothing returns boolean
-    if((GetItemType(GetSpellTargetItem()) == ITEM_TYPE_CHARGED))then
-        return true
-    endif
-    if((GetItemType(GetSpellTargetItem()) == ITEM_TYPE_ARTIFACT))then
-        return true
-    endif
-    return false
-endfunction
-
 function Trig_Item_Disperse_Conditions takes nothing returns boolean
-    if(not(GetSpellAbilityId() == 0x41303349))then
-        return false
-    endif
-    if(not Trig_Item_Disperse_Func017C())then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Item_Disperse_Func002Func001C takes nothing returns boolean
-    if(not(GetItemLevel(GetSpellTargetItem()) == 4))then
-        return false
-    endif
-    return true
-endfunction
-
-function Trig_Item_Disperse_Func002C takes nothing returns boolean
-    if(not(GetItemType(GetSpellTargetItem()) == ITEM_TYPE_CHARGED))then
-        return false
-    endif
-    return true
+    return GetSpellAbilityId() == 0x41303349 and (GetItemType(GetSpellTargetItem()) == ITEM_TYPE_CHARGED or GetItemType(GetSpellTargetItem()) == ITEM_TYPE_ARTIFACT)
 endfunction
 
 function Trig_Item_Disperse_Actions takes nothing returns nothing
     local integer price
-    if(Trig_Item_Disperse_Func002C())then
-        if(Trig_Item_Disperse_Func002Func001C())then
+    if GetItemType(GetSpellTargetItem()) == ITEM_TYPE_CHARGED then
+        if GetItemLevel(GetSpellTargetItem()) == 4 then
             set price = (S2I(SubStringBJ(I2S(GetItemUserData(GetSpellTargetItem())), 1, 1)) + S2I(SubStringBJ(I2S(GetItemUserData(GetSpellTargetItem())), 2, 2)) + S2I(SubStringBJ(I2S(GetItemUserData(GetSpellTargetItem())), 3, 3)))
             set price = (price + S2I(SubStringBJ(I2S(GetItemUserData(GetSpellTargetItem())), 4, 4)) + S2I(SubStringBJ(I2S(GetItemUserData(GetSpellTargetItem())), 5, 5)) + S2I(SubStringBJ(I2S(GetItemUserData(GetSpellTargetItem())), 6, 6)))
             set price = (price + S2I(SubStringBJ(I2S(GetItemUserData(GetSpellTargetItem())), 7, 7)) + S2I(SubStringBJ(I2S(GetItemUserData(GetSpellTargetItem())), 8, 8)))

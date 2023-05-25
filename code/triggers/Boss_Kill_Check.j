@@ -39,7 +39,7 @@ function Trig_Boss_Kill_Check_Actions takes nothing returns nothing
     set udg_LightOrbs[2] = (udg_LightOrbs[2] + udg_RandomNumber)
     set udg_LightIterations = (udg_LightIterations + udg_RandomNumber)
     call EnableTrigger(gg_trg_Orbs_Spawn)
-    call StopMusicBJ(true)
+    call StopMusic(true)
     call DisableTrigger(gg_trg_Boss_II_Channel_Periodic)
     call DisableTrigger(gg_trg_Boss_II_Channel_Init)
     call UnitAddAbilityBJ(0x4176756C, udg_Arct)

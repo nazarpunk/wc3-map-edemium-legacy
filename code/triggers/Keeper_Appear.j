@@ -1,12 +1,5 @@
-function Trig_Keeper_Appear_Func001C takes nothing returns boolean
-    if(not(udg_CS_KeeperBool == false))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Keeper_Appear_Actions takes nothing returns nothing
-    if(Trig_Keeper_Appear_Func001C())then
+    if not udg_CS_KeeperBool then
         set udg_CS_KeeperBool = true
         call SetUnitVertexColorBJ(gg_unit_n006_0028, 100, 100, 100, 100.00)
         set udg_Transparent = 100.00

@@ -1,13 +1,5 @@
-
-function Trig_Scroll_Periodic_Func017Func001C takes nothing returns boolean
-    if(not(GetOwningPlayer(GetEnumUnit()) == Player(11)))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Scroll_Periodic_Func017A takes nothing returns nothing
-    if(Trig_Scroll_Periodic_Func017Func001C())then
+    if GetOwningPlayer(GetEnumUnit()) == Player(11) then
         set udg_AbilityPower = ((I2R(udg_CO_Power) * 1.00) + I2R(udg_CO_Combo))
         set udg_AbilityPower = (udg_AbilityPower + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true)))
         set udg_AbilityPower = (udg_AbilityPower * 3.00)

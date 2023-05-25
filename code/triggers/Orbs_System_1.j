@@ -1,13 +1,5 @@
-
-function Trig_Orbs_System_1_Func001C takes nothing returns boolean
-    if(not(udg_JD_Integers[1] == 0))then
-        return false
-    endif
-    return true
-endfunction
-
 function Trig_Orbs_System_1_Actions takes nothing returns nothing
-    if(Trig_Orbs_System_1_Func001C())then
+    if udg_JD_Integers[1] == 0 then
         call EnableTrigger(gg_trg_Orbs_System_2)
     endif
     set udg_JD_Integers[1] = (udg_JD_Integers[1] + 1)

@@ -1,4 +1,3 @@
-
 function Trig_Item_Clear_Func001A takes nothing returns nothing
     call RemoveItem(GetEnumItem())
 endfunction

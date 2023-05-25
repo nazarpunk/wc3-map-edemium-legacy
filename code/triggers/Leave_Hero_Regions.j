@@ -1,9 +1,5 @@
-
 function Trig_Leave_Hero_Regions_Conditions takes nothing returns boolean
-    if(not(GetLeavingUnit() == udg_Arct))then
-        return false
-    endif
-    return true
+    return GetLeavingUnit() == udg_Arct
 endfunction
 
 function Trig_Leave_Hero_Regions_Actions takes nothing returns nothing

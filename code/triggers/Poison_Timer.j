@@ -1,4 +1,3 @@
-
 function Trig_Poison_Timer_Actions takes nothing returns nothing
     call DestroyGroup(udg_PoisonGroup)
     call DisableTrigger(gg_trg_Poison_Damage)

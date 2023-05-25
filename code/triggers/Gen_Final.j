@@ -98,7 +98,6 @@ function Trig_Gen_Final_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Artefactorium_Creep_Kill)
     call DisableTrigger(gg_trg_Artefactorium_Damage)
     call ConditionalTriggerExecute(gg_trg_Gen_Creeps_Skills)
-    call EnableTrigger(gg_trg_ISeeDeadPeople)
     call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
     call DestroyFogModifier(GetLastCreatedFogModifier())
     call FogEnableOn()

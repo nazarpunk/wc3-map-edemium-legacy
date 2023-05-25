@@ -6,12 +6,12 @@ function Trig_Ending_Dialogue_1_Actions takes nothing returns nothing
     else
         call TriggerSleepAction(1.00)
         call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_h00V_0029, "Эдемор", gg_snd_Edemor3, "Ты достоин войти в Эдем, но готов ли ты ради этого отбросить свои привязанности, отпустить любимых и простить врагов, отказаться от всех желаний и испытать настоящую смерть?", bj_TIMETYPE_ADD, 1.00, true)
-        call DialogClearBJ(udg_EndingDialog)
-        call DialogSetMessageBJ(udg_EndingDialog, "Готов ли ты?")
+        call DialogClear(udg_EndingDialog)
+        call DialogSetMessage(udg_EndingDialog, "Готов ли ты?")
         call DialogAddButtonBJ(udg_EndingDialog, "Да")
-        set udg_DialogButton[1] = GetLastCreatedButtonBJ()
+        set udg_DialogButton[1] = bj_lastCreatedButton
         call DialogAddButtonBJ(udg_EndingDialog, "Нет")
-        set udg_DialogButton[2] = GetLastCreatedButtonBJ()
+        set udg_DialogButton[2] = bj_lastCreatedButton
         call DialogDisplayBJ(true, udg_EndingDialog, Player(0))
         call EnableTrigger(gg_trg_Ending_Dialogue_2)
         call DestroyTrigger(GetTriggeringTrigger())

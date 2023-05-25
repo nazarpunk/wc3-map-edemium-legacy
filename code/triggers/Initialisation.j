@@ -1,11 +1,12 @@
 function Trig_Initialisation_Actions takes nothing returns nothing
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEOUT, 0.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
-    set udg_CinematicPosition = GetUnitLoc(gg_unit_H000_0004)
     call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
     call SetSkyModel("war3mapImported\\skyLight.mdx")
     call SetTerrainFogExBJ(0, 1100.00, 15000.00, 0.50, 0.00, 20.00, 100)
+    call SuspendTimeOfDay(false)
     
     call StopSound(bj_nightAmbientSound, true, true)
+    set udg_CinematicPosition = GetUnitLoc(gg_unit_H000_0004)
 
     set udg_Arct = gg_unit_H000_0004
     call SetUnitLifePercentBJ(udg_Arct, 100)
@@ -21,8 +22,6 @@ function Trig_Initialisation_Actions takes nothing returns nothing
     call SetPlayerAbilityAvailableBJ(false, 0x41303147, Player(0))
     call SetPlayerAbilityAvailableBJ(false, 0x41303555, Player(0))
     call SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, false, Player(11))
-
-    call SuspendTimeOfDay(false)
 
     call AddWeatherEffectSaveLast(gg_rct_Dungeon, 0x4C526D61)
     call SelectUnitForPlayerSingle(udg_Arct, Player(0))

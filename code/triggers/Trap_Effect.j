@@ -1,12 +1,5 @@
-
 function Trig_Trap_Effect_Conditions takes nothing returns boolean
-    if(not(GetUnitTypeId(GetTriggerUnit()) == 0x68303039))then
-        return false
-    endif
-    if(not(GetSpellAbilityId() == 0x4130344C))then
-        return false
-    endif
-    return true
+    return GetUnitTypeId(GetTriggerUnit()) == 0x68303039 and GetSpellAbilityId() == 0x4130344C
 endfunction
 
 function Trig_Trap_Effect_Actions takes nothing returns nothing

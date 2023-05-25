@@ -1,4 +1,3 @@
-
 function Trig_Tutorial02_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Enter_Regions)
     set udg_Tutorial[3] = false

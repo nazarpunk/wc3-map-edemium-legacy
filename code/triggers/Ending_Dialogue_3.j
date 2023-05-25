@@ -8,7 +8,7 @@ function Trig_Ending_Dialogue_3_Actions takes nothing returns nothing
         call CinematicModeExBJ(true, bj_FORCE_PLAYER[0], 5.00)
         call TriggerSleepAction(5.00)
         call DisplayTimedTextToForce(GetPlayersAll(), 999.00, "Аркт достиг Эдема.")
-        call StopMusicBJ(false)
+        call StopMusic(false)
         call ClearMapMusic()
         call PlayMusic((("/Edemium/MusicEnding.mp3")))
         call TriggerSleepAction(10.00)
