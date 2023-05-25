@@ -1,5 +1,7 @@
 library Init {
-    
+    real y = 0;
+    integer index = -1;
+
 
     function onInit() {
         ShowInterface(false, 0);
@@ -8,26 +10,32 @@ library Init {
 
         TimerStart(CreateTimer(), 0, false, function() {
             integer i;
-            framehandle fa, fb;
+            trigger t;
+            framehandle fa, fb, 
+            gameUi = GetOriginFrame(ORIGIN_FRAME_GAME_UI, 0),
+            portrait = GetOriginFrame(ORIGIN_FRAME_PORTRAIT, 0);
+
             real w, h;
+
             DestroyTimer(GetExpiredTimer());
 
-            SetFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_WORLD_FRAME, 0), GetOriginFrame(ORIGIN_FRAME_GAME_UI, 0));
+            SetFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_WORLD_FRAME, 0), gameUi);
 
             ShowFrame(GetOriginFrame(ORIGIN_FRAME_TIME_OF_DAY_INDICATOR, 0), false);
             ShowFrame(GetOriginFrame(ORIGIN_FRAME_MINIMAP, 0), false);
-            ShowFrame(GetOriginFrame(ORIGIN_FRAME_PORTRAIT, 0), false);
+
+            SetFrameRelativePoint(portrait, FRAMEPOINT_TOPLEFT, gameUi, FRAMEPOINT_BOTTOMRIGHT, 0, 0);
 
             for (0 <= i <= 4) ShowFrame(GetOriginFrame(ORIGIN_FRAME_MINIMAP_BUTTON, i), false);
             for (0 <= i <= 3) ShowFrame(GetOriginFrame(ORIGIN_FRAME_SYSTEM_BUTTON, i), false);
             for (0 <= i <= 6) ShowFrame(GetOriginFrame(ORIGIN_FRAME_HERO_HP_BAR, i), false);
 
+            // command button
             fa = GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 0);
             w = GetFrameWidth(fa);
             h = GetFrameHeight(fa);
             ClearFrameAllPoints(fa);
 
-            // command button
             SetFrameAbsolutePoint(fa, FRAMEPOINT_BOTTOMLEFT, .0, .0);
             SetFrameSize(fa, w, h);
 
@@ -39,12 +47,53 @@ library Init {
                 SetFrameRelativePoint(fb, FRAMEPOINT_LEFT, fa, FRAMEPOINT_RIGHT, 0, 0);
             }
 
-            /*
-            INFO_BAR -> CSimpleFontString ищи в дочерних фреймах.
-            CSimpleFontString если что расширяет CSimpleRegion, не CSimpleFrame.
-            Потому можешь проверять все дочерние фреймы через IsFrameSimpleRegion.
-            */
+            // inventory
+            fa = GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 0);
+            fb = GetOriginFrame(ORIGIN_FRAME_ITEM_BUTTON, 0);
+            w = GetFrameWidth(fb);
+            h = GetFrameHeight(fb);
+            ClearFrameAllPoints(fb);
+            SetFrameRelativePoint(fb, FRAMEPOINT_BOTTOMLEFT, fa, FRAMEPOINT_TOPLEFT, 0, 0);
+            
+            for (1 <= i <= 5) {
+                fa = GetOriginFrame(ORIGIN_FRAME_ITEM_BUTTON, i-1);
+                fb = GetOriginFrame(ORIGIN_FRAME_ITEM_BUTTON, i);
+                ClearFrameAllPoints(fb);
+                SetFrameSize(fb, w, h);
+                SetFrameRelativePoint(fb, FRAMEPOINT_LEFT, fa, FRAMEPOINT_RIGHT, 0, 0);
+            }
 
+            // BottomCenterUI
+            fa = GetFrameByName("BottomCenterUI", 0);
+            w = GetFrameWidth(fa);
+            h = GetFrameHeight(fa);
+            ClearFrameAllPoints(fa);
+            SetFrameSize(fa, w, h);
+            //SetFrameRelativePoint(fa, FRAMEPOINT_BOTTOMRIGHT, gameUi, FRAMEPOINT_BOTTOMRIGHT, 0, 0);
+
+            t = CreateTrigger();
+            TriggerRegisterPlayerEvent(t, Player(0), EVENT_PLAYER_ARROW_LEFT_DOWN);
+            TriggerAddAction(t, function (){
+                //framehandle fa = GetFrameByName("BottomCenterUI", 0);
+                framehandle gui;
+                framehandle ch;
+
+                index += 1;
+                BJDebugMsg(I2S(index));
+                gui = GetOriginFrame(ORIGIN_FRAME_INFO_BAR, 0);
+                ShowFrame(GetFrameChild(gui, index), false);
+
+                //y += .001;
+                //BJDebugMsg(R2S(y));
+
+                //SetFrameParent()
+                //SetFrameAbsolutePoint(fa, FRAMEPOINT_BOTTOMRIGHT, y, 0);
+
+                //SetFrameRelativePoint(fa, FRAMEPOINT_BOTTOMRIGHT, gui, FRAMEPOINT_TOPRIGHT, y, 0);
+            });
+
+            gameUi = null;
+            portrait = null;
             fa = null;
             fb = null;
         });
