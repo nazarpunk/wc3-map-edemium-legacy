@@ -269,7 +269,6 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Trap_Periodic)
     call EnableTrigger(gg_trg_Artefactorium_Creep_Kill)
     call EnableTrigger(gg_trg_Artefactorium_Damage)
-    call DisableTrigger(gg_trg_ISeeDeadPeople)
     call DisableTrigger(gg_trg_Secret_Search)
     call DisableTrigger(gg_trg_Boss_Creep_Spawn)
     call DisableTrigger(gg_trg_Boss_III_Creep_Spawn)

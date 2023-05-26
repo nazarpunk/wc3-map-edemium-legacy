@@ -172,7 +172,7 @@ function Trig_Initialisation_Elapsed_Actions takes nothing returns nothing
     call DialogSetMessage(udg_InitDialog, "")
     set udg_DialogButton[1] = DialogAddButton(udg_InitDialog, "Пройти обучение", 0)
     set udg_DialogButton[2] = DialogAddButton(udg_InitDialog, "Обойтись без обучения", 0)
-    set udg_DialogButton[3] = DialogAddButtonBJ(udg_InitDialog, "Загрузить сохранение", 0)
+    set udg_DialogButton[3] = DialogAddButton(udg_InitDialog, "Загрузить сохранение", 0)
     call DialogDisplayBJ(true, udg_InitDialog, Player(0))
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction

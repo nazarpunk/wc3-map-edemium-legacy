@@ -7,7 +7,7 @@ function Trig_Pause_Off_Actions takes nothing returns nothing
         set udg_TutorialHint[3] = true
         call DialogClear(udg_TeleportDialog)
         call DialogSetMessage(udg_TeleportDialog, "Смерть для Аркта не страшна, но|nвсё равно умирая он будет терять|nвсе предметы снаряжения. Твоя |nцель: найти и убить хозяина уровня. |nВ зависимости от сложности зависит |nнаграда за прохождение уровня. |nДа пребудут с тобой Боги Эдемиума.")
-        call DialogAddButtonBJ(udg_TeleportDialog, "Понятно, спасибо!")
+        call DialogAddButton(udg_TeleportDialog, "Понятно, спасибо!", 0)
         call DialogDisplayBJ(true, udg_TeleportDialog, Player(0))
         call TriggerSleepAction(1.00)
         set udg_TutorialHint[4] = true

@@ -20,11 +20,11 @@ function Trig_Chest_Unlock_Actions takes nothing returns nothing
         set udg_Chest = GetOrderTargetUnit()
         call DialogClear(udg_ChestDialog)
         call DialogSetMessage(udg_ChestDialog, GetUnitName(udg_Chest))
-        call DialogAddButtonBJ(udg_ChestDialog, ("Открыть потратив |cFF449EFF" + (I2S(udg_ChestEnergy) + " |rэнергии.")))
+        call DialogAddButton(udg_ChestDialog, ("Открыть потратив |cFF449EFF" + (I2S(udg_ChestEnergy) + " |rэнергии.")), 0)
         set udg_ChestButtonEnergy = bj_lastCreatedButton
-        call DialogAddButtonBJ(udg_ChestDialog, "|cFFFFFFFFОткрыть Ключом Эдемора.|r")
+        call DialogAddButton(udg_ChestDialog, "|cFFFFFFFFОткрыть Ключом Эдемора.|r", 0)
         set udg_ChestButtonKey = bj_lastCreatedButton
-        call DialogAddButtonBJ(udg_ChestDialog, "Обойдусь.")
+        call DialogAddButton(udg_ChestDialog, "Обойдусь.", 0)
         call DialogDisplayBJ(true, udg_ChestDialog, Player(0))
     else
         call CreateTextTagUnitBJ("Поближе бы...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)

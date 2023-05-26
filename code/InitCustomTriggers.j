@@ -189,7 +189,6 @@ function InitCustomTriggersOld takes nothing returns nothing
     call InitTrig_Augment_Buy()
     call InitTrig_WhosYourDaddy()
     call InitTrig_GreedIsGood()
-    call InitTrig_ISeeDeadPeople()
     call InitTrig_Camera_Hero()
     call InitTrig_Camera_Tree()
     call InitTrig_Camera_Fix()
