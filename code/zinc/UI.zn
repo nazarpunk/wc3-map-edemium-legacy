@@ -18,6 +18,7 @@ library UI {
             real w, h;
             DestroyTimer(GetExpiredTimer());
 
+            // ui
             SetFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_WORLD_FRAME, 0), gameUi);
 
             ShowFrame(GetOriginFrame(ORIGIN_FRAME_TIME_OF_DAY_INDICATOR, 0), false);
@@ -62,33 +63,24 @@ library UI {
                 SetFrameRelativePoint(fb, FRAMEPOINT_LEFT, fa, FRAMEPOINT_RIGHT, 0, 0);
             }
 
-            // BottomCenterUI
-            fa = GetFrameByName("BottomCenterUI", 0);
+            // InfoPanelUnitDetail
+            fa = GetFrameByName("InfoPanelUnitDetail", 0);
             w = GetFrameWidth(fa);
             h = GetFrameHeight(fa);
             ClearFrameAllPoints(fa);
             SetFrameSize(fa, w, h);
-            //SetFrameRelativePoint(fa, FRAMEPOINT_BOTTOMRIGHT, gameUi, FRAMEPOINT_BOTTOMRIGHT, 0, 0);
+            SetFrameRelativePoint(fa, FRAMEPOINT_BOTTOMRIGHT, gameUi, FRAMEPOINT_TOPRIGHT, 0, 0);
 
             t = CreateTrigger();
             TriggerRegisterPlayerEvent(t, Player(0), EVENT_PLAYER_ARROW_LEFT_DOWN);
             TriggerAddAction(t, function (){
-                //framehandle fa = GetFrameByName("BottomCenterUI", 0);
-                framehandle gui;
-                framehandle ch;
+                framehandle fa = GetFrameByName("InfoPanelUnitDetail", 0);
+                framehandle gui = GetOriginFrame(ORIGIN_FRAME_GAME_UI, 0);
 
-                index += 1;
-                BJDebugMsg(I2S(index));
-                gui = GetOriginFrame(ORIGIN_FRAME_INFO_BAR, 0);
-                ShowFrame(GetFrameChild(gui, index), false);
+                y += .001;
+                BJDebugMsg(R2S(y));
 
-                //y += .001;
-                //BJDebugMsg(R2S(y));
-
-                //SetFrameParent()
-                //SetFrameAbsolutePoint(fa, FRAMEPOINT_BOTTOMRIGHT, y, 0);
-
-                //SetFrameRelativePoint(fa, FRAMEPOINT_BOTTOMRIGHT, gui, FRAMEPOINT_TOPRIGHT, y, 0);
+                SetFrameRelativePoint(fa, FRAMEPOINT_BOTTOMRIGHT, gui, FRAMEPOINT_BOTTOMRIGHT, y, y);
             });
 
             gameUi = null;
