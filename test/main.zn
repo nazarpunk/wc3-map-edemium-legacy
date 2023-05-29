@@ -1,4 +1,6 @@
 library Init {
+    real y = 0;
+
     function onInit() {
         
         TimerStart(CreateTimer(), 0, false, function() {
@@ -6,33 +8,33 @@ library Init {
             framehandle fa, fb;
             framehandle gameUi = GetOriginFrame(ORIGIN_FRAME_GAME_UI, 0);
             real w, h;
+            trigger t;
             DestroyTimer(GetExpiredTimer());
 
             SetFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_WORLD_FRAME, 0), gameUi);
 
-            ShowFrame(GetOriginFrame(ORIGIN_FRAME_TIME_OF_DAY_INDICATOR, 0), false);
-            ShowFrame(GetOriginFrame(ORIGIN_FRAME_MINIMAP, 0), false);
-            ShowFrame(GetOriginFrame(ORIGIN_FRAME_PORTRAIT, 0), false);
-
-            for (0 <= i <= 4) ShowFrame(GetOriginFrame(ORIGIN_FRAME_MINIMAP_BUTTON, i), false);
-            for (0 <= i <= 3) ShowFrame(GetOriginFrame(ORIGIN_FRAME_SYSTEM_BUTTON, i), false);
-            for (0 <= i <= 6) ShowFrame(GetOriginFrame(ORIGIN_FRAME_HERO_HP_BAR, i), false);
-
-            fa = GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 0);
-            w = GetFrameWidth(fa);
-            h = GetFrameHeight(fa);
+            // InfoPanelUnitDetail
+            fa = GetFrameByName("InfoPanelUnitDetail", 0);
             ClearFrameAllPoints(fa);
+            SetFrameRelativePoint(fa, FRAMEPOINT_BOTTOMRIGHT, gameUi, FRAMEPOINT_TOPRIGHT, 0, 0);
+            //w = GetFrameWidth(fa);
+            //h = GetFrameHeight(fa);
+            
+            //SetFrameSize(fa, w, h);
+            
 
-            SetFrameAbsolutePoint(fa,FRAMEPOINT_BOTTOMLEFT, 0.01, 0.01);
-            SetFrameSize(fa, w, h);
+            t = CreateTrigger();
+            TriggerRegisterPlayerEvent(t, Player(0), EVENT_PLAYER_ARROW_LEFT_DOWN);
+            TriggerAddAction(t, function (){
+                framehandle fa = GetFrameByName("InfoPanelUnitDetail", 0);
+                framehandle gui = GetOriginFrame(ORIGIN_FRAME_GAME_UI, 0);
 
-            for (1 <= i <= 11) {
-                fa = GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, i-1);
-                fb = GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, i);
-                ClearFrameAllPoints(fb);
-                SetFrameSize(fb, w, h);
-                SetFrameRelativePoint(fb, FRAMEPOINT_LEFT, fa, FRAMEPOINT_RIGHT, 0,0);
-            }
+                y += .001;
+                BJDebugMsg(R2S(y));
+
+                SetFrameRelativePoint(fa, FRAMEPOINT_BOTTOMRIGHT, gui, FRAMEPOINT_BOTTOMRIGHT, y, y);
+            });
+
 
             gameUi = null;
             fa = null;
