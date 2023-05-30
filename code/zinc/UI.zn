@@ -1,25 +1,24 @@
 library UI {
-    real y = 0;
+    real x = 0, y = 0;
     integer index = -1;
-
+    framehandle fa, fb;
 
     function onInit() {
         ShowInterface(false, 0);
         EnableUserControl(true);
 
-
         TimerStart(CreateTimer(), 0, false, function() {
             integer i;
             trigger t;
-            framehandle fa, fb, 
-            gameUi = GetOriginFrame(ORIGIN_FRAME_GAME_UI, 0),
-            portrait = GetOriginFrame(ORIGIN_FRAME_PORTRAIT, 0);
+            framehandle gameUi = GetOriginFrame(ORIGIN_FRAME_GAME_UI, 0);
+            framehandle world = GetOriginFrame(ORIGIN_FRAME_WORLD_FRAME, 0);
+            framehandle portrait = GetOriginFrame(ORIGIN_FRAME_PORTRAIT, 0);
 
             real w, h;
             DestroyTimer(GetExpiredTimer());
 
             // ui
-            SetFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_WORLD_FRAME, 0), gameUi);
+            SetFrameAllPoints(world, gameUi);
 
             ShowFrame(GetOriginFrame(ORIGIN_FRAME_TIME_OF_DAY_INDICATOR, 0), false);
             ShowFrame(GetOriginFrame(ORIGIN_FRAME_MINIMAP, 0), false);
@@ -27,7 +26,7 @@ library UI {
             SetFrameRelativePoint(portrait, FRAMEPOINT_TOPLEFT, gameUi, FRAMEPOINT_BOTTOMRIGHT, 0, 0);
 
             for (0 <= i <= 4) ShowFrame(GetOriginFrame(ORIGIN_FRAME_MINIMAP_BUTTON, i), false);
-            for (0 <= i <= 3) ShowFrame(GetOriginFrame(ORIGIN_FRAME_SYSTEM_BUTTON, i), false);
+            //for (0 <= i <= 3) ShowFrame(GetOriginFrame(ORIGIN_FRAME_SYSTEM_BUTTON, i), false);
             for (0 <= i <= 6) ShowFrame(GetOriginFrame(ORIGIN_FRAME_HERO_HP_BAR, i), false);
 
             // command button
@@ -63,30 +62,40 @@ library UI {
                 SetFrameRelativePoint(fb, FRAMEPOINT_LEFT, fa, FRAMEPOINT_RIGHT, 0, 0);
             }
 
-            // InfoPanelUnitDetail
-            fa = GetFrameByName("InfoPanelUnitDetail", 0);
-            w = GetFrameWidth(fa);
-            h = GetFrameHeight(fa);
-            ClearFrameAllPoints(fa);
-            SetFrameSize(fa, w, h);
-            SetFrameRelativePoint(fa, FRAMEPOINT_BOTTOMRIGHT, gameUi, FRAMEPOINT_TOPRIGHT, 0, 0);
+            // unit panel
+            fa = CreateFrameByType("BACKDROP", "up", world, "", 0);
+            SetFrameSize(fa, .23, .28);
+            SetFrameRelativePoint(fa, FRAMEPOINT_BOTTOMRIGHT, world, FRAMEPOINT_BOTTOMRIGHT, 0, 0);
+            SetFrameTexture(fa, "UI\\Console\\Human\\HumanUITile02.blp", 0, true);
 
+            fb = GetOriginFrame(ORIGIN_FRAME_INFO_BAR, 0);
+            ClearFrameAllPoints(fb);
+            SetFrameSize(fb, .188, .114);
+            SetFrameRelativePoint(fb, FRAMEPOINT_BOTTOMRIGHT, fa, FRAMEPOINT_BOTTOMRIGHT, -.006, 0);
+
+            y = .0;
+
+            // trigger
             t = CreateTrigger();
             TriggerRegisterPlayerEvent(t, Player(0), EVENT_PLAYER_ARROW_LEFT_DOWN);
-            TriggerAddAction(t, function (){
-                framehandle fa = GetFrameByName("InfoPanelUnitDetail", 0);
-                framehandle gui = GetOriginFrame(ORIGIN_FRAME_GAME_UI, 0);
+            TriggerRegisterPlayerEvent(t, Player(0), EVENT_PLAYER_ARROW_RIGHT_DOWN);
+            TriggerAddAction(t, function () {
+                real dy = .001;
 
-                y += .001;
+                y -= dy;
                 BJDebugMsg(R2S(y));
 
-                SetFrameRelativePoint(fa, FRAMEPOINT_BOTTOMRIGHT, gui, FRAMEPOINT_BOTTOMRIGHT, y, y);
+                //if (GetTriggerPlayerKey() == OSKEY_LEFT) y -= dy;
+                //if (GetTriggerPlayerKey() == OSKEY_RIGHT) y += dy;
+
+
+                //SetFrameSize(fa, y, .28);
             });
 
-            gameUi = null;
-            portrait = null;
-            fa = null;
-            fb = null;
+            //gameUi = null;
+            //portrait = null;
+            //fa = null;
+            //fb = null;
         });
     }
 }

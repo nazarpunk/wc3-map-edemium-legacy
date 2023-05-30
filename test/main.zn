@@ -1,44 +1,22 @@
 library Init {
     real y = 0;
+    integer index = - 1;
+    framehandle fa, fb, gameUi;
 
     function onInit() {
-        
-        TimerStart(CreateTimer(), 0, false, function() {
-            integer i;
-            framehandle fa, fb;
-            framehandle gameUi = GetOriginFrame(ORIGIN_FRAME_GAME_UI, 0);
-            real w, h;
-            trigger t;
-            DestroyTimer(GetExpiredTimer());
-
-            SetFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_WORLD_FRAME, 0), gameUi);
-
-            // InfoPanelUnitDetail
-            fa = GetFrameByName("InfoPanelUnitDetail", 0);
-            ClearFrameAllPoints(fa);
-            SetFrameRelativePoint(fa, FRAMEPOINT_BOTTOMRIGHT, gameUi, FRAMEPOINT_TOPRIGHT, 0, 0);
-            //w = GetFrameWidth(fa);
-            //h = GetFrameHeight(fa);
-            
-            //SetFrameSize(fa, w, h);
-            
-
-            t = CreateTrigger();
-            TriggerRegisterPlayerEvent(t, Player(0), EVENT_PLAYER_ARROW_LEFT_DOWN);
-            TriggerAddAction(t, function (){
-                framehandle fa = GetFrameByName("InfoPanelUnitDetail", 0);
-                framehandle gui = GetOriginFrame(ORIGIN_FRAME_GAME_UI, 0);
-
-                y += .001;
-                BJDebugMsg(R2S(y));
-
-                SetFrameRelativePoint(fa, FRAMEPOINT_BOTTOMRIGHT, gui, FRAMEPOINT_BOTTOMRIGHT, y, y);
-            });
-
-
-            gameUi = null;
-            fa = null;
-            fb = null;
+        trigger t = CreateTrigger();
+        TriggerRegisterPlayerEvent(t, Player(0), EVENT_PLAYER_ARROW_LEFT_DOWN);
+        TriggerRegisterPlayerEvent(t, Player(0), EVENT_PLAYER_ARROW_RIGHT_DOWN);
+        TriggerAddAction(t, function () {
+            if (GetTriggerPlayerKey() == OSKEY_LEFT){
+                BJDebugMsg("left");
+                return;
+            }
+            if (GetTriggerPlayerKey() == OSKEY_RIGHT) {
+                BJDebugMsg("right");
+                return;
+            }
+            BJDebugMsg("fuckup");
         });
     }
 }
