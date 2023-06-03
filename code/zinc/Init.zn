@@ -3,6 +3,57 @@ library Init {
         ShowInterface(false, 0);
         EnableUserControl(true);
 
+        CinematicFadeBJ(bj_CINEFADETYPE_FADEOUT, 0.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0);
+        SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx");
+        SetSkyModel("war3mapImported\\skyLight.mdx");
+        SetTerrainFogExBJ(0, 1100.00, 15000.00, 0.50, 0.00, 20.00, 100);
+        SuspendTimeOfDay(false);
+        
+        StopSound(bj_nightAmbientSound, true, true);
+        udg_CinematicPosition = GetUnitLoc(gg_unit_H000_0004);
+    
+        udg_Arct = gg_unit_H000_0004;
+        SetUnitLifePercentBJ(udg_Arct, 100);
+        SetUnitManaPercentBJ(udg_Arct, 100);
+        UnitAddAbilityBJ(0x41303138, udg_Arct);
+        UnitAddAbilityBJ(0x41303537, udg_Arct);
+        UnitAddAbilityBJ(0x41303530, udg_Arct);
+        UnitAddAbilityBJ(0x41303147, udg_Arct);
+        UnitAddAbilityBJ(0x41303555, udg_Arct);
+        SetPlayerAbilityAvailableBJ(false, 0x41303138, Player(0));
+        SetPlayerAbilityAvailableBJ(false, 0x41303537, Player(0));
+        SetPlayerAbilityAvailableBJ(false, 0x41303530, Player(0));
+        SetPlayerAbilityAvailableBJ(false, 0x41303147, Player(0));
+        SetPlayerAbilityAvailableBJ(false, 0x41303555, Player(0));
+        SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, false, Player(11));
+    
+        AddWeatherEffectSaveLast(gg_rct_Dungeon, 0x4C526D61);
+        SelectUnitForPlayerSingle(udg_Arct, Player(0));
+        CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Боевая система", "- Во время боя над монстрами может появиться одна из 3 иконок, от игрока требуется успеть нажать на один из 3 приёмов на панели умений, в зависимости от цвета появившейся иконки.|n- Правильное нажатие наносит монстру урон и исцеляет Аркта, так же повышает серию ударов, от которой зависит общий наносимый урон и получаемое исцеление.", "ReplaceableTextures\\CommandButtons\\BTNCombo4.blp");
+        //CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Навыки", "- Навыки это способности которые Аркт автоматически применяет если правильно нажимать на приёмы (три разноцветных кнопки) необходимое количество раз подряд (зависит от того на какой серии стоит навык)."+"|n- Навык можно установить на 4 разных серии (3,5,7,9); от этого зависит сколько раз подряд нужно правильно нажать на приёмы чтобы навык применился.|n- К примеру: если выучить навык и поставить его на 3 серию, то после каждых правильных трёх нажатий на приёмы - навык будет применятся.|n- Чтобы изучить навык необходимо 300 очков навыка; одно очко дается за одно применение навыка.|n- Каждые 70 применений навык повышает свой уровень; всего у навыков 5 уровней (необходимо применить навык 350 раз чтобы полностью его улучшить).", "ReplaceableTextures\\CommandButtons\\BTNBeltEnhance.blp");
+        CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Секреты (таланты)", "- Секреты это бесконечно улучшаемые таланты, дарующие Аркту новые пассивные способности.|n- Секреты можно раскрыть выбив рецепты с монстров и боссов или купить в лавке Онки.|n- При поднятии рецепта он появляется в замке на стене возле Ядра.|n- Чтобы прокачать секрет необходимо найти необходимые элементы (которые описаны в рецепте), затем использовать Ядро; нажать на него, добавить необходимые элементы и нажать на кнопку Изучить секрет.", "ReplaceableTextures\\CommandButtons\\BTNSkullFusion.blp");
+        CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Карта Эдемиума", "- После захода в портал открывается Карта Эдемиума, на которой расположено множество разнообразных уровней.|n- Между уровнями можно перемещаться разными способами (обычное перемещение и телепортация) применяя необходимые способности расположенные на панели снизу.|n- После перемещения на уровень можно начать его прохождение (кнопка Отправиться).|n- Если слишком много блуждать по карте, то может произойти что-нибудь неприятное (этого можно избежать используя телепортацию).", "ReplaceableTextures\\CommandButtons\\BTNMove.blp");
+        CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Прочее", "- Очень важно качать характеристики: они лучше всего влияют на силу Аркта.|n- После прохождения подземелий повышаются случайные хар-ки в зависимости от количества поднятых Арктом уровней.|n- Награда за прохождение уровня зависит от сложности и от количества убитых монстров.|n- Новые режимы сложности открываются после убийства боссов.|n- Телепортация между уровнями Эдемиума открывается после убийства первого босса.|n- Угол камеры в Эдемиуме можно поменять стрелками вправо/влево и отдалять/приближать стрелками вниз/вверх.", "ReplaceableTextures\\CommandButtons\\BTNMeditate.blp");
+        SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, false, Player(11));
+        SetPlayerAllianceStateBJ(Player(10), Player(0), bj_ALLIANCE_UNALLIED);
+        RegionAddRect(udg_Region1, gg_rct_Training);
+        RegionAddRect(udg_Region2, gg_rct_Vault_Machinery);
+        RegionAddRect(udg_Region3, gg_rct_Vault_Leave);
+        RegionAddRect(udg_Region4, gg_rct_Room_Portal_Leave);
+        RegionAddRect(udg_Region5, gg_rct_Portal);
+        RegionAddRect(udg_Region6, gg_rct_Artefatorium_Leave_2);
+        RegionAddRect(udg_Region7, gg_rct_Artefatorium_Leave);
+        RegionAddRect(udg_Region8, gg_rct_Vault_Machinery_Leave);
+        RegionAddRect(udg_Region9, gg_rct_Room_Workshop_Leave);
+        RegionAddRect(udg_Region10, gg_rct_Workshop_Machinery);
+        RegionAddRect(udg_Region11, gg_rct_Workshop_Core);
+        FogEnable(false);
+        FogMaskEnable(false);
+        CreateFogModifierRectBJ(true, Player(0), FOG_OF_WAR_VISIBLE, bj_mapInitialPlayableArea);
+        EnableDawnDusk(false);
+        StopMusic(false);
+        ClearMapMusic();
+
         TimerStart(CreateTimer(), 0, false, function() {
             DestroyTimer(GetExpiredTimer());
 

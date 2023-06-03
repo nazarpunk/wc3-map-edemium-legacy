@@ -3,7 +3,6 @@
 //! import "mainInit.j"
 //! import "lib/CodeGen.j"
 
-//! import "triggers/Initialisation.j"
 //! import "triggers/Initialisation_Elapsed.j"
 //! import "triggers/Initialisation_Dialog.j"
 //! import "triggers/Variables.j"

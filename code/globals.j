@@ -509,7 +509,6 @@ globals
     boolean udg_KB_Bool = false
     integer udg_IG_ItemRandom = 0
     location udg_PointTalisman = null
-    trigger gg_trg_Initialisation = null
     trigger gg_trg_Initialisation_Elapsed = null
     trigger gg_trg_Initialisation_Dialog = null
     trigger gg_trg_Variables = null

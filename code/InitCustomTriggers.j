@@ -1,5 +1,4 @@
 function InitCustomTriggersOld takes nothing returns nothing
-    call InitTrig_Initialisation()
     call InitTrig_Initialisation_Elapsed()
     call InitTrig_Initialisation_Dialog()
     call InitTrig_Variables()
@@ -273,7 +272,6 @@ function InitCustomTriggersOld takes nothing returns nothing
     call InitTrig_Bad_Ending_Good_Job()
     call InitTrig_Edemor_Transparent_2()
 
-    call ConditionalTriggerExecute(gg_trg_Initialisation)
     call ConditionalTriggerExecute(gg_trg_Variables)
     call ConditionalTriggerExecute(gg_trg_CodeGen_Init)
     call ConditionalTriggerExecute(gg_trg_Effect_8_Config)

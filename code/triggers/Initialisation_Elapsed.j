@@ -2,18 +2,18 @@ function Trig_Initialisation_Elapsed_Func006A takes nothing returns nothing
     if GetUnitTypeId(GetEnumUnit()) == 0x6830304B then
         call SetUnitUserData(GetEnumUnit(), 10)
         call SetUnitVertexColorBJ(GetEnumUnit(), 100, 100, 100, 100.00)
-    else
-        if GetUnitTypeId(GetEnumUnit()) == 0x68303132 then
-            call AddItemToStockBJ(0x49303047, GetEnumUnit(), 1, 1)
-            call SetUnitVertexColorBJ(GetEnumUnit(), 100, 100, 100, 100.00)
-            call UnitAddAbilityBJ(0x416E6575, GetEnumUnit())
-        else
-            if GetUnitTypeId(GetEnumUnit()) == 0x68303036 then
-                call SetUnitVertexColorBJ(GetEnumUnit(), 100, 100, 100, 100.00)
-                call UnitAddAbilityBJ(0x416E6575, GetEnumUnit())
-                call UnitAddAbilityBJ(0x41303241, GetEnumUnit())
-            endif
-        endif
+    endif
+
+    if GetUnitTypeId(GetEnumUnit()) == 0x68303132 then
+        call AddItemToStockBJ(0x49303047, GetEnumUnit(), 1, 1)
+        call SetUnitVertexColorBJ(GetEnumUnit(), 100, 100, 100, 100.00)
+        call UnitAddAbilityBJ(0x416E6575, GetEnumUnit())
+    endif
+
+    if GetUnitTypeId(GetEnumUnit()) == 0x68303036 then
+        call SetUnitVertexColorBJ(GetEnumUnit(), 100, 100, 100, 100.00)
+        call UnitAddAbilityBJ(0x416E6575, GetEnumUnit())
+        call UnitAddAbilityBJ(0x41303241, GetEnumUnit())
     endif
 endfunction
 

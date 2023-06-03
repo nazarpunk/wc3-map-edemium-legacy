@@ -5,9 +5,10 @@ library Init {
 
     function onInit() {
         trigger t = CreateTrigger();
-        TriggerRegisterPlayerEvent(t, Player(0), EVENT_PLAYER_KEY_DOWN);
+        TriggerRegisterPlayerKeyEvent(t, Player(0), OSKEY_LEFT, 0, true);
+        TriggerRegisterPlayerKeyEvent(t, Player(0), OSKEY_RIGHT, 0, true);
         TriggerAddAction(t, function () {
-            if (GetTriggerPlayerKey() == OSKEY_LEFT){
+            if (GetTriggerPlayerKey() == OSKEY_LEFT) {
                 BJDebugMsg("left");
                 return;
             }
