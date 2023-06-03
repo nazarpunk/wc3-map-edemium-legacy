@@ -24,14 +24,17 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         call EnableTrigger(gg_trg_Trees_Choose_ESC)
         call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Чтобы открыть новые умения нажмите ESC.")
     endif
+
     if IsUnitInRegion(udg_Region2, gg_unit_H000_0004) then
         call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Workshop_2)
         set udg_Camera = gg_cam_Camera_Workshop_2
     endif
+
     if IsUnitInRegion(udg_Region10, gg_unit_H000_0004) then
         call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Workshop)
         set udg_Camera = gg_cam_Camera_Workshop
     endif
+    
     if IsUnitInRegion(udg_Region11, gg_unit_H000_0004) then
         call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Workshop_1)
         set udg_Camera = gg_cam_Camera_Workshop_1
@@ -62,6 +65,7 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         call EnableTrigger(gg_trg_Core_Item_Pickup)
         call DisableTrigger(gg_trg_Item_Pickup)
     endif
+
     if IsUnitInRegion(udg_Region9, gg_unit_H000_0004) then
         call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
         call SetCameraBoundsToRect(gg_rct_Camera_Bound_Portal)
@@ -77,6 +81,7 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
             set udg_Tutorial[1] = false
         endif
     endif
+
     if IsUnitInRegion(udg_Region4, gg_unit_H000_0004) then
         call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
         call SetTerrainFogExBJ(0, 1500.00, 10000.00, 0.50, 0.00, 50.00, 100)
@@ -89,6 +94,7 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         call SetUnitFacingToFaceLocTimed(GetEnteringUnit(), udg_Point, 0)
         call RemoveLocation(udg_Point)
     endif
+
     if IsUnitInRegion(udg_Region5, gg_unit_H000_0004) then
         call SetCameraBoundsToRect(gg_rct_Camera_Bound_Gate)
         set udg_Camera = gg_cam_Camera_Portal
@@ -100,6 +106,7 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
             call DialogDisplayBJ(true, udg_TeleportDialog, Player(0))
         endif
     endif
+
     if IsUnitInRegion(udg_Region8, gg_unit_H000_0004) then
         call SuspendHeroXPBJ(false, udg_Arct)
         call SetDayNightModels("Environment\\DNC\\DNCLordaeron\\DNCLordaeronTerrain\\DNCLordaeronTerrain.mdl", "Environment\\DNC\\DNCLordaeron\\DNCLordaeronUnit\\DNCLordaeronUnit.mdl")
@@ -120,6 +127,7 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         call SetPlayerAbilityAvailableBJ(true, 0x41303530, Player(0))
         call EnableTrigger(gg_trg_Artefactorium_Damage)
     endif
+    
     if IsUnitInRegion(udg_Region7, gg_unit_H000_0004) then
         call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
         call SetTerrainFogExBJ(0, 1500.00, 10000.00, 0.50, 0.00, 50.00, 100)
@@ -138,6 +146,7 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         call DestroyEffectBJ(udg_AR_SealEffect)
         call ClearTextMessagesBJ(GetPlayersAll())
     endif
+    
     call CameraSetupApplyForceDuration(udg_Camera, true, 0.00)
     set udg_UnitGroup = GetUnitsOfPlayerAll(Player(11))
     call ForGroupBJ(udg_UnitGroup, function Trig_Enter_Regions_Func018002)
