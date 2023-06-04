@@ -252,30 +252,6 @@
 //! import "triggers/Bad_Ending_Good_Job.j"
 //! import "triggers/Edemor_Transparent_2.j"
 
-//! import "triggers/chat/Unlock_Difficulties.j"
-//! import "triggers/chat/Unhide_Recipes.j"
-//! import "triggers/chat/Talent_Level.j"
-//! import "triggers/chat/Set_Ingredients.j"
-//! import "triggers/chat/Scrolls.j"
-//! import "triggers/chat/Quest_Progress.j"
-//! import "triggers/chat/Item_Max_Lvl.j"
-//! import "triggers/chat/Item_Generate.j"
-//! import "triggers/chat/Item_Clear.j"
-//! import "triggers/chat/Camera_Disable.j"
-//! import "triggers/chat/Ability_Points.j"
-//! import "triggers/chat/Add_Ingredients.j"
-//! import "triggers/chat/Attributes.j"
-//! import "triggers/chat/Boss.j"
-//! import "triggers/chat/ChanceBlock.j"
-//! import "triggers/chat/ChanceCrit.j"
-//! import "triggers/chat/Check_Lvl.j"
-//! import "triggers/chat/Damage.j"
-//! import "triggers/chat/Exp.j"
-//! import "triggers/chat/Heal.j"
-//! import "triggers/chat/Level.j"
-//! import "triggers/chat/God_Mode.j"
-//! import "triggers/chat/Suicide.j"
-
 //! import "triggers/cheat/GreedIsGood.j"
 //! import "triggers/cheat/WhosYourDaddy.j"
 
@@ -285,6 +261,7 @@
 //! import "zinc/Init.zn"
 //! import "zinc/UI.zn"
 //! import "zinc/Regions.zn"
+//! import "zinc/Chat.zn"
 //! endzinc
 
 //! inject main

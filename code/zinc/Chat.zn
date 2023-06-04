@@ -1,0 +1,262 @@
+library Chat {
+
+    function onInit() {
+        trigger t;
+
+        if (!DEBUG_MODE) return;
+
+        // ability points
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), ".", false);
+        TriggerAddAction(t, function() {
+            udg_AS_Points = S2I(SubStringBJ(GetEventPlayerChatString(), 2, 5));
+            MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 1, ("Очки навыков: " + I2S(udg_AS_Points)));
+        });
+
+
+        // add ingredients
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "i+", true);
+        TriggerAddAction(t, function() {
+            integer i;
+            for (1 <= i <= 10) udg_CC_Ingredient[i] = 10;
+        });
+
+        // attributes
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "-a", false);
+        TriggerRegisterPlayerChatEvent(t, Player(0), "-f", false);
+        TriggerRegisterPlayerChatEvent(t, Player(0), "-w", false);
+        TriggerAddAction(t, function() {
+            string s = SubString(GetEventPlayerChatString(), 1, 2);
+            integer v = S2I(SubString(GetEventPlayerChatString(), 3, 5));
+            if (s == "a") ModifyHeroStat(bj_HEROSTAT_AGI, ArctUnit, bj_MODIFYMETHOD_SET, v);
+            if (s == "f") ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_SET, v);
+            if (s == "w") ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_SET, v);
+        });
+
+        // unlock difficulties
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "4", true);
+        TriggerAddAction(t, function() {
+            integer i;
+            for (1 <= i <= 3) udg_Difficulty_Unlocked[i] = true;
+        });
+
+        // suicide
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "8", true);
+        TriggerAddAction(t, function() {
+            KillUnit(ArctUnit);
+        });
+
+        // unhide reciepes
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "ur", true);
+        TriggerAddAction(t, function() {
+            group g = GetUnitsInRectOfPlayer(gg_rct_Secrets, Player(PLAYER_NEUTRAL_PASSIVE));
+            ForGroup(g, function(){
+                ShowUnit(GetEnumUnit(), true);
+            });
+            DestroyGroup(g);
+            g = null;
+        });
+
+        // Talent_Level
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "t", false);
+        TriggerAddAction(t, function() {
+            udg_ART[S2I(SubStringBJ(GetEventPlayerChatString(), 2, 3))] = S2I(SubStringBJ(GetEventPlayerChatString(), 4, 5));
+        });
+
+        // Set_Ingredients
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "i", false);
+        TriggerAddAction(t, function() {
+            udg_CC_Ingredient[S2I(SubStringBJ(GetEventPlayerChatString(), 2, 2))] = S2I(SubStringBJ(GetEventPlayerChatString(), 4, 5));
+        });
+
+        // Scrolls
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "sc", true);
+        TriggerAddAction(t, function() {
+            real x = GetUnitX(ArctUnit);
+            real y = GetUnitY(ArctUnit);
+
+            CreateItem(0x49303143, x, y);
+            CreateItem(0x49303131, x, y);
+            CreateItem(0x49303055, x, y);
+        });
+
+        // Quest_Progress
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "qu", true);
+        TriggerAddAction(t, function() {
+            udg_QG_Count[udg_QG_ObjectiveState[1]] += 3;
+            udg_QG_Count[udg_QG_ObjectiveState[2]] += 3;
+            ConditionalTriggerExecute(gg_trg_QG_Change_Text);
+        });
+
+        // Level
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "lvl", true);
+        TriggerAddAction(t, function() {
+            SetHeroLevelBJ(ArctUnit, S2I(SubStringBJ(GetEventPlayerChatString(), 5, 6)), false);
+        });
+
+        // Item_Max_Lvl
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "+", true);
+        TriggerAddAction(t, function() {
+            udg_IG_ItemLVL_Max = S2I(SubString(GetEventPlayerChatString(), 1, 2));
+        });
+
+        // Item_Generate
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "/", true);
+        TriggerAddAction(t, function() {
+            udg_IG_ItemQuality = GetRandomInt(1, 3);
+            udg_IG_Point = GetUnitLoc(ArctUnit);
+            ConditionalTriggerExecute(gg_trg_IG_Generate);
+        });
+
+        // Item_Clear
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "//", true);
+        TriggerAddAction(t, function() {
+            EnumItemsInRect(gg_rct_Ambient_Portal_Room, null, function(){
+                RemoveItem(GetEnumItem());
+            });
+        });
+
+        // Heal
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "q", true);
+        TriggerAddAction(t, function() {
+            SetUnitLifePercentBJ(ArctUnit, 100);
+            SetUnitManaPercentBJ(ArctUnit, 100);
+        });
+
+        // God_Mode
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "5", true);
+        TriggerAddAction(t, function() {
+            DestroyTrigger(gg_trg_WhosYourDaddy);
+            DestroyTrigger(gg_trg_GreedIsGood);
+            Cheat("whosyourdaddy");
+            SetUnitMoveSpeed(ArctUnit, 522.00);
+        });
+
+        // Exp
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "ex", true);
+        TriggerAddAction(t, function() {
+            AddHeroXPSwapped(100, ArctUnit, false);
+        });
+
+        // Damage
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "d", true);
+        TriggerAddAction(t, function() {
+            SetUnitLifePercentBJ(ArctUnit, 50.00);
+            SetUnitManaPercentBJ(ArctUnit, 0.00);
+        });
+
+        // Check_Lvl
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "cl", true);
+        TriggerAddAction(t, function() {
+            DisplayTimedTextToForce(GetPlayersAll(), 1.00, I2S(GetHeroLevel(ArctUnit)));
+        });
+
+        // ChanceCrit
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "cr", true);
+        TriggerAddAction(t, function() {
+            ClearTextMessagesBJ(GetPlayersAll());
+            DisplayTimedTextToForce(GetPlayersAll(), 1.00, R2S(udg_ChanceCrit));
+        });
+
+        // ChanceBlock
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "bl", true);
+        TriggerAddAction(t, function() {
+            ClearTextMessagesBJ(GetPlayersAll());
+            DisplayTimedTextToForce(GetPlayersAll(), 1.00, R2S(udg_ChanceBlock));
+        });
+
+        // Camera_Disable
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "cd", true);
+        TriggerAddAction(t, function() {
+            DisableTrigger(gg_trg_Camera_Fix);
+            DisableTrigger(gg_trg_Camera_Hero);
+            DisableTrigger(gg_trg_Camera_Tree);
+            SetCameraBoundsToRectForPlayerBJ(Player(0), bj_mapInitialPlayableArea);
+            CameraSetupApplyForceDuration(gg_cam_Center, true, 0.00);
+
+        });
+
+        // Boss
+        t = CreateTrigger();
+        TriggerRegisterPlayerChatEvent(t, Player(0), "boss1", true);
+        TriggerRegisterPlayerChatEvent(t, Player(0), "boss2", true);
+        TriggerRegisterPlayerChatEvent(t, Player(0), "boss3", true);
+        TriggerRegisterPlayerChatEvent(t, Player(0), "boss4", true);
+        TriggerAddAction(t, function() {
+            string s = GetEventPlayerChatString();
+            udg_Difficulty_Unlocked[1] = true;
+            SuspendHeroXPBJ(true, ArctUnit);
+            
+            if (s == "boss1") {
+                SetHeroLevelBJ(ArctUnit, 10, false);
+                AdjustPlayerStateBJ(100, Player(0), PLAYER_STATE_RESOURCE_GOLD);
+                ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_ADD, 10);
+                ModifyHeroStat(bj_HEROSTAT_AGI, ArctUnit, bj_MODIFYMETHOD_ADD, 10);
+                ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_ADD, 10);
+            }
+                
+            if (s == "boss2") {
+                udg_EM_Boss[1] = true;
+                udg_EM_Generate = 2;
+                SetHeroLevelBJ(ArctUnit, 20, false);
+                AdjustPlayerStateBJ(200, Player(0), PLAYER_STATE_RESOURCE_GOLD);
+                ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_ADD, 15);
+                ModifyHeroStat(bj_HEROSTAT_AGI, ArctUnit, bj_MODIFYMETHOD_ADD, 15);
+                ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_ADD, 15);
+                ConditionalTriggerExecute(gg_trg_Map_Generate);
+            }
+
+
+            if (s == "boss3") {
+                udg_EM_Boss[1] = true;
+                udg_EM_Boss[2] = true;
+                udg_EM_Generate = 3;
+                SetHeroLevelBJ(ArctUnit, 40, false);
+                AdjustPlayerStateBJ(300, Player(0), PLAYER_STATE_RESOURCE_GOLD);
+                ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_ADD, 20);
+                ModifyHeroStat(bj_HEROSTAT_AGI, ArctUnit, bj_MODIFYMETHOD_ADD, 20);
+                ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_ADD, 20);
+                ConditionalTriggerExecute(gg_trg_Map_Generate);
+            }
+
+            if (s == "boss4") {
+                udg_EM_Boss[1] = true;
+                udg_EM_Boss[2] = true;
+                udg_EM_Boss[3] = true;
+                udg_EM_Generate = 4;
+                SetHeroLevelBJ(ArctUnit, 60, false);
+                AdjustPlayerStateBJ(500, Player(0), PLAYER_STATE_RESOURCE_GOLD);
+                ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_ADD, 20);
+                ModifyHeroStat(bj_HEROSTAT_AGI, ArctUnit, bj_MODIFYMETHOD_ADD, 20);
+                ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_ADD, 20);
+                ConditionalTriggerExecute(gg_trg_Map_Generate);
+            }
+
+            ConditionalTriggerExecute(gg_trg_Attributes_Multiboard);
+            AdjustPlayerStateBJ(50, Player(0), PLAYER_STATE_RESOURCE_LUMBER);
+            SuspendHeroXPBJ(false, ArctUnit);
+        });
+
+    }
+}
