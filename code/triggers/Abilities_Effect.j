@@ -1,6 +1,6 @@
 function Trig_Abilities_Effect_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(udg_Target)
-    call DestroyEffectBJ(udg_Starfall)
+    call DestroyEffect(udg_Starfall)
     call AddSpecialEffectLocBJ(udg_Point, "StarfallTarget.mdx")
     set udg_Starfall = GetLastCreatedEffectBJ()
     call RemoveLocation(udg_Point)

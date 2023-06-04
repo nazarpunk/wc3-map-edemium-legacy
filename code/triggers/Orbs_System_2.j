@@ -11,7 +11,7 @@ function Trig_Orbs_System_2_Actions takes nothing returns nothing
                 set udg_JD_ReachedDistance[udg_JD_Integers[3]] = (udg_JD_ReachedDistance[udg_JD_Integers[3]] + udg_JD_SpeedUnits[udg_JD_Integers[3]])
                 if GetRandomInt(1, 5) == 1 then
                     call AddSpecialEffectTargetUnitBJ("chest", udg_JD_Unit[udg_JD_Integers[3]], udg_JD_Effect[udg_JD_Integers[3]])
-                    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                    call DestroyEffect(GetLastCreatedEffectBJ())
                 endif
                 set udg_JD_RealTimer[udg_JD_Integers[3]] = (udg_JD_RealTimer[udg_JD_Integers[3]] + (180.00 / (udg_JD_Distances[udg_JD_Integers[3]] / udg_JD_SpeedUnits[udg_JD_Integers[3]])))
                 set udg_JD_JumpHigh[udg_JD_Integers[3]] = (SinBJ(udg_JD_RealTimer[udg_JD_Integers[3]]) * udg_JD_HighSettings[udg_JD_Integers[3]])

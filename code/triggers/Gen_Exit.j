@@ -148,8 +148,8 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     call CameraSetupApplyForPlayer(true, gg_cam_Camera_Portal, Player(0), 0)
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 1.50, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 100.00, 100.00, 100.00, 0)
     call ClearTextMessagesBJ(GetPlayersAll())
-    call DestroyEffectBJ(udg_CO_Effect6Sweep[1])
-    call DestroyEffectBJ(udg_CO_Effect6Sweep[2])
+    call DestroyEffect(udg_CO_Effect6Sweep[1])
+    call DestroyEffect(udg_CO_Effect6Sweep[2])
     set udg_CO_Effect6Power = 0
     if udg_AS_Effect2 then
         set udg_AS_Effect2 = false
@@ -158,7 +158,7 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     if udg_AS_Effect11 then
         set udg_AS_Effect11 = false
         set udg_ChanceBlock = (udg_ChanceBlock - 20.00)
-        call DestroyEffectBJ(udg_AS_Effect11SE)
+        call DestroyEffect(udg_AS_Effect11SE)
         call SetUnitVertexColorBJ(ArctUnit, 100.00, 100.00, 100, 0)
     endif
     if udg_ART[13] > 0 then
@@ -298,7 +298,7 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
         call AddUnitAnimationPropertiesBJ(false, "gold", ArctUnit)
         call SetUnitMoveSpeed(ArctUnit, GetUnitDefaultMoveSpeed(ArctUnit))
         call SetUnitTurnSpeedBJ(ArctUnit, 1.00)
-        call DestroyEffectBJ(udg_MeditationEffect)
+        call DestroyEffect(udg_MeditationEffect)
         call DisableTrigger(gg_trg_Meditation_Heal)
         call DisableTrigger(gg_trg_Meditation_Cast)
         call DisableTrigger(gg_trg_Meditation_Turn_Off)
@@ -335,7 +335,7 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     set bj_forLoopAIndexEnd = 4
     loop
         exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-        call DestroyEffectBJ(udg_ChestKeyEffect[bj_forLoopAIndex])
+        call DestroyEffect(udg_ChestKeyEffect[bj_forLoopAIndex])
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop
     call UnitRemoveBuffsBJ(bj_REMOVEBUFFS_ALL, ArctUnit)
@@ -349,7 +349,7 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     call SelectUnitForPlayerSingle(ArctUnit, Player(0))
     call EnablePreSelect(false, false)
     call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "Abilities\\Spells\\Human\\ReviveHuman\\ReviveHuman.mdl")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+    call DestroyEffect(GetLastCreatedEffectBJ())
     set udg_Transparent = 100.00
     call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 1, ("Очки навыков: " + I2S(udg_AS_Points)))
     call EnableTrigger(gg_trg_Edemium_Transparent)

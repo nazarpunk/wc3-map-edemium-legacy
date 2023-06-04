@@ -75,7 +75,7 @@ function Trig_Creep_Skills_Func003Func012Func006A takes nothing returns nothing
 endfunction
 
 function Trig_Creep_Skills_Actions takes nothing returns nothing
-    call DestroyEffectBJ(udg_CreepCastEffect[GetUnitUserData(GetTriggerUnit())])
+    call DestroyEffect(udg_CreepCastEffect[GetUnitUserData(GetTriggerUnit())])
     if GetSpellAbilityId() == 0x41303139 then
         set udg_Point = GetUnitLoc(GetTriggerUnit())
         call CreateNUnitsAtLoc(1, 0x68303039, Player(11), udg_Point, bj_UNIT_FACING)
@@ -108,11 +108,11 @@ function Trig_Creep_Skills_Actions takes nothing returns nothing
             set udg_UnitGroup = GetUnitsInRangeOfLocAll(250.00, udg_Creep_Cast_Point[GetUnitUserData(GetTriggerUnit())])
             if udg_CreepSpellType == 4 then
                 call AddSpecialEffectLocBJ(udg_Creep_Cast_Point[GetUnitUserData(GetTriggerUnit())], "Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl")
-                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                call DestroyEffect(GetLastCreatedEffectBJ())
             else
                 if udg_CreepSpellType == 2 then
                     call AddSpecialEffectLocBJ(udg_Creep_Cast_Point[GetUnitUserData(GetTriggerUnit())], "war3mapImported\\ShadowAssault.mdx")
-                    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                    call DestroyEffect(GetLastCreatedEffectBJ())
                 else
                     if udg_CreepSpellType == 1 then
                         call SetTerrainTypeBJ(udg_Creep_Cast_Point[GetUnitUserData(GetTriggerUnit())], 0x43706F73, - 1, 1, 0)
@@ -127,7 +127,7 @@ function Trig_Creep_Skills_Actions takes nothing returns nothing
         if GetSpellAbilityId() == 0x41303232 then
             set udg_UnitGroup = GetUnitsInRangeOfLocAll(150.00, udg_Creep_Strike_Point[GetUnitUserData(GetTriggerUnit())])
             call AddSpecialEffectLocBJ(udg_Creep_Strike_Point[GetUnitUserData(GetTriggerUnit())], "Abilities\\Spells\\Orc\\FeralSpirit\\feralspirittarget.mdl")
-            call DestroyEffectBJ(GetLastCreatedEffectBJ())
+            call DestroyEffect(GetLastCreatedEffectBJ())
             call RemoveLocation(udg_Creep_Strike_Point[GetUnitUserData(GetTriggerUnit())])
             call ForGroupBJ(udg_UnitGroup, function Trig_Creep_Skills_Func003Func012Func006A)
             call DestroyGroup(udg_UnitGroup)
@@ -135,7 +135,7 @@ function Trig_Creep_Skills_Actions takes nothing returns nothing
             if GetSpellAbilityId() == 0x41303456 then
                 set udg_UnitGroup = GetUnitsInRangeOfLocAll(120.00, udg_Creep_Cast_Point[GetUnitUserData(GetTriggerUnit())])
                 call AddSpecialEffectLocBJ(udg_Creep_Cast_Point[GetUnitUserData(GetTriggerUnit())], "Abilities\\Spells\\Orc\\FeralSpirit\\feralspirittarget.mdl")
-                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                call DestroyEffect(GetLastCreatedEffectBJ())
                 call SetUnitPositionLoc(GetTriggerUnit(), udg_Creep_Cast_Point[GetUnitUserData(GetTriggerUnit())])
                 call ForGroupBJ(udg_UnitGroup, function Trig_Creep_Skills_Func003Func012Func001Func006A)
                 call RemoveLocation(udg_Creep_Cast_Point[GetUnitUserData(GetTriggerUnit())])
@@ -176,7 +176,7 @@ function Trig_Creep_Skills_Actions takes nothing returns nothing
                             set udg_Point = GetUnitLoc(GetTriggerUnit())
                             call SetTerrainTypeBJ(udg_Point, 0x43706F73, - 1, 2, 0)
                             call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Blight Missile.mdx")
-                            call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                            call DestroyEffect(GetLastCreatedEffectBJ())
                             set udg_UnitGroup = GetUnitsInRangeOfLocAll(150.00, udg_Point)
                             call ForGroupBJ(udg_UnitGroup, function Trig_Creep_Skills_Func003Func012Func001Func001Func001Func002Func007A)
                             call RemoveLocation(udg_Point)

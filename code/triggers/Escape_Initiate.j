@@ -12,7 +12,7 @@ function Trig_Escape_Initiate_Actions takes nothing returns nothing
     call SetUnitPositionLoc(udg_D_Exit, udg_D_Point1)
     call RemoveLocation(udg_D_Point1)
     call AddSpecialEffectTargetUnitBJ("origin", udg_D_Guardian, "Abilities\\Spells\\Other\\HowlOfTerror\\HowlCaster.mdl")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+    call DestroyEffect(GetLastCreatedEffectBJ())
     call DisableTrigger(GetTriggeringTrigger())
 endfunction
 

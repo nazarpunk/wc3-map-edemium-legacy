@@ -16,7 +16,7 @@ function Trig_Coliseum_Target_Kill_Actions takes nothing returns nothing
     set udg_CS_KeeperBool = false
     call SetUnitLifePercentBJ(ArctUnit, 100)
     call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+    call DestroyEffect(GetLastCreatedEffectBJ())
 endfunction
 
 function InitTrig_Coliseum_Target_Kill takes nothing returns nothing

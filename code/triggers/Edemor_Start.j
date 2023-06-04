@@ -29,7 +29,7 @@ function Trig_Edemor_Start_Actions takes nothing returns nothing
     call QueueUnitAnimationBJ(gg_unit_h00V_0063, "stand")
     set udg_Point = GetUnitLoc(gg_unit_h00V_0063)
     call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\StompRed.mdx")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+    call DestroyEffect(GetLastCreatedEffectBJ())
     call RemoveLocation(udg_Point)
     call EnableTrigger(gg_trg_Creep_Kill)
     call EnableTrigger(gg_trg_Armor_Use)

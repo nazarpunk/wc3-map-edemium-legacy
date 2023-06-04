@@ -202,7 +202,6 @@
 //! import "triggers/Camera_Decrease.j"
 //! import "triggers/Trees_Camera_Off.j"
 //! import "triggers/Trees_Choose_ESC.j"
-//! import "triggers/Enter_Regions.j"
 //! import "triggers/Leave_Hero_Regions.j"
 //! import "triggers/Leave_Core.j"
 //! import "triggers/Core_Autosave.j"
@@ -285,6 +284,7 @@
 //! zinc
 //! import "zinc/Init.zn"
 //! import "zinc/UI.zn"
+//! import "zinc/Regions.zn"
 //! endzinc
 
 //! inject main
@@ -306,18 +306,3 @@
     //! dovjassinit
     call InitCustomTriggersOld()
 //! endinject
-
-//! inject config
-    call SetMapName("Edemium")
-    call SetMapDescription("")
-    call SetPlayers(3)
-    call SetTeams(3)
-    call SetGamePlacement(MAP_PLACEMENT_USE_MAP_SETTINGS)
-    call DefineStartLocation(0, 6528.0, - 11648.0)
-    call DefineStartLocation(1, 4224.0, 2112.0)
-    call DefineStartLocation(2, 4160.0, 2112.0)
-    call InitCustomPlayerSlots()
-    call InitCustomTeams()
-//! endinject
-
-

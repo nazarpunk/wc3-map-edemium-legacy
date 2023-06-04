@@ -127,11 +127,6 @@ function InitGlobalsOld takes nothing returns nothing
     set udg_D_Walls = 0
     set udg_D_TimerPortals = CreateTimer()
     set udg_CameraTurn = 0
-    set udg_Region1 = CreateRegion()
-    set udg_Region2 = CreateRegion()
-    set udg_Region3 = CreateRegion()
-    set udg_Region4 = CreateRegion()
-    set udg_Region5 = CreateRegion()
     set udg_CO_UnitGroup = CreateGroup()
     set udg_CO_UnitGroup2 = CreateGroup()
     set udg_CO_Combo = 0
@@ -225,8 +220,6 @@ function InitGlobalsOld takes nothing returns nothing
     endloop
     set udg_IG_ItemQuality = 0
     set udg_SprintTimer = CreateTimer()
-    set udg_Region6 = CreateRegion()
-    set udg_Region7 = CreateRegion()
     set udg_EM_Bool = false
     set udg_EM_Cost = 0
     set udg_EM_Generate = 1
@@ -317,10 +310,6 @@ function InitGlobalsOld takes nothing returns nothing
     set udg_PoisonTimer = CreateTimer()
     set udg_EnchantCritBool = false
     set udg_EnchantCritTimer = CreateTimer()
-    set udg_Region8 = CreateRegion()
-    set udg_Region9 = CreateRegion()
-    set udg_Region10 = CreateRegion()
-    set udg_Region11 = CreateRegion()
     set i = 0
     loop
         exitwhen(i > 1)

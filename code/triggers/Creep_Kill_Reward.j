@@ -21,7 +21,7 @@ function Trig_Creep_Kill_Reward_Actions takes nothing returns nothing
             endif
         endif
         call AddSpecialEffectLocBJ(udg_IG_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
     endif
 endfunction
 

@@ -12,7 +12,7 @@ function Trig_Coliseum_Exit_Actions takes nothing returns nothing
     set udg_CS_Bool = false
     call ClearTextMessagesBJ(GetPlayersAll())
     call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "war3mapImported\\Holy_Heal.mdx")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+    call DestroyEffect(GetLastCreatedEffectBJ())
     set udg_CS_RewardReal = (udg_CS_RewardReal * udg_EX_Rate)
     call AdjustPlayerStateBJ(R2I(udg_CS_RewardReal), Player(0), PLAYER_STATE_RESOURCE_GOLD)
     set udg_CS_Reward = R2I(udg_CS_RewardReal)

@@ -43,17 +43,7 @@ library Init {
         CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Прочее", "- Очень важно качать характеристики: они лучше всего влияют на силу Аркта.|n- После прохождения подземелий повышаются случайные хар-ки в зависимости от количества поднятых Арктом уровней.|n- Награда за прохождение уровня зависит от сложности и от количества убитых монстров.|n- Новые режимы сложности открываются после убийства боссов.|n- Телепортация между уровнями Эдемиума открывается после убийства первого босса.|n- Угол камеры в Эдемиуме можно поменять стрелками вправо/влево и отдалять/приближать стрелками вниз/вверх.", "ReplaceableTextures\\CommandButtons\\BTNMeditate.blp");
         SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, false, Player(11));
         SetPlayerAllianceStateBJ(Player(10), Player(0), bj_ALLIANCE_UNALLIED);
-        RegionAddRect(udg_Region1, gg_rct_Training);
-        RegionAddRect(udg_Region2, gg_rct_Vault_Machinery);
-        RegionAddRect(udg_Region3, gg_rct_Vault_Leave);
-        RegionAddRect(udg_Region4, gg_rct_Room_Portal_Leave);
-        RegionAddRect(udg_Region5, gg_rct_Portal);
-        RegionAddRect(udg_Region6, gg_rct_Artefatorium_Leave_2);
-        RegionAddRect(udg_Region7, gg_rct_Artefatorium_Leave);
-        RegionAddRect(udg_Region8, gg_rct_Vault_Machinery_Leave);
-        RegionAddRect(udg_Region9, gg_rct_Room_Workshop_Leave);
-        RegionAddRect(udg_Region10, gg_rct_Workshop_Machinery);
-        RegionAddRect(udg_Region11, gg_rct_Workshop_Core);
+        
         FogEnable(false);
         FogMaskEnable(false);
         CreateFogModifierRectBJ(true, Player(0), FOG_OF_WAR_VISIBLE, bj_mapInitialPlayableArea);

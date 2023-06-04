@@ -4,7 +4,7 @@ function Trig_Meditation_Heal_Actions takes nothing returns nothing
             if GetRandomInt(1, 100) <= GetHeroStatBJ(bj_HEROSTAT_INT, ArctUnit, true) then
                 call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) + (I2R(udg_MeditationPower) * 3.00)))
                 call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "war3mapImported\\Holy_Heal.mdx")
-                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                call DestroyEffect(GetLastCreatedEffectBJ())
                 call CreateTextTagUnitBJ(("+" + I2S((udg_MeditationPower * 3))), ArctUnit, 0, 8.00, 0.00, 100.00, 0.00, 0)
                 call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 90.00, GetRandomReal(80.00, 100.00))
                 call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
@@ -25,7 +25,7 @@ function Trig_Meditation_Heal_Actions takes nothing returns nothing
         call AddUnitAnimationPropertiesBJ(false, "gold", ArctUnit)
         call SetUnitMoveSpeed(ArctUnit, GetUnitDefaultMoveSpeed(ArctUnit))
         call SetUnitTurnSpeedBJ(ArctUnit, 1.00)
-        call DestroyEffectBJ(udg_MeditationEffect)
+        call DestroyEffect(udg_MeditationEffect)
         call SetPlayerAbilityAvailableBJ(true, 0x41303555, Player(0))
         call SetPlayerAbilityAvailableBJ(true, 0x41303147, Player(0))
         call EnableTrigger(gg_trg_Camera_Hero)

@@ -21,10 +21,10 @@ function Trig_Core_Timer_Actions takes nothing returns nothing
         call ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_ADD, 1)
     endif
     call ShowUnitShow(gg_unit_h00F_0003)
-    call DestroyEffectBJ(udg_CC_Effect)
+    call DestroyEffect(udg_CC_Effect)
     set udg_Point = GetRectCenter(gg_rct_Core_Create)
     call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+    call DestroyEffect(GetLastCreatedEffectBJ())
     call RemoveLocation(udg_Point)
     set udg_AutosaveBool = true
 endfunction

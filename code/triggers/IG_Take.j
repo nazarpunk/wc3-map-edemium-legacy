@@ -72,7 +72,7 @@ function Trig_IG_Take_Actions takes nothing returns nothing
                 set udg_CO_LeftWeapon = true
             endif
             if udg_IG_ItemValue[6] > 1 then
-                call DestroyEffectBJ(udg_IG_ItemEnchantEffect[2])
+                call DestroyEffect(udg_IG_ItemEnchantEffect[2])
                 call AddSpecialEffectTargetUnitBJ("foot,left", GetManipulatingUnit(), udg_IG_ItemEnchantName[udg_IG_ItemValue[6]])
                 set udg_IG_ItemEnchantEffect[2] = GetLastCreatedEffectBJ()
                 set udg_IG_ItemEnchantInt[udg_IG_ItemValue[6]] = (udg_IG_ItemEnchantInt[udg_IG_ItemValue[6]] + 1)
@@ -97,7 +97,7 @@ function Trig_IG_Take_Actions takes nothing returns nothing
                     call UnitAddAbilityBJ(udg_IG_ItemModelW_R[udg_IG_ItemValue[5]], GetManipulatingUnit())
                 endif
                 if udg_IG_ItemValue[6] > 1 then
-                    call DestroyEffectBJ(udg_IG_ItemEnchantEffect[1])
+                    call DestroyEffect(udg_IG_ItemEnchantEffect[1])
                     call AddSpecialEffectTargetUnitBJ("weapon", GetManipulatingUnit(), udg_IG_ItemEnchantName[udg_IG_ItemValue[6]])
                     set udg_IG_ItemEnchantEffect[1] = GetLastCreatedEffectBJ()
                     set udg_IG_ItemEnchantInt[udg_IG_ItemValue[6]] = (udg_IG_ItemEnchantInt[udg_IG_ItemValue[6]] + 1)

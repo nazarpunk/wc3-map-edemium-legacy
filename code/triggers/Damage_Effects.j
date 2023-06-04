@@ -20,7 +20,7 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
             set udg_AbilityPower = (I2R(udg_CO_Power) + (I2R(udg_CO_Combo) + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, ArctUnit, true))))
             call UnitDamageTargetBJ(ArctUnit, udg_DamageEventSource, udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
             call AddSpecialEffectTargetUnitBJ("origin", udg_DamageEventSource, "Abilities\\Weapons\\FrostWyrmMissile\\FrostWyrmMissile.mdl")
-            call DestroyEffectBJ(GetLastCreatedEffectBJ())
+            call DestroyEffect(GetLastCreatedEffectBJ())
             call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) + udg_AbilityPower))
             call CreateTextTagUnitBJ(("+" + I2S(R2I(udg_AbilityPower))), ArctUnit, 0, 8.00, 0.00, 100.00, 0.00, 0)
             call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 90.00, GetRandomReal(80.00, 100.00))
@@ -30,7 +30,7 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
         endif
         set udg_DamageEventAmount = 0.00
         call AddSpecialEffectTargetUnitBJ("chest", udg_DamageEventTarget, "Abilities\\Spells\\Human\\Defend\\DefendCaster.mdl")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
         if udg_ART[15] > 0 then
             set udg_Point = GetUnitLoc(ArctUnit)
             set udg_Point2 = PolarProjectionBJ(udg_Point, 200.00, GetRandomDirectionDeg())
@@ -62,16 +62,16 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
                 set udg_AbilityPower = (I2R(udg_CO_Power) + I2R(udg_CO_Combo))
                 call UnitDamageTargetBJ(ArctUnit, udg_DamageEventTarget, udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
                 call AddSpecialEffectTargetUnitBJ("chest", udg_DamageEventTarget, "Abilities\\Weapons\\FarseerMissile\\FarseerMissile.mdl")
-                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                call DestroyEffect(GetLastCreatedEffectBJ())
                 if udg_CO_Effect6Power == 0 then
-                    call DestroyEffectBJ(udg_CO_Effect6Sweep[1])
-                    call DestroyEffectBJ(udg_CO_Effect6Sweep[2])
+                    call DestroyEffect(udg_CO_Effect6Sweep[1])
+                    call DestroyEffect(udg_CO_Effect6Sweep[2])
                 endif
             else
                 if GetOwningPlayer(udg_DamageEventTarget) == Player(11) and GetRandomInt(1, 100) <= 10 then
                     set udg_DamageEventAmount = 0.00
                     call AddSpecialEffectTargetUnitBJ("chest", GetTriggerUnit(), "Abilities\\Spells\\Human\\Defend\\DefendCaster.mdl")
-                    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                    call DestroyEffect(GetLastCreatedEffectBJ())
                 else
                     if GetOwningPlayer(udg_DamageEventTarget) == Player(11) then
                         if udg_DamageEventSource == ArctUnit and UnitHasBuffBJ(ArctUnit, 0x42303048) then
@@ -80,7 +80,7 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
                             call TriggerExecute(gg_trg_Crit_Specialeffect)
                             set udg_Point = GetUnitLoc(udg_DamageEventTarget)
                             call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\BloodEX-Small.mdx")
-                            call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                            call DestroyEffect(GetLastCreatedEffectBJ())
                             call RemoveLocation(udg_Point)
                             call CreateTextTagUnitBJ((I2S(udg_DamageEventAmountINT) + "!"), udg_DamageEventTarget, 0, 12.00, 100.00, 100.00, 0.00, 0.00)
                             call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 125.00, 90.00)
@@ -94,7 +94,7 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
                                 call TriggerExecute(gg_trg_Crit_Specialeffect)
                                 set udg_Point = GetUnitLoc(udg_DamageEventTarget)
                                 call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\BloodEX-Small.mdx")
-                                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                                call DestroyEffect(GetLastCreatedEffectBJ())
                                 call RemoveLocation(udg_Point)
                                 call CreateTextTagUnitBJ((I2S(udg_DamageEventAmountINT) + "!"), udg_DamageEventTarget, 0, 12.00, 100.00, 100.00, 0.00, 0.00)
                                 call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 125.00, 90.00)
@@ -165,10 +165,10 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
                                     set udg_Point = GetUnitLoc(udg_DamageEventTarget)
                                     set udg_UnitGroup = GetUnitsInRangeOfLocAll(300.00, udg_Point)
                                     call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Arcane Nova.mdx")
-                                    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                                    call DestroyEffect(GetLastCreatedEffectBJ())
                                     call RemoveLocation(udg_Point)
                                     call GroupRemoveUnitSimple(udg_DamageEventTarget, udg_UnitGroup)
-                                    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                                    call DestroyEffect(GetLastCreatedEffectBJ())
                                     call ForGroupBJ(udg_UnitGroup, function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func022Func008A)
                                     call DestroyGroup(udg_UnitGroup)
                                 endif

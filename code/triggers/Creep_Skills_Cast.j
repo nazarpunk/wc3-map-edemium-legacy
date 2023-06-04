@@ -9,14 +9,14 @@ function Trig_Creep_Skills_Cast_Actions takes nothing returns nothing
     if GetSpellAbilityId() == 0x41303139 or GetSpellAbilityId() == 0x41303456 then
         call RemoveLocation(udg_Creep_Cast_Point[GetUnitUserData(GetTriggerUnit())])
         set udg_Creep_Cast_Point[GetUnitUserData(GetTriggerUnit())] = GetUnitLoc(GetSpellTargetUnit())
-        call DestroyEffectBJ(udg_CreepCastEffect[GetUnitUserData(GetTriggerUnit())])
+        call DestroyEffect(udg_CreepCastEffect[GetUnitUserData(GetTriggerUnit())])
         call AddSpecialEffectTargetUnitBJ("hand right", GetTriggerUnit(), "Abilities\\Weapons\\VengeanceMissile\\VengeanceMissile.mdl")
         set udg_CreepCastEffect[GetUnitUserData(GetTriggerUnit())] = GetLastCreatedEffectBJ()
     else
         if GetSpellAbilityId() == 0x41303232 then
             call RemoveLocation(udg_Creep_Strike_Point[GetUnitUserData(GetTriggerUnit())])
             set udg_Creep_Strike_Point[GetUnitUserData(GetTriggerUnit())] = GetUnitLoc(GetSpellTargetUnit())
-            call DestroyEffectBJ(udg_CreepCastEffect[GetUnitUserData(GetTriggerUnit())])
+            call DestroyEffect(udg_CreepCastEffect[GetUnitUserData(GetTriggerUnit())])
             call AddSpecialEffectTargetUnitBJ("hand right", GetTriggerUnit(), "Abilities\\Weapons\\VengeanceMissile\\VengeanceMissile.mdl")
             set udg_CreepCastEffect[GetUnitUserData(GetTriggerUnit())] = GetLastCreatedEffectBJ()
         else
@@ -30,7 +30,7 @@ function Trig_Creep_Skills_Cast_Actions takes nothing returns nothing
                     if GetTerrainTypeBJ(udg_Point2) != 0x4972626B and GetTerrainTypeBJ(udg_Point2) != 0x58626C6D and GetTerrainTypeBJ(udg_Point2) != 0x56737470 then
                         call SetUnitPositionLoc(GetTriggerUnit(), udg_Point2)
                         call AddSpecialEffectLocBJ(udg_Point2, "Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl")
-                        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                        call DestroyEffect(GetLastCreatedEffectBJ())
                         if GetUnitTypeId(GetTriggerUnit()) == 0x6E30305A then
                             call CreateNUnitsAtLoc(1, 0x6830314B, Player(11), udg_Point, bj_UNIT_FACING)
                         else

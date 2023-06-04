@@ -4,7 +4,7 @@ function Trig_Effect_6_Periodic_Func004A takes nothing returns nothing
         set udg_AbilityPower = (udg_AbilityPower + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, ArctUnit, true)))
         call UnitDamageTargetBJ(ArctUnit, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
         call AddSpecialEffectTargetUnitBJ("chest", GetEnumUnit(), "Abilities\\Weapons\\FarseerMissile\\FarseerMissile.mdl")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
     endif
 endfunction
 

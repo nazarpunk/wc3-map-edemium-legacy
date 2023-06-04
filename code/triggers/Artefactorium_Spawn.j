@@ -13,7 +13,7 @@ function Trig_Artefactorium_Spawn_Actions takes nothing returns nothing
         call CreateNUnitsAtLoc(1, udg_D_CreepType[GetRandomInt(1, 5)], Player(11), udg_Point, bj_UNIT_FACING)
         call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", ArctUnit)
         call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
         call RemoveLocation(udg_Point)
     endif
     call DestroyGroup(udg_UnitGroup)

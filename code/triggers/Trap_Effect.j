@@ -5,7 +5,7 @@ endfunction
 function Trig_Trap_Effect_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(GetTriggerUnit())
     call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Thunder Slam.mdx")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+    call DestroyEffect(GetLastCreatedEffectBJ())
     call RemoveLocation(udg_Point)
 endfunction
 

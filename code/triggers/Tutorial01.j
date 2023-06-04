@@ -17,7 +17,7 @@ function Trig_Tutorial01_Actions takes nothing returns nothing
     call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", ArctUnit)
     set udg_TutorialCreep = GetLastCreatedUnit()
     call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+    call DestroyEffect(GetLastCreatedEffectBJ())
     call CameraSetSmoothingFactorBJ(0.00)
     call RemoveLocation(udg_Point)
     call DestroyTrigger(GetTriggeringTrigger())

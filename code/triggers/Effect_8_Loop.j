@@ -24,7 +24,7 @@ function Trig_Effect_8_Loop_Actions takes nothing returns nothing
                 if IsUnitAlly(udg_BE_Target[udg_BE_TempIndex], udg_BE_Player[udg_BE_TempIndex]) then
                     call SetUnitLifeBJ(udg_BE_Target[udg_BE_TempIndex], (GetUnitStateSwap(UNIT_STATE_LIFE, udg_BE_Target[udg_BE_TempIndex]) + udg_BE_Heal[udg_BE_TempIndex]))
                     call AddSpecialEffectLocBJ(udg_BE_TempPoint3, udg_BE_PosSpecialEffect)
-                    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                    call DestroyEffect(GetLastCreatedEffectBJ())
                     call CreateTextTagUnitBJ(("+" + I2S(R2I(udg_BE_Heal[udg_BE_TempIndex]))), udg_BE_Target[udg_BE_TempIndex], 0, 8.00, 0.00, 100.00, 0.00, 0)
                     call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 90.00, GetRandomReal(80.00, 100.00))
                     call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
@@ -33,7 +33,7 @@ function Trig_Effect_8_Loop_Actions takes nothing returns nothing
                 else
                     call UnitDamageTargetBJ(udg_BE_Caster[udg_BE_TempIndex], udg_BE_Target[udg_BE_TempIndex], udg_BE_Damage[udg_BE_TempIndex], udg_BE_AttackType, udg_BE_DamageType)
                     call AddSpecialEffectLocBJ(udg_BE_TempPoint3, udg_BE_PosSpecialEffect)
-                    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                    call DestroyEffect(GetLastCreatedEffectBJ())
                     call CreateTextTagUnitBJ(I2S(R2I(udg_BE_Damage[udg_BE_TempIndex])), udg_BE_Target[udg_BE_TempIndex], 0, 8.00, 100.00, 0.00, 0.00, 0)
                     call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 90.00, GetRandomReal(80.00, 100.00))
                     call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
@@ -58,7 +58,7 @@ function Trig_Effect_8_Loop_Actions takes nothing returns nothing
             call RemoveLocation(udg_BE_TempPoint2)
             call RemoveLocation(udg_BE_TempPoint3)
         else
-            call DestroyEffectBJ(udg_BE_FX[udg_BE_TempIndex])
+            call DestroyEffect(udg_BE_FX[udg_BE_TempIndex])
             set udg_BE_FX[udg_BE_TempIndex] = udg_BE_FX[udg_BE_MaxIndex]
             call KillUnit(udg_BE_Dummy[udg_BE_TempIndex])
             set udg_BE_Dummy[udg_BE_TempIndex] = udg_BE_Dummy[udg_BE_MaxIndex]

@@ -3,7 +3,7 @@ function Trig_Effect_11_Timer_Actions takes nothing returns nothing
         set udg_AS_Effect11 = false
         set udg_ChanceBlock = (udg_ChanceBlock - 20.00)
         call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 2, ("Шанс блока: " + (I2S(R2I(udg_ChanceBlock)) + "%")))
-        call DestroyEffectBJ(udg_AS_Effect11SE)
+        call DestroyEffect(udg_AS_Effect11SE)
         call SetUnitVertexColorBJ(ArctUnit, 100.00, 100.00, 100, 0)
     endif
 endfunction

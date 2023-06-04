@@ -12,7 +12,7 @@ function Trig_Effect_3_Use_Actions takes nothing returns nothing
     call UnitApplyTimedLifeBJ(1.00, 0x42544C46, GetLastCreatedUnit())
     call IssueTargetOrderBJ(GetLastCreatedUnit(), "invisibility", ArctUnit)
     call AddSpecialEffectTargetUnitBJ("chest", ArctUnit, "Abilities\\Spells\\Human\\Polymorph\\PolyMorphTarget.mdl")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+    call DestroyEffect(GetLastCreatedEffectBJ())
 endfunction
 
 function InitTrig_Effect_3_Use takes nothing returns nothing

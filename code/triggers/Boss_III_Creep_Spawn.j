@@ -14,7 +14,7 @@ function Trig_Boss_III_Creep_Spawn_Actions takes nothing returns nothing
     call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", ArctUnit)
     call SetUnitUserData(GetLastCreatedUnit(), udg_CustomValues)
     call AddSpecialEffectLocBJ(udg_CO_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+    call DestroyEffect(GetLastCreatedEffectBJ())
     call RemoveLocation(udg_CO_Point)
 endfunction
 

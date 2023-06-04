@@ -5,14 +5,14 @@ function Trig_Tile_Damage_Actions takes nothing returns nothing
         set udg_AbilityPower = (udg_AbilityPower * I2R(udg_Difficulty))
         call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) - udg_AbilityPower))
         call AddSpecialEffectTargetUnitBJ("chest", ArctUnit, "Abilities\\Weapons\\snapMissile\\snapMissile.mdl")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
     else
         if GetTerrainTypeBJ(udg_Point) == 0x446C6176 then
             set udg_AbilityPower = 25.00
             set udg_AbilityPower = (udg_AbilityPower * I2R(udg_Difficulty))
             call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) - udg_AbilityPower))
             call AddSpecialEffectTargetUnitBJ("chest", ArctUnit, "Abilities\\Weapons\\LavaSpawnMissile\\LavaSpawnMissile.mdl")
-            call DestroyEffectBJ(GetLastCreatedEffectBJ())
+            call DestroyEffect(GetLastCreatedEffectBJ())
         endif
     endif
     call RemoveLocation(udg_Point)

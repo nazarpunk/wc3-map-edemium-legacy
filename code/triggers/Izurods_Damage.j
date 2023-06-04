@@ -7,7 +7,7 @@ function Trig_Izurods_Damage_Actions takes nothing returns nothing
             call UnitRemoveBuffBJ(0x42303045, GetTriggerUnit())
             call ResetUnitAnimation(GetTriggerUnit())
             call AddSpecialEffectTargetUnitBJ("chest", GetTriggerUnit(), "war3mapImported\\StompRed.mdx")
-            call DestroyEffectBJ(GetLastCreatedEffectBJ())
+            call DestroyEffect(GetLastCreatedEffectBJ())
         endif
     endif
     if UnitHasBuffBJ(GetTriggerUnit(), 0x42486162) then

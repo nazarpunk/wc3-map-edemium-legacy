@@ -13,7 +13,7 @@ function Trig_Boss_III_Portal_Spawn_Actions takes nothing returns nothing
         call CreateNUnitsAtLoc(1, 0x6E303048, Player(PLAYER_NEUTRAL_PASSIVE), udg_CO_Point, bj_UNIT_FACING)
         set udg_Boss3PortalCounter = (udg_Boss3PortalCounter + 1)
         call AddSpecialEffectLocBJ(udg_CO_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
         call CreateNUnitsAtLoc(1, udg_D_CreepType[GetRandomInt(1, 4)], Player(11), udg_CO_Point, bj_UNIT_FACING)
         call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", ArctUnit)
         call SetUnitUserData(GetLastCreatedUnit(), udg_CustomValues)

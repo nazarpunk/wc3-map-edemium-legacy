@@ -34,7 +34,7 @@ function Trig_Armor_Use_Func002Func003Func001Func001Func002Func009A takes nothin
     set udg_KB_Off[udg_KB_Times] = true
     set udg_KB_Target[udg_KB_Times] = GetEnumUnit()
     call PauseUnitBJ(true, udg_KB_Target[udg_KB_Times])
-    call DestroyEffectBJ(udg_CreepCastEffect[GetUnitUserData(udg_KB_Target[udg_KB_Times])])
+    call DestroyEffect(udg_CreepCastEffect[GetUnitUserData(udg_KB_Target[udg_KB_Times])])
     set udg_KB_Point[1] = GetUnitLoc(udg_KB_Target[udg_KB_Times])
     set udg_KB_Angle[udg_KB_Times] = AngleBetweenPoints(udg_KB_Point[0], udg_KB_Point[1])
     set udg_KB_Distance[udg_KB_Times] = 200.00
@@ -51,7 +51,7 @@ function Trig_Armor_Use_Actions takes nothing returns nothing
             set udg_AbilityPower = ((GetUnitStateSwap(UNIT_STATE_MAX_MANA, ArctUnit) * 10.00) / 100.00)
             call SetUnitManaBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_MANA, ArctUnit) + udg_AbilityPower))
             call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "war3mapImported\\Mana Burn Red.mdx")
-            call DestroyEffectBJ(GetLastCreatedEffectBJ())
+            call DestroyEffect(GetLastCreatedEffectBJ())
         endif
     else
         if udg_IG_ItemEnchant[1] == 3 then
@@ -61,7 +61,7 @@ function Trig_Armor_Use_Actions takes nothing returns nothing
                 set udg_AbilityPower = ((GetUnitStateSwap(UNIT_STATE_MAX_LIFE, ArctUnit) * 20.00) / 100.00)
                 call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) + udg_AbilityPower))
                 call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "war3mapImported\\Mana Burn.mdx")
-                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                call DestroyEffect(GetLastCreatedEffectBJ())
             endif
         else
             if udg_IG_ItemEnchant[1] == 4 then
@@ -82,7 +82,7 @@ function Trig_Armor_Use_Actions takes nothing returns nothing
                     call PlaySoundAtPointBJ(gg_snd_FrogWhat1, 100.00, udg_Point, 150.00)
                     call RemoveLocation(udg_Point)
                     call AddSpecialEffectTargetUnitBJ("chest", ArctUnit, "war3mapImported\\Holy_Heal_Small.mdx")
-                    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                    call DestroyEffect(GetLastCreatedEffectBJ())
                 endif
             else
                 if udg_IG_ItemEnchant[1] == 5 then
@@ -92,7 +92,7 @@ function Trig_Armor_Use_Actions takes nothing returns nothing
                         set udg_SB_Damage[1] = (30.00 + (I2R(GetHeroStatBJ(bj_HEROSTAT_STR, ArctUnit, true)) + I2R(GetHeroStatBJ(bj_HEROSTAT_AGI, ArctUnit, true))))
                         set udg_KB_Point[3] = GetUnitLoc(ArctUnit)
                         call AddSpecialEffectTargetUnitBJ("chest", ArctUnit, "war3mapImported\\ArcaneExplosion.mdx")
-                        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                        call DestroyEffect(GetLastCreatedEffectBJ())
                         set udg_KB_Point[0] = udg_KB_Point[3]
                         set udg_SB_Group[1] = GetUnitsInRangeOfLocMatching(300.00, udg_KB_Point[3], Condition(function Trig_Armor_Use_Func002Func003Func001Func001Func002Func008002003))
                         call ForGroupBJ(udg_SB_Group[1], function Trig_Armor_Use_Func002Func003Func001Func001Func002Func009A)

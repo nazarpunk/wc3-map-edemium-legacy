@@ -3,7 +3,7 @@ function Trig_Meditation_Turn_Off_Actions takes nothing returns nothing
     call AddUnitAnimationPropertiesBJ(false, "gold", ArctUnit)
     call SetUnitMoveSpeed(GetTriggerUnit(), GetUnitDefaultMoveSpeed(GetTriggerUnit()))
     call SetUnitTurnSpeedBJ(GetTriggerUnit(), 1.00)
-    call DestroyEffectBJ(udg_MeditationEffect)
+    call DestroyEffect(udg_MeditationEffect)
     call DisableTrigger(gg_trg_Meditation_Heal)
     call SetPlayerAbilityAvailableBJ(true, 0x41303555, Player(0))
     call SetPlayerAbilityAvailableBJ(true, 0x41303147, Player(0))

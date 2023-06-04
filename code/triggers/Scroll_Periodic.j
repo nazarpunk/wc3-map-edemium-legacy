@@ -6,7 +6,7 @@ function Trig_Scroll_Periodic_Func017A takes nothing returns nothing
         call UnitDamageTargetBJ(ArctUnit, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
         set udg_CO_Point = GetUnitLoc(GetEnumUnit())
         call AddSpecialEffectLocBJ(udg_CO_Point, "war3mapImported\\Blue Lightning.mdx")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
         call RemoveLocation(udg_CO_Point)
     endif
 endfunction

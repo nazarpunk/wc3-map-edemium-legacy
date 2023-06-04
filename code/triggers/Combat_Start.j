@@ -7,7 +7,7 @@ function Trig_Combat_Start_Actions takes nothing returns nothing
         call SetHeroLevelBJ(GetLastCreatedUnit(), udg_ART[20], false)
         call SuspendHeroXPBJ(false, GetLastCreatedUnit())
         call AddSpecialEffectTargetUnitBJ("origin", GetLastCreatedUnit(), "war3mapImported\\Flash.mdx")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
         call SetUnitVertexColorBJ(GetLastCreatedUnit(), 100, 100, 100, 40.00)
         call RemoveLocation(udg_Point)
         call RemoveLocation(udg_Point2)

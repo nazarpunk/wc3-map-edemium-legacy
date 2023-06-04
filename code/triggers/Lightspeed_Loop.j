@@ -15,7 +15,7 @@ function Trig_Lightspeed_Loop_Func001Func001Func001Func001Func007Func006A takes 
     set udg_KB_Times = (udg_KB_Times + 1)
     set udg_KB_Off[udg_KB_Times] = true
     set udg_KB_Target[udg_KB_Times] = GetEnumUnit()
-    call DestroyEffectBJ(udg_CreepCastEffect[GetUnitUserData(udg_KB_Target[udg_KB_Times])])
+    call DestroyEffect(udg_CreepCastEffect[GetUnitUserData(udg_KB_Target[udg_KB_Times])])
     call PauseUnitBJ(true, udg_KB_Target[udg_KB_Times])
     set udg_KB_Point[1] = GetUnitLoc(udg_KB_Target[udg_KB_Times])
     set udg_KB_Angle[udg_KB_Times] = AngleBetweenPoints(udg_KB_Point[0], udg_KB_Point[1])
@@ -33,7 +33,7 @@ function Trig_Lightspeed_Loop_Actions takes nothing returns nothing
             if udg_SB_Distance[udg_SB] <= 0.00 then
                 call ResetUnitAnimation(udg_SB_Hero[udg_SB])
                 call PauseUnitBJ(false, udg_SB_Hero[udg_SB])
-                call DestroyEffectBJ(udg_SB_Effect)
+                call DestroyEffect(udg_SB_Effect)
                 set udg_SB_On[udg_SB] = false
                 set udg_SB_Skip = (udg_SB_Skip - 1)
                 if udg_SB_Skip <= 0 then

@@ -19,7 +19,7 @@ function Trig_Coliseum_Spawn_Actions takes nothing returns nothing
     call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", ArctUnit)
     set udg_CS_TargetUnit = GetLastCreatedUnit()
     call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+    call DestroyEffect(GetLastCreatedEffectBJ())
     call RemoveLocation(udg_Point)
     call SetUnitAnimation(gg_unit_n006_0028, "Death")
     call TriggerSleepAction(2.40)

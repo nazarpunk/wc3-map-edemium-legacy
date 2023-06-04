@@ -22,7 +22,7 @@ function Trig_Initialisation_Dialog_Actions takes nothing returns nothing
         call EnableTrigger(gg_trg_Enter_Dialog)
         call EnableTrigger(gg_trg_Creep_Kill)
         call EnableTrigger(gg_trg_Camera_Fix)
-        call EnableTrigger(gg_trg_Enter_Regions)
+        set RegionsEnabled = true
         call EnableTrigger(gg_trg_Item_Pickup)
         set udg_TutorialHintsOn = false
         call EnablePreSelect(false, false)

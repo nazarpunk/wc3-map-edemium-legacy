@@ -12,9 +12,9 @@ function Trig_Item_Pickup_Actions takes nothing returns nothing
                 set udg_CC_SecretUnlocked[GetItemLevel(GetManipulatedItem())] = true
                 call RemoveItem(GetManipulatedItem())
                 call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "Abilities\\Spells\\Human\\Slow\\SlowCaster.mdl")
-                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                call DestroyEffect(GetLastCreatedEffectBJ())
                 call AddSpecialEffectTargetUnitBJ("overhead", ArctUnit, "war3mapImported\\SoundEffect3.mdx")
-                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                call DestroyEffect(GetLastCreatedEffectBJ())
                 call CreateTextTagUnitBJ("Секрет раскрыт!", ArctUnit, 0, 11.00, 100.00, 100.00, 100.00, 0)
                 call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
                 call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)

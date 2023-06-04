@@ -62,11 +62,11 @@ function Trig_Boss_I_Throw_Actions takes nothing returns nothing
     if udg_RandomNumber == 1 then
         call SetTerrainTypeBJ(udg_Boss_Ability_Point, 0x43706F73, - 1, 3, 0)
         call AddSpecialEffectLocBJ(udg_Boss_Ability_Point, "war3mapImported\\GreatElderHydraAcidSpewV.153.mdx")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
     else
         if udg_RandomNumber == 2 then
             call AddSpecialEffectLocBJ(udg_Boss_Ability_Point, "war3mapImported\\HolyAwakening.mdx")
-            call DestroyEffectBJ(GetLastCreatedEffectBJ())
+            call DestroyEffect(GetLastCreatedEffectBJ())
             set udg_UnitGroup = GetUnitsInRangeOfLocAll(400.00, udg_Boss_Ability_Point)
             call CreateNUnitsAtLoc(1, 0x68303039, Player(11), udg_Boss_Ability_Point, bj_UNIT_FACING)
             call UnitAddAbilityBJ(0x41303131, GetLastCreatedUnit())
@@ -82,20 +82,20 @@ function Trig_Boss_I_Throw_Actions takes nothing returns nothing
         else
             if udg_RandomNumber == 3 then
                 call AddSpecialEffectLocBJ(udg_Boss_Ability_Point, "war3mapImported\\Holy_Fire_Slam.mdx")
-                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                call DestroyEffect(GetLastCreatedEffectBJ())
                 set udg_UnitGroup = GetUnitsInRangeOfLocAll(350.00, udg_Boss_Ability_Point)
                 call ForGroupBJ(udg_UnitGroup, function Trig_Boss_I_Throw_Func010Func001Func001Func005A)
             else
                 if udg_RandomNumber == 4 then
                     call AddSpecialEffectLocBJ(udg_Boss_Ability_Point, "war3mapImported\\Arcane Nova.mdx")
-                    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                    call DestroyEffect(GetLastCreatedEffectBJ())
                     call CreateNUnitsAtLoc(1, udg_D_CreepType[GetRandomInt(1, 3)], Player(11), udg_Boss_Ability_Point, GetRandomReal(0, 360.00))
                     call CreateNUnitsAtLoc(1, udg_D_CreepType[GetRandomInt(4, 6)], Player(11), udg_Boss_Ability_Point, GetRandomReal(0, 360.00))
                     call CreateNUnitsAtLoc(1, udg_D_CreepType[GetRandomInt(10, 10)], Player(11), udg_Boss_Ability_Point, GetRandomReal(0, 360.00))
                 else
                     if udg_RandomNumber == 5 then
                         call AddSpecialEffectLocBJ(udg_Boss_Ability_Point, "war3mapImported\\BloodEX-Special-2.mdx")
-                        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                        call DestroyEffect(GetLastCreatedEffectBJ())
                         set udg_UnitGroup = GetUnitsInRangeOfLocAll(400.00, udg_Boss_Ability_Point)
                         call CreateNUnitsAtLoc(1, 0x68303039, Player(11), udg_Boss_Ability_Point, bj_UNIT_FACING)
                         call UnitAddAbilityBJ(0x41303132, GetLastCreatedUnit())

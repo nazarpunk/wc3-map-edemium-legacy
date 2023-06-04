@@ -70,7 +70,7 @@ function Trig_IG_Drop_Actions takes nothing returns nothing
                 set udg_CO_LeftWeapon = false
             endif
             if udg_IG_ItemValue[6] > 1 then
-                call DestroyEffectBJ(udg_IG_ItemEnchantEffect[2])
+                call DestroyEffect(udg_IG_ItemEnchantEffect[2])
                 set udg_IG_ItemEnchantInt[udg_IG_ItemValue[6]] = (udg_IG_ItemEnchantInt[udg_IG_ItemValue[6]] - 1)
             endif
         else
@@ -93,7 +93,7 @@ function Trig_IG_Drop_Actions takes nothing returns nothing
                     call UnitRemoveAbilityBJ(udg_IG_ItemModelW_R[udg_IG_ItemValue[5]], GetManipulatingUnit())
                 endif
                 if udg_IG_ItemValue[6] > 1 then
-                    call DestroyEffectBJ(udg_IG_ItemEnchantEffect[1])
+                    call DestroyEffect(udg_IG_ItemEnchantEffect[1])
                     set udg_IG_ItemEnchantInt[udg_IG_ItemValue[6]] = (udg_IG_ItemEnchantInt[udg_IG_ItemValue[6]] - 1)
                 endif
             else

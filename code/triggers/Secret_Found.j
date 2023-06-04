@@ -8,7 +8,7 @@ function Trig_Secret_Found_Func003A takes nothing returns nothing
         set udg_Point = GetUnitLoc(GetEnumUnit())
         if DistanceBetweenPoints(udg_Point, udg_D_Point1) <= 200.00 then
             call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal.mdx")
-            call DestroyEffectBJ(GetLastCreatedEffectBJ())
+            call DestroyEffect(GetLastCreatedEffectBJ())
             call RemoveUnit(GetEnumUnit())
             call UnitRemoveBuffBJ(0x42303039, ArctUnit)
             set udg_RandomNumber = GetRandomInt(1, 2)

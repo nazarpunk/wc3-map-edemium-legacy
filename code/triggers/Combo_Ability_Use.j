@@ -52,8 +52,8 @@ function Trig_Combo_Ability_Use_Actions takes nothing returns nothing
     endif
     set udg_CO_UnitGroup2 = GetRandomSubGroup(1, udg_CO_UnitGroup)
     if CountUnitsInGroup(udg_CO_UnitGroup2) == 1 then
-        call DestroyEffectBJ(udg_CO_SweapEffect[1])
-        call DestroyEffectBJ(udg_CO_SweapEffect[2])
+        call DestroyEffect(udg_CO_SweapEffect[1])
+        call DestroyEffect(udg_CO_SweapEffect[2])
         call AddSpecialEffectTargetUnitBJ("weapon", ArctUnit, "war3mapImported\\Sweep_Holy_Large.mdx")
         set udg_CO_SweapEffect[1] = GetLastCreatedEffectBJ()
         if udg_CO_LeftWeapon then

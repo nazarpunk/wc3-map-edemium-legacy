@@ -9,7 +9,7 @@ function Trig_Effect_12_Periodic_Func002Func007A takes nothing returns nothing
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 0.70)
         call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 0.40)
         call AddSpecialEffectTargetUnitBJ("chest", GetEnumUnit(), "Abilities\\Weapons\\FireBallMissile\\FireBallMissile.mdl")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
     endif
     call RemoveLocation(udg_Point2)
 endfunction

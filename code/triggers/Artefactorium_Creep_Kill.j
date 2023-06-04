@@ -13,7 +13,7 @@ function Trig_Artefactorium_Creep_Kill_Actions takes nothing returns nothing
     if GetTriggerUnit() == udg_TutorialCreep then
         call TransmissionFromUnitWithNameBJ(GetPlayersAll(), gg_unit_hrif_0000, "Беба", gg_snd_6F, "Ну, неплохо. Если хочешь ещё парочку призвать - нажми правой кнопкой на сферу. Когда наловчишься справляться с монстрами без проблем - пойди прогуляйся с Арктом по замку.", bj_TIMETYPE_ADD, 0.00, true)
         call EnableTrigger(gg_trg_Artefactorium_Spawn)
-        call EnableTrigger(gg_trg_Enter_Regions)
+        set RegionsEnabled = true
         set udg_Target = gg_unit_h006_0081
         call RemoveDestructable(gg_dest_B003_2936)
         call ShowDestructableBJ(true, gg_dest_B00B_1355)

@@ -4,13 +4,13 @@ function Trig_Creep_Kill_Actions takes nothing returns nothing
         call RemoveUnit(GetTriggerUnit())
         set udg_Point = GetUnitLoc(GetTriggerUnit())
         call AddSpecialEffectLocBJ(udg_Point, "Objects\\Spawnmodels\\Undead\\UndeadDissipate\\UndeadDissipate.mdl")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
         call RemoveLocation(udg_Point)
     endif
     if GetUnitTypeId(GetTriggerUnit()) == 0x48303030 and GetOwningPlayer(GetTriggerUnit()) == Player(1) then
         set udg_Point = GetUnitLoc(GetTriggerUnit())
         call AddSpecialEffectLocBJ(udg_Point, "Abilities\\Spells\\Human\\Polymorph\\PolyMorphTarget.mdl")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
         call RemoveLocation(udg_Point)
         call RemoveUnit(GetTriggerUnit())
     endif
@@ -23,7 +23,7 @@ function Trig_Creep_Kill_Actions takes nothing returns nothing
         call SaveBooleanBJ(false, udg_FadeUnitKey, StringHashBJ("FadeIn"), udg_FadeSystemHash)
         call EnableTrigger(gg_trg_Fade_Loop)
         call RemoveUnit(udg_CO_OpportunityUnit[GetUnitUserData(GetDyingUnit())])
-        call DestroyEffectBJ(udg_CreepCastEffect[GetUnitUserData(GetTriggerUnit())])
+        call DestroyEffect(udg_CreepCastEffect[GetUnitUserData(GetTriggerUnit())])
         if not udg_Artefactorium then
             if GetRandomInt(1, 5) == 1 and GetUnitTypeId(GetTriggerUnit()) != 0x6E303038 then
                 set udg_Point = GetUnitLoc(GetTriggerUnit())
@@ -42,7 +42,7 @@ function Trig_Creep_Kill_Actions takes nothing returns nothing
                     set udg_Point = GetUnitLoc(GetTriggerUnit())
                     call CreateNUnitsAtLoc(3, 0x6E30304D, Player(11), udg_Point, bj_UNIT_FACING)
                     call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\BloodEX-Small.mdx")
-                    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                    call DestroyEffect(GetLastCreatedEffectBJ())
                     call RemoveLocation(udg_Point)
                 endif
             endif
@@ -92,11 +92,11 @@ function Trig_Creep_Kill_Actions takes nothing returns nothing
                 call EnableTrigger(gg_trg_Escape_Dialog_Dummy)
                 call EnableTrigger(gg_trg_Escape_Dialog)
                 call AddSpecialEffectTargetUnitBJ("origin", GetTriggerUnit(), "war3mapImported\\Holy_Heal.mdx")
-                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                call DestroyEffect(GetLastCreatedEffectBJ())
                 set udg_IG_Point = GetUnitLoc(ArctUnit)
                 set udg_RandomNumber = GetRandomInt(1, 10)
                 call AddSpecialEffectLocBJ(udg_IG_Point, "war3mapImported\\Holy_Heal.mdx")
-                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                call DestroyEffect(GetLastCreatedEffectBJ())
                 if udg_RandomNumber == 1 then
                     set udg_IG_ItemQuality = 3
                     call ConditionalTriggerExecute(gg_trg_IG_Generate)

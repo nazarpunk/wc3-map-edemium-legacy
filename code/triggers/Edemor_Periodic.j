@@ -7,7 +7,7 @@ function Trig_Edemor_Periodic_Actions takes nothing returns nothing
         call UnitAddAbilityBJ(0x41303345, GetLastCreatedUnit())
         call SetUnitManaPercentBJ(GetLastCreatedUnit(), 100)
         call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
         call RemoveLocation(udg_Point)
     else
         if udg_ER_Creeps[2] > 0 then
@@ -20,7 +20,7 @@ function Trig_Edemor_Periodic_Actions takes nothing returns nothing
             call UnitAddAbilityBJ(0x41303345, GetLastCreatedUnit())
             call SetUnitManaPercentBJ(GetLastCreatedUnit(), 100)
             call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-            call DestroyEffectBJ(GetLastCreatedEffectBJ())
+            call DestroyEffect(GetLastCreatedEffectBJ())
             call RemoveLocation(udg_Point)
         else
             if udg_ER_Creeps[3] > 0 then
@@ -33,7 +33,7 @@ function Trig_Edemor_Periodic_Actions takes nothing returns nothing
                 call UnitAddAbilityBJ(0x41303345, GetLastCreatedUnit())
                 call SetUnitManaPercentBJ(GetLastCreatedUnit(), 100)
                 call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                call DestroyEffect(GetLastCreatedEffectBJ())
                 call RemoveLocation(udg_Point)
             else
                 if udg_ER_Creeps[4] > 0 then
@@ -46,7 +46,7 @@ function Trig_Edemor_Periodic_Actions takes nothing returns nothing
                     call UnitAddAbilityBJ(0x41303345, GetLastCreatedUnit())
                     call SetUnitManaPercentBJ(GetLastCreatedUnit(), 100)
                     call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-                    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                    call DestroyEffect(GetLastCreatedEffectBJ())
                     call RemoveLocation(udg_Point)
                 else
                     call ConditionalTriggerExecute(gg_trg_Gen_Creeps_Skills)

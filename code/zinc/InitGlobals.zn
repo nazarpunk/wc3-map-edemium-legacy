@@ -101,11 +101,6 @@ library InitGlobals {
         unit udg_D_Exit = null;
         real udg_CameraTurn = 0;
         effect udg_Starfall = null;
-        region udg_Region1 = null;
-        region udg_Region2 = null;
-        region udg_Region3 = null;
-        region udg_Region4 = null;
-        region udg_Region5 = null;
         location udg_CO_Point = null;
         location udg_CO_Point2 = null;
         unit udg_CO_AttackingUnit[];
@@ -172,8 +167,6 @@ library InitGlobals {
         integer udg_IG_ItemModelW_R[];
         integer udg_IG_ItemModelW_L[];
         integer udg_IG_ItemModelA[];
-        region udg_Region6 = null;
-        region udg_Region7 = null;
         effect udg_AR_SealEffect = null;
         unit udg_D_CellLast = null;
         unit udg_EM_Target = null;
@@ -242,10 +235,6 @@ library InitGlobals {
         timer udg_PoisonTimer = null;
         boolean udg_EnchantCritBool = false;
         timer udg_EnchantCritTimer = null;
-        region udg_Region8 = null;
-        region udg_Region9 = null;
-        region udg_Region10 = null;
-        region udg_Region11 = null;
         integer udg_CC_Ingredient[];
         integer udg_CC_IngredientItem[];
         integer udg_CC_ItemLevel = 0;
@@ -708,7 +697,6 @@ library InitGlobals {
         trigger gg_trg_Camera_Decrease = null;
         trigger gg_trg_Trees_Camera_Off = null;
         trigger gg_trg_Trees_Choose_ESC = null;
-        trigger gg_trg_Enter_Regions = null;
         trigger gg_trg_Leave_Hero_Regions = null;
         trigger gg_trg_Leave_Core = null;
         trigger gg_trg_Core_Autosave = null;

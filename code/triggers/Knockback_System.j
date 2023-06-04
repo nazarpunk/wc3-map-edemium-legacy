@@ -42,7 +42,7 @@ function Trig_Knockback_System_Actions takes nothing returns nothing
                 if udg_KB_Spam[udg_KB] >= 5 then
                     set udg_KB_Spam[udg_KB] = 0
                     call AddSpecialEffectLocBJ(udg_KB_Point[3], "Abilities\\Spells\\Human\\FlakCannons\\FlakTarget.mdl")
-                    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                    call DestroyEffect(GetLastCreatedEffectBJ())
                 endif
                 call RemoveLocation(udg_KB_Point[2])
                 call RemoveLocation(udg_KB_Point[3])

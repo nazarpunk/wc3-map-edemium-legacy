@@ -42,7 +42,7 @@ function Trig_Tutorial_Cinematic_Actions takes nothing returns nothing
     call SetUnitTimeScalePercent(ArctUnit, 100.00)
     call TriggerExecute(gg_trg_Map_Enter)
     call EnableTrigger(gg_trg_Enter_Dialog)
-    call EnableTrigger(gg_trg_Enter_Regions)
+    set RegionsEnabled = true
     call CinematicModeBJ(false, bj_FORCE_PLAYER[0])
     set udg_TutorialHint[1] = false
     call DestroyTrigger(GetTriggeringTrigger())

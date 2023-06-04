@@ -44,8 +44,8 @@ function Trig_Flying_Missile_Loop_Actions takes nothing returns nothing
             call RemoveLocation(udg_BL_Point[3])
             call DestroyGroup(udg_BL_Group)
             if udg_BL_Distance[udg_BL] <= 0.00 then
-                call DestroyEffectBJ(udg_BL_Effect1[udg_BL])
-                call DestroyEffectBJ(udg_BL_Effect2[udg_BL])
+                call DestroyEffect(udg_BL_Effect1[udg_BL])
+                call DestroyEffect(udg_BL_Effect2[udg_BL])
                 call KillUnit(udg_BL_Missile[udg_BL])
                 set udg_BL_Skip = (udg_BL_Skip - 1)
                 set udg_BL_Off[udg_BL] = false

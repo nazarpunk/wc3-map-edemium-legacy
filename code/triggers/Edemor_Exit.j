@@ -27,7 +27,7 @@ function Trig_Edemor_Exit_Actions takes nothing returns nothing
     if udg_AS_Effect11 then
         set udg_AS_Effect11 = false
         set udg_ChanceBlock = (udg_ChanceBlock - 20.00)
-        call DestroyEffectBJ(udg_AS_Effect11SE)
+        call DestroyEffect(udg_AS_Effect11SE)
         call SetUnitVertexColorBJ(ArctUnit, 100.00, 100.00, 100, 0)
     endif
 
@@ -72,8 +72,8 @@ function Trig_Edemor_Exit_Actions takes nothing returns nothing
     set udg_Camera = gg_cam_Camera_Portal_Room
     call DisableTrigger(gg_trg_Camera_Hero)
     call DisableTrigger(gg_trg_Effect_6_Periodic)
-    call DestroyEffectBJ(udg_CO_Effect6Sweep[1])
-    call DestroyEffectBJ(udg_CO_Effect6Sweep[2])
+    call DestroyEffect(udg_CO_Effect6Sweep[1])
+    call DestroyEffect(udg_CO_Effect6Sweep[2])
     set udg_CO_Effect6Power = 0
     call UnitRemoveAbilityBJ(0x4130334B, ArctUnit)
     set udg_Point = GetUnitLoc(gg_unit_h00V_0063)

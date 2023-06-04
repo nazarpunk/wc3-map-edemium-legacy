@@ -18,7 +18,7 @@ function Trig_Edemium_Hero_Dies_Actions takes nothing returns nothing
     if udg_AS_Effect11 then
         set udg_AS_Effect11 = false
         set udg_ChanceBlock = (udg_ChanceBlock - 20.00)
-        call DestroyEffectBJ(udg_AS_Effect11SE)
+        call DestroyEffect(udg_AS_Effect11SE)
         call SetUnitVertexColorBJ(ArctUnit, 100.00, 100.00, 100, 0)
     endif
     call ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
@@ -43,7 +43,7 @@ function Trig_Edemium_Hero_Dies_Actions takes nothing returns nothing
         call AddUnitAnimationPropertiesBJ(false, "gold", ArctUnit)
         call SetUnitMoveSpeed(ArctUnit, GetUnitDefaultMoveSpeed(ArctUnit))
         call SetUnitTurnSpeedBJ(ArctUnit, 1.00)
-        call DestroyEffectBJ(udg_MeditationEffect)
+        call DestroyEffect(udg_MeditationEffect)
         call DisableTrigger(gg_trg_Meditation_Heal)
         call DisableTrigger(gg_trg_Meditation_Cast)
         call DisableTrigger(gg_trg_Meditation_Turn_Off)

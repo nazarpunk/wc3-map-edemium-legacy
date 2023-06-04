@@ -3,7 +3,7 @@ function Trig_Talent_Periodic_Func002Func001Func011A takes nothing returns nothi
         set udg_Point = GetUnitLoc(GetEnumUnit())
         call UnitDamageTargetBJ(ArctUnit, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
         call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Blue Lightning.mdx")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
         call RemoveLocation(udg_Point)
     endif
 endfunction
@@ -55,7 +55,7 @@ function Trig_Talent_Periodic_Actions takes nothing returns nothing
                 set udg_ARTInteger[4] = 1
                 call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) + (100.00 * I2R(udg_ART[14]))))
                 call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl")
-                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                call DestroyEffect(GetLastCreatedEffectBJ())
             endif
         endif
     endif

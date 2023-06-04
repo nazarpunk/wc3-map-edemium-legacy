@@ -50,7 +50,7 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
             set udg_AbilityPower = (udg_AbilityPower + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, ArctUnit, true)))
             call UnitDamageTargetBJ(ArctUnit, udg_AS_EnemyTarget, (10.00 + I2R(udg_CO_Combo)), ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
             call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "Abilities\\Spells\\Undead\\VampiricAura\\VampiricAuraTarget.mdl")
-            call DestroyEffectBJ(GetLastCreatedEffectBJ())
+            call DestroyEffect(GetLastCreatedEffectBJ())
             call EnableTrigger(gg_trg_Effect_1_Heal)
             call StartTimerBJ(udg_AS_TimerEffect1, false, (5.00 * I2R(udg_AS_AbilityLVL[1])))
             set udg_Point = GetUnitLoc(ArctUnit)
@@ -77,7 +77,7 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
                 call ResetUnitAnimation(ArctUnit)
                 call SetUnitAnimation(ArctUnit, "attack slam")
                 call AddSpecialEffectTargetUnitBJ("chest", ArctUnit, "war3mapImported\\insWhirl(sound).mdx")
-                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                call DestroyEffect(GetLastCreatedEffectBJ())
                 if  not udg_AS_Effect2 then
                     set udg_AS_Effect2 = true
                     set udg_ChanceCrit = (udg_ChanceCrit + 10.00)
@@ -101,7 +101,7 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
                         call UnitApplyTimedLifeBJ(1.00, 0x42544C46, GetLastCreatedUnit())
                         call IssueTargetOrderBJ(GetLastCreatedUnit(), "bloodlust", ArctUnit)
                         call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "war3mapImported\\StompRed.mdx")
-                        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                        call DestroyEffect(GetLastCreatedEffectBJ())
                         call EnableTrigger(gg_trg_Effect_4_Vampirism)
                         call StartTimerBJ(udg_AS_TimerEffect4, false, (3.00 * I2R(udg_AS_AbilityLVL[4])))
                     else
@@ -112,7 +112,7 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
                             call UnitApplyTimedLifeBJ((5.00 + (2.00 * I2R(udg_AS_AbilityLVL[5]))), 0x42544C46, GetLastCreatedUnit())
                             call UnitAddAbilityBJ(0x416C6F63, GetLastCreatedUnit())
                             call AddSpecialEffectTargetUnitBJ("origin", GetLastCreatedUnit(), "Abilities\\Spells\\Demon\\DemonBoltImpact\\DemonBoltImpact.mdl")
-                            call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                            call DestroyEffect(GetLastCreatedEffectBJ())
                             call SetUnitVertexColorBJ(GetLastCreatedUnit(), 100.00, 100, 100, 50.00)
                             call RemoveLocation(udg_CO_Point)
                         else
@@ -120,8 +120,8 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
                                 set udg_AS_EffectNumber = 6
                                 set udg_CO_Effect6Power = (1 * udg_AS_AbilityLVL[6])
                                 call EnableTrigger(gg_trg_Effect_6_Periodic)
-                                call DestroyEffectBJ(udg_CO_Effect6Sweep[1])
-                                call DestroyEffectBJ(udg_CO_Effect6Sweep[2])
+                                call DestroyEffect(udg_CO_Effect6Sweep[1])
+                                call DestroyEffect(udg_CO_Effect6Sweep[2])
                                 call AddSpecialEffectTargetUnitBJ("weapon", ArctUnit, "war3mapImported\\Sweep_Lightning_Large.mdx")
                                 set udg_CO_Effect6Sweep[1] = GetLastCreatedEffectBJ()
                                 if udg_CO_LeftWeapon then
@@ -144,13 +144,13 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
                                         set udg_AbilityPower = (udg_AbilityPower + GetUnitStateSwap(UNIT_STATE_MANA, ArctUnit))
                                         set udg_AbilityPower = (udg_AbilityPower / 2.00)
                                         call AddSpecialEffectTargetUnitBJ("chest", ArctUnit, "war3mapImported\\Thunder Slam.mdx")
-                                        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                                        call DestroyEffect(GetLastCreatedEffectBJ())
                                         call ForGroupBJ(udg_UnitGroup, function Trig_Abilities_Effects_Func001Func009Func001Func001Func001Func001Func001Func001Func007Func013A)
                                         call DestroyGroup(udg_UnitGroup)
                                     else
                                         call SetUnitManaBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_MANA, ArctUnit) + (2.00 + I2R(udg_AS_AbilityLVL[7]))))
                                         call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "Abilities\\Spells\\Items\\AIma\\AImaTarget.mdl")
-                                        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                                        call DestroyEffect(GetLastCreatedEffectBJ())
                                     endif
                                 else
                                     if udg_AS_Effect[udg_AS_SeriesNumber] == 8 then
@@ -166,14 +166,14 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
                                             call StartTimerBJ(udg_AS_TimerEffect9, false, (2.00 * I2R(udg_AS_AbilityLVL[9])))
                                             call EnableTrigger(gg_trg_Effect_9_Periodic)
                                             call AddSpecialEffectLocBJ(udg_Point2, "Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl")
-                                            call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                                            call DestroyEffect(GetLastCreatedEffectBJ())
                                             call RemoveLocation(udg_Point)
                                             call RemoveLocation(udg_Point2)
                                             set udg_AS_EffectNumber = 9
                                             set udg_AS_Effect9Count = (udg_AS_Effect9Count + 1)
                                             if udg_AS_Effect9Count == 3 then
                                                 call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "Abilities\\Spells\\Items\\AIma\\AImaTarget.mdl")
-                                                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                                                call DestroyEffect(GetLastCreatedEffectBJ())
                                                 set udg_AS_Effect9Count = 0
                                                 set udg_AS_Effect9Count2 = (udg_AS_Effect9Count2 + 1)
                                                 if not udg_Training then
@@ -195,14 +195,14 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
                                                     set udg_AS_Effect10Unit = GetLastCreatedUnit()
                                                     call IssuePointOrderLocBJ(udg_AS_Effect10Unit, "attack", udg_Point)
                                                     call AddSpecialEffectTargetUnitBJ("origin", GetLastCreatedUnit(), "war3mapImported\\Flash.mdx")
-                                                    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                                                    call DestroyEffect(GetLastCreatedEffectBJ())
                                                     call SetUnitVertexColorBJ(GetLastCreatedUnit(), 100, 100, 100, 40.00)
                                                     call RemoveLocation(udg_Point)
                                                     call GroupAddUnitSimple(GetLastCreatedUnit(), udg_FollowersGroup)
                                                     call EnableTrigger(gg_trg_Follower_Movement)
                                                 else
                                                     call AddSpecialEffectTargetUnitBJ("origin", udg_AS_Effect10Unit, "war3mapImported\\Holy-Nova.mdx")
-                                                    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                                                    call DestroyEffect(GetLastCreatedEffectBJ())
                                                     set udg_Point = GetUnitLoc(udg_AS_Effect10Unit)
                                                     set udg_UnitGroup = GetUnitsInRangeOfLocAll(400.00, udg_Point)
                                                     set udg_AbilityPower = (I2R(udg_CO_Power) + (I2R(udg_CO_Combo) + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, ArctUnit, true))))
@@ -260,7 +260,7 @@ function Trig_Abilities_Effects_Actions takes nothing returns nothing
         call ClearTextMessagesBJ(GetPlayersAll())
         call DisplayTimedTextToPlayer(GetLocalPlayer(), 0.9, 1.0, 2.5, ("Навык улучшен: |cFF00CD00" + (udg_AS_Name[udg_AS_EffectNumber] + (" |r(" + (I2S(udg_AS_AbilityLVL[udg_AS_EffectNumber]) + ")")))))
         call AddSpecialEffectTargetUnitBJ("chest", ArctUnit, "war3mapImported\\SoundEffect3.mdx")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
     endif
     if udg_ART[18] > 0 then
         set udg_CO_Combo = (udg_CO_Combo + (1 * udg_ART[18]))

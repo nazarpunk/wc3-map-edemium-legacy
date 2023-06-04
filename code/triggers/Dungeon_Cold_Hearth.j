@@ -8,7 +8,7 @@ function Trig_Dungeon_Cold_Hearth_Actions takes nothing returns nothing
     set udg_Point2 = GetUnitLoc(ArctUnit)
     if DistanceBetweenPoints(udg_Point, udg_Point2) < 300.00 then
         call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\BlinkCaster.mdx")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
         if udg_DungeonColdLevel > 0 then
             set udg_DungeonColdLevel = (udg_DungeonColdLevel - 1)
             if udg_DungeonColdLevel == 2 then

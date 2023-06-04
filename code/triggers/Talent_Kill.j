@@ -8,7 +8,7 @@ function Trig_Talent_Kill_Actions takes nothing returns nothing
         set udg_AbilityPower = (GetUnitStateSwap(UNIT_STATE_MAX_LIFE, ArctUnit) * (2.00 * I2R(udg_ART[4])))
         set udg_AbilityPower = (udg_AbilityPower / 100.00)
         call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "Abilities\\Spells\\Undead\\VampiricAura\\VampiricAuraTarget.mdl")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
         call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) + udg_AbilityPower))
     endif
     if udg_ART[5] > 0 then

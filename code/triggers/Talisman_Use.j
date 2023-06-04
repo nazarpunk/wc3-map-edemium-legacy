@@ -83,7 +83,7 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                             call UnitApplyTimedLifeBJ(I2R(GetHeroStatBJ(bj_HEROSTAT_INT, ArctUnit, true)), 0x42544C46, GetSpellTargetUnit())
                             call EnableTrigger(gg_trg_Follower_Movement)
                             call AddSpecialEffectTargetUnitBJ("origin", GetSpellTargetUnit(), "war3mapImported\\DarknessLeechTarget_Portrait.mdx")
-                            call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                            call DestroyEffect(GetLastCreatedEffectBJ())
                         endif
                     endif
                 else
@@ -94,7 +94,7 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                             if GetUnitAbilityLevelSwapped(0x41303345, GetSpellTargetUnit()) == 1 and GetUnitStateSwap(UNIT_STATE_LIFE, GetSpellTargetUnit()) < I2R(udg_RandomNumber) then
                                 call SetUnitManaBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_MANA, ArctUnit) - udg_AbilityPower))
                                 call AddSpecialEffectTargetUnitBJ("origin", GetSpellTargetUnit(), "war3mapImported\\BloodEX-Special-2.mdx")
-                                call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                                call DestroyEffect(GetLastCreatedEffectBJ())
                                 call KillUnit(GetSpellTargetUnit())
                                 set udg_RandomNumber = (GetHeroStatBJ(bj_HEROSTAT_AGI, ArctUnit, true) / 5)
                                 set udg_LightOrbs[2] = (udg_LightOrbs[2] + udg_RandomNumber)
@@ -140,9 +140,9 @@ function Trig_Talisman_Use_Actions takes nothing returns nothing
                                         call UnitDamageTargetBJ(ArctUnit, GetSpellTargetUnit(), udg_AbilityPower, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_MAGIC)
                                         call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) + udg_AbilityPower))
                                         call AddSpecialEffectTargetUnitBJ("origin", GetSpellTargetUnit(), "war3mapImported\\DarknessLeechTarget.mdx")
-                                        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                                        call DestroyEffect(GetLastCreatedEffectBJ())
                                         call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "war3mapImported\\DarknessLeechTarget_Portrait.mdx")
-                                        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+                                        call DestroyEffect(GetLastCreatedEffectBJ())
                                     endif
                                 endif
                             endif

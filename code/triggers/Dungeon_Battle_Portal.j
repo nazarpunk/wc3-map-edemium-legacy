@@ -7,7 +7,7 @@ function Trig_Dungeon_Battle_Portal_Actions takes nothing returns nothing
     set udg_Point2 = GetUnitLoc(ArctUnit)
     if DistanceBetweenPoints(udg_Point, udg_Point2) < 300.00 then
         call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\BlinkCaster.mdx")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
         call RemoveUnit(GetOrderTargetUnit())
         call CreateNUnitsAtLoc(1, 0x48303053, Player(1), udg_Point, bj_UNIT_FACING)
         call GroupAddUnitSimple(GetLastCreatedUnit(), udg_FollowersGroup)

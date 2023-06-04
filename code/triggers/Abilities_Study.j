@@ -7,7 +7,7 @@ function Trig_Abilities_Study_Actions takes nothing returns nothing
         set udg_AS_Points = (udg_AS_Points - 300)
         call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 1, ("Очки навыков: " + I2S(udg_AS_Points)))
         call AddSpecialEffectTargetUnitBJ("origin", GetTriggerUnit(), "SandTrap.mdx")
-        call DestroyEffectBJ(GetLastCreatedEffectBJ())
+        call DestroyEffect(GetLastCreatedEffectBJ())
         call UnitAddAbilityBJ(0x4130364A, udg_Target)
         call UnitAddAbilityBJ(0x4130364B, udg_Target)
         call UnitAddAbilityBJ(0x4130364C, udg_Target)

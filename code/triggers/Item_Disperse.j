@@ -28,7 +28,7 @@ function Trig_Item_Disperse_Actions takes nothing returns nothing
     call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 1.00)
     set udg_Point = GetItemLoc(GetSpellTargetItem())
     call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
-    call DestroyEffectBJ(GetLastCreatedEffectBJ())
+    call DestroyEffect(GetLastCreatedEffectBJ())
     call RemoveLocation(udg_Point)
     call RemoveItem(GetSpellTargetItem())
 endfunction
