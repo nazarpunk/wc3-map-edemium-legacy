@@ -7,7 +7,7 @@ function Trig_Keeper_Appear_Actions takes nothing returns nothing
         call EnableTrigger(gg_trg_Keeper_Look)
         call ShowUnitShow(gg_unit_n006_0028)
         call SetUnitAnimation(gg_unit_n006_0028, "Birth")
-        call SetUnitFacingToFaceUnitTimed(gg_unit_n006_0028, udg_Arct, 1.00)
+        call SetUnitFacingToFaceUnitTimed(gg_unit_n006_0028, ArctUnit, 1.00)
         call TriggerSleepAction(2.00)
         call ResetUnitAnimation(gg_unit_n006_0028)
     else

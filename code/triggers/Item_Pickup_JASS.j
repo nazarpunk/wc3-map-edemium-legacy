@@ -5,12 +5,12 @@ endfunction
 function ItemPickup_EnumItems takes nothing returns nothing
     local item i = GetFilterItem()
     if GetWidgetLife(i) > 0.405 and ItemPickup_FilterItem(udg_ItemPickup_Unit[udg_ItemPickup_Index], i)then
-        call UnitAddItem(udg_Arct, i)
-        call SetUnitState(udg_Arct, UNIT_STATE_LIFE, (GetUnitState(udg_Arct, UNIT_STATE_LIFE) + 10.00))
+        call UnitAddItem(ArctUnit, i)
+        call SetUnitState(ArctUnit, UNIT_STATE_LIFE, (GetUnitState(ArctUnit, UNIT_STATE_LIFE) + 10.00))
     endif
     if udg_ART[1] > 0 then
         set udg_AbilityPower = (I2R(udg_ART[1]) * 1.00)
-        call SetUnitState(udg_Arct, UNIT_STATE_MANA, (GetUnitState(udg_Arct, UNIT_STATE_MANA) + udg_AbilityPower))
+        call SetUnitState(ArctUnit, UNIT_STATE_MANA, (GetUnitState(ArctUnit, UNIT_STATE_MANA) + udg_AbilityPower))
     endif
     set i = null
 endfunction

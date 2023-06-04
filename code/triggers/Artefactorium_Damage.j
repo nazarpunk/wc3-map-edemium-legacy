@@ -1,5 +1,5 @@
 function Trig_Artefactorium_Damage_Conditions takes nothing returns boolean
-    return udg_DamageEventTarget == gg_unit_H000_0004 or udg_DamageEventTarget == gg_unit_h007_0065
+    return udg_DamageEventTarget == ArctUnit or udg_DamageEventTarget == gg_unit_h007_0065
 endfunction
 
 function Trig_Artefactorium_Damage_Actions takes nothing returns nothing

@@ -4,7 +4,7 @@ endfunction
 
 function Trig_CodeGen_Save_3_Actions takes nothing returns nothing
     set udg_SaveCount = 0
-    set udg_Hero = gg_unit_H000_0004
+    set udg_Hero = ArctUnit
     set udg_Save[udg_SaveCount] = CodeGen_ConvertUnit(GetUnitTypeId(udg_Hero))
     set udg_UnitGroup = GetUnitsInRectAll(gg_rct_Tier_3_Camera)
     call ForGroupBJ(udg_UnitGroup, function Trig_CodeGen_Save_3_Func007A)

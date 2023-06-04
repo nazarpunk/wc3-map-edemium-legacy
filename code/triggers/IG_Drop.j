@@ -46,8 +46,8 @@ function Trig_IG_Drop_Actions takes nothing returns nothing
         endif
         if udg_IG_ItemValue[9] > 1 then
             set udg_IG_ItemEnchant[2] = 0
-            call UnitRemoveAbilityBJ(0x41303532, udg_Arct)
-            call UnitRemoveAbilityBJ(0x41303347, udg_Arct)
+            call UnitRemoveAbilityBJ(0x41303532, ArctUnit)
+            call UnitRemoveAbilityBJ(0x41303347, ArctUnit)
         endif
     else
         if GetItemLevel(GetManipulatedItem()) == 2 then
@@ -107,19 +107,19 @@ function Trig_IG_Drop_Actions takes nothing returns nothing
                         call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 2, ("Шанс блока: " + (I2S(R2I(udg_ChanceBlock)) + "%")))
                     endif
                     if udg_IG_ItemValue[3] > 1 then
-                        call UnitRemoveAbilityBJ(udg_IG_ItemAT_HP_A[udg_IG_ItemValue[3]], udg_Arct)
+                        call UnitRemoveAbilityBJ(udg_IG_ItemAT_HP_A[udg_IG_ItemValue[3]], ArctUnit)
                     endif
                     if udg_IG_ItemValue[4] > 1 then
                         call ModifyHeroStat(bj_HEROSTAT_STR, GetManipulatingUnit(), bj_MODIFYMETHOD_SUB, udg_IG_ItemValue[4])
                     endif
                     if udg_IG_ItemValue[5] > 1 then
-                        call UnitRemoveAbilityBJ(udg_IG_ItemModelA[udg_IG_ItemValue[5]], udg_Arct)
-                        call UnitRemoveAbilityBJ(udg_IG_ItemEffect_Helmet, udg_Arct)
-                        call UnitRemoveAbilityBJ(udg_IG_ItemEffect_Pauldrons, udg_Arct)
+                        call UnitRemoveAbilityBJ(udg_IG_ItemModelA[udg_IG_ItemValue[5]], ArctUnit)
+                        call UnitRemoveAbilityBJ(udg_IG_ItemEffect_Helmet, ArctUnit)
+                        call UnitRemoveAbilityBJ(udg_IG_ItemEffect_Pauldrons, ArctUnit)
                     endif
                     if udg_IG_ItemValue[6] > 1 then
                         set udg_IG_ItemEnchant[1] = 0
-                        call UnitRemoveAbilityBJ(0x4130334D, udg_Arct)
+                        call UnitRemoveAbilityBJ(0x4130334D, ArctUnit)
                     endif
                 endif
             endif
@@ -129,7 +129,7 @@ endfunction
 
 function InitTrig_IG_Drop takes nothing returns nothing
     set gg_trg_IG_Drop = CreateTrigger()
-    call TriggerRegisterUnitEvent(gg_trg_IG_Drop, gg_unit_H000_0004, EVENT_UNIT_DROP_ITEM)
+    call TriggerRegisterUnitEvent(gg_trg_IG_Drop, ArctUnit, EVENT_UNIT_DROP_ITEM)
     call TriggerAddCondition(gg_trg_IG_Drop, Condition(function Trig_IG_Drop_Conditions))
     call TriggerAddAction(gg_trg_IG_Drop, function Trig_IG_Drop_Actions)
 endfunction

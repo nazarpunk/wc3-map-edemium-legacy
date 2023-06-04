@@ -7,7 +7,7 @@ function Trig_Trees_Choose_ESC_Actions takes nothing returns nothing
     call EnableTrigger(gg_trg_Trees_Camera_Off)
     call DisableTrigger(gg_trg_Camera_Fix)
     set udg_Point = GetRectCenter(gg_rct_Stop_Unit)
-    call SetUnitPositionLoc(udg_Arct, udg_Point)
+    call SetUnitPositionLoc(ArctUnit, udg_Point)
     call RemoveLocation(udg_Point)
     call DisableTrigger(gg_trg_Camera_Increase)
     call DisableTrigger(gg_trg_Camera_Hero)

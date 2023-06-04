@@ -75,7 +75,7 @@ endfunction
 
 function Trig_Gen_Exit_Actions takes nothing returns nothing
     set udg_D_Point1 = GetRectCenter(gg_rct_Edemium_Leave)
-    call SetUnitPositionLocFacingBJ(udg_Arct, udg_D_Point1, 0.00)
+    call SetUnitPositionLocFacingBJ(ArctUnit, udg_D_Point1, 0.00)
     call RemoveLocation(udg_D_Point1)
     set udg_D_Point1 = GetRectCenter(gg_rct_Dungeon_Exit)
     call SetUnitPositionLoc(udg_D_Exit, udg_D_Point1)
@@ -144,7 +144,7 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     call DisableTrigger(gg_trg_Camera_Decrease)
     call EnableTrigger(gg_trg_Effect_6_Periodic)
     call ConditionalTriggerExecute(gg_trg_Music_Castle)
-    call UnitRemoveAbilityBJ(0x4176756C, udg_Arct)
+    call UnitRemoveAbilityBJ(0x4176756C, ArctUnit)
     call CameraSetupApplyForPlayer(true, gg_cam_Camera_Portal, Player(0), 0)
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 1.50, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 100.00, 100.00, 100.00, 0)
     call ClearTextMessagesBJ(GetPlayersAll())
@@ -159,7 +159,7 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
         set udg_AS_Effect11 = false
         set udg_ChanceBlock = (udg_ChanceBlock - 20.00)
         call DestroyEffectBJ(udg_AS_Effect11SE)
-        call SetUnitVertexColorBJ(udg_Arct, 100.00, 100.00, 100, 0)
+        call SetUnitVertexColorBJ(ArctUnit, 100.00, 100.00, 100, 0)
     endif
     if udg_ART[13] > 0 then
         set udg_ARTInteger[3] = (udg_ARTInteger[3] + 1)
@@ -167,12 +167,12 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
             set udg_ARTInteger[3] = 0
             set udg_RandomNumber = GetRandomInt(1, 3)
             if udg_RandomNumber == 1 then
-                call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_ADD, (1 * udg_ART[13]))
+                call ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_ADD, (1 * udg_ART[13]))
             else
                 if udg_RandomNumber == 2 then
-                    call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_ADD, (1 * udg_ART[13]))
+                    call ModifyHeroStat(bj_HEROSTAT_AGI, ArctUnit, bj_MODIFYMETHOD_ADD, (1 * udg_ART[13]))
                 else
-                    call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_ADD, (1 * udg_ART[13]))
+                    call ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_ADD, (1 * udg_ART[13]))
                 endif
             endif
         endif
@@ -180,7 +180,7 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     if udg_Dead then
         set udg_Dead = false
         set udg_Point = GetUnitLoc(GetTriggerUnit())
-        call ReviveHeroLoc(udg_Arct, udg_Point, false)
+        call ReviveHeroLoc(ArctUnit, udg_Point, false)
         call RemoveLocation(udg_Point)
         set udg_EX_LevelUp = 0
         if not udg_EM_BossRoom then
@@ -188,10 +188,10 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
             set bj_forLoopAIndexEnd = 4
             loop
                 exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-                call RemoveItem(UnitItemInSlotBJ(udg_Arct, bj_forLoopAIndex))
+                call RemoveItem(UnitItemInSlotBJ(ArctUnit, bj_forLoopAIndex))
                 set bj_forLoopAIndex = bj_forLoopAIndex + 1
             endloop
-            call UnitAddItemByIdSwapped(0x4930304C, udg_Arct)
+            call UnitAddItemByIdSwapped(0x4930304C, ArctUnit)
         else
             set udg_Point = GetRectCenter(gg_rct_Boss_Zone_1)
             call SetTerrainTypeBJ(udg_Point, 0x51647272, - 1, 6, 1)
@@ -216,14 +216,14 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
                     set udg_RandomNumber = GetRandomInt(1, 3)
                     if udg_RandomNumber == 1 then
                         set udg_Target = gg_unit_h012_0011
-                        call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
+                        call ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_ADD, 1)
                     else
                         if udg_RandomNumber == 2 then
                             set udg_Target = gg_unit_h012_0012
-                            call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
+                            call ModifyHeroStat(bj_HEROSTAT_AGI, ArctUnit, bj_MODIFYMETHOD_ADD, 1)
                         else
                             set udg_Target = gg_unit_h012_0013
-                            call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
+                            call ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_ADD, 1)
                         endif
                     endif
                     set udg_AugmentValue = GetUnitUserData(udg_Target)
@@ -250,8 +250,8 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
         endif
     endif
     set udg_EM_BossRoom = false
-    call SetUnitLifePercentBJ(udg_Arct, 100)
-    call SetUnitManaPercentBJ(udg_Arct, 100)
+    call SetUnitLifePercentBJ(ArctUnit, 100)
+    call SetUnitManaPercentBJ(ArctUnit, 100)
     if R2I(udg_RewardDustReal) > 0 then
         set udg_RewardDustReal = (udg_RewardDustReal * udg_DifficultyRate)
         set udg_RewardDustReal = (udg_RewardDustReal * udg_EX_Rate)
@@ -291,13 +291,13 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     call GroupClear(udg_FollowersGroup)
     call DestroyTimerDialogBJ(udg_DungeonDarkTimerWindow)
     call ShowTextTagForceBJ(false, udg_DungeonColdText, bj_FORCE_PLAYER[0])
-    call UnitRemoveAbilityBJ(0x41303348, udg_Arct)
+    call UnitRemoveAbilityBJ(0x41303348, ArctUnit)
     call RemoveUnit(udg_AS_Effect10Unit)
     if udg_MeditationLogic then
         set udg_MeditationLogic = false
-        call AddUnitAnimationPropertiesBJ(false, "gold", udg_Arct)
-        call SetUnitMoveSpeed(udg_Arct, GetUnitDefaultMoveSpeed(udg_Arct))
-        call SetUnitTurnSpeedBJ(udg_Arct, 1.00)
+        call AddUnitAnimationPropertiesBJ(false, "gold", ArctUnit)
+        call SetUnitMoveSpeed(ArctUnit, GetUnitDefaultMoveSpeed(ArctUnit))
+        call SetUnitTurnSpeedBJ(ArctUnit, 1.00)
         call DestroyEffectBJ(udg_MeditationEffect)
         call DisableTrigger(gg_trg_Meditation_Heal)
         call DisableTrigger(gg_trg_Meditation_Cast)
@@ -305,12 +305,12 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     endif
     if udg_SprintLogic then
         set udg_SprintLogic = false
-        call IssueImmediateOrderBJ(udg_Arct, "manashieldoff")
+        call IssueImmediateOrderBJ(ArctUnit, "manashieldoff")
         call DisableTrigger(gg_trg_Sprint_Energy)
     endif
-    call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
-    call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
-    call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
+    call ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
+    call ModifyHeroStat(bj_HEROSTAT_AGI, ArctUnit, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
+    call ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
     set udg_AS_Effect9Count2 = 0
     set udg_ARTInteger[4] = 0
     call EnableWeatherEffect(GetLastCreatedWeatherEffect(), false)
@@ -319,8 +319,8 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
     call SetPlayerAbilityAvailableBJ(false, 0x41303530, Player(0))
     call SetPlayerAbilityAvailableBJ(false, 0x41303147, Player(0))
     call SetPlayerAbilityAvailableBJ(false, 0x41303555, Player(0))
-    call UnitRemoveAbilityBJ(0x4130335A, udg_Arct)
-    call UnitRemoveAbilityBJ(0x4130334B, udg_Arct)
+    call UnitRemoveAbilityBJ(0x4130335A, ArctUnit)
+    call UnitRemoveAbilityBJ(0x4130334B, ArctUnit)
     call DestroyFogModifier(GetLastCreatedFogModifier())
     call FogEnableOff()
     call FogMaskEnableOff()
@@ -338,17 +338,17 @@ function Trig_Gen_Exit_Actions takes nothing returns nothing
         call DestroyEffectBJ(udg_ChestKeyEffect[bj_forLoopAIndex])
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop
-    call UnitRemoveBuffsBJ(bj_REMOVEBUFFS_ALL, udg_Arct)
-    call SetUnitOwner(udg_Arct, Player(0), false)
+    call UnitRemoveBuffsBJ(bj_REMOVEBUFFS_ALL, ArctUnit)
+    call SetUnitOwner(ArctUnit, Player(0), false)
     set udg_Point = GetRectCenter(gg_rct_Trees_Leave)
-    call SetUnitFacingToFaceLocTimed(udg_Arct, udg_Point, 0)
+    call SetUnitFacingToFaceLocTimed(ArctUnit, udg_Point, 0)
     call SetUnitMoveSpeed(GetTriggerUnit(), GetUnitDefaultMoveSpeed(GetTriggerUnit()))
     call SetUnitTurnSpeedBJ(GetTriggerUnit(), 1.00)
     call RemoveLocation(udg_Point)
     call CameraSetSmoothingFactorBJ(0.00)
-    call SelectUnitForPlayerSingle(udg_Arct, Player(0))
+    call SelectUnitForPlayerSingle(ArctUnit, Player(0))
     call EnablePreSelect(false, false)
-    call AddSpecialEffectTargetUnitBJ("origin", udg_Arct, "Abilities\\Spells\\Human\\ReviveHuman\\ReviveHuman.mdl")
+    call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "Abilities\\Spells\\Human\\ReviveHuman\\ReviveHuman.mdl")
     call DestroyEffectBJ(GetLastCreatedEffectBJ())
     set udg_Transparent = 100.00
     call MultiboardSetItemValueBJ(udg_AttributesBoard, 1, 1, ("Очки навыков: " + I2S(udg_AS_Points)))

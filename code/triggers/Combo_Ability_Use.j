@@ -54,10 +54,10 @@ function Trig_Combo_Ability_Use_Actions takes nothing returns nothing
     if CountUnitsInGroup(udg_CO_UnitGroup2) == 1 then
         call DestroyEffectBJ(udg_CO_SweapEffect[1])
         call DestroyEffectBJ(udg_CO_SweapEffect[2])
-        call AddSpecialEffectTargetUnitBJ("weapon", udg_Arct, "war3mapImported\\Sweep_Holy_Large.mdx")
+        call AddSpecialEffectTargetUnitBJ("weapon", ArctUnit, "war3mapImported\\Sweep_Holy_Large.mdx")
         set udg_CO_SweapEffect[1] = GetLastCreatedEffectBJ()
         if udg_CO_LeftWeapon then
-            call AddSpecialEffectTargetUnitBJ("foot, left", udg_Arct, "war3mapImported\\Sweep_Holy_Large.mdx")
+            call AddSpecialEffectTargetUnitBJ("foot, left", ArctUnit, "war3mapImported\\Sweep_Holy_Large.mdx")
             set udg_CO_SweapEffect[2] = GetLastCreatedEffectBJ()
         endif
         set udg_CO_Combo = (udg_CO_Combo + 1)
@@ -72,7 +72,7 @@ function Trig_Combo_Ability_Use_Actions takes nothing returns nothing
         call ForGroupBJ(udg_CO_UnitGroup2, function Trig_Combo_Ability_Use_Func010Func018A)
         if udg_ART[11] > 0 then
             if GetRandomInt(1, 100) <= (5 * udg_ART[11]) then
-                set udg_Point = GetUnitLoc(udg_Arct)
+                set udg_Point = GetUnitLoc(ArctUnit)
                 set udg_Point2 = GetUnitLoc(udg_AS_EnemyTarget)
                 call CreateNUnitsAtLoc(1, 0x68303149, Player(0), udg_Point, bj_UNIT_FACING)
                 call UnitAddAbilityBJ(0x4130354B, GetLastCreatedUnit())
@@ -91,9 +91,9 @@ function Trig_Combo_Ability_Use_Actions takes nothing returns nothing
             set udg_CO_ComboSeries[bj_forLoopAIndex] = 0
             set bj_forLoopAIndex = bj_forLoopAIndex + 1
         endloop
-        call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - 1))
-        call SetUnitLifeBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) - 2.00))
-        call CreateTextTagUnitBJ("X", udg_Arct, 0, 20.00, 80.00, 0.00, 0.00, 10.00)
+        call SetUnitManaBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_MANA, ArctUnit) - 1))
+        call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) - 2.00))
+        call CreateTextTagUnitBJ("X", ArctUnit, 0, 20.00, 80.00, 0.00, 0.00, 10.00)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 200.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 0.60)

@@ -84,7 +84,7 @@ function Trig_Core_Create_Actions takes nothing returns nothing
                                                                                     call ConditionalTriggerExecute(gg_trg_Core_Start_Timer)
                                                                                     set udg_CC_SecretNumber = GetUnitUserData(gg_unit_h01G_0027)
                                                                                 else
-                                                                                    call CreateTextTagUnitBJ("Ничего...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+                                                                                    call CreateTextTagUnitBJ("Ничего...", ArctUnit, 0, 10.00, 100.00, 100.00, 100.00, 0)
                                                                                     call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
                                                                                     call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
                                                                                     call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 3.00)

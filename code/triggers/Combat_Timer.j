@@ -9,7 +9,7 @@ function Trig_Combat_Timer_Actions takes nothing returns nothing
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop
     call LeaderboardSetLabelBJ(udg_CO_ComboBoard, ("|cFFFFFFFFСерия ударов:|r |cFF449EFF" + I2S(udg_CO_Combo)))
-    call CreateTextTagUnitBJ("X", udg_Arct, 0, 20.00, 80.00, 0.00, 0.00, 10.00)
+    call CreateTextTagUnitBJ("X", ArctUnit, 0, 20.00, 80.00, 0.00, 0.00, 10.00)
     call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 200.00, 90.00)
     call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
     call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 0.50)

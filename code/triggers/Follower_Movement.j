@@ -1,6 +1,6 @@
 function Trig_Follower_Movement_Func001A takes nothing returns nothing
     if CountUnitsInGroup(udg_FollowersGroup) > 0 then
-        set udg_Point = GetUnitLoc(udg_Arct)
+        set udg_Point = GetUnitLoc(ArctUnit)
         set udg_Point2 = GetUnitLoc(GetEnumUnit())
         if DistanceBetweenPoints(udg_Point, udg_Point2) >= 400.00 then
             call RemoveLocation(udg_Point2)

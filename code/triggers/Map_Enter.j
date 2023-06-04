@@ -10,7 +10,7 @@ function Trig_Map_Enter_Actions takes nothing returns nothing
     call ResetTerrainFogBJ()
     call EnableTrigger(gg_trg_Trees_Camera_Off)
     set udg_Point = GetRectCenter(gg_rct_Stop_Unit)
-    call SetUnitPositionLoc(udg_Arct, udg_Point)
+    call SetUnitPositionLoc(ArctUnit, udg_Point)
     call RemoveLocation(udg_Point)
     call DisableTrigger(gg_trg_Camera_Increase)
     call DisableTrigger(gg_trg_Camera_Hero)

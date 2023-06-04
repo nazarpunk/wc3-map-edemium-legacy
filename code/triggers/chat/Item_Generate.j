@@ -1,6 +1,6 @@
 function Trig_Item_Generate_Actions takes nothing returns nothing
     set udg_IG_ItemQuality = GetRandomInt(1, 3)
-    set udg_IG_Point = GetUnitLoc(udg_Arct)
+    set udg_IG_Point = GetUnitLoc(ArctUnit)
     call ConditionalTriggerExecute(gg_trg_IG_Generate)
 endfunction
 

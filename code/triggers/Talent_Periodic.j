@@ -1,7 +1,7 @@
 function Trig_Talent_Periodic_Func002Func001Func011A takes nothing returns nothing
     if GetOwningPlayer(GetEnumUnit()) == Player(11) and UnitAlive(GetEnumUnit()) then
         set udg_Point = GetUnitLoc(GetEnumUnit())
-        call UnitDamageTargetBJ(udg_Arct, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
+        call UnitDamageTargetBJ(ArctUnit, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
         call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Blue Lightning.mdx")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
         call RemoveLocation(udg_Point)
@@ -24,7 +24,7 @@ function Trig_Talent_Periodic_Actions takes nothing returns nothing
     if udg_ART[8] > 0 then
         if GetRandomInt(1, 100) <= 5 then
             set udg_AbilityPower = (I2R(udg_ART[8]) * 50.00)
-            set udg_Point = GetUnitLoc(udg_Arct)
+            set udg_Point = GetUnitLoc(ArctUnit)
             set udg_UnitGroup = GetUnitsInRangeOfLocAll(500.00, udg_Point)
             call RemoveLocation(udg_Point)
             set udg_UnitGroupPlayer = GetUnitsOfPlayerAll(Player(0))
@@ -48,13 +48,13 @@ function Trig_Talent_Periodic_Actions takes nothing returns nothing
         endif
     endif
     if udg_ART[14] > 0 then
-        set udg_AbilityPower = (GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_Arct) * 20.00)
+        set udg_AbilityPower = (GetUnitStateSwap(UNIT_STATE_MAX_LIFE, ArctUnit) * 20.00)
         set udg_AbilityPower = (udg_AbilityPower / 100.00)
-        if udg_AbilityPower > GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) then
+        if udg_AbilityPower > GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) then
             if udg_ARTInteger[4] == 0 then
                 set udg_ARTInteger[4] = 1
-                call SetUnitLifeBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) + (100.00 * I2R(udg_ART[14]))))
-                call AddSpecialEffectTargetUnitBJ("origin", udg_Arct, "Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl")
+                call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) + (100.00 * I2R(udg_ART[14]))))
+                call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl")
                 call DestroyEffectBJ(GetLastCreatedEffectBJ())
             endif
         endif

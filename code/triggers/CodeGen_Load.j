@@ -5,7 +5,7 @@ function Trig_CodeGen_Load_Actions takes nothing returns nothing
         return
     endif
     set udg_LoadCount = 0
-    set udg_Hero = gg_unit_H000_0004
+    set udg_Hero = ArctUnit
     set udg_LoadCount = (udg_LoadCount + 1)
     call DisableTrigger(gg_trg_Hero_Levelup)
     call SetHeroLevelBJ(udg_Hero, udg_Load[udg_LoadCount], false)

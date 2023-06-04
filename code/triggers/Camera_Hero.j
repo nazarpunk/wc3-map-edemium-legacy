@@ -1,5 +1,5 @@
 function Trig_Camera_Hero_Actions takes nothing returns nothing
-    call SetCameraTargetController(udg_Arct, 0, 0, false)
+    call SetCameraTargetController(ArctUnit, 0, 0, false)
     call SetCameraFieldForPlayer(Player(0), CAMERA_FIELD_TARGET_DISTANCE, I2R(udg_CameraDistance), 0.32)
     call SetCameraFieldForPlayer(Player(0), CAMERA_FIELD_ANGLE_OF_ATTACK, I2R(udg_CameraAngle), 0.32)
     call SetCameraFieldForPlayer(Player(0), CAMERA_FIELD_ROTATION, udg_CameraTurn, 0.32)

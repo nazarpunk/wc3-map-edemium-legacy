@@ -5,11 +5,11 @@ endfunction
 
 function Trig_Talent_Kill_Actions takes nothing returns nothing
     if udg_ART[4] > 0 then
-        set udg_AbilityPower = (GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_Arct) * (2.00 * I2R(udg_ART[4])))
+        set udg_AbilityPower = (GetUnitStateSwap(UNIT_STATE_MAX_LIFE, ArctUnit) * (2.00 * I2R(udg_ART[4])))
         set udg_AbilityPower = (udg_AbilityPower / 100.00)
-        call AddSpecialEffectTargetUnitBJ("origin", udg_Arct, "Abilities\\Spells\\Undead\\VampiricAura\\VampiricAuraTarget.mdl")
+        call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "Abilities\\Spells\\Undead\\VampiricAura\\VampiricAuraTarget.mdl")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
-        call SetUnitLifeBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) + udg_AbilityPower))
+        call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) + udg_AbilityPower))
     endif
     if udg_ART[5] > 0 then
         if GetRandomInt(1, 100) <= (3 * udg_ART[5]) then

@@ -33,8 +33,8 @@ function Trig_Boss_Kill_Check_Actions takes nothing returns nothing
             endif
         endif
     endif
-    call SetUnitLifePercentBJ(udg_Arct, 100)
-    call SetUnitManaPercentBJ(udg_Arct, 100)
+    call SetUnitLifePercentBJ(ArctUnit, 100)
+    call SetUnitManaPercentBJ(ArctUnit, 100)
     set udg_RandomNumber = (10 * udg_Difficulty)
     set udg_LightOrbs[2] = (udg_LightOrbs[2] + udg_RandomNumber)
     set udg_LightIterations = (udg_LightIterations + udg_RandomNumber)
@@ -42,7 +42,7 @@ function Trig_Boss_Kill_Check_Actions takes nothing returns nothing
     call StopMusic(true)
     call DisableTrigger(gg_trg_Boss_II_Channel_Periodic)
     call DisableTrigger(gg_trg_Boss_II_Channel_Init)
-    call UnitAddAbilityBJ(0x4176756C, udg_Arct)
+    call UnitAddAbilityBJ(0x4176756C, ArctUnit)
     call ConditionalTriggerExecute(gg_trg_Boss_Units_Remove)
 endfunction
 

@@ -3,8 +3,8 @@ function Trig_Boss_II_Throw_Conditions takes nothing returns boolean
 endfunction
 
 function Trig_Boss_II_Throw_Func011A takes nothing returns nothing
-    if GetEnumUnit() == udg_Arct then
-        call IssueTargetOrderBJ(GetLastCreatedUnit(), "firebolt", udg_Arct)
+    if GetEnumUnit() == ArctUnit then
+        call IssueTargetOrderBJ(GetLastCreatedUnit(), "firebolt", ArctUnit)
         call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 1.50, "ReplaceableTextures\\CameraMasks\\HazeAndFogFilter_Mask.blp", 0.00, 70.00, 100.00, 0.00)
     endif
 endfunction

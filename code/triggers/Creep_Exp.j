@@ -1,9 +1,9 @@
 function Trig_Creep_Exp_Actions takes nothing returns nothing
     if GetUnitAbilityLevelSwapped(0x41303345, GetTriggerUnit()) == 1 then
-        call AddHeroXPSwapped(R2I((10.00 * udg_EX_Rate)), udg_Arct, false)
+        call AddHeroXPSwapped(R2I((10.00 * udg_EX_Rate)), ArctUnit, false)
     else
         if GetUnitAbilityLevelSwapped(0x41303559, GetTriggerUnit()) == 1 then
-            call AddHeroXPSwapped(R2I((20.00 * udg_EX_Rate)), udg_Arct, false)
+            call AddHeroXPSwapped(R2I((20.00 * udg_EX_Rate)), ArctUnit, false)
         endif
     endif
 endfunction

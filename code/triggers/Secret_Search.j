@@ -1,8 +1,8 @@
 function Trig_Secret_Search_Actions takes nothing returns nothing
-    if UnitHasBuffBJ(udg_Arct, 0x42303039) then
-        call UnitAddAbilityBJ(0x4130335A, udg_Arct)
+    if UnitHasBuffBJ(ArctUnit, 0x42303039) then
+        call UnitAddAbilityBJ(0x4130335A, ArctUnit)
     else
-        call UnitRemoveAbilityBJ(0x4130335A, udg_Arct)
+        call UnitRemoveAbilityBJ(0x4130335A, ArctUnit)
     endif
 endfunction
 

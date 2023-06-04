@@ -9,15 +9,15 @@ function Trig_Edemor_Start_Actions takes nothing returns nothing
     endloop
     set udg_AS_AbilityCountLVL_Base = udg_AS_AbilityCountLVL
     set udg_AS_Points_Base = udg_AS_Points
-    set udg_EX_Level_Base = GetHeroLevel(udg_Arct)
-    set udg_EX_Exp_Base = GetHeroXP(udg_Arct)
+    set udg_EX_Level_Base = GetHeroLevel(ArctUnit)
+    set udg_EX_Exp_Base = GetHeroXP(ArctUnit)
     call SetCameraBoundsToRect(bj_mapInitialPlayableArea)
     call AddItemToStockBJ(0x49303158, gg_unit_h00V_0063, 0, 1)
     call AddItemToStockBJ(0x49303159, gg_unit_h00V_0063, 0, 1)
     call AddItemToStockBJ(0x4930315A, gg_unit_h00V_0063, 0, 1)
     call AddItemToStockBJ(0x49303230, gg_unit_h00V_0063, 0, 1)
     set udg_Point = GetRectCenter(gg_rct_Arena_Enter)
-    call SetUnitPositionLoc(udg_Arct, udg_Point)
+    call SetUnitPositionLoc(ArctUnit, udg_Point)
     call RemoveLocation(udg_Point)
     set udg_Point = GetRectCenter(gg_rct_Artefactorium_Spawn)
     call CreateNUnitsAtLoc(1, 0x68303039, Player(11), udg_Point, bj_UNIT_FACING)

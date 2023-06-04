@@ -28,31 +28,31 @@ function Trig_Edemor_Exit_Actions takes nothing returns nothing
         set udg_AS_Effect11 = false
         set udg_ChanceBlock = (udg_ChanceBlock - 20.00)
         call DestroyEffectBJ(udg_AS_Effect11SE)
-        call SetUnitVertexColorBJ(udg_Arct, 100.00, 100.00, 100, 0)
+        call SetUnitVertexColorBJ(ArctUnit, 100.00, 100.00, 100, 0)
     endif
 
     if udg_Dead then
         set udg_Dead = false
         set udg_Point = GetRectCenter(gg_rct_Edemium_Leave)
-        call SetUnitPositionLoc(udg_Arct, udg_Point)
-        call ReviveHeroLoc(udg_Arct, udg_Point, false)
+        call SetUnitPositionLoc(ArctUnit, udg_Point)
+        call ReviveHeroLoc(ArctUnit, udg_Point, false)
         call RemoveLocation(udg_Point)
         set udg_Camera = gg_cam_Camera_Portal_Room
         call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
         call DisableTrigger(gg_trg_Camera_Tree)
         call EnableTrigger(gg_trg_Camera_Fix)
         call CameraSetupApplyForPlayer(true, udg_Camera, Player(0), 0)
-        call SelectUnitSingle(udg_Arct)
+        call SelectUnitSingle(ArctUnit)
         set udg_UnitGroup = GetUnitsInRectOfPlayer(gg_rct_Arena_Pick, Player(11))
         call ForGroupBJ(udg_UnitGroup, function Trig_Edemor_Exit_Func006Func013002)
         call DestroyGroup(udg_UnitGroup)
         call CreateItemLoc(0x4930304C, udg_Point)
-        call UnitAddItemSwapped(GetLastCreatedItem(), udg_Arct)
+        call UnitAddItemSwapped(GetLastCreatedItem(), ArctUnit)
     endif
     
-    call SetUnitLifePercentBJ(udg_Arct, 100)
-    call SetUnitManaPercentBJ(udg_Arct, 100)
-    call UnitRemoveBuffsBJ(bj_REMOVEBUFFS_ALL, udg_Arct)
+    call SetUnitLifePercentBJ(ArctUnit, 100)
+    call SetUnitManaPercentBJ(ArctUnit, 100)
+    call UnitRemoveBuffsBJ(bj_REMOVEBUFFS_ALL, ArctUnit)
     call DisableTrigger(gg_trg_Edemium_Hero_Dies)
     call SetPlayerAbilityAvailableBJ(false, 0x41303138, Player(0))
     call SetPlayerAbilityAvailableBJ(false, 0x41303537, Player(0))
@@ -75,14 +75,14 @@ function Trig_Edemor_Exit_Actions takes nothing returns nothing
     call DestroyEffectBJ(udg_CO_Effect6Sweep[1])
     call DestroyEffectBJ(udg_CO_Effect6Sweep[2])
     set udg_CO_Effect6Power = 0
-    call UnitRemoveAbilityBJ(0x4130334B, udg_Arct)
+    call UnitRemoveAbilityBJ(0x4130334B, ArctUnit)
     set udg_Point = GetUnitLoc(gg_unit_h00V_0063)
     call SetTerrainTypeBJ(udg_Point, 0x56737470, - 1, 10, 1)
     call RemoveLocation(udg_Point)
     call EnablePreSelect(false, false)
-    call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
-    call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
-    call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
+    call ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
+    call ModifyHeroStat(bj_HEROSTAT_AGI, ArctUnit, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
+    call ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
     set udg_AS_Effect9Count2 = 0
     set udg_ARTInteger[4] = 0
     set udg_EM_EncounterChance = 0

@@ -8,6 +8,6 @@ endfunction
 
 function InitTrig_Hero_Levelup takes nothing returns nothing
     set gg_trg_Hero_Levelup = CreateTrigger()
-    call TriggerRegisterUnitEvent(gg_trg_Hero_Levelup, gg_unit_H000_0004, EVENT_UNIT_HERO_LEVEL)
+    call TriggerRegisterUnitEvent(gg_trg_Hero_Levelup, ArctUnit, EVENT_UNIT_HERO_LEVEL)
     call TriggerAddAction(gg_trg_Hero_Levelup, function Trig_Hero_Levelup_Actions)
 endfunction

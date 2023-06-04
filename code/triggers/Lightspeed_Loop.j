@@ -49,7 +49,7 @@ function Trig_Lightspeed_Loop_Actions takes nothing returns nothing
                     call SetUnitPositionLocFacingBJ(udg_SB_Hero[udg_SB], udg_SB_Point[3], udg_SB_Angle[udg_SB])
                     if udg_SB_Spam[udg_SB] == 0 then
                         set udg_SB_Spam[udg_SB] = 50
-                        call AddSpecialEffectTargetUnitBJ("chest", udg_Arct, "war3mapImported\\Holy_Penance.mdx")
+                        call AddSpecialEffectTargetUnitBJ("chest", ArctUnit, "war3mapImported\\Holy_Penance.mdx")
                         set udg_SB_Effect = GetLastCreatedEffectBJ()
                     else
                         set udg_SB_Spam[udg_SB] = (udg_SB_Spam[udg_SB] - 1)

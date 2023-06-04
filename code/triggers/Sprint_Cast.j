@@ -4,7 +4,7 @@ endfunction
 
 function Trig_Sprint_Cast_Actions takes nothing returns nothing
     if GetUnitStateSwap(UNIT_STATE_MANA, GetTriggerUnit()) == 0.00 then
-        call CreateTextTagUnitBJ("Нет сил...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+        call CreateTextTagUnitBJ("Нет сил...", ArctUnit, 0, 10.00, 100.00, 100.00, 100.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.00)
@@ -35,7 +35,7 @@ endfunction
 
 function InitTrig_Sprint_Cast takes nothing returns nothing
     set gg_trg_Sprint_Cast = CreateTrigger()
-    call TriggerRegisterUnitEvent(gg_trg_Sprint_Cast, gg_unit_H000_0004, EVENT_UNIT_ISSUED_ORDER)
+    call TriggerRegisterUnitEvent(gg_trg_Sprint_Cast, ArctUnit, EVENT_UNIT_ISSUED_ORDER)
     call TriggerAddCondition(gg_trg_Sprint_Cast, Condition(function Trig_Sprint_Cast_Conditions))
     call TriggerAddAction(gg_trg_Sprint_Cast, function Trig_Sprint_Cast_Actions)
 endfunction

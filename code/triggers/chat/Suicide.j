@@ -1,5 +1,5 @@
 function Trig_Suicide_Actions takes nothing returns nothing
-    call KillUnit(gg_unit_H000_0004)
+    call KillUnit(ArctUnit)
 endfunction
 
 function InitTrig_Suicide takes nothing returns nothing

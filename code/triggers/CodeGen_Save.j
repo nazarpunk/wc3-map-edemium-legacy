@@ -9,7 +9,7 @@ function Trig_CodeGen_Save_Actions takes nothing returns nothing
         set bj_forLoopAIndex = bj_forLoopAIndex + 1
     endloop
     set udg_SaveCount = 0
-    set udg_Hero = gg_unit_H000_0004
+    set udg_Hero = ArctUnit
     set udg_Save[udg_SaveCount] = CodeGen_ConvertUnit(GetUnitTypeId(udg_Hero))
     set udg_SaveCount = (udg_SaveCount + 1)
     set udg_Save[udg_SaveCount] = GetHeroLevel(udg_Hero)

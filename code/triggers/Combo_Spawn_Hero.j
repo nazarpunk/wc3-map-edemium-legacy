@@ -1,5 +1,5 @@
 function Trig_Combo_Spawn_Hero_Conditions takes nothing returns boolean
-    return udg_DamageEventSource == udg_Arct and GetUnitAbilityLevelSwapped(0x41303559, udg_DamageEventTarget) == 1 and udg_ComboSpawnAllowed
+    return udg_DamageEventSource == ArctUnit and GetUnitAbilityLevelSwapped(0x41303559, udg_DamageEventTarget) == 1 and udg_ComboSpawnAllowed
 endfunction
 
 function Trig_Combo_Spawn_Hero_Actions takes nothing returns nothing

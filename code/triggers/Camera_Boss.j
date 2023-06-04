@@ -1,8 +1,8 @@
 function Trig_Camera_Boss_Actions takes nothing returns nothing
-    call SetCameraTargetController(udg_Arct, 0, 0, false)
+    call SetCameraTargetController(ArctUnit, 0, 0, false)
     call SetCameraFieldForPlayer(Player(0), CAMERA_FIELD_TARGET_DISTANCE, I2R(udg_CameraDistance), 0.32)
     call SetCameraFieldForPlayer(Player(0), CAMERA_FIELD_ANGLE_OF_ATTACK, 316.00, 0.32)
-    set udg_Point = GetUnitLoc(udg_Arct)
+    set udg_Point = GetUnitLoc(ArctUnit)
     set udg_Point2 = GetUnitLoc(udg_EM_BossUnit)
     call SetCameraFieldForPlayer(Player(0), CAMERA_FIELD_ROTATION, AngleBetweenPoints(udg_Point, udg_Point2), 0.32)
     call RemoveLocation(udg_Point)

@@ -46,9 +46,9 @@ function Trig_IG_Take_Actions takes nothing returns nothing
         if udg_IG_ItemValue[9] > 1 then
             set udg_IG_ItemEnchant[2] = udg_IG_ItemValue[9]
             if udg_IG_ItemValue[9] == 2 or udg_IG_ItemValue[9] == 3 or udg_IG_ItemValue[9] == 8 then
-                call UnitAddAbilityBJ(0x41303532, udg_Arct)
+                call UnitAddAbilityBJ(0x41303532, ArctUnit)
             else
-                call UnitAddAbilityBJ(0x41303347, udg_Arct)
+                call UnitAddAbilityBJ(0x41303347, ArctUnit)
             endif
         endif
     else
@@ -121,23 +121,23 @@ function Trig_IG_Take_Actions takes nothing returns nothing
                     if udg_IG_ItemValue[5] > 1 then
                         call UnitAddAbilityBJ(udg_IG_ItemModelA[udg_IG_ItemValue[5]], GetManipulatingUnit())
                         if udg_IG_ItemValue[5] == 5 then
-                            call UnitAddAbilityBJ(0x41303354, udg_Arct)
+                            call UnitAddAbilityBJ(0x41303354, ArctUnit)
                             set udg_IG_ItemEffect_Helmet = 0x41303354
                         endif
                         if udg_IG_ItemValue[5] == 6 then
-                            call UnitAddAbilityBJ(0x4130334F, udg_Arct)
+                            call UnitAddAbilityBJ(0x4130334F, ArctUnit)
                             set udg_IG_ItemEffect_Helmet = 0x4130334F
                         endif
                         if udg_IG_ItemValue[5] == 9 then
-                            call UnitAddAbilityBJ(0x41303351, udg_Arct)
+                            call UnitAddAbilityBJ(0x41303351, ArctUnit)
                             set udg_IG_ItemEffect_Helmet = 0x41303351
-                            call UnitAddAbilityBJ(0x41303353, udg_Arct)
+                            call UnitAddAbilityBJ(0x41303353, ArctUnit)
                             set udg_IG_ItemEffect_Pauldrons = 0x41303353
                         endif
                     endif
                     if udg_IG_ItemValue[6] > 1 then
                         set udg_IG_ItemEnchant[1] = udg_IG_ItemValue[6]
-                        call UnitAddAbilityBJ(0x4130334D, udg_Arct)
+                        call UnitAddAbilityBJ(0x4130334D, ArctUnit)
                     endif
                 endif
             endif
@@ -150,7 +150,7 @@ endfunction
 
 function InitTrig_IG_Take takes nothing returns nothing
     set gg_trg_IG_Take = CreateTrigger()
-    call TriggerRegisterUnitEvent(gg_trg_IG_Take, gg_unit_H000_0004, EVENT_UNIT_PICKUP_ITEM)
+    call TriggerRegisterUnitEvent(gg_trg_IG_Take, ArctUnit, EVENT_UNIT_PICKUP_ITEM)
     call TriggerAddCondition(gg_trg_IG_Take, Condition(function Trig_IG_Take_Conditions))
     call TriggerAddAction(gg_trg_IG_Take, function Trig_IG_Take_Actions)
 endfunction

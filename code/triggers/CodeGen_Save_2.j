@@ -1,6 +1,6 @@
 function Trig_CodeGen_Save_2_Actions takes nothing returns nothing
     set udg_SaveCount = 0
-    set udg_Hero = gg_unit_H000_0004
+    set udg_Hero = ArctUnit
     set udg_Save[udg_SaveCount] = CodeGen_ConvertUnit(GetUnitTypeId(udg_Hero))
     set udg_SaveCount = (udg_SaveCount + 1)
     set udg_Save[udg_SaveCount] = GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_LUMBER)

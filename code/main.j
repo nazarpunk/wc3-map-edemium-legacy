@@ -1,4 +1,6 @@
-//! import "globals.j"
+//! zinc
+//! import "zinc/InitGlobals.zn"
+//! endzinc
 
 //! import "mainInit.j"
 //! import "lib/CodeGen.j"
@@ -274,7 +276,6 @@
 //! import "triggers/chat/Level.j"
 //! import "triggers/chat/God_Mode.j"
 //! import "triggers/chat/Suicide.j"
-
 
 //! import "triggers/cheat/GreedIsGood.j"
 //! import "triggers/cheat/WhosYourDaddy.j"

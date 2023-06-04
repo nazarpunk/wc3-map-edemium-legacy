@@ -5,16 +5,16 @@ endfunction
 
 function Trig_Meditation_Cast_Actions takes nothing returns nothing
     if GetUnitStateSwap(UNIT_STATE_MANA, GetTriggerUnit()) == 0.00 then
-        call CreateTextTagUnitBJ("Нет сил...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+        call CreateTextTagUnitBJ("Нет сил...", ArctUnit, 0, 10.00, 100.00, 100.00, 100.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.00)
         call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 0.50)
     else
-        set udg_MeditationPower = GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true)
+        set udg_MeditationPower = GetHeroStatBJ(bj_HEROSTAT_INT, ArctUnit, true)
         if not IsTriggerEnabled(gg_trg_Combo_Ability_Use) then
             set udg_MeditationLogic = true
-            call AddUnitAnimationPropertiesBJ(true, "gold", gg_unit_H000_0004)
+            call AddUnitAnimationPropertiesBJ(true, "gold", ArctUnit)
             call SetUnitMoveSpeed(GetTriggerUnit(), 0.00)
             call SetUnitTurnSpeedBJ(GetTriggerUnit(), 0.00)
             call AddSpecialEffectTargetUnitBJ("origin", GetTriggerUnit(), "Abilities\\Spells\\NightElf\\Tranquility\\TranquilityTarget.mdl")
@@ -30,11 +30,11 @@ function Trig_Meditation_Cast_Actions takes nothing returns nothing
             call DisableTrigger(gg_trg_Camera_Angle_Decrease)
             call DisableTrigger(gg_trg_Camera_Increase)
             call DisableTrigger(gg_trg_Camera_Decrease)
-            set udg_Point = GetUnitLoc(udg_Arct)
+            set udg_Point = GetUnitLoc(ArctUnit)
             call PanCameraToTimedLocForPlayer(Player(0), udg_Point, 0)
             call RemoveLocation(udg_Point)
         else
-            call CreateTextTagUnitBJ("Я в бою!", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+            call CreateTextTagUnitBJ("Я в бою!", ArctUnit, 0, 10.00, 100.00, 100.00, 100.00, 0)
             call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
             call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
             call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.00)
@@ -45,7 +45,7 @@ endfunction
 
 function InitTrig_Meditation_Cast takes nothing returns nothing
     set gg_trg_Meditation_Cast = CreateTrigger()
-    call TriggerRegisterUnitEvent(gg_trg_Meditation_Cast, gg_unit_H000_0004, EVENT_UNIT_SPELL_CHANNEL)
+    call TriggerRegisterUnitEvent(gg_trg_Meditation_Cast, ArctUnit, EVENT_UNIT_SPELL_CHANNEL)
     call TriggerAddCondition(gg_trg_Meditation_Cast, Condition(function Trig_Meditation_Cast_Conditions))
     call TriggerAddAction(gg_trg_Meditation_Cast, function Trig_Meditation_Cast_Actions)
 endfunction

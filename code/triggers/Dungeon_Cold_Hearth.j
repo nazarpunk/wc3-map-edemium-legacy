@@ -5,20 +5,20 @@ endfunction
 
 function Trig_Dungeon_Cold_Hearth_Actions takes nothing returns nothing
     set udg_Point = GetUnitLoc(GetOrderTargetUnit())
-    set udg_Point2 = GetUnitLoc(udg_Arct)
+    set udg_Point2 = GetUnitLoc(ArctUnit)
     if DistanceBetweenPoints(udg_Point, udg_Point2) < 300.00 then
         call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\BlinkCaster.mdx")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
         if udg_DungeonColdLevel > 0 then
             set udg_DungeonColdLevel = (udg_DungeonColdLevel - 1)
             if udg_DungeonColdLevel == 2 then
-                call UnitRemoveBuffBJ(0x4230304C, udg_Arct)
+                call UnitRemoveBuffBJ(0x4230304C, ArctUnit)
             else
                 if udg_DungeonColdLevel == 1 then
-                    call UnitRemoveBuffBJ(0x4230304B, udg_Arct)
+                    call UnitRemoveBuffBJ(0x4230304B, ArctUnit)
                 else
                     if udg_DungeonColdLevel == 0 then
-                        call UnitRemoveBuffBJ(0x42303047, udg_Arct)
+                        call UnitRemoveBuffBJ(0x42303047, ArctUnit)
                     endif
                 endif
             endif
@@ -26,11 +26,11 @@ function Trig_Dungeon_Cold_Hearth_Actions takes nothing returns nothing
         endif
         call RemoveUnit(GetOrderTargetUnit())
     else
-        call IssuePointOrderLocBJ(udg_Arct, "move", udg_Point)
+        call IssuePointOrderLocBJ(ArctUnit, "move", udg_Point)
         if GetRandomInt(1, 2) == 1 then
-            call CreateTextTagUnitBJ("Поближе бы...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+            call CreateTextTagUnitBJ("Поближе бы...", ArctUnit, 0, 10.00, 100.00, 100.00, 100.00, 0)
         else
-            call CreateTextTagUnitBJ("Слишком далеко.", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+            call CreateTextTagUnitBJ("Слишком далеко.", ArctUnit, 0, 10.00, 100.00, 100.00, 100.00, 0)
         endif
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
@@ -44,7 +44,7 @@ endfunction
 function InitTrig_Dungeon_Cold_Hearth takes nothing returns nothing
     set gg_trg_Dungeon_Cold_Hearth = CreateTrigger()
     call DisableTrigger(gg_trg_Dungeon_Cold_Hearth)
-    call TriggerRegisterUnitEvent(gg_trg_Dungeon_Cold_Hearth, gg_unit_H000_0004, EVENT_UNIT_ISSUED_TARGET_ORDER)
+    call TriggerRegisterUnitEvent(gg_trg_Dungeon_Cold_Hearth, ArctUnit, EVENT_UNIT_ISSUED_TARGET_ORDER)
     call TriggerAddCondition(gg_trg_Dungeon_Cold_Hearth, Condition(function Trig_Dungeon_Cold_Hearth_Conditions))
     call TriggerAddAction(gg_trg_Dungeon_Cold_Hearth, function Trig_Dungeon_Cold_Hearth_Actions)
 endfunction

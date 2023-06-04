@@ -22,7 +22,7 @@ function Trig_Creep_Skills_Cast_Actions takes nothing returns nothing
         else
             if GetSpellAbilityId() == 0x4130354A then
                 call IssueImmediateOrderBJ(GetTriggerUnit(), "whirlwind")
-                call IssueTargetOrderBJ(GetTriggerUnit(), "smart", udg_Arct)
+                call IssueTargetOrderBJ(GetTriggerUnit(), "smart", ArctUnit)
             else
                 if GetSpellAbilityId() == 0x41303639 then
                     set udg_Point = GetUnitLoc(GetTriggerUnit())

@@ -15,14 +15,14 @@ function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Fu
 endfunction
 
 function Trig_Damage_Effects_Actions takes nothing returns nothing
-    if udg_DamageEventTarget == udg_Arct and GetRandomInt(1, 100) <= R2I(udg_ChanceBlock) then
+    if udg_DamageEventTarget == ArctUnit and GetRandomInt(1, 100) <= R2I(udg_ChanceBlock) then
         if udg_AS_Effect11 then
-            set udg_AbilityPower = (I2R(udg_CO_Power) + (I2R(udg_CO_Combo) + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true))))
-            call UnitDamageTargetBJ(udg_Arct, udg_DamageEventSource, udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
+            set udg_AbilityPower = (I2R(udg_CO_Power) + (I2R(udg_CO_Combo) + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, ArctUnit, true))))
+            call UnitDamageTargetBJ(ArctUnit, udg_DamageEventSource, udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
             call AddSpecialEffectTargetUnitBJ("origin", udg_DamageEventSource, "Abilities\\Weapons\\FrostWyrmMissile\\FrostWyrmMissile.mdl")
             call DestroyEffectBJ(GetLastCreatedEffectBJ())
-            call SetUnitLifeBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) + udg_AbilityPower))
-            call CreateTextTagUnitBJ(("+" + I2S(R2I(udg_AbilityPower))), udg_Arct, 0, 8.00, 0.00, 100.00, 0.00, 0)
+            call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) + udg_AbilityPower))
+            call CreateTextTagUnitBJ(("+" + I2S(R2I(udg_AbilityPower))), ArctUnit, 0, 8.00, 0.00, 100.00, 0.00, 0)
             call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 90.00, GetRandomReal(80.00, 100.00))
             call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
             call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 0.70)
@@ -32,14 +32,14 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
         call AddSpecialEffectTargetUnitBJ("chest", udg_DamageEventTarget, "Abilities\\Spells\\Human\\Defend\\DefendCaster.mdl")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
         if udg_ART[15] > 0 then
-            set udg_Point = GetUnitLoc(udg_Arct)
+            set udg_Point = GetUnitLoc(ArctUnit)
             set udg_Point2 = PolarProjectionBJ(udg_Point, 200.00, GetRandomDirectionDeg())
             call CreateNUnitsAtLoc(1, 0x48303030, Player(1), udg_Point2, bj_UNIT_FACING)
             call RemoveLocation(udg_Point)
             call RemoveLocation(udg_Point2)
             call SuspendHeroXPBJ(false, GetLastCreatedUnit())
             call UnitApplyTimedLifeBJ(10.00, 0x42544C46, GetLastCreatedUnit())
-            call SetUnitLifeBJ(GetLastCreatedUnit(), GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct))
+            call SetUnitLifeBJ(GetLastCreatedUnit(), GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit))
             call UnitAddAbilityBJ(0x416C6F63, GetLastCreatedUnit())
             call UnitRemoveAbilityBJ(0x41303459, GetLastCreatedUnit())
             call ModifyHeroStat(bj_HEROSTAT_STR, GetLastCreatedUnit(), bj_MODIFYMETHOD_ADD, (10 * udg_ART[15]))
@@ -49,10 +49,10 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
             call SetUnitVertexColorBJ(GetLastCreatedUnit(), 50.00, 50.00, 100, 20.00)
         endif
     else
-        if udg_DamageEventTarget == udg_Arct and UnitHasBuffBJ(udg_Arct, 0x4230304A) then
+        if udg_DamageEventTarget == ArctUnit and UnitHasBuffBJ(ArctUnit, 0x4230304A) then
             set udg_DamageEventAmount = 0.05
         endif
-        if udg_DamageEventTarget == udg_Arct and (GetUnitTypeId(udg_DamageEventSource) == 0x6E303059 or GetUnitTypeId(udg_DamageEventSource) == 0x55303031) then
+        if udg_DamageEventTarget == ArctUnit and (GetUnitTypeId(udg_DamageEventSource) == 0x6E303059 or GetUnitTypeId(udg_DamageEventSource) == 0x55303031) then
             set udg_Point = GetUnitLoc(udg_DamageEventTarget)
             call SetTerrainTypeBJ(udg_Point, 0x446C6176, - 1, 1, 0)
             call RemoveLocation(udg_Point)
@@ -60,7 +60,7 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
             if GetOwningPlayer(udg_DamageEventTarget) == Player(11) and udg_CO_Effect6Power > 0 then
                 set udg_CO_Effect6Power = (udg_CO_Effect6Power - 1)
                 set udg_AbilityPower = (I2R(udg_CO_Power) + I2R(udg_CO_Combo))
-                call UnitDamageTargetBJ(udg_Arct, udg_DamageEventTarget, udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
+                call UnitDamageTargetBJ(ArctUnit, udg_DamageEventTarget, udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
                 call AddSpecialEffectTargetUnitBJ("chest", udg_DamageEventTarget, "Abilities\\Weapons\\FarseerMissile\\FarseerMissile.mdl")
                 call DestroyEffectBJ(GetLastCreatedEffectBJ())
                 if udg_CO_Effect6Power == 0 then
@@ -74,7 +74,7 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
                     call DestroyEffectBJ(GetLastCreatedEffectBJ())
                 else
                     if GetOwningPlayer(udg_DamageEventTarget) == Player(11) then
-                        if udg_DamageEventSource == udg_Arct and UnitHasBuffBJ(udg_Arct, 0x42303048) then
+                        if udg_DamageEventSource == ArctUnit and UnitHasBuffBJ(ArctUnit, 0x42303048) then
                             set udg_DamageEventAmount = (udg_DamageEventAmount * 3.00)
                             set udg_DamageEventAmountINT = R2I(udg_DamageEventAmount)
                             call TriggerExecute(gg_trg_Crit_Specialeffect)
@@ -88,7 +88,7 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
                             call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.50)
                             call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 1.00)
                         else
-                            if udg_DamageEventSource == udg_Arct and GetRandomInt(1, 100) <= R2I(udg_ChanceCrit) and GetUnitCurrentOrder(udg_DamageEventSource) != String2OrderIdBJ("blizzard") and GetUnitTypeId(udg_DamageEventSource) != 0x68303045 then
+                            if udg_DamageEventSource == ArctUnit and GetRandomInt(1, 100) <= R2I(udg_ChanceCrit) and GetUnitCurrentOrder(udg_DamageEventSource) != String2OrderIdBJ("blizzard") and GetUnitTypeId(udg_DamageEventSource) != 0x68303045 then
                                 set udg_DamageEventAmount = (udg_DamageEventAmount * 3.00)
                                 set udg_DamageEventAmountINT = R2I(udg_DamageEventAmount)
                                 call TriggerExecute(gg_trg_Crit_Specialeffect)
@@ -102,7 +102,7 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
                                 call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.50)
                                 call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 1.00)
                                 if udg_ART[17] > 0 then
-                                    call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) + (1 * I2R(udg_ART[17]))))
+                                    call SetUnitManaBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_MANA, ArctUnit) + (1 * I2R(udg_ART[17]))))
                                 endif
                                 if udg_ART[21] > 0 then
                                     if GetRandomInt(1, 100) <= (3 * udg_ART[21]) then
@@ -111,7 +111,7 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
                                     endif
                                 endif
                                 if udg_IG_ItemEnchantInt[2] > 0 then
-                                    set udg_Point = GetUnitLoc(udg_Arct)
+                                    set udg_Point = GetUnitLoc(ArctUnit)
                                     call CreateNUnitsAtLoc(1, 0x68303045, Player(0), udg_Point, bj_UNIT_FACING)
                                     call UnitApplyTimedLifeBJ(0.20, 0x42544C46, GetLastCreatedUnit())
                                     call RemoveLocation(udg_Point)
@@ -119,8 +119,8 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
                                     set udg_Point = GetUnitLoc(udg_DamageEventTarget)
                                     call IssuePointOrderLocBJ(GetLastCreatedUnit(), "breathoffrost", udg_Point)
                                     call RemoveLocation(udg_Point)
-                                    set udg_Point = GetUnitLoc(udg_Arct)
-                                    set udg_Point2 = PolarProjectionBJ(udg_Point, 200.00, GetUnitFacing(udg_Arct))
+                                    set udg_Point = GetUnitLoc(ArctUnit)
+                                    set udg_Point2 = PolarProjectionBJ(udg_Point, 200.00, GetUnitFacing(ArctUnit))
                                     call RemoveLocation(udg_Point)
                                     set udg_UnitGroup = GetUnitsInRangeOfLocAll(400.00, udg_Point2)
                                     call RemoveLocation(udg_Point2)
@@ -129,26 +129,26 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
                                     call ForGroupBJ(udg_PoisonGroup, function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func018Func017A)
                                 endif
                                 if udg_IG_ItemEnchantInt[3] > 0 then
-                                    set udg_Point = GetUnitLoc(udg_Arct)
+                                    set udg_Point = GetUnitLoc(ArctUnit)
                                     call CreateNUnitsAtLoc(1, 0x68303045, Player(0), udg_Point, bj_UNIT_FACING)
                                     call UnitApplyTimedLifeBJ(0.20, 0x42544C46, GetLastCreatedUnit())
                                     call RemoveLocation(udg_Point)
                                     call UnitAddAbilityBJ(0x41303441, GetLastCreatedUnit())
                                     call IssueTargetOrderBJ(GetLastCreatedUnit(), "slow", udg_DamageEventTarget)
                                     call SetUnitManaBJ(udg_DamageEventTarget, (GetUnitStateSwap(UNIT_STATE_MANA, udg_DamageEventTarget) - 10.00))
-                                    call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) + (I2R(udg_CO_Power) / 3.00)))
+                                    call SetUnitManaBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_MANA, ArctUnit) + (I2R(udg_CO_Power) / 3.00)))
                                 endif
                                 if udg_IG_ItemEnchantInt[4] > 0 then
-                                    set udg_Point = GetUnitLoc(udg_Arct)
+                                    set udg_Point = GetUnitLoc(ArctUnit)
                                     call CreateNUnitsAtLoc(1, 0x68303045, Player(0), udg_Point, bj_UNIT_FACING)
                                     call UnitApplyTimedLifeBJ(0.20, 0x42544C46, GetLastCreatedUnit())
                                     call RemoveLocation(udg_Point)
                                     call UnitAddAbilityBJ(0x41303439, GetLastCreatedUnit())
                                     call IssueTargetOrderBJ(GetLastCreatedUnit(), "faeriefire", udg_DamageEventTarget)
-                                    call SetUnitLifeBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) + (udg_DamageEventAmount / 2.00)))
+                                    call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) + (udg_DamageEventAmount / 2.00)))
                                 endif
                                 if udg_IG_ItemEnchantInt[5] > 0 then
-                                    set udg_Point = GetUnitLoc(udg_Arct)
+                                    set udg_Point = GetUnitLoc(ArctUnit)
                                     call CreateNUnitsAtLoc(1, 0x68303045, Player(0), udg_Point, bj_UNIT_FACING)
                                     call UnitApplyTimedLifeBJ(0.20, 0x42544C46, GetLastCreatedUnit())
                                     call RemoveLocation(udg_Point)
@@ -173,7 +173,7 @@ function Trig_Damage_Effects_Actions takes nothing returns nothing
                                     call DestroyGroup(udg_UnitGroup)
                                 endif
                             else
-                                if udg_DamageEventSource == udg_Arct and UnitHasBuffBJ(udg_DamageEventTarget, 0x42303046) then
+                                if udg_DamageEventSource == ArctUnit and UnitHasBuffBJ(udg_DamageEventTarget, 0x42303046) then
                                     call UnitDamageTargetBJ(udg_DamageEventTarget, udg_DamageEventSource, udg_DamageEventAmount, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_MAGIC)
                                 endif
                             endif

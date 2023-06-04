@@ -1,6 +1,6 @@
 function Trig_Effect_9_Periodic_Func001Func006A takes nothing returns nothing
     if GetOwningPlayer(GetEnumUnit()) == Player(11) then
-        call UnitDamageTargetBJ(udg_Arct, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
+        call UnitDamageTargetBJ(ArctUnit, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
         call CreateTextTagUnitBJ(I2S(R2I(udg_AbilityPower)), GetEnumUnit(), 0, 8.00, 100.00, 0.00, 0.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 90.00, GetRandomReal(80.00, 100.00))
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
@@ -13,7 +13,7 @@ function Trig_Effect_9_Periodic_Func001A takes nothing returns nothing
     set udg_Point = GetUnitLoc(GetEnumUnit())
     set udg_UnitGroup = GetUnitsInRangeOfLocAll(250.00, udg_Point)
     call RemoveLocation(udg_Point)
-    set udg_AbilityPower = (I2R(udg_CO_Power) + (I2R(udg_CO_Combo) + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true))))
+    set udg_AbilityPower = (I2R(udg_CO_Power) + (I2R(udg_CO_Combo) + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, ArctUnit, true))))
     set udg_AbilityPower = (udg_AbilityPower / 2.00)
     call ForGroupBJ(udg_UnitGroup, function Trig_Effect_9_Periodic_Func001Func006A)
     call DestroyGroup(udg_UnitGroup)

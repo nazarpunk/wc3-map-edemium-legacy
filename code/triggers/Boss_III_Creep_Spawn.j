@@ -11,7 +11,7 @@ function Trig_Boss_III_Creep_Spawn_Actions takes nothing returns nothing
         endif
     endif
     call CreateNUnitsAtLoc(1, udg_D_CreepType[GetRandomInt(1, 4)], Player(11), udg_CO_Point, bj_UNIT_FACING)
-    call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", udg_Arct)
+    call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", ArctUnit)
     call SetUnitUserData(GetLastCreatedUnit(), udg_CustomValues)
     call AddSpecialEffectLocBJ(udg_CO_Point, "war3mapImported\\Holy_Heal_Small.mdx")
     call DestroyEffectBJ(GetLastCreatedEffectBJ())

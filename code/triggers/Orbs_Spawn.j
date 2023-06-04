@@ -1,7 +1,7 @@
 function Trig_Orbs_Spawn_Actions takes nothing returns nothing
     set udg_LightIterations = (udg_LightIterations - 1)
     if udg_LightIterations > 0 then
-        set udg_Point = GetUnitLoc(udg_Arct)
+        set udg_Point = GetUnitLoc(ArctUnit)
         call CreateNUnitsAtLoc(1, 0x68303034, Player(0), udg_Point, bj_UNIT_FACING)
         set udg_Point2 = PolarProjectionBJ(udg_Point, GetRandomReal(100.00, 120.00), GetRandomReal(0, 360.00))
         call IssuePointOrderLocBJ(GetLastCreatedUnit(), "breathoffire", udg_Point2)

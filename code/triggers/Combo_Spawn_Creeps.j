@@ -34,7 +34,7 @@ endfunction
 
 function InitTrig_Combo_Spawn_Creeps takes nothing returns nothing
     set gg_trg_Combo_Spawn_Creeps = CreateTrigger()
-    call TriggerRegisterUnitEvent(gg_trg_Combo_Spawn_Creeps, gg_unit_H000_0004, EVENT_UNIT_ATTACKED)
+    call TriggerRegisterUnitEvent(gg_trg_Combo_Spawn_Creeps, ArctUnit, EVENT_UNIT_ATTACKED)
     call TriggerAddCondition(gg_trg_Combo_Spawn_Creeps, Condition(function Trig_Combo_Spawn_Creeps_Conditions))
     call TriggerAddAction(gg_trg_Combo_Spawn_Creeps, function Trig_Combo_Spawn_Creeps_Actions)
 endfunction

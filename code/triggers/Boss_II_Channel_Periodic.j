@@ -7,7 +7,7 @@ function Trig_Boss_II_Channel_Periodic_Actions takes nothing returns nothing
     call UnitApplyTimedLifeBJ(5.00, 0x42544C46, GetLastCreatedUnit())
     call RemoveLocation(udg_Point)
     call RemoveLocation(udg_Point2)
-    set udg_Point = GetUnitLoc(udg_Arct)
+    set udg_Point = GetUnitLoc(ArctUnit)
     call IssuePointOrderLocBJ(GetLastCreatedUnit(), "carrionswarm", udg_Point)
     call RemoveLocation(udg_Point)
 endfunction

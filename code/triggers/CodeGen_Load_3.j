@@ -5,7 +5,7 @@ function Trig_CodeGen_Load_3_Actions takes nothing returns nothing
         return
     endif
     set udg_LoadCount = 0
-    set udg_Hero = gg_unit_H000_0004
+    set udg_Hero = ArctUnit
     set bj_forLoopAIndex = 1
     set bj_forLoopAIndexEnd = 60
     loop

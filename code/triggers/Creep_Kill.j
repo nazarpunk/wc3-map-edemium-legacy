@@ -58,7 +58,7 @@ function Trig_Creep_Kill_Actions takes nothing returns nothing
                         call ConditionalTriggerExecute(gg_trg_IG_Generate)
                     endif
                     if not udg_CC_SecretUnlocked[5] then
-                        set udg_Point = GetUnitLoc(udg_Arct)
+                        set udg_Point = GetUnitLoc(ArctUnit)
                         call CreateItemLoc(0x49303135, udg_Point)
                         call RemoveLocation(udg_Point)
                     endif
@@ -74,7 +74,7 @@ function Trig_Creep_Kill_Actions takes nothing returns nothing
                             call ConditionalTriggerExecute(gg_trg_IG_Generate)
                         endif
                         if not udg_CC_SecretUnlocked[20] then
-                            set udg_Point = GetUnitLoc(udg_Arct)
+                            set udg_Point = GetUnitLoc(ArctUnit)
                             call CreateItemLoc(0x49303050, udg_Point)
                             call RemoveLocation(udg_Point)
                         endif
@@ -93,7 +93,7 @@ function Trig_Creep_Kill_Actions takes nothing returns nothing
                 call EnableTrigger(gg_trg_Escape_Dialog)
                 call AddSpecialEffectTargetUnitBJ("origin", GetTriggerUnit(), "war3mapImported\\Holy_Heal.mdx")
                 call DestroyEffectBJ(GetLastCreatedEffectBJ())
-                set udg_IG_Point = GetUnitLoc(udg_Arct)
+                set udg_IG_Point = GetUnitLoc(ArctUnit)
                 set udg_RandomNumber = GetRandomInt(1, 10)
                 call AddSpecialEffectLocBJ(udg_IG_Point, "war3mapImported\\Holy_Heal.mdx")
                 call DestroyEffectBJ(GetLastCreatedEffectBJ())

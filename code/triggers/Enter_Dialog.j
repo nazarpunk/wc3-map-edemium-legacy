@@ -1,5 +1,5 @@
 function Trig_Enter_Dialog_Conditions takes nothing returns boolean
-    return GetEnteringUnit() == udg_Arct
+    return GetEnteringUnit() == ArctUnit
 endfunction
 
 function Trig_Enter_Dialog_Actions takes nothing returns nothing

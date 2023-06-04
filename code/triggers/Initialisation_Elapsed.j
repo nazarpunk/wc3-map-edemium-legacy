@@ -164,7 +164,7 @@ function Trig_Initialisation_Elapsed_Actions takes nothing returns nothing
     call EnumDestructablesInRectAll(gg_rct_Abilities, function Trig_Initialisation_Elapsed_Func144A)
     call SetMusicVolumeBJ(100.00)
     call VolumeGroupSetVolumeBJ(SOUND_VOLUMEGROUP_MUSIC, 100)
-    call CreateTextTagUnitBJ("III", udg_Arct, 0.00, 11.00, 100, 100, 100, 0)
+    call CreateTextTagUnitBJ("III", ArctUnit, 0.00, 11.00, 100, 100, 100, 0)
     set udg_DungeonColdText = GetLastCreatedTextTag()
     call ShowTextTagForceBJ(false, udg_DungeonColdText, bj_FORCE_PLAYER[0])
     call ConditionalTriggerExecute(gg_trg_Music_Castle)

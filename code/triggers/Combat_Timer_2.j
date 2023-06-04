@@ -1,5 +1,5 @@
 function Trig_Combat_Timer_2_Actions takes nothing returns nothing
-    call UnitRemoveAbilityBJ(0x41303445, udg_Arct)
+    call UnitRemoveAbilityBJ(0x41303445, ArctUnit)
     call DestroyEffectBJ(udg_CO_SweapEffect[1])
     call DestroyEffectBJ(udg_CO_SweapEffect[2])
 endfunction

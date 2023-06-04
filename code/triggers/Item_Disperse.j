@@ -11,13 +11,13 @@ function Trig_Item_Disperse_Actions takes nothing returns nothing
             set price = (price + S2I(SubStringBJ(I2S(GetItemUserData(GetSpellTargetItem())), 7, 7)) + S2I(SubStringBJ(I2S(GetItemUserData(GetSpellTargetItem())), 8, 8)))
             set price = (price + (3 * udg_ART[6]))
             call AdjustPlayerStateBJ(price, GetOwningPlayer(GetSpellAbilityUnit()), PLAYER_STATE_RESOURCE_GOLD)
-            call CreateTextTagUnitBJ(("+" + I2S(price)), udg_Arct, 0, 12.00, 100.00, 100.00, 0.00, 0.00)
+            call CreateTextTagUnitBJ(("+" + I2S(price)), ArctUnit, 0, 12.00, 100.00, 100.00, 0.00, 0.00)
         else
             set price = (S2I(SubStringBJ(I2S(GetItemUserData(GetSpellTargetItem())), 1, 1)) + S2I(SubStringBJ(I2S(GetItemUserData(GetSpellTargetItem())), 2, 2)) + S2I(SubStringBJ(I2S(GetItemUserData(GetSpellTargetItem())), 3, 3)))
             set price = (price + S2I(SubStringBJ(I2S(GetItemUserData(GetSpellTargetItem())), 4, 4)))
             set price = (price + (3 * udg_ART[6]))
             call AdjustPlayerStateBJ(price, GetOwningPlayer(GetSpellAbilityUnit()), PLAYER_STATE_RESOURCE_GOLD)
-            call CreateTextTagUnitBJ(("+" + I2S(price)), udg_Arct, 0, 12.00, 100.00, 100.00, 0.00, 0.00)
+            call CreateTextTagUnitBJ(("+" + I2S(price)), ArctUnit, 0, 12.00, 100.00, 100.00, 0.00, 0.00)
         endif
     endif
     set udg_QG_Count[6] = (udg_QG_Count[6] + 1)

@@ -8,7 +8,7 @@ endfunction
 
 function InitTrig_Scroll_Use takes nothing returns nothing
     set gg_trg_Scroll_Use = CreateTrigger()
-    call TriggerRegisterUnitEvent(gg_trg_Scroll_Use, gg_unit_H000_0004, EVENT_UNIT_SPELL_EFFECT)
+    call TriggerRegisterUnitEvent(gg_trg_Scroll_Use, ArctUnit, EVENT_UNIT_SPELL_EFFECT)
     call TriggerAddCondition(gg_trg_Scroll_Use, Condition(function Trig_Scroll_Use_Conditions))
     call TriggerAddAction(gg_trg_Scroll_Use, function Trig_Scroll_Use_Actions)
 endfunction

@@ -6,7 +6,7 @@ function Trig_Creep_Fallen_Spawn_Func001A takes nothing returns nothing
     call UnitApplyTimedLifeBJ(1.20, 0x42544C46, GetLastCreatedUnit())
     call RemoveLocation(udg_Point)
     call RemoveLocation(udg_Point2)
-    set udg_Point = GetUnitLoc(udg_Arct)
+    set udg_Point = GetUnitLoc(ArctUnit)
     call IssuePointOrderLocBJ(GetLastCreatedUnit(), "carrionswarm", udg_Point)
     call RemoveLocation(udg_Point)
 endfunction

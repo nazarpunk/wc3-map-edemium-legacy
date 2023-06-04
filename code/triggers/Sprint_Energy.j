@@ -1,15 +1,15 @@
 function Trig_Sprint_Energy_Actions takes nothing returns nothing
-    if GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > 0.00 then
-        call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - 2.00))
-        call CreateTextTagUnitBJ(I2S(R2I(GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct))), udg_Arct, 0, 10.00, 0.00, 80.00, 100.00, 0)
+    if GetUnitStateSwap(UNIT_STATE_MANA, ArctUnit) > 0.00 then
+        call SetUnitManaBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_MANA, ArctUnit) - 2.00))
+        call CreateTextTagUnitBJ(I2S(R2I(GetUnitStateSwap(UNIT_STATE_MANA, ArctUnit))), ArctUnit, 0, 10.00, 0.00, 80.00, 100.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 90.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.00)
         call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 0.50)
     else
         set udg_SprintLogic = false
-        call SetUnitMoveSpeed(udg_Arct, GetUnitDefaultMoveSpeed(udg_Arct))
-        call IssueImmediateOrderBJ(udg_Arct, "manashieldoff")
+        call SetUnitMoveSpeed(ArctUnit, GetUnitDefaultMoveSpeed(ArctUnit))
+        call IssueImmediateOrderBJ(ArctUnit, "manashieldoff")
         call DisableTrigger(GetTriggeringTrigger())
     endif
 endfunction

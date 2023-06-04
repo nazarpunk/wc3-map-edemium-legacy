@@ -11,8 +11,8 @@ function Trig_Tutorial_Initialisation_Actions takes nothing returns nothing
     call SetPlayerAbilityAvailableBJ(true, 0x41303537, Player(0))
     call SetPlayerAbilityAvailableBJ(true, 0x41303530, Player(0))
     set udg_Point = GetRectCenter(gg_rct_Artefactorium_Enter)
-    call SuspendHeroXPBJ(false, udg_Arct)
-    call SetUnitPositionLoc(udg_Arct, GetRectCenter(gg_rct_Artefactorium_Enter))
+    call SuspendHeroXPBJ(false, ArctUnit)
+    call SetUnitPositionLoc(ArctUnit, GetRectCenter(gg_rct_Artefactorium_Enter))
     call RemoveLocation(udg_Point)
     set udg_Camera = gg_cam_Camera_Artefactorium
     call CameraSetupApplyForceDuration(udg_Camera, true, 0.00)

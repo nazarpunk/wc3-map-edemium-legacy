@@ -16,7 +16,7 @@ function Trig_Coliseum_Spawn_Actions takes nothing returns nothing
     call ModifyHeroStat(bj_HEROSTAT_STR, GetLastCreatedUnit(), bj_MODIFYMETHOD_ADD, udg_CS_TargetPower)
     call ModifyHeroStat(bj_HEROSTAT_AGI, GetLastCreatedUnit(), bj_MODIFYMETHOD_ADD, udg_CS_TargetPower)
     call ModifyHeroStat(bj_HEROSTAT_INT, GetLastCreatedUnit(), bj_MODIFYMETHOD_ADD, udg_CS_TargetPower)
-    call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", gg_unit_H000_0004)
+    call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", ArctUnit)
     set udg_CS_TargetUnit = GetLastCreatedUnit()
     call AddSpecialEffectLocBJ(udg_Point, "war3mapImported\\Holy_Heal_Small.mdx")
     call DestroyEffectBJ(GetLastCreatedEffectBJ())

@@ -12,7 +12,7 @@ function Trig_Creep_Skills_Func003Func010A takes nothing returns nothing
             call CreateNUnitsAtLoc(1, 0x68303039, Player(11), udg_Point, bj_UNIT_FACING)
             call UnitAddAbilityBJ(0x41303143, GetLastCreatedUnit())
             call UnitApplyTimedLifeBJ(1.00, 0x42544C46, GetLastCreatedUnit())
-            call IssueTargetOrderBJ(GetLastCreatedUnit(), "entanglingroots", udg_Arct)
+            call IssueTargetOrderBJ(GetLastCreatedUnit(), "entanglingroots", ArctUnit)
             call RemoveLocation(udg_Point)
         endif
     else
@@ -64,12 +64,12 @@ function Trig_Creep_Skills_Func003Func012Func006A takes nothing returns nothing
             call RemoveLocation(udg_Point)
         endif
         if GetUnitTypeId(GetTriggerUnit()) == 0x6E303050 or GetUnitTypeId(GetTriggerUnit()) == 0x4E303132 then
-            set udg_Point = GetUnitLoc(udg_Arct)
+            set udg_Point = GetUnitLoc(ArctUnit)
             call CreateNUnitsAtLoc(1, 0x68303039, Player(11), udg_Point, bj_UNIT_FACING)
             call RemoveLocation(udg_Point)
             call UnitAddAbilityBJ(0x41303637, GetLastCreatedUnit())
             call UnitApplyTimedLifeBJ(1.00, 0x42544C46, GetLastCreatedUnit())
-            call IssueTargetOrderBJ(GetLastCreatedUnit(), "acidbomb", udg_Arct)
+            call IssueTargetOrderBJ(GetLastCreatedUnit(), "acidbomb", ArctUnit)
         endif
     endif
 endfunction

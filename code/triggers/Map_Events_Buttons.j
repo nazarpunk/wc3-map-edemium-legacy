@@ -1,6 +1,6 @@
 function Trig_Map_Events_Buttons_Actions takes nothing returns nothing
     if GetClickedButton() == udg_EventButton[1] then
-        if GetHeroStatBJ(bj_HEROSTAT_STR, udg_Arct, true) >= udg_EventAttribute then
+        if GetHeroStatBJ(bj_HEROSTAT_STR, ArctUnit, true) >= udg_EventAttribute then
             set udg_EventSucces = true
         else
             set udg_EventSucces = GetRandomInt(1, 100) <= 50
@@ -8,7 +8,7 @@ function Trig_Map_Events_Buttons_Actions takes nothing returns nothing
     endif
 
     if GetClickedButton() == udg_EventButton[2] then
-        if GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true) >= udg_EventAttribute then
+        if GetHeroStatBJ(bj_HEROSTAT_INT, ArctUnit, true) >= udg_EventAttribute then
             set udg_EventSucces = true
         else
             set udg_EventSucces = GetRandomInt(1, 100) <= 50
@@ -16,7 +16,7 @@ function Trig_Map_Events_Buttons_Actions takes nothing returns nothing
     endif
 
     if GetClickedButton() == udg_EventButton[3] then
-        if GetHeroStatBJ(bj_HEROSTAT_AGI, udg_Arct, true) >= udg_EventAttribute then
+        if GetHeroStatBJ(bj_HEROSTAT_AGI, ArctUnit, true) >= udg_EventAttribute then
             set udg_EventSucces = true
         else
             set udg_EventSucces = GetRandomInt(1, 100) <= 50

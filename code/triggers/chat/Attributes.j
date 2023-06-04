@@ -1,12 +1,12 @@
 function Trig_Attributes_Actions takes nothing returns nothing
     if SubStringBJ(GetEventPlayerChatString(), 2, 2) == "a" then
-        call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_SET, S2I(SubStringBJ(GetEventPlayerChatString(), 4, 5)))
+        call ModifyHeroStat(bj_HEROSTAT_AGI, ArctUnit, bj_MODIFYMETHOD_SET, S2I(SubStringBJ(GetEventPlayerChatString(), 4, 5)))
     endif
     if SubStringBJ(GetEventPlayerChatString(), 2, 2) == "f" then
-        call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_SET, S2I(SubStringBJ(GetEventPlayerChatString(), 4, 5)))
+        call ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_SET, S2I(SubStringBJ(GetEventPlayerChatString(), 4, 5)))
     endif
     if SubStringBJ(GetEventPlayerChatString(), 2, 2) == "w" then
-        call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_SET, S2I(SubStringBJ(GetEventPlayerChatString(), 4, 5)))
+        call ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_SET, S2I(SubStringBJ(GetEventPlayerChatString(), 4, 5)))
     endif
 endfunction
 

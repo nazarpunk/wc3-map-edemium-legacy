@@ -15,7 +15,7 @@ function Trig_Gen_Events_Actions takes nothing returns nothing
     if GetUnitUserData(udg_EM_Target) == 71 then
         call SetDayNightModels("", "")
         call SetTerrainFogExBJ(0, 0.00, 4000.00, 0.50, 0.00, 0.00, 0.00)
-        call StartTimerBJ(udg_DungeonDarkTimer, false, (120.00 + I2R(GetHeroStatBJ(bj_HEROSTAT_STR, udg_Arct, true))))
+        call StartTimerBJ(udg_DungeonDarkTimer, false, (120.00 + I2R(GetHeroStatBJ(bj_HEROSTAT_STR, ArctUnit, true))))
         call CreateTimerDialogBJ(GetLastCreatedTimerBJ(), "Бесстрашие: ")
         set udg_DungeonDarkTimerWindow = GetLastCreatedTimerDialogBJ()
         call EnableTrigger(gg_trg_Dungeon_Dark)
@@ -38,13 +38,13 @@ function Trig_Gen_Events_Actions takes nothing returns nothing
             else
                 if GetUnitUserData(udg_EM_Target) == 74 then
                     set udg_DungeonDeadlyCleansing = 3
-                    call UnitAddAbilityBJ(0x41303348, udg_Arct)
+                    call UnitAddAbilityBJ(0x41303348, ArctUnit)
                     call EnableTrigger(gg_trg_Dungeon_Deadly)
                 endif
             endif
         endif
     endif
-    if GetHeroLevel(udg_Arct) == 3 then
+    if GetHeroLevel(ArctUnit) == 3 then
         set udg_EdemEventType = 1
     else
         set udg_EdemEventType = 0

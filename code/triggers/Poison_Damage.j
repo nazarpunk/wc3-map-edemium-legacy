@@ -1,5 +1,5 @@
 function Trig_Poison_Damage_Func001A takes nothing returns nothing
-    call UnitDamageTargetBJ(udg_Arct, GetEnumUnit(), I2R(udg_CO_Power), ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
+    call UnitDamageTargetBJ(ArctUnit, GetEnumUnit(), I2R(udg_CO_Power), ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
 endfunction
 
 function Trig_Poison_Damage_Actions takes nothing returns nothing

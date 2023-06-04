@@ -1,9 +1,9 @@
 function Trig_Scroll_Periodic_Func017A takes nothing returns nothing
     if GetOwningPlayer(GetEnumUnit()) == Player(11) then
         set udg_AbilityPower = ((I2R(udg_CO_Power) * 1.00) + I2R(udg_CO_Combo))
-        set udg_AbilityPower = (udg_AbilityPower + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true)))
+        set udg_AbilityPower = (udg_AbilityPower + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, ArctUnit, true)))
         set udg_AbilityPower = (udg_AbilityPower * 3.00)
-        call UnitDamageTargetBJ(udg_Arct, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
+        call UnitDamageTargetBJ(ArctUnit, GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
         set udg_CO_Point = GetUnitLoc(GetEnumUnit())
         call AddSpecialEffectLocBJ(udg_CO_Point, "war3mapImported\\Blue Lightning.mdx")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
@@ -12,7 +12,7 @@ function Trig_Scroll_Periodic_Func017A takes nothing returns nothing
 endfunction
 
 function Trig_Scroll_Periodic_Actions takes nothing returns nothing
-    set udg_CO_Point = GetUnitLoc(udg_Arct)
+    set udg_CO_Point = GetUnitLoc(ArctUnit)
     set udg_CO_UnitGroup = GetUnitsInRangeOfLocAll(400.00, udg_CO_Point)
     call RemoveLocation(udg_CO_Point)
     set udg_CO_UnitGroup2 = GetUnitsOfPlayerAll(Player(0))

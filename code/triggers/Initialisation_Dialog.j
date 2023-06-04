@@ -1,7 +1,7 @@
 function Trig_Initialisation_Dialog_Actions takes nothing returns nothing
     if GetClickedButton() == udg_DialogButton[1] then
         call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Artefactorium)
-        call UnitAddItemByIdSwapped(0x4930304C, gg_unit_H000_0004)
+        call UnitAddItemByIdSwapped(0x4930304C, ArctUnit)
         call ConditionalTriggerExecute(gg_trg_Tutorial_Initialisation)
         call EnableTrigger(gg_trg_Tutorial01)
         set udg_EM_Generate = 1
@@ -30,7 +30,7 @@ function Trig_Initialisation_Dialog_Actions takes nothing returns nothing
         if GetClickedButton() == udg_DialogButton[2] then
             call CinematicModeExBJ(false, GetPlayersAll(), 2.00)
             call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 2.00, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 100.00, 100.00, 100.00, 0.00)
-            call UnitAddItemByIdSwapped(0x4930304C, gg_unit_H000_0004)
+            call UnitAddItemByIdSwapped(0x4930304C, ArctUnit)
             set udg_Target = gg_unit_h006_0081
             call RemoveDestructable(gg_dest_B003_2936)
             call ShowDestructableBJ(true, gg_dest_B00B_1355)

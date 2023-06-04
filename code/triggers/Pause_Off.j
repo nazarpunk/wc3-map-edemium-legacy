@@ -1,6 +1,6 @@
 function Trig_Pause_Off_Actions takes nothing returns nothing
     call PauseAllUnitsBJ(false)
-    call SuspendHeroXPBJ(true, udg_Arct)
+    call SuspendHeroXPBJ(true, ArctUnit)
     call EnableTrigger(gg_trg_Trap_Periodic)
     call EnableTrigger(gg_trg_Tile_Damage)
     if udg_TutorialHintsOn and not udg_TutorialHint[3] then

@@ -1,30 +1,30 @@
 function Trig_Meditation_Heal_Actions takes nothing returns nothing
-    if GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) > 0.00 then
-        if GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) != GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_Arct) then
-            if GetRandomInt(1, 100) <= GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true) then
-                call SetUnitLifeBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) + (I2R(udg_MeditationPower) * 3.00)))
-                call AddSpecialEffectTargetUnitBJ("origin", udg_Arct, "war3mapImported\\Holy_Heal.mdx")
+    if GetUnitStateSwap(UNIT_STATE_MANA, ArctUnit) > 0.00 then
+        if GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) != GetUnitStateSwap(UNIT_STATE_MAX_LIFE, ArctUnit) then
+            if GetRandomInt(1, 100) <= GetHeroStatBJ(bj_HEROSTAT_INT, ArctUnit, true) then
+                call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) + (I2R(udg_MeditationPower) * 3.00)))
+                call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "war3mapImported\\Holy_Heal.mdx")
                 call DestroyEffectBJ(GetLastCreatedEffectBJ())
-                call CreateTextTagUnitBJ(("+" + I2S((udg_MeditationPower * 3))), udg_Arct, 0, 8.00, 0.00, 100.00, 0.00, 0)
+                call CreateTextTagUnitBJ(("+" + I2S((udg_MeditationPower * 3))), ArctUnit, 0, 8.00, 0.00, 100.00, 0.00, 0)
                 call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 90.00, GetRandomReal(80.00, 100.00))
                 call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
                 call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.00)
                 call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 0.50)
             else
-                call SetUnitLifeBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) + I2R(udg_MeditationPower)))
-                call CreateTextTagUnitBJ(("+" + I2S(udg_MeditationPower)), udg_Arct, 0, 8.00, 0.00, 100.00, 0.00, 0)
+                call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) + I2R(udg_MeditationPower)))
+                call CreateTextTagUnitBJ(("+" + I2S(udg_MeditationPower)), ArctUnit, 0, 8.00, 0.00, 100.00, 0.00, 0)
                 call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 90.00, GetRandomReal(80.00, 100.00))
                 call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
                 call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.00)
                 call SetTextTagFadepointBJ(GetLastCreatedTextTag(), 0.50)
             endif
-            call SetUnitManaBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_MANA, udg_Arct) - 1.50))
+            call SetUnitManaBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_MANA, ArctUnit) - 1.50))
         endif
     else
         set udg_MeditationLogic = false
-        call AddUnitAnimationPropertiesBJ(false, "gold", gg_unit_H000_0004)
-        call SetUnitMoveSpeed(gg_unit_H000_0004, GetUnitDefaultMoveSpeed(gg_unit_H000_0004))
-        call SetUnitTurnSpeedBJ(gg_unit_H000_0004, 1.00)
+        call AddUnitAnimationPropertiesBJ(false, "gold", ArctUnit)
+        call SetUnitMoveSpeed(ArctUnit, GetUnitDefaultMoveSpeed(ArctUnit))
+        call SetUnitTurnSpeedBJ(ArctUnit, 1.00)
         call DestroyEffectBJ(udg_MeditationEffect)
         call SetPlayerAbilityAvailableBJ(true, 0x41303555, Player(0))
         call SetPlayerAbilityAvailableBJ(true, 0x41303147, Player(0))

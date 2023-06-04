@@ -18,9 +18,9 @@ function Trig_Item_Type_System_Actions takes nothing returns nothing
             set bj_forLoopAIndexEnd = 6
             loop
                 exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-                if GetItemLevel(UnitItemInSlotBJ(udg_Arct, bj_forLoopAIndex)) == 1 then
-                    call UnitRemoveItemSwapped(UnitItemInSlotBJ(udg_Arct, bj_forLoopAIndex), udg_Arct)
-                    call UnitAddItemSwapped(GetOrderTargetItem(), udg_Arct)
+                if GetItemLevel(UnitItemInSlotBJ(ArctUnit, bj_forLoopAIndex)) == 1 then
+                    call UnitRemoveItemSwapped(UnitItemInSlotBJ(ArctUnit, bj_forLoopAIndex), ArctUnit)
+                    call UnitAddItemSwapped(GetOrderTargetItem(), ArctUnit)
                 endif
                 set bj_forLoopAIndex = bj_forLoopAIndex + 1
             endloop
@@ -41,9 +41,9 @@ function Trig_Item_Type_System_Actions takes nothing returns nothing
                 set bj_forLoopAIndexEnd = 6
                 loop
                     exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-                    if GetItemLevel(UnitItemInSlotBJ(udg_Arct, bj_forLoopAIndex)) == 2 then
-                        call UnitRemoveItemSwapped(UnitItemInSlotBJ(udg_Arct, bj_forLoopAIndex), udg_Arct)
-                        call UnitAddItemSwapped(GetOrderTargetItem(), udg_Arct)
+                    if GetItemLevel(UnitItemInSlotBJ(ArctUnit, bj_forLoopAIndex)) == 2 then
+                        call UnitRemoveItemSwapped(UnitItemInSlotBJ(ArctUnit, bj_forLoopAIndex), ArctUnit)
+                        call UnitAddItemSwapped(GetOrderTargetItem(), ArctUnit)
                     endif
                     set bj_forLoopAIndex = bj_forLoopAIndex + 1
                 endloop
@@ -64,9 +64,9 @@ function Trig_Item_Type_System_Actions takes nothing returns nothing
                     set bj_forLoopAIndexEnd = 6
                     loop
                         exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-                        if GetItemLevel(UnitItemInSlotBJ(udg_Arct, bj_forLoopAIndex)) == 3 then
-                            call UnitRemoveItemSwapped(UnitItemInSlotBJ(udg_Arct, bj_forLoopAIndex), udg_Arct)
-                            call UnitAddItemSwapped(GetOrderTargetItem(), udg_Arct)
+                        if GetItemLevel(UnitItemInSlotBJ(ArctUnit, bj_forLoopAIndex)) == 3 then
+                            call UnitRemoveItemSwapped(UnitItemInSlotBJ(ArctUnit, bj_forLoopAIndex), ArctUnit)
+                            call UnitAddItemSwapped(GetOrderTargetItem(), ArctUnit)
                         endif
                         set bj_forLoopAIndex = bj_forLoopAIndex + 1
                     endloop
@@ -87,9 +87,9 @@ function Trig_Item_Type_System_Actions takes nothing returns nothing
                         set bj_forLoopAIndexEnd = 6
                         loop
                             exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-                            if GetItemLevel(UnitItemInSlotBJ(udg_Arct, bj_forLoopAIndex)) == 4 then
-                                call UnitRemoveItemSwapped(UnitItemInSlotBJ(udg_Arct, bj_forLoopAIndex), udg_Arct)
-                                call UnitAddItemSwapped(GetOrderTargetItem(), udg_Arct)
+                            if GetItemLevel(UnitItemInSlotBJ(ArctUnit, bj_forLoopAIndex)) == 4 then
+                                call UnitRemoveItemSwapped(UnitItemInSlotBJ(ArctUnit, bj_forLoopAIndex), ArctUnit)
+                                call UnitAddItemSwapped(GetOrderTargetItem(), ArctUnit)
                             endif
                             set bj_forLoopAIndex = bj_forLoopAIndex + 1
                         endloop
@@ -102,7 +102,7 @@ endfunction
 
 function InitTrig_Item_Type_System takes nothing returns nothing
     set gg_trg_Item_Type_System = CreateTrigger()
-    call TriggerRegisterUnitEvent(gg_trg_Item_Type_System, gg_unit_H000_0004, EVENT_UNIT_ISSUED_TARGET_ORDER)
+    call TriggerRegisterUnitEvent(gg_trg_Item_Type_System, ArctUnit, EVENT_UNIT_ISSUED_TARGET_ORDER)
     call TriggerAddCondition(gg_trg_Item_Type_System, Condition(function Trig_Item_Type_System_Conditions))
     call TriggerAddAction(gg_trg_Item_Type_System, function Trig_Item_Type_System_Actions)
 endfunction

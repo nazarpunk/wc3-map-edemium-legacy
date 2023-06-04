@@ -68,7 +68,7 @@ function Trig_Gen_Final_Actions takes nothing returns nothing
     call EnumDestructablesInRectAll(gg_rct_Dungeon, function Trig_Gen_Final_Func011A)
     call EnumDestructablesInRectAll(gg_rct_Dungeon, function Trig_Gen_Final_Func012A)
     set udg_D_Point1 = GetUnitLoc(udg_D_CellNumber[0])
-    call SetUnitPositionLoc(udg_Arct, udg_D_Point1)
+    call SetUnitPositionLoc(ArctUnit, udg_D_Point1)
     call RemoveLocation(udg_D_Point1)
     set udg_D_Pick = GetUnitsOfTypeIdAll(0x6830304D)
     call ForGroupBJ(udg_D_Pick, function Trig_Gen_Final_Func018002)
@@ -88,8 +88,8 @@ function Trig_Gen_Final_Actions takes nothing returns nothing
     set udg_CO_CustomValue = (udg_CO_CustomValue + 1)
     set udg_Training = false
     call SetPlayerHandicapBJ(Player(11), (100.00 * I2R(udg_Difficulty)))
-    call SetUnitLifePercentBJ(udg_Arct, 100)
-    call SetUnitManaPercentBJ(udg_Arct, 100)
+    call SetUnitLifePercentBJ(ArctUnit, 100)
+    call SetUnitManaPercentBJ(ArctUnit, 100)
     call EnableTrigger(gg_trg_Edemium_Hero_Dies)
     call EnableTrigger(gg_trg_Creep_Kill)
     call EnableTrigger(gg_trg_Armor_Use)
@@ -132,8 +132,8 @@ function Trig_Gen_Final_Actions takes nothing returns nothing
     endloop
     set udg_AS_AbilityCountLVL_Base = udg_AS_AbilityCountLVL
     set udg_AS_Points_Base = udg_AS_Points
-    set udg_EX_Level_Base = GetHeroLevel(udg_Arct)
-    set udg_EX_Exp_Base = GetHeroXP(udg_Arct)
+    set udg_EX_Level_Base = GetHeroLevel(ArctUnit)
+    set udg_EX_Exp_Base = GetHeroXP(ArctUnit)
     call ConditionalTriggerExecute(gg_trg_Gen_Events)
     call SetCameraBoundsToRect(gg_rct_Dungeon_Camera)
     call CameraSetSmoothingFactor(10.00)

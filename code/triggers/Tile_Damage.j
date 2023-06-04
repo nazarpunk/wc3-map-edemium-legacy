@@ -1,17 +1,17 @@
 function Trig_Tile_Damage_Actions takes nothing returns nothing
-    set udg_Point = GetUnitLoc(udg_Arct)
-    if not UnitHasBuffBJ(udg_Arct, 0x42486473) and GetTerrainTypeBJ(udg_Point) == 0x43706F73 then
+    set udg_Point = GetUnitLoc(ArctUnit)
+    if not UnitHasBuffBJ(ArctUnit, 0x42486473) and GetTerrainTypeBJ(udg_Point) == 0x43706F73 then
         set udg_AbilityPower = 15.00
         set udg_AbilityPower = (udg_AbilityPower * I2R(udg_Difficulty))
-        call SetUnitLifeBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) - udg_AbilityPower))
-        call AddSpecialEffectTargetUnitBJ("chest", udg_Arct, "Abilities\\Weapons\\snapMissile\\snapMissile.mdl")
+        call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) - udg_AbilityPower))
+        call AddSpecialEffectTargetUnitBJ("chest", ArctUnit, "Abilities\\Weapons\\snapMissile\\snapMissile.mdl")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
     else
         if GetTerrainTypeBJ(udg_Point) == 0x446C6176 then
             set udg_AbilityPower = 25.00
             set udg_AbilityPower = (udg_AbilityPower * I2R(udg_Difficulty))
-            call SetUnitLifeBJ(udg_Arct, (GetUnitStateSwap(UNIT_STATE_LIFE, udg_Arct) - udg_AbilityPower))
-            call AddSpecialEffectTargetUnitBJ("chest", udg_Arct, "Abilities\\Weapons\\LavaSpawnMissile\\LavaSpawnMissile.mdl")
+            call SetUnitLifeBJ(ArctUnit, (GetUnitStateSwap(UNIT_STATE_LIFE, ArctUnit) - udg_AbilityPower))
+            call AddSpecialEffectTargetUnitBJ("chest", ArctUnit, "Abilities\\Weapons\\LavaSpawnMissile\\LavaSpawnMissile.mdl")
             call DestroyEffectBJ(GetLastCreatedEffectBJ())
         endif
     endif

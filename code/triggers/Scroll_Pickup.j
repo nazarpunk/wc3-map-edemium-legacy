@@ -22,6 +22,6 @@ endfunction
 
 function InitTrig_Scroll_Pickup takes nothing returns nothing
     set gg_trg_Scroll_Pickup = CreateTrigger()
-    call TriggerRegisterUnitEvent(gg_trg_Scroll_Pickup, gg_unit_H000_0004, EVENT_UNIT_PICKUP_ITEM)
+    call TriggerRegisterUnitEvent(gg_trg_Scroll_Pickup, ArctUnit, EVENT_UNIT_PICKUP_ITEM)
     call TriggerAddAction(gg_trg_Scroll_Pickup, function Trig_Scroll_Pickup_Actions)
 endfunction

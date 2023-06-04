@@ -14,15 +14,15 @@ function Trig_Augment_Buy_Actions takes nothing returns nothing
         set udg_AugmentPrice = udg_AugmentCost[udg_AugmentValue]
         call ClearTextMessagesBJ(GetPlayersAll())
         if udg_Target == gg_unit_h012_0012 then
-            call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
+            call ModifyHeroStat(bj_HEROSTAT_AGI, ArctUnit, bj_MODIFYMETHOD_ADD, 1)
             call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает ловкость на |cFF00D8001|r.")
         else
             if udg_Target == gg_unit_h012_0011 then
-                call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
+                call ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_ADD, 1)
                 call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает стойкость на |cFF00D8001|r.")
             else
                 if udg_Target == gg_unit_h012_0013 then
-                    call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
+                    call ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_ADD, 1)
                     call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Повышает мудрость на |cFF00D8001|r.")
                 endif
             endif

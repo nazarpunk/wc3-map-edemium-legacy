@@ -9,8 +9,8 @@ function Trig_Effect_8_Cast_Actions takes nothing returns nothing
         call EnableTrigger(gg_trg_Effect_8_Loop)
     endif
     set udg_BE_MaxIndex = (udg_BE_MaxIndex + 1)
-    set udg_BE_Caster[udg_BE_MaxIndex] = udg_Arct
-    set udg_Point = GetUnitLoc(udg_Arct)
+    set udg_BE_Caster[udg_BE_MaxIndex] = ArctUnit
+    set udg_Point = GetUnitLoc(ArctUnit)
     set udg_UnitGroup = GetUnitsInRangeOfLocAll(400.00, udg_Point)
     call RemoveLocation(udg_Point)
     set udg_D_Pick = GetUnitsOfPlayerAll(Player(0))
@@ -27,7 +27,7 @@ function Trig_Effect_8_Cast_Actions takes nothing returns nothing
     set udg_BE_AbilityIndex[udg_BE_MaxIndex] = udg_AS_AbilityLVL[8]
     set udg_BE_DistanceTravelled[udg_BE_MaxIndex] = 0.00
     set udg_AbilityPower = (I2R(udg_CO_Power) + I2R(udg_CO_Combo))
-    set udg_AbilityPower = (udg_AbilityPower + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, udg_Arct, true)))
+    set udg_AbilityPower = (udg_AbilityPower + I2R(GetHeroStatBJ(bj_HEROSTAT_INT, ArctUnit, true)))
     set udg_BE_Damage[udg_BE_MaxIndex] = udg_AbilityPower
     set udg_BE_Heal[udg_BE_MaxIndex] = udg_AbilityPower
     set udg_BE_SizeIncrement[udg_BE_MaxIndex] = udg_BE_CSizeIncrement

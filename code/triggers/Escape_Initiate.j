@@ -1,5 +1,5 @@
 function Trig_Escape_Initiate_Conditions takes nothing returns boolean
-    return GetTriggerUnit() == udg_Arct
+    return GetTriggerUnit() == ArctUnit
 endfunction
 
 function Trig_Escape_Initiate_Actions takes nothing returns nothing

@@ -25,8 +25,8 @@ function Trig_Decorations_Click_Actions takes nothing returns nothing
             endif
 
         else
-            call IssuePointOrderLocBJ(udg_Arct, "move", udg_D_Point2)
-            call CreateTextTagUnitBJ("Поближе бы...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+            call IssuePointOrderLocBJ(ArctUnit, "move", udg_D_Point2)
+            call CreateTextTagUnitBJ("Поближе бы...", ArctUnit, 0, 10.00, 100.00, 100.00, 100.00, 0)
             call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
             call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
             call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 2.00)
@@ -36,7 +36,7 @@ function Trig_Decorations_Click_Actions takes nothing returns nothing
         if DistanceBetweenPoints(udg_D_Point1, udg_D_Point2) < 300.00 then
             call ModifyGateBJ(bj_GATEOPERATION_OPEN, GetOrderTargetDestructable())
             if GetDestructableTypeId(GetOrderTargetDestructable()) == 0x4230315A or GetDestructableTypeId(GetOrderTargetDestructable()) == 0x42303159 then
-                call CreateTextTagUnitBJ("ЛОВУШКА!", udg_Arct, 0, 11.00, 100.00, 100.00, 100.00, 0)
+                call CreateTextTagUnitBJ("ЛОВУШКА!", ArctUnit, 0, 11.00, 100.00, 100.00, 100.00, 0)
                 call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
                 call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
                 call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.50)
@@ -49,7 +49,7 @@ function Trig_Decorations_Click_Actions takes nothing returns nothing
                 call IssueImmediateOrderBJ(GetLastCreatedUnit(), "stomp")
             else
                 if GetDestructableTypeId(GetOrderTargetDestructable()) == 0x42303231 then
-                    set udg_Point = GetUnitLoc(udg_Arct)
+                    set udg_Point = GetUnitLoc(ArctUnit)
                     set udg_RandomNumber = GetRandomInt(1, 3)
                     if udg_RandomNumber == 1 then
                         call CreateItemLoc(0x49303131, udg_Point)
@@ -65,11 +65,11 @@ function Trig_Decorations_Click_Actions takes nothing returns nothing
                 endif
             endif
         else
-            call IssuePointOrderLocBJ(udg_Arct, "move", udg_D_Point2)
+            call IssuePointOrderLocBJ(ArctUnit, "move", udg_D_Point2)
             if GetRandomInt(1, 2) == 1 then
-                call CreateTextTagUnitBJ("Поближе бы...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+                call CreateTextTagUnitBJ("Поближе бы...", ArctUnit, 0, 10.00, 100.00, 100.00, 100.00, 0)
             else
-                call CreateTextTagUnitBJ("Слишком далеко.", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+                call CreateTextTagUnitBJ("Слишком далеко.", ArctUnit, 0, 10.00, 100.00, 100.00, 100.00, 0)
             endif
             call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
             call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
@@ -83,7 +83,7 @@ endfunction
 
 function InitTrig_Decorations_Click takes nothing returns nothing
     set gg_trg_Decorations_Click = CreateTrigger()
-    call TriggerRegisterUnitEvent(gg_trg_Decorations_Click, gg_unit_H000_0004, EVENT_UNIT_ISSUED_TARGET_ORDER)
+    call TriggerRegisterUnitEvent(gg_trg_Decorations_Click, ArctUnit, EVENT_UNIT_ISSUED_TARGET_ORDER)
     call TriggerAddCondition(gg_trg_Decorations_Click, Condition(function Trig_Decorations_Click_Conditions))
     call TriggerAddAction(gg_trg_Decorations_Click, function Trig_Decorations_Click_Actions)
 endfunction

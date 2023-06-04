@@ -12,7 +12,7 @@ function Trig_Dungeon_Cold_Text_Actions takes nothing returns nothing
             endif
         endif
     endif
-    call SetTextTagPosUnitBJ(udg_DungeonColdText, udg_Arct, 0.00)
+    call SetTextTagPosUnitBJ(udg_DungeonColdText, ArctUnit, 0.00)
 endfunction
 
 function InitTrig_Dungeon_Cold_Text takes nothing returns nothing

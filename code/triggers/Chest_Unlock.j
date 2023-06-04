@@ -27,7 +27,7 @@ function Trig_Chest_Unlock_Actions takes nothing returns nothing
         call DialogAddButton(udg_ChestDialog, "Обойдусь.", 0)
         call DialogDisplayBJ(true, udg_ChestDialog, Player(0))
     else
-        call CreateTextTagUnitBJ("Поближе бы...", udg_Arct, 0, 10.00, 100.00, 100.00, 100.00, 0)
+        call CreateTextTagUnitBJ("Поближе бы...", ArctUnit, 0, 10.00, 100.00, 100.00, 100.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 2.00)
@@ -40,7 +40,7 @@ endfunction
 function InitTrig_Chest_Unlock takes nothing returns nothing
     set gg_trg_Chest_Unlock = CreateTrigger()
     call DisableTrigger(gg_trg_Chest_Unlock)
-    call TriggerRegisterUnitEvent(gg_trg_Chest_Unlock, gg_unit_H000_0004, EVENT_UNIT_ISSUED_TARGET_ORDER)
+    call TriggerRegisterUnitEvent(gg_trg_Chest_Unlock, ArctUnit, EVENT_UNIT_ISSUED_TARGET_ORDER)
     call TriggerAddCondition(gg_trg_Chest_Unlock, Condition(function Trig_Chest_Unlock_Conditions))
     call TriggerAddAction(gg_trg_Chest_Unlock, function Trig_Chest_Unlock_Actions)
 endfunction

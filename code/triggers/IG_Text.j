@@ -148,7 +148,7 @@ endfunction
 
 function InitTrig_IG_Text takes nothing returns nothing
     set gg_trg_IG_Text = CreateTrigger()
-    call TriggerRegisterUnitEvent(gg_trg_IG_Text, gg_unit_H000_0004, EVENT_UNIT_USE_ITEM)
+    call TriggerRegisterUnitEvent(gg_trg_IG_Text, ArctUnit, EVENT_UNIT_USE_ITEM)
     call TriggerAddCondition(gg_trg_IG_Text, Condition(function Trig_IG_Text_Conditions))
     call TriggerAddAction(gg_trg_IG_Text, function Trig_IG_Text_Actions)
 endfunction

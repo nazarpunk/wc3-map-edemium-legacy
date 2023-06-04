@@ -13,8 +13,8 @@ function Trig_Coliseum_Start_Actions takes nothing returns nothing
     endloop
     set udg_AS_AbilityCountLVL_Base = udg_AS_AbilityCountLVL
     set udg_AS_Points_Base = udg_AS_Points
-    set udg_EX_Level_Base = GetHeroLevel(udg_Arct)
-    set udg_EX_Exp_Base = GetHeroXP(udg_Arct)
+    set udg_EX_Level_Base = GetHeroLevel(ArctUnit)
+    set udg_EX_Exp_Base = GetHeroXP(ArctUnit)
     call SetPlayerHandicapBJ(Player(11), (100.00 * I2R(udg_Difficulty)))
     call SetPlayerAbilityAvailableBJ(true, 0x41303138, Player(0))
     call SetPlayerAbilityAvailableBJ(true, 0x41303537, Player(0))

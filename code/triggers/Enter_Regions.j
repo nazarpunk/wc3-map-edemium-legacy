@@ -1,5 +1,5 @@
 function Trig_Enter_Regions_Conditions takes nothing returns boolean
-    return GetEnteringUnit() == gg_unit_H000_0004
+    return GetEnteringUnit() == ArctUnit
 endfunction
 
 function Trig_Enter_Regions_Func018002 takes nothing returns nothing
@@ -16,26 +16,26 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
     call SetPlayerAbilityAvailableBJ(false, 0x41303530, Player(0))
     call DisableTrigger(gg_trg_Artefactorium_Damage)
     call SetTerrainFogExBJ(0, 1100.00, 15000.00, 0.50, 0.00, 20.00, 100)
-    call SetUnitManaPercentBJ(udg_Arct, 100)
-    if IsUnitInRegion(udg_Region1, gg_unit_H000_0004) then
+    call SetUnitManaPercentBJ(ArctUnit, 100)
+    if IsUnitInRegion(udg_Region1, ArctUnit) then
         call SetCameraBoundsToRect(gg_rct_Camera_Bound_Meditate)
-        call AddUnitAnimationPropertiesBJ(true, "gold", gg_unit_H000_0004)
+        call AddUnitAnimationPropertiesBJ(true, "gold", ArctUnit)
         set udg_Camera = gg_cam_Camera_Abilities
         call EnableTrigger(gg_trg_Trees_Choose_ESC)
         call DisplayTimedTextToForce(GetPlayersAll(), 5.00, "Чтобы открыть новые умения нажмите ESC.")
     endif
 
-    if IsUnitInRegion(udg_Region2, gg_unit_H000_0004) then
+    if IsUnitInRegion(udg_Region2, ArctUnit) then
         call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Workshop_2)
         set udg_Camera = gg_cam_Camera_Workshop_2
     endif
 
-    if IsUnitInRegion(udg_Region10, gg_unit_H000_0004) then
+    if IsUnitInRegion(udg_Region10, ArctUnit) then
         call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Workshop)
         set udg_Camera = gg_cam_Camera_Workshop
     endif
     
-    if IsUnitInRegion(udg_Region11, gg_unit_H000_0004) then
+    if IsUnitInRegion(udg_Region11, ArctUnit) then
         call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Workshop_1)
         set udg_Camera = gg_cam_Camera_Workshop_1
         if udg_TutorialHintsOn and not udg_TutorialHint[6] then
@@ -66,7 +66,7 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         call DisableTrigger(gg_trg_Item_Pickup)
     endif
 
-    if IsUnitInRegion(udg_Region9, gg_unit_H000_0004) then
+    if IsUnitInRegion(udg_Region9, ArctUnit) then
         call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
         call SetCameraBoundsToRect(gg_rct_Camera_Bound_Portal)
         set udg_Camera = gg_cam_Camera_Portal_Room
@@ -82,7 +82,7 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         endif
     endif
 
-    if IsUnitInRegion(udg_Region4, gg_unit_H000_0004) then
+    if IsUnitInRegion(udg_Region4, ArctUnit) then
         call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
         call SetTerrainFogExBJ(0, 1500.00, 10000.00, 0.50, 0.00, 50.00, 100)
         call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Workshop)
@@ -95,7 +95,7 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         call RemoveLocation(udg_Point)
     endif
 
-    if IsUnitInRegion(udg_Region5, gg_unit_H000_0004) then
+    if IsUnitInRegion(udg_Region5, ArctUnit) then
         call SetCameraBoundsToRect(gg_rct_Camera_Bound_Gate)
         set udg_Camera = gg_cam_Camera_Portal
         if udg_TutorialHintsOn and not udg_TutorialHint[1] then
@@ -107,12 +107,12 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         endif
     endif
 
-    if IsUnitInRegion(udg_Region8, gg_unit_H000_0004) then
-        call SuspendHeroXPBJ(false, udg_Arct)
+    if IsUnitInRegion(udg_Region8, ArctUnit) then
+        call SuspendHeroXPBJ(false, ArctUnit)
         call SetDayNightModels("Environment\\DNC\\DNCLordaeron\\DNCLordaeronTerrain\\DNCLordaeronTerrain.mdl", "Environment\\DNC\\DNCLordaeron\\DNCLordaeronUnit\\DNCLordaeronUnit.mdl")
         call LeaderboardDisplayBJ(true, udg_CO_ComboBoard)
         call EnablePreSelect(true, true)
-        set udg_Target = udg_Arct
+        set udg_Target = ArctUnit
         call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Artefactorium)
         set udg_Camera = gg_cam_Camera_Artefactorium
         set udg_Artefactorium = true
@@ -128,7 +128,7 @@ function Trig_Enter_Regions_Actions takes nothing returns nothing
         call EnableTrigger(gg_trg_Artefactorium_Damage)
     endif
     
-    if IsUnitInRegion(udg_Region7, gg_unit_H000_0004) then
+    if IsUnitInRegion(udg_Region7, ArctUnit) then
         call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
         call SetTerrainFogExBJ(0, 1500.00, 10000.00, 0.50, 0.00, 50.00, 100)
         call LeaderboardDisplayBJ(false, udg_CO_ComboBoard)

@@ -86,7 +86,7 @@ function Trig_Gen_Start_Actions takes nothing returns nothing
             endif
         endif
     endif
-    call SuspendHeroXPBJ(false, udg_Arct)
+    call SuspendHeroXPBJ(false, ArctUnit)
     call SetTerrainTypeBJ(udg_D_Point1, 0x4F616279, - 1, 66, 1)
     call RemoveLocation(udg_D_Point1)
     call EnumDestructablesInRectAll(gg_rct_Dungeon, function Trig_Gen_Start_Func011A)

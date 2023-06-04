@@ -1,6 +1,6 @@
 
 function Trig_Leave_Core_Conditions takes nothing returns boolean
-    return GetLeavingUnit() == udg_Arct
+    return GetLeavingUnit() == ArctUnit
 endfunction
 
 function Trig_Leave_Core_Actions takes nothing returns nothing

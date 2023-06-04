@@ -26,7 +26,7 @@ function Trig_Boss_Creep_Spawn_Actions takes nothing returns nothing
     endif
     call CreateNUnitsAtLoc(1, udg_D_CreepType[GetRandomInt(1, 5)], Player(11), udg_CO_Point, bj_UNIT_FACING)
     call SetUnitUserData(GetLastCreatedUnit(), udg_CustomValues)
-    call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", udg_Arct)
+    call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", ArctUnit)
     call RemoveLocation(udg_CO_Point)
     call ConditionalTriggerExecute(gg_trg_Gen_Creeps_Skills)
 endfunction

@@ -19,11 +19,11 @@ function Trig_Edemium_Hero_Dies_Actions takes nothing returns nothing
         set udg_AS_Effect11 = false
         set udg_ChanceBlock = (udg_ChanceBlock - 20.00)
         call DestroyEffectBJ(udg_AS_Effect11SE)
-        call SetUnitVertexColorBJ(udg_Arct, 100.00, 100.00, 100, 0)
+        call SetUnitVertexColorBJ(ArctUnit, 100.00, 100.00, 100, 0)
     endif
-    call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
-    call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
-    call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
+    call ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
+    call ModifyHeroStat(bj_HEROSTAT_AGI, ArctUnit, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
+    call ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_SUB, udg_AS_Effect9Count2)
     set udg_AS_Effect9Count2 = 0
     set bj_forLoopAIndex = 1
     set bj_forLoopAIndexEnd = 24
@@ -35,14 +35,14 @@ function Trig_Edemium_Hero_Dies_Actions takes nothing returns nothing
     endloop
     set udg_AS_AbilityCountLVL = udg_AS_AbilityCountLVL_Base
     set udg_AS_Points = udg_AS_Points_Base
-    call SetHeroLevelBJ(udg_Arct, udg_EX_Level_Base, false)
-    call SetHeroXP(udg_Arct, udg_EX_Exp_Base, false)
+    call SetHeroLevelBJ(ArctUnit, udg_EX_Level_Base, false)
+    call SetHeroXP(ArctUnit, udg_EX_Exp_Base, false)
     set udg_EX_LevelUp = 0
     if udg_MeditationLogic then
         set udg_MeditationLogic = false
-        call AddUnitAnimationPropertiesBJ(false, "gold", gg_unit_H000_0004)
-        call SetUnitMoveSpeed(gg_unit_H000_0004, GetUnitDefaultMoveSpeed(gg_unit_H000_0004))
-        call SetUnitTurnSpeedBJ(gg_unit_H000_0004, 1.00)
+        call AddUnitAnimationPropertiesBJ(false, "gold", ArctUnit)
+        call SetUnitMoveSpeed(ArctUnit, GetUnitDefaultMoveSpeed(ArctUnit))
+        call SetUnitTurnSpeedBJ(ArctUnit, 1.00)
         call DestroyEffectBJ(udg_MeditationEffect)
         call DisableTrigger(gg_trg_Meditation_Heal)
         call DisableTrigger(gg_trg_Meditation_Cast)
@@ -50,7 +50,7 @@ function Trig_Edemium_Hero_Dies_Actions takes nothing returns nothing
     endif
     if udg_SprintLogic then
         set udg_SprintLogic = false
-        call SetUnitMoveSpeed(udg_Arct, GetUnitDefaultMoveSpeed(udg_Arct))
+        call SetUnitMoveSpeed(ArctUnit, GetUnitDefaultMoveSpeed(ArctUnit))
         call DisableTrigger(gg_trg_Sprint_Energy)
     endif
     call TriggerSleepAction(5.00)
@@ -71,6 +71,6 @@ endfunction
 function InitTrig_Edemium_Hero_Dies takes nothing returns nothing
     set gg_trg_Edemium_Hero_Dies = CreateTrigger()
     call DisableTrigger(gg_trg_Edemium_Hero_Dies)
-    call TriggerRegisterUnitEvent(gg_trg_Edemium_Hero_Dies, gg_unit_H000_0004, EVENT_UNIT_DEATH)
+    call TriggerRegisterUnitEvent(gg_trg_Edemium_Hero_Dies, ArctUnit, EVENT_UNIT_DEATH)
     call TriggerAddAction(gg_trg_Edemium_Hero_Dies, function Trig_Edemium_Hero_Dies_Actions)
 endfunction

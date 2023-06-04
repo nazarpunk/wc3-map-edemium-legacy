@@ -1,10 +1,10 @@
 function Trig_Leave_Hero_Regions_Conditions takes nothing returns boolean
-    return GetLeavingUnit() == udg_Arct
+    return GetLeavingUnit() == ArctUnit
 endfunction
 
 function Trig_Leave_Hero_Regions_Actions takes nothing returns nothing
     call SetCameraBoundsToRect(gg_rct_Camera_Bound_Portal)
-    call AddUnitAnimationPropertiesBJ(false, "gold", gg_unit_H000_0004)
+    call AddUnitAnimationPropertiesBJ(false, "gold", ArctUnit)
     set udg_Camera = gg_cam_Camera_Portal_Room
     call CameraSetupApplyForceDuration(udg_Camera, true, 0.00)
     call DisableTrigger(gg_trg_Trees_Choose_ESC)

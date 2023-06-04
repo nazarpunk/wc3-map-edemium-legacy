@@ -1,6 +1,6 @@
 function Trig_Events_Elapsed_Actions takes nothing returns nothing
     if udg_EdemEventType == 1 then
-        set udg_EventAttribute = (10 + GetHeroLevel(udg_Arct))
+        set udg_EventAttribute = (10 + GetHeroLevel(ArctUnit))
         call DialogClear(udg_EdemEventDialog)
         call DialogSetMessage(udg_EdemEventDialog, "Бродя по Эдемиуму, его стены всегда |nказались Аркту безупречно гладкими, |nбудто вытесанный и отполированный |nмрамор, однако в одном месте Аркт|nслучайно нащупал небольшое |nотверстие, идеально подходящее для |nуказательного пальца. Стоит ли Аркту |nпросунуть в отверстие палец, или нет?")
         call DialogAddButtonBJ(udg_EdemEventDialog, "Засунуть палец.")

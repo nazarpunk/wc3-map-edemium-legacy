@@ -4,7 +4,7 @@ endfunction
 
 function Trig_Trap_Periodic_Explosion_Func002Func001Func005A takes nothing returns nothing
     if GetOwningPlayer(GetEnumUnit()) == Player(0) then
-        set udg_AbilityPower = GetUnitStateSwap(UNIT_STATE_MAX_LIFE, udg_Arct)
+        set udg_AbilityPower = GetUnitStateSwap(UNIT_STATE_MAX_LIFE, ArctUnit)
         set udg_AbilityPower = (udg_AbilityPower / 3.00)
         call UnitDamageTargetBJ(GetTriggerUnit(), GetEnumUnit(), udg_AbilityPower, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL)
     endif
@@ -12,7 +12,7 @@ endfunction
 
 function Trig_Trap_Periodic_Explosion_Func002Func006A takes nothing returns nothing
     if GetOwningPlayer(GetEnumUnit()) == Player(0) then
-        set udg_AbilityPower = GetUnitStateSwap(UNIT_STATE_MAX_MANA, udg_Arct)
+        set udg_AbilityPower = GetUnitStateSwap(UNIT_STATE_MAX_MANA, ArctUnit)
         set udg_AbilityPower = (udg_AbilityPower / 3.00)
         call SetUnitManaBJ(GetEnumUnit(), (GetUnitStateSwap(UNIT_STATE_MANA, GetEnumUnit()) - udg_AbilityPower))
     endif

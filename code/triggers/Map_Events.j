@@ -1,6 +1,6 @@
 function Trig_Map_Events_Actions takes nothing returns nothing
     set udg_RandomNumber = GetRandomInt(1, 4)
-    set udg_EventAttribute = (10 + GetHeroLevel(udg_Arct))
+    set udg_EventAttribute = (10 + GetHeroLevel(ArctUnit))
     set udg_EventLux = (udg_EventAttribute * 3)
     call DialogClear(udg_EventDialog)
     if udg_RandomNumber == 1 then

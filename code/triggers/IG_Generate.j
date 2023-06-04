@@ -49,7 +49,7 @@ function Trig_IG_Generate_Actions takes nothing returns nothing
                 set udg_IG_ItemAtt[5] = I2S(udg_IG_RandomNumber)
                 if udg_IG_ItemRandom != 8 then
                     if GetRandomInt(1, 10) <= 3 then
-                        if GetHeroLevel(udg_Arct) >= 25 then
+                        if GetHeroLevel(ArctUnit) >= 25 then
                             set udg_IG_ItemAtt[6] = I2S(GetRandomInt(2, 6))
                         else
                             set udg_IG_ItemAtt[6] = I2S(GetRandomInt(2, 4))
@@ -96,7 +96,7 @@ function Trig_IG_Generate_Actions takes nothing returns nothing
                     set udg_IG_ItemAtt[5] = I2S(udg_IG_RandomNumber)
                     if udg_IG_ItemRandom != 12 then
                         if GetRandomInt(1, 10) <= 3 then
-                            if GetHeroLevel(udg_Arct) >= 15 then
+                            if GetHeroLevel(ArctUnit) >= 15 then
                                 set udg_IG_ItemAtt[6] = I2S(GetRandomInt(2, 6))
                             else
                                 set udg_IG_ItemAtt[6] = I2S(GetRandomInt(2, 4))

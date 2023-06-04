@@ -4,7 +4,7 @@ function Trig_Gen_Unpause_Actions takes nothing returns nothing
     call SetCameraFieldForPlayer(Player(0), CAMERA_FIELD_TARGET_DISTANCE, 3500.00, 0.00)
     call SetCameraFieldForPlayer(Player(0), CAMERA_FIELD_ROTATION, 90.00, 0.00)
     call PanCameraToTimedLocForPlayer(Player(0), GetRectCenter(gg_rct_Dungeon_Center), 0)
-    call AddSpecialEffectTargetUnitBJ("origin", udg_Arct, "Abilities\\Spells\\Human\\ReviveHuman\\ReviveHuman.mdl")
+    call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "Abilities\\Spells\\Human\\ReviveHuman\\ReviveHuman.mdl")
     call DestroyEffectBJ(GetLastCreatedEffectBJ())
     set udg_Transparent = 100.00
     call EnableTrigger(gg_trg_Edemium_Transparent)

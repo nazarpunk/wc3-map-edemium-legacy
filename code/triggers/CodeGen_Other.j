@@ -90,14 +90,14 @@ function Trig_CodeGen_Other_Actions takes nothing returns nothing
         set udg_AugmentCost[bj_forLoopAIndex] = (udg_AugmentLevel[bj_forLoopAIndex] * 10)
         set udg_AugmentCost[bj_forLoopAIndex] = (udg_AugmentCost[bj_forLoopAIndex] + 50)
         if bj_forLoopAIndex == 1 then
-            call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_ADD, udg_AugmentLevel[1])
+            call ModifyHeroStat(bj_HEROSTAT_AGI, ArctUnit, bj_MODIFYMETHOD_ADD, udg_AugmentLevel[1])
             set udg_Point = GetUnitLoc(gg_unit_h012_0012)
         else
             if bj_forLoopAIndex == 2 then
-                call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_ADD, udg_AugmentLevel[2])
+                call ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_ADD, udg_AugmentLevel[2])
                 set udg_Point = GetUnitLoc(gg_unit_h012_0011)
             else
-                call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_ADD, udg_AugmentLevel[3])
+                call ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_ADD, udg_AugmentLevel[3])
                 set udg_Point = GetUnitLoc(gg_unit_h012_0013)
             endif
         endif
@@ -152,9 +152,9 @@ function Trig_CodeGen_Other_Actions takes nothing returns nothing
         set udg_ChanceBlock = (udg_ChanceBlock + I2R(udg_ART[12]))
     endif
     if udg_ART[16] > 0 then
-        call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_ADD, udg_ART[16])
-        call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_ADD, udg_ART[16])
-        call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_ADD, udg_ART[16])
+        call ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_ADD, udg_ART[16])
+        call ModifyHeroStat(bj_HEROSTAT_AGI, ArctUnit, bj_MODIFYMETHOD_ADD, udg_ART[16])
+        call ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_ADD, udg_ART[16])
     endif
     if udg_AS_AbilityStudied[1] == 1 then
         set udg_Target = gg_unit_h006_0081

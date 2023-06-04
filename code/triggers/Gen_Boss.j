@@ -1,8 +1,8 @@
 function Trig_Gen_Boss_Actions takes nothing returns nothing
     set udg_Training = false
     call SetPlayerHandicapBJ(Player(11), (100.00 * I2R(udg_Difficulty)))
-    call SetUnitLifePercentBJ(udg_Arct, 100)
-    call SetUnitManaPercentBJ(udg_Arct, 100)
+    call SetUnitLifePercentBJ(ArctUnit, 100)
+    call SetUnitManaPercentBJ(ArctUnit, 100)
     call EnableTrigger(gg_trg_Edemium_Hero_Dies)
     call EnableTrigger(gg_trg_Creep_Kill)
     call DisableTrigger(gg_trg_Artefactorium_Creep_Kill)
@@ -72,7 +72,7 @@ function Trig_Gen_Boss_Actions takes nothing returns nothing
             endif
         endif
     endif
-    call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", udg_Arct)
+    call IssueTargetOrderBJ(GetLastCreatedUnit(), "attack", ArctUnit)
     call RemoveLocation(udg_D_Point1)
     set udg_EM_BossUnit = GetLastCreatedUnit()
     call CameraSetSmoothingFactorBJ(10.00)

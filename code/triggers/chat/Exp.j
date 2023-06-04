@@ -1,5 +1,5 @@
 function Trig_Exp_Actions takes nothing returns nothing
-    call AddHeroXPSwapped(100, gg_unit_H000_0004, false)
+    call AddHeroXPSwapped(100, ArctUnit, false)
 endfunction
 
 function InitTrig_Exp takes nothing returns nothing

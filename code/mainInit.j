@@ -914,10 +914,6 @@ function CreateUnitsForPlayer0Old takes nothing returns nothing
     local real life
     set gg_unit_hrif_0000 = CreateUnit(p, 0x68726966, 4221.0, 2566.2, 325.568)
     set gg_unit_H000_0004 = CreateUnit(p, 0x48303030, 11410.3, 1595.1, 270.000)
-    call SetHeroStr(gg_unit_H000_0004, 10, true)
-    call SetHeroAgi(gg_unit_H000_0004, 10, true)
-    call SetHeroInt(gg_unit_H000_0004, 10, true)
-    call SetUnitState(gg_unit_H000_0004, UNIT_STATE_MANA, 50)
     set gg_unit_h009_0006 = CreateUnit(p, 0x68303039, 4163.3, 2107.2, 0.000)
     set gg_unit_h007_0065 = CreateUnit(p, 0x68303037, 10438.5, - 1267.5, 266.518)
 endfunction

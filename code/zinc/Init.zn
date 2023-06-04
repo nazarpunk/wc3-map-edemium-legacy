@@ -1,5 +1,13 @@
 library Init {
+    public unit ArctUnit;
+
     function onInit() {
+        ArctUnit = gg_unit_H000_0004;
+        SetHeroStr(ArctUnit, 10, true);
+        SetHeroAgi(ArctUnit, 10, true);
+        SetHeroInt(ArctUnit, 10, true);
+        SetUnitState(ArctUnit, UNIT_STATE_MANA, 50);
+
         ShowInterface(false, 0);
         EnableUserControl(true);
 
@@ -10,16 +18,15 @@ library Init {
         SuspendTimeOfDay(false);
         
         StopSound(bj_nightAmbientSound, true, true);
-        udg_CinematicPosition = GetUnitLoc(gg_unit_H000_0004);
+        udg_CinematicPosition = GetUnitLoc(ArctUnit);
     
-        udg_Arct = gg_unit_H000_0004;
-        SetUnitLifePercentBJ(udg_Arct, 100);
-        SetUnitManaPercentBJ(udg_Arct, 100);
-        UnitAddAbilityBJ(0x41303138, udg_Arct);
-        UnitAddAbilityBJ(0x41303537, udg_Arct);
-        UnitAddAbilityBJ(0x41303530, udg_Arct);
-        UnitAddAbilityBJ(0x41303147, udg_Arct);
-        UnitAddAbilityBJ(0x41303555, udg_Arct);
+        SetUnitLifePercentBJ(ArctUnit, 100);
+        SetUnitManaPercentBJ(ArctUnit, 100);
+        UnitAddAbility(ArctUnit, 0x41303138);
+        UnitAddAbility(ArctUnit, 0x41303537);
+        UnitAddAbility(ArctUnit, 0x41303530);
+        UnitAddAbility(ArctUnit, 0x41303147);
+        UnitAddAbility(ArctUnit, 0x41303555);
         SetPlayerAbilityAvailableBJ(false, 0x41303138, Player(0));
         SetPlayerAbilityAvailableBJ(false, 0x41303537, Player(0));
         SetPlayerAbilityAvailableBJ(false, 0x41303530, Player(0));
@@ -28,7 +35,7 @@ library Init {
         SetPlayerFlagBJ(PLAYER_STATE_GIVES_BOUNTY, false, Player(11));
     
         AddWeatherEffectSaveLast(gg_rct_Dungeon, 0x4C526D61);
-        SelectUnitForPlayerSingle(udg_Arct, Player(0));
+        SelectUnitForPlayerSingle(ArctUnit, Player(0));
         CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Боевая система", "- Во время боя над монстрами может появиться одна из 3 иконок, от игрока требуется успеть нажать на один из 3 приёмов на панели умений, в зависимости от цвета появившейся иконки.|n- Правильное нажатие наносит монстру урон и исцеляет Аркта, так же повышает серию ударов, от которой зависит общий наносимый урон и получаемое исцеление.", "ReplaceableTextures\\CommandButtons\\BTNCombo4.blp");
         //CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Навыки", "- Навыки это способности которые Аркт автоматически применяет если правильно нажимать на приёмы (три разноцветных кнопки) необходимое количество раз подряд (зависит от того на какой серии стоит навык)."+"|n- Навык можно установить на 4 разных серии (3,5,7,9); от этого зависит сколько раз подряд нужно правильно нажать на приёмы чтобы навык применился.|n- К примеру: если выучить навык и поставить его на 3 серию, то после каждых правильных трёх нажатий на приёмы - навык будет применятся.|n- Чтобы изучить навык необходимо 300 очков навыка; одно очко дается за одно применение навыка.|n- Каждые 70 применений навык повышает свой уровень; всего у навыков 5 уровней (необходимо применить навык 350 раз чтобы полностью его улучшить).", "ReplaceableTextures\\CommandButtons\\BTNBeltEnhance.blp");
         CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "Секреты (таланты)", "- Секреты это бесконечно улучшаемые таланты, дарующие Аркту новые пассивные способности.|n- Секреты можно раскрыть выбив рецепты с монстров и боссов или купить в лавке Онки.|n- При поднятии рецепта он появляется в замке на стене возле Ядра.|n- Чтобы прокачать секрет необходимо найти необходимые элементы (которые описаны в рецепте), затем использовать Ядро; нажать на него, добавить необходимые элементы и нажать на кнопку Изучить секрет.", "ReplaceableTextures\\CommandButtons\\BTNSkullFusion.blp");

@@ -201,7 +201,7 @@ function Trig_Variables_Actions takes nothing returns nothing
     set udg_FadeSystemHash = GetLastCreatedHashtableBJ()
     set udg_ChanceBlock = 6.00
     set udg_ChanceCrit = 6.00
-    set udg_Target = udg_Arct
+    set udg_Target = ArctUnit
     set udg_CameraDistance = 1600
     set udg_CameraAngle = 300
     set udg_CameraMax = 1800
@@ -209,7 +209,7 @@ function Trig_Variables_Actions takes nothing returns nothing
     set udg_CameraTurn = 135.00
     set udg_D_Exit = gg_unit_h00N_0045
     set udg_EM_Target = gg_unit_h00K_0095
-    set udg_ItemPickup__Unit = gg_unit_H000_0004
+    set udg_ItemPickup__Unit = ArctUnit
     set udg_ItemPickup__Radius = 100.00
     set udg_ItemPickup__AddUnit = true
     call ConditionalTriggerExecute(gg_trg_Item_Pickup_JASS)

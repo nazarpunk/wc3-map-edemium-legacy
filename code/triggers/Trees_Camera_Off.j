@@ -1,12 +1,12 @@
 function Trig_Trees_Camera_Off_Actions takes nothing returns nothing
     call CinematicFadeBJ(bj_CINEFADETYPE_FADEIN, 1.50, "ReplaceableTextures\\CameraMasks\\Black_mask.blp", 0, 0, 0, 0)
     call CameraSetSmoothingFactorBJ(0.00)
-    call SelectUnitSingle(udg_Arct)
+    call SelectUnitSingle(ArctUnit)
     call ClearTextMessagesBJ(GetPlayersAll())
     call DisableTrigger(gg_trg_Camera_Tree)
     call EnableTrigger(gg_trg_Camera_Fix)
     call EnableTrigger(gg_trg_Leave_Hero_Regions)
-    call AddUnitAnimationPropertiesBJ(false, "gold", gg_unit_H000_0004)
+    call AddUnitAnimationPropertiesBJ(false, "gold", ArctUnit)
     if udg_EnchantingRoom then
         call SetCameraBoundsToRect(gg_rct_Camera_Bounds_Cavern)
         set udg_Point = GetRectCenter(gg_rct_Enchanting_Room_Enter)
@@ -55,7 +55,7 @@ function Trig_Trees_Camera_Off_Actions takes nothing returns nothing
     endif
     call SetDayNightModels("DNCLordaeronTerrain.mdx", "DNCLordaeronUnit.mdx")
     call SetTerrainFogExBJ(0, 1100.00, 15000.00, 0.50, 0.00, 20.00, 100)
-    call SetUnitPositionLoc(udg_Arct, udg_Point)
+    call SetUnitPositionLoc(ArctUnit, udg_Point)
     call RemoveLocation(udg_Point)
     call CameraSetupApplyForceDuration(udg_Camera, true, 0.00)
     set udg_CameraDistance = 1700

@@ -1,7 +1,7 @@
 
 function Trig_Damage_Actions takes nothing returns nothing
-    call SetUnitLifePercentBJ(udg_Arct, 50.00)
-    call SetUnitManaPercentBJ(udg_Arct, 0.00)
+    call SetUnitLifePercentBJ(ArctUnit, 50.00)
+    call SetUnitManaPercentBJ(ArctUnit, 0.00)
 endfunction
 
 function InitTrig_Damage takes nothing returns nothing

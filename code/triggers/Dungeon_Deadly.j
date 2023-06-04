@@ -25,7 +25,7 @@ endfunction
 function InitTrig_Dungeon_Deadly takes nothing returns nothing
     set gg_trg_Dungeon_Deadly = CreateTrigger()
     call DisableTrigger(gg_trg_Dungeon_Deadly)
-    call TriggerRegisterUnitEvent(gg_trg_Dungeon_Deadly, gg_unit_H000_0004, EVENT_UNIT_SPELL_EFFECT)
+    call TriggerRegisterUnitEvent(gg_trg_Dungeon_Deadly, ArctUnit, EVENT_UNIT_SPELL_EFFECT)
     call TriggerAddCondition(gg_trg_Dungeon_Deadly, Condition(function Trig_Dungeon_Deadly_Conditions))
     call TriggerAddAction(gg_trg_Dungeon_Deadly, function Trig_Dungeon_Deadly_Actions)
 endfunction

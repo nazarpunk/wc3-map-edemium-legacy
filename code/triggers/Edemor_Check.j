@@ -7,7 +7,7 @@ function Trig_Edemor_Check_Actions takes nothing returns nothing
         set udg_ER_RewardReal = I2R(udg_ER_Reward)
         set udg_ER_RewardReal = (udg_ER_RewardReal * udg_DifficultyRate)
         set udg_ER_RewardReal = (udg_ER_RewardReal * udg_EX_Rate)
-        call AddSpecialEffectTargetUnitBJ("origin", udg_Arct, "war3mapImported\\Holy_Heal.mdx")
+        call AddSpecialEffectTargetUnitBJ("origin", ArctUnit, "war3mapImported\\Holy_Heal.mdx")
         call DestroyEffectBJ(GetLastCreatedEffectBJ())
         set udg_ER_Reward = R2I(udg_ER_RewardReal)
         call AdjustPlayerStateBJ(udg_ER_Reward, Player(0), PLAYER_STATE_RESOURCE_GOLD)

@@ -1,5 +1,5 @@
 function Trig_Sprint_Timer_Actions takes nothing returns nothing
-    call IssueImmediateOrderBJ(udg_Arct, "manashieldoff")
+    call IssueImmediateOrderBJ(ArctUnit, "manashieldoff")
 endfunction
 
 function InitTrig_Sprint_Timer takes nothing returns nothing

@@ -31,14 +31,14 @@ function Trig_Dungeon_Room_Leave_Actions takes nothing returns nothing
             set udg_RandomNumber = GetRandomInt(1, 3)
             if udg_RandomNumber == 1 then
                 set udg_Target = gg_unit_h012_0011
-                call ModifyHeroStat(bj_HEROSTAT_STR, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
+                call ModifyHeroStat(bj_HEROSTAT_STR, ArctUnit, bj_MODIFYMETHOD_ADD, 1)
             else
                 if udg_RandomNumber == 2 then
                     set udg_Target = gg_unit_h012_0012
-                    call ModifyHeroStat(bj_HEROSTAT_AGI, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
+                    call ModifyHeroStat(bj_HEROSTAT_AGI, ArctUnit, bj_MODIFYMETHOD_ADD, 1)
                 else
                     set udg_Target = gg_unit_h012_0013
-                    call ModifyHeroStat(bj_HEROSTAT_INT, udg_Arct, bj_MODIFYMETHOD_ADD, 1)
+                    call ModifyHeroStat(bj_HEROSTAT_INT, ArctUnit, bj_MODIFYMETHOD_ADD, 1)
                 endif
             endif
             set udg_AugmentValue = GetUnitUserData(udg_Target)

@@ -6,7 +6,7 @@ function Trig_Chest_Reward_Actions takes nothing returns nothing
     call AddSpecialEffectLocBJ(udg_IG_Point, "war3mapImported\\GoldCoinBuffLargeV.015.mdx")
     call DestroyEffectBJ(GetLastCreatedEffectBJ())
     if GetUnitUserData(udg_Chest) == 10 then
-        call CreateTextTagUnitBJ("ЛОВУШКА!", udg_Arct, 0, 11.00, 100.00, 100.00, 100.00, 0)
+        call CreateTextTagUnitBJ("ЛОВУШКА!", ArctUnit, 0, 11.00, 100.00, 100.00, 100.00, 0)
         call SetTextTagVelocityBJ(GetLastCreatedTextTag(), 45.00, 90.00)
         call SetTextTagPermanentBJ(GetLastCreatedTextTag(), false)
         call SetTextTagLifespanBJ(GetLastCreatedTextTag(), 1.50)
