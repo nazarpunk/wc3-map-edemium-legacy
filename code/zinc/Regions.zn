@@ -1,6 +1,10 @@
 library Regions {
     public boolean RegionsEnabled = true;
     group g = CreateGroup();
+    region r[];
+
+    constant integer traininingKey = 0;
+
     region Training, Vault_Machinery, Vault_Machinery_Leave, Portal_Leave, Portal, Artefatorium_Leave, Room_Workshop_Leave, Workshop_Machinery, Workshop_Core;
 
     function removeEnumUnit() {
