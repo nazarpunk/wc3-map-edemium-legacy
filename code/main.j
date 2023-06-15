@@ -187,7 +187,6 @@
 //! import "triggers/Effect_11_Timer.j"
 //! import "triggers/Effect_12_Periodic.j"
 //! import "triggers/Damage_Effects.j"
-//! import "triggers/Unit_Indexer.j"
 //! import "triggers/Damage_Engine.j"
 //! import "triggers/Crit_Specialeffect.j"
 //! import "triggers/Augment_Info.j"

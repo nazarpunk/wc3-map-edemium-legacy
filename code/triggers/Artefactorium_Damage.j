@@ -8,7 +8,7 @@ endfunction
 
 function InitTrig_Artefactorium_Damage takes nothing returns nothing
     set gg_trg_Artefactorium_Damage = CreateTrigger()
-    call TriggerRegisterVariableEvent(gg_trg_Artefactorium_Damage, "udg_DamageModifierEvent", EQUAL, 1.00)
+    // damage register
     call TriggerAddCondition(gg_trg_Artefactorium_Damage, Condition(function Trig_Artefactorium_Damage_Conditions))
     call TriggerAddAction(gg_trg_Artefactorium_Damage, function Trig_Artefactorium_Damage_Actions)
 endfunction

@@ -36,7 +36,7 @@ endfunction
 
 function InitTrig_Combo_Spawn_Hero takes nothing returns nothing
     set gg_trg_Combo_Spawn_Hero = CreateTrigger()
-    call TriggerRegisterVariableEvent(gg_trg_Combo_Spawn_Hero, "udg_DamageModifierEvent", EQUAL, 1.00)
+    // damage register
     call TriggerAddCondition(gg_trg_Combo_Spawn_Hero, Condition(function Trig_Combo_Spawn_Hero_Conditions))
     call TriggerAddAction(gg_trg_Combo_Spawn_Hero, function Trig_Combo_Spawn_Hero_Actions)
 endfunction

@@ -17,6 +17,6 @@ endfunction
 
 function InitTrig_Izurods_Damage takes nothing returns nothing
     set gg_trg_Izurods_Damage = CreateTrigger()
-    call TriggerRegisterVariableEvent(gg_trg_Izurods_Damage, "udg_DamageModifierEvent", EQUAL, 1.00)
+    // damage register
     call TriggerAddAction(gg_trg_Izurods_Damage, function Trig_Izurods_Damage_Actions)
 endfunction

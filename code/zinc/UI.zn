@@ -99,3 +99,8 @@ library UI {
         });
     }
 }
+/*
+function SetFrameSizeAdaptive takes integer pFrame, real scaleX, real scaleY returns nothing
+        call SetFrameSize(pFrame, scaleX * GetWindowHeight() / GetWindowWidth() * (4 / 3.), scaleY)
+endfunction
+*/

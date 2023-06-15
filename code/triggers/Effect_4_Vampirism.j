@@ -1,5 +1,5 @@
 function Trig_Effect_4_Vampirism_Conditions takes nothing returns boolean
-    return not udg_DamageEventOverride and udg_DamageEventSource == ArctUnit
+    return udg_DamageEventSource == ArctUnit
 endfunction
 
 function Trig_Effect_4_Vampirism_Actions takes nothing returns nothing
@@ -18,7 +18,7 @@ endfunction
 function InitTrig_Effect_4_Vampirism takes nothing returns nothing
     set gg_trg_Effect_4_Vampirism = CreateTrigger()
     call DisableTrigger(gg_trg_Effect_4_Vampirism)
-    call TriggerRegisterVariableEvent(gg_trg_Effect_4_Vampirism, "udg_DamageModifierEvent", EQUAL, 1.00)
+    // damage register
     call TriggerAddCondition(gg_trg_Effect_4_Vampirism, Condition(function Trig_Effect_4_Vampirism_Conditions))
     call TriggerAddAction(gg_trg_Effect_4_Vampirism, function Trig_Effect_4_Vampirism_Actions)
 endfunction

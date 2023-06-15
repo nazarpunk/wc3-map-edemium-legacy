@@ -181,8 +181,6 @@ function InitCustomTriggersOld takes nothing returns nothing
     call InitTrig_Effect_11_Timer()
     call InitTrig_Effect_12_Periodic()
     call InitTrig_Damage_Effects()
-    call InitTrig_Unit_Indexer()
-    call InitTrig_Damage_Engine()
     call InitTrig_Crit_Specialeffect()
     call InitTrig_Augment_Info()
     call InitTrig_Augment_Buy()
@@ -252,5 +250,4 @@ function InitCustomTriggersOld takes nothing returns nothing
     call ConditionalTriggerExecute(gg_trg_Variables)
     call ConditionalTriggerExecute(gg_trg_CodeGen_Init)
     call ConditionalTriggerExecute(gg_trg_Effect_8_Config)
-    call ConditionalTriggerExecute(gg_trg_Unit_Indexer)
 endfunction

@@ -1,5 +1,5 @@
 function Trig_Damage_Effects_Conditions takes nothing returns boolean
-    return not udg_DamageEventOverride and GetUnitTypeId(udg_DamageEventSource) != 0x68666F6F and GetUnitTypeId(udg_DamageEventTarget) != 0x686B6E69
+    return GetUnitTypeId(udg_DamageEventSource) != 0x68666F6F and GetUnitTypeId(udg_DamageEventTarget) != 0x686B6E69
 endfunction
 
 function Trig_Damage_Effects_Func001Func002Func006Func002Func001Func001Func015Func018Func017A takes nothing returns nothing
@@ -187,7 +187,7 @@ endfunction
 
 function InitTrig_Damage_Effects takes nothing returns nothing
     set gg_trg_Damage_Effects = CreateTrigger()
-    call TriggerRegisterVariableEvent(gg_trg_Damage_Effects, "udg_DamageModifierEvent", EQUAL, 1.00)
+    // damage register
     call TriggerAddCondition(gg_trg_Damage_Effects, Condition(function Trig_Damage_Effects_Conditions))
     call TriggerAddAction(gg_trg_Damage_Effects, function Trig_Damage_Effects_Actions)
 endfunction

@@ -1,18 +1,20 @@
 function Trig_Fade_Loop_Func001A takes nothing returns nothing
-    set udg_TempUnit = GetEnumUnit()
-    set udg_FadeUnitKey = GetHandleId(udg_TempUnit)
+    unit u = GetEnumUnit()
+    set udg_FadeUnitKey = GetHandleId(u)
     set udg_TempBool = LoadBooleanBJ(udg_FadeUnitKey, StringHashBJ("FadeIn"), udg_FadeSystemHash)
-    call SetUnitVertexColorBJ(udg_TempUnit, 100.00, 100.00, 100.00, LoadRealBJ(udg_FadeUnitKey, StringHashBJ("FadeStart"), udg_FadeSystemHash))
+    call SetUnitVertexColorBJ(u, 100.00, 100.00, 100.00, LoadRealBJ(udg_FadeUnitKey, StringHashBJ("FadeStart"), udg_FadeSystemHash))
     if udg_TempBool then
         call SaveRealBJ((LoadRealBJ(udg_FadeUnitKey, StringHashBJ("FadeStart"), udg_FadeSystemHash) - LoadRealBJ(udg_FadeUnitKey, StringHashBJ("FadeSpeed"), udg_FadeSystemHash)), udg_FadeUnitKey, StringHashBJ("FadeStart"), udg_FadeSystemHash)
     else
         call SaveRealBJ((LoadRealBJ(udg_FadeUnitKey, StringHashBJ("FadeStart"), udg_FadeSystemHash) + LoadRealBJ(udg_FadeUnitKey, StringHashBJ("FadeSpeed"), udg_FadeSystemHash)), udg_FadeUnitKey, StringHashBJ("FadeStart"), udg_FadeSystemHash)
     endif
     if (udg_TempBool and LoadRealBJ(udg_FadeUnitKey, StringHashBJ("FadeStart"), udg_FadeSystemHash) <= LoadRealBJ(udg_FadeUnitKey, StringHashBJ("FadeEnd"), udg_FadeSystemHash)) or not udg_TempBool and LoadRealBJ(udg_FadeUnitKey, StringHashBJ("FadeStart"), udg_FadeSystemHash) >= LoadRealBJ(udg_FadeUnitKey, StringHashBJ("FadeEnd"), udg_FadeSystemHash) then
-        call GroupRemoveUnitSimple(udg_TempUnit, udg_FadeSystemGroup)
-        call RemoveUnit(udg_TempUnit)
+        call GroupRemoveUnitSimple(u, udg_FadeSystemGroup)
+        call RemoveUnit(u)
         call FlushChildHashtableBJ(udg_FadeUnitKey, udg_FadeSystemHash)
     endif
+
+    set u = null
 endfunction
 
 function Trig_Fade_Loop_Actions takes nothing returns nothing

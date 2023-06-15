@@ -2,52 +2,7 @@ function InitGlobalsOld takes nothing returns nothing
     local integer i = 0
     set udg_CameraDistance = 0
     set udg_TeleportDialog = DialogCreate()
-    set udg_UDex = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_UnitIndexLock[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_UDexPrev[i] = 0
-        set i = i + 1
-    endloop
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_UDexNext[i] = 0
-        set i = i + 1
-    endloop
-    set udg_UnitIndexEvent = 0
-    set udg_UDexRecycle = 0
-    set udg_UnitIndexerEnabled = false
-    set udg_UDexWasted = 0
-    set udg_UDexGen = 0
-    set udg_DamageTypeSpell = 0
-    set udg_DamageTypeDOT = 0
-    set udg_DamageTypeRanged = 0
-    set udg_DmgEvN = 0
     set udg_DamageEventAmount = 0
-    set udg_DamageEventPrevAmt = 0
-    set udg_DamageEventExplodesUnit = false
-    set udg_DamageEventOverride = false
-    set udg_DamageModifierEvent = 0
-    set udg_DamageEvent = 0
-    set udg_DmgEvLife = 0
-    set udg_DamageEventTrigger = CreateTrigger()
-    set udg_DmgTypPrev = 0
-    set udg_DamageEventType = 0
-    set i = 0
-    loop
-        exitwhen(i > 1)
-        set udg_UnitDamageRegistered[i] = false
-        set i = i + 1
-    endloop
-    set udg_DamageEventsWasted = 0
-    set udg_DmgEvTimer = CreateTimer()
     set udg_ChanceCrit = 0
     set udg_ChanceBlock = 0
     set udg_CameraMax = 0
